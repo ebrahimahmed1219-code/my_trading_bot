@@ -264,8 +264,28 @@ def execute_trade(signal_data):
                 f"lot={runner_lot:.4f} SL={stop_loss}"
             )
             runner_result = open_position(symbol, side.upper(), runner_lot, stop_loss, None)
-            if runner_result is not None and getattr(runner_result, "retcode", None) == mt5.TRADE_RETCODE_DONE:
-                opened_any = True
+            # mt5.TRADE_RETCODE_DONE == 10009, but some brokers return other
+            # success codes (e.g. 10008 placed-async, 10010 partial fill).
+            # Treat any recognised success retcode as a confirmed open so that
+            # opened_any is correctly set and the break-even monitor starts.
+            if runner_result is not None:
+                retcode = getattr(runner_result, "retcode", None)
+                _SUCCESS_RETCODES = {
+                    mt5.TRADE_RETCODE_DONE,         # 10009 – filled
+                    mt5.TRADE_RETCODE_PLACED,       # 10008 – placed async
+                    mt5.TRADE_RETCODE_DONE_PARTIAL, # 10010 – partial fill
+                }
+                if retcode in _SUCCESS_RETCODES:
+                    opened_any = True
+                    log_event(
+                        f"Runner position confirmed open for {symbol} "
+                        f"(retcode={retcode})"
+                    )
+                else:
+                    log_event(
+                        f"Runner position may have failed for {symbol} "
+                        f"(retcode={retcode}). Check MT5 journal."
+                    )
 
     if not opened_any:
         log_event(f"No positions opened for {symbol} due to risk/margin constraints.")
