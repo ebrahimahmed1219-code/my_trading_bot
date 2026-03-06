@@ -1,0 +1,404 @@
+telegram_copy_trader/
+
+main.py
+
+config.py
+
+telegram_listener.py
+signal_classifier.py
+signal_parser.py
+
+trade_engine.py
+risk_manager.py
+mt5_connector.py
+position_manager.py
+
+database.py
+
+logs/
+
+----------------------------------------------
+Create a Python configuration module called **config.py** for a project named `telegram_copy_trader`.
+
+Requirements:
+
+1. Store configuration variables only (no business logic).
+2. Include the following parameters:
+
+TELEGRAM_API_ID
+TELEGRAM_API_HASH
+TELEGRAM_CHANNEL
+
+MAX_ACCOUNT_RISK = 0.30
+TOTAL_POSITIONS = 8
+
+SYMBOL_DEFAULT = "XAUUSD"
+
+DATABASE_FILE = "trades.db"
+
+LOG_FOLDER = "logs"
+
+3. Add comments explaining each configuration variable.
+4. Do not hardcode secrets in production (leave placeholders).
+5. Code must follow Python best practices.
+6. Keep the file simple and readable.
+------------------------------------------------------------
+
+Create a Python module called **database.py**.
+
+Purpose: manage a SQLite database used to store processed Telegram messages and prevent duplicate trade execution.
+
+Requirements:
+
+1. Use Python's built-in `sqlite3`.
+2. Database file name should come from `config.py`.
+3. Implement the following functions:
+
+initialize_database()
+store_message(message_id, text)
+message_exists(message_id)
+
+4. Database table structure:
+
+## messages
+
+id INTEGER PRIMARY KEY
+telegram_message_id TEXT
+text TEXT
+timestamp DATETIME
+
+5. Ensure the database initializes automatically if it doesn't exist.
+6. Add error handling.
+7. Include comments explaining each function.
+--------------------------------------------------------------
+
+Create a Python module named **signal_classifier.py**.
+
+Purpose: classify Telegram messages into trading actions.
+
+Message types:
+
+NEW_TRADE
+MOVE_SL
+CLOSE_ALL
+IGNORE
+
+Rules:
+
+1. If message starts with "RiskY traDE" → NEW_TRADE
+2. If message contains "break even" → MOVE_SL
+3. If message contains "close" → CLOSE_ALL
+4. Otherwise → IGNORE
+
+Implement function:
+
+classify_message(message_text)
+
+Return the message type.
+
+Use case-insensitive matching.
+
+Add docstrings and comments.
+---------------------------------------------------------------
+
+Create a Python module called **signal_parser.py**.
+
+Purpose: extract trade data from a Telegram signal message.
+
+Example message format:
+
+RiskY traDE ☠
+SELL XAUUSD now
+SL 5115
+TP 5093
+TP 5088
+TP 5083
+TP 5078
+TP 5073
+TP 5068
+TP 5063
+TP open
+
+Required output:
+
+{
+symbol,
+side,
+stop_loss,
+take_profits
+}
+
+Rules:
+
+1. Extract BUY or SELL.
+2. Extract trading symbol (example: XAUUSD).
+3. Extract SL value.
+4. Extract all TP numeric values.
+5. Ignore "TP open".
+
+Use regex for parsing.
+
+Create function:
+
+parse_trade_signal(message_text)
+
+Return dictionary with parsed values.
+
+Include error handling and comments.
+------------------------------------------------------
+
+Create a Python module called **mt5_connector.py**.
+
+Purpose: handle all interactions with MetaTrader 5.
+
+Use the MetaTrader5 Python package.
+
+Functions required:
+
+initialize_mt5()
+
+get_account_balance()
+
+get_symbol_price(symbol)
+
+open_position(symbol, side, lot, sl, tp)
+
+modify_stop_loss(ticket, new_sl)
+
+close_position(ticket)
+
+get_open_positions()
+
+Requirements:
+
+1. Use MT5 API properly.
+2. Add error handling for failed trades.
+3. Add logging statements.
+4. Follow clean modular structure.
+5. Return useful results from each function.
+-----------------------------------------------------
+
+Create a Python module called **risk_manager.py**.
+
+Purpose: calculate safe position size for trades.
+
+Inputs:
+
+account_balance
+stop_loss_distance
+total_positions
+
+Risk rule:
+
+Maximum account risk = 30%
+
+Implementation steps:
+
+1. total_risk = account_balance * MAX_ACCOUNT_RISK
+2. risk_per_trade = total_risk / TOTAL_POSITIONS
+3. compute lot size based on stop loss distance
+
+Create function:
+
+calculate_lot_size(account_balance, stop_loss_distance)
+
+Return lot size.
+
+Import configuration values from config.py.
+
+Add comments explaining the calculations.
+----------------------------------------------------
+
+Create a Python module named **trade_engine.py**.
+
+Purpose: execute trades based on parsed signal data.
+
+Imports:
+
+signal_parser
+mt5_connector
+risk_manager
+config
+
+Function required:
+
+execute_trade(signal_data)
+
+Algorithm:
+
+1. Retrieve account balance from MT5.
+2. Compute stop loss distance.
+3. Calculate lot size using risk_manager.
+4. For each take profit level:
+   open a position with TP
+5. Open final position with no TP (runner trade).
+
+Use TOTAL_POSITIONS from config.
+
+Add logging and error handling.
+
+Ensure code is modular and readable.
+-------------------------------------------------
+
+Create a Python module called **position_manager.py**.
+
+Purpose: manage open positions after signals.
+
+Functions required:
+
+move_all_to_break_even()
+
+close_all_positions()
+
+Implementation details:
+
+1. Use mt5_connector to retrieve open positions.
+2. Break-even logic:
+   set stop loss = entry price
+3. Close logic:
+   close every open position.
+
+Add logging and error handling.
+------------------------------------------------------
+
+Create a Python module called **telegram_listener.py**.
+
+Purpose: listen for Telegram messages and trigger trading actions.
+
+Use Telethon.
+
+Requirements:
+
+1. Connect using TELEGRAM_API_ID and TELEGRAM_API_HASH from config.py.
+2. Listen to TELEGRAM_CHANNEL.
+3. On new message:
+
+   * check database to avoid duplicates
+   * classify message
+   * process accordingly
+
+Workflow:
+
+NEW_TRADE → parse signal → execute_trade()
+MOVE_SL → position_manager.move_all_to_break_even()
+CLOSE_ALL → position_manager.close_all_positions()
+
+Store processed messages in database.
+
+Implement async listener properly.
+
+Add logging.
+--------------------------------------------------------------------
+
+Create the main entry script called **main.py**.
+
+Responsibilities:
+
+1. Initialize database.
+2. Initialize MetaTrader 5 connection.
+3. Start Telegram listener.
+
+Program flow:
+
+initialize_database()
+
+initialize_mt5()
+
+start_telegram_listener()
+
+Keep the script minimal and clean.
+
+Add logging that indicates system startup.
+
+Example log:
+
+"Telegram Copy Trader Started"
+-----------------------------------------------------------------
+
+Create a logging utility module called **logger.py**.
+
+Requirements:
+
+1. Save logs into the folder defined in config.LOG_FOLDER.
+2. Log file name should include current date.
+3. Implement function:
+
+log_event(message)
+
+4. Each log entry must include timestamp.
+5. Automatically create log folder if missing.
+--------------------------------------------------------------
+
+Refactor the project so all modules use the logging system.
+
+Requirements:
+
+1. Import logger module.
+2. Log major actions:
+
+Signal detected
+Trade executed
+Stop loss modified
+Positions closed
+Errors
+
+Do not duplicate logging code.
+Use the shared logger module.
+-----------------------------------------------------------------
+
+Improve the system with robust error handling.
+
+Add try/except blocks to:
+
+Telegram listener
+MT5 trade execution
+Signal parsing
+Database operations
+
+Log all errors using the logging system.
+
+Ensure the program does not crash on a single error.
+---------------------------------------------------------------
+
+Enhance telegram_listener.py.
+
+Requirement:
+
+Before processing a message:
+
+1. Check database if telegram_message_id already exists.
+2. If exists → ignore.
+3. If not → process and store.
+
+This prevents duplicate trade execution.
+-----------------------------------------------------------
+
+Perform a full system integration review.
+
+Verify that:
+
+1. All modules import correctly.
+2. Telegram listener triggers the correct workflow.
+3. Trades open correctly through MT5.
+4. Risk manager calculates lot sizes correctly.
+5. Database prevents duplicate signals.
+6. Logging works across all modules.
+
+Provide a final corrected version if needed.
+-------------------------------------------------------
+
+1 config.py
+2 database.py
+3 signal_classifier.py
+4 signal_parser.py
+5 mt5_connector.py
+6 risk_manager.py
+7 trade_engine.py
+8 position_manager.py
+9 telegram_listener.py
+10 main.py
+11 logger.py
+12 logging integration
+13 error handling
+14 duplicate protection
+15 integration review

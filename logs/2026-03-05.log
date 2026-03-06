@@ -1,0 +1,1520 @@
+2026-03-05 19:10:34,480 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-03-05 19:10:34,481 - INFO - cryptg module not installed and libssl not found, falling back to (slower) Python encryption
+2026-03-05 19:12:22,563 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-03-05 19:12:22,563 - INFO - cryptg module not installed and libssl not found, falling back to (slower) Python encryption
+2026-03-05 19:12:22,703 - INFO - Database initialized successfully
+2026-03-05 19:12:22,714 - INFO - MT5 initialized successfully
+2026-03-05 19:12:22,715 - INFO - Telegram Copy Trader Started
+2026-03-05 19:12:22,722 - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2026-03-05 19:12:24,051 - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2026-03-05 19:13:20,505 - INFO - Phone migrated to 4
+2026-03-05 19:13:20,592 - INFO - Reconnecting to new data center 4
+2026-03-05 19:13:20,679 - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2026-03-05 19:13:20,680 - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2026-03-05 19:13:20,680 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-05 19:13:22,072 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-05 19:13:36,779 - INFO - Connected to channel: 100$ to 30000$ year 2026
+2026-03-05 19:13:36,779 - INFO - Telegram listener started
+2026-03-05 19:28:36,808 - INFO - Got difference for account updates
+2026-03-05 19:30:45,661 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-03-05 19:30:45,662 - INFO - cryptg module not installed and libssl not found, falling back to (slower) Python encryption
+2026-03-05 19:30:45,876 - INFO - Database initialized successfully
+2026-03-05 19:30:45,888 - INFO - MT5 initialized successfully
+2026-03-05 19:30:45,888 - INFO - Telegram Copy Trader Started
+2026-03-05 19:30:45,890 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-05 19:30:45,897 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-05 19:30:47,697 - INFO - Connected to channel: Demo_trading_trial
+2026-03-05 19:30:47,697 - INFO - Telegram listener started
+2026-03-05 19:31:58,696 - INFO - Got difference for channel 3807191422 updates
+2026-03-05 19:31:58,697 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feSELL XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5070
+\u2705 TP 5065
+\u2705 TP 5060
+\u2705 TP 5055
+\u2705 TP 5050
+\u2705 TP 5045
+\u2705 TP 5040
+\u2705 TP open
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 19:31:58,706 - INFO - Executing trade XAUUSD SELL
+2026-03-05 19:31:58,707 - INFO - Order failed: OrderSendResult(retcode=10027, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='AutoTrading disabled by client', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=3.25, price=5079.4, stoplimit=0.0, sl=5114.0, tp=5070.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:31:58,708 - INFO - Order failed: OrderSendResult(retcode=10027, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='AutoTrading disabled by client', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=3.25, price=5079.4, stoplimit=0.0, sl=5114.0, tp=5065.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:31:58,708 - INFO - Order failed: OrderSendResult(retcode=10027, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='AutoTrading disabled by client', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=3.25, price=5079.4, stoplimit=0.0, sl=5114.0, tp=5060.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:31:58,709 - INFO - Order failed: OrderSendResult(retcode=10027, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='AutoTrading disabled by client', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=3.25, price=5079.4, stoplimit=0.0, sl=5114.0, tp=5055.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:31:58,710 - INFO - Order failed: OrderSendResult(retcode=10027, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='AutoTrading disabled by client', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=3.25, price=5079.4, stoplimit=0.0, sl=5114.0, tp=5050.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:31:58,711 - INFO - Order failed: OrderSendResult(retcode=10027, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='AutoTrading disabled by client', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=3.25, price=5079.4, stoplimit=0.0, sl=5114.0, tp=5045.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:31:58,711 - INFO - Order failed: OrderSendResult(retcode=10027, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='AutoTrading disabled by client', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=3.25, price=5079.4, stoplimit=0.0, sl=5114.0, tp=5040.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:31:58,712 - ERROR - Unhandled exception on handler
+Traceback (most recent call last):
+  File "C:\Users\Dope\Desktop\telegram_copy_trader\.venv\Lib\site-packages\telethon\client\updates.py", line 574, in _dispatch_update
+    await callback(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 60, in handler
+    await new_message_listener(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 41, in new_message_listener
+    execute_trade(signal)
+    ~~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\trade_engine.py", line 27, in execute_trade
+    open_position(symbol, side, lot, stop_loss, None)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\mt5_connector.py", line 49, in open_position
+    if result.retcode != mt5.TRADE_RETCODE_DONE:
+       ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'retcode'
+2026-03-05 19:36:24,956 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feSELL XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5070
+\u2705 TP 5065
+\u2705 TP 5060
+\u2705 TP 5055
+\u2705 TP 5050
+\u2705 TP 5045
+\u2705 TP 5040
+\u2705 TP open
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 19:36:24,956 - INFO - Executing trade XAUUSD SELL
+2026-03-05 19:36:24,957 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=2.83, price=5074.2, stoplimit=0.0, sl=5114.0, tp=5070.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:36:24,957 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=2.83, price=5074.2, stoplimit=0.0, sl=5114.0, tp=5065.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:36:24,957 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=2.83, price=5074.2, stoplimit=0.0, sl=5114.0, tp=5060.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:36:24,958 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=2.83, price=5074.2, stoplimit=0.0, sl=5114.0, tp=5055.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:36:24,958 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=2.83, price=5074.2, stoplimit=0.0, sl=5114.0, tp=5050.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:36:24,958 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=2.83, price=5074.2, stoplimit=0.0, sl=5114.0, tp=5045.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:36:24,959 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=2.83, price=5074.2, stoplimit=0.0, sl=5114.0, tp=5040.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:36:24,959 - ERROR - Unhandled exception on handler
+Traceback (most recent call last):
+  File "C:\Users\Dope\Desktop\telegram_copy_trader\.venv\Lib\site-packages\telethon\client\updates.py", line 574, in _dispatch_update
+    await callback(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 60, in handler
+    await new_message_listener(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 41, in new_message_listener
+    execute_trade(signal)
+    ~~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\trade_engine.py", line 27, in execute_trade
+    open_position(symbol, side, lot, stop_loss, None)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\mt5_connector.py", line 49, in open_position
+    if result.retcode != mt5.TRADE_RETCODE_DONE:
+       ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'retcode'
+2026-03-05 19:49:22,938 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-03-05 19:49:22,939 - INFO - cryptg module not installed and libssl not found, falling back to (slower) Python encryption
+2026-03-05 19:49:23,086 - INFO - Database initialized successfully
+2026-03-05 19:49:23,098 - INFO - MT5 initialized successfully
+2026-03-05 19:49:23,098 - INFO - Telegram Copy Trader Started
+2026-03-05 19:49:23,100 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-05 19:49:23,132 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-05 19:49:23,747 - INFO - Connected to channel: Demo_trading_trial
+2026-03-05 19:49:23,748 - INFO - Telegram listener started
+2026-03-05 19:49:31,185 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feSELL XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5070
+\u2705 TP 5065
+\u2705 TP 5060
+\u2705 TP 5055
+\u2705 TP 5050
+\u2705 TP 5045
+\u2705 TP 5040
+\u2705 TP open
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 19:49:31,187 - INFO - Executing trade XAUUSD SELL with lot size 32.01
+2026-03-05 19:49:31,187 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=32.01, price=5078.86, stoplimit=0.0, sl=5114.0, tp=5070.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:49:31,187 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=32.01, price=5078.86, stoplimit=0.0, sl=5114.0, tp=5065.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:49:31,188 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=32.01, price=5078.86, stoplimit=0.0, sl=5114.0, tp=5060.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:49:31,188 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=32.01, price=5078.86, stoplimit=0.0, sl=5114.0, tp=5055.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:49:31,188 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=32.01, price=5078.86, stoplimit=0.0, sl=5114.0, tp=5050.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:49:31,188 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=32.01, price=5078.86, stoplimit=0.0, sl=5114.0, tp=5045.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:49:31,189 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=32.01, price=5078.86, stoplimit=0.0, sl=5114.0, tp=5040.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:49:31,189 - ERROR - Unhandled exception on handler
+Traceback (most recent call last):
+  File "C:\Users\Dope\Desktop\telegram_copy_trader\.venv\Lib\site-packages\telethon\client\updates.py", line 574, in _dispatch_update
+    await callback(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 60, in handler
+    await new_message_listener(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 41, in new_message_listener
+    execute_trade(signal)
+    ~~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\trade_engine.py", line 33, in execute_trade
+    open_position(symbol, side, lot, stop_loss, None)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\mt5_connector.py", line 49, in open_position
+    if result.retcode != mt5.TRADE_RETCODE_DONE:
+       ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'retcode'
+2026-03-05 19:52:07,309 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-03-05 19:52:07,310 - INFO - cryptg module not installed and libssl not found, falling back to (slower) Python encryption
+2026-03-05 19:52:07,452 - INFO - Database initialized successfully
+2026-03-05 19:52:07,465 - INFO - MT5 initialized successfully
+2026-03-05 19:52:07,465 - INFO - Telegram Copy Trader Started
+2026-03-05 19:52:07,466 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-05 19:52:07,477 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-05 19:52:07,983 - INFO - Connected to channel: Demo_trading_trial
+2026-03-05 19:52:07,983 - INFO - Telegram listener started
+2026-03-05 19:52:12,971 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feSELL XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5070
+\u2705 TP 5065
+\u2705 TP 5060
+\u2705 TP 5055
+\u2705 TP 5050
+\u2705 TP 5045
+\u2705 TP 5040
+\u2705 TP open
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 19:52:12,972 - INFO - Executing trade XAUUSD SELL with lot size 1.0
+2026-03-05 19:52:12,972 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=1.0, price=5070.44, stoplimit=0.0, sl=5114.0, tp=5070.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:52:12,973 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=1.0, price=5070.44, stoplimit=0.0, sl=5114.0, tp=5065.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:52:12,973 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=1.0, price=5070.44, stoplimit=0.0, sl=5114.0, tp=5060.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:52:12,973 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=1.0, price=5070.44, stoplimit=0.0, sl=5114.0, tp=5055.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:52:12,973 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=1.0, price=5070.44, stoplimit=0.0, sl=5114.0, tp=5050.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:52:12,974 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=1.0, price=5070.44, stoplimit=0.0, sl=5114.0, tp=5045.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:52:12,974 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=1.0, price=5070.44, stoplimit=0.0, sl=5114.0, tp=5040.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:52:12,975 - ERROR - Unhandled exception on handler
+Traceback (most recent call last):
+  File "C:\Users\Dope\Desktop\telegram_copy_trader\.venv\Lib\site-packages\telethon\client\updates.py", line 574, in _dispatch_update
+    await callback(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 60, in handler
+    await new_message_listener(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 41, in new_message_listener
+    execute_trade(signal)
+    ~~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\trade_engine.py", line 33, in execute_trade
+    open_position(symbol, side, lot, stop_loss, None)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\mt5_connector.py", line 49, in open_position
+    if result.retcode != mt5.TRADE_RETCODE_DONE:
+       ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'retcode'
+2026-03-05 19:55:23,421 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-03-05 19:55:23,422 - INFO - cryptg module not installed and libssl not found, falling back to (slower) Python encryption
+2026-03-05 19:55:23,552 - INFO - Database initialized successfully
+2026-03-05 19:55:23,562 - INFO - MT5 initialized successfully
+2026-03-05 19:55:23,562 - INFO - Telegram Copy Trader Started
+2026-03-05 19:55:23,563 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-05 19:55:23,574 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-05 19:55:24,098 - INFO - Connected to channel: Demo_trading_trial
+2026-03-05 19:55:24,098 - INFO - Telegram listener started
+2026-03-05 19:55:28,861 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feSELL XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5070
+\u2705 TP 5065
+\u2705 TP 5060
+\u2705 TP 5055
+\u2705 TP 5050
+\u2705 TP 5045
+\u2705 TP 5040
+\u2705 TP open
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 19:55:28,863 - INFO - Executing trade XAUUSD SELL with lot size 1.0
+2026-03-05 19:55:28,863 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=1.0, price=5070.6, stoplimit=0.0, sl=5114.0, tp=5070.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:55:28,864 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=1.0, price=5070.6, stoplimit=0.0, sl=5114.0, tp=5065.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:55:28,865 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=1.0, price=5070.6, stoplimit=0.0, sl=5114.0, tp=5060.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:55:28,865 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=1.0, price=5070.6, stoplimit=0.0, sl=5114.0, tp=5055.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:55:28,866 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=1.0, price=5070.6, stoplimit=0.0, sl=5114.0, tp=5050.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:55:28,866 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=1.0, price=5070.6, stoplimit=0.0, sl=5114.0, tp=5045.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:55:28,867 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=1.0, price=5070.6, stoplimit=0.0, sl=5114.0, tp=5040.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 19:55:28,867 - ERROR - Unhandled exception on handler
+Traceback (most recent call last):
+  File "C:\Users\Dope\Desktop\telegram_copy_trader\.venv\Lib\site-packages\telethon\client\updates.py", line 574, in _dispatch_update
+    await callback(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 60, in handler
+    await new_message_listener(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 41, in new_message_listener
+    execute_trade(signal)
+    ~~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\trade_engine.py", line 59, in execute_trade
+    open_position(symbol, side, runner_lot, stop_loss, None)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\mt5_connector.py", line 49, in open_position
+    if result.retcode != mt5.TRADE_RETCODE_DONE:
+       ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'retcode'
+2026-03-05 20:03:19,078 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-03-05 20:03:19,079 - INFO - cryptg module not installed and libssl not found, falling back to (slower) Python encryption
+2026-03-05 20:03:19,254 - INFO - Database initialized successfully
+2026-03-05 20:03:19,267 - INFO - MT5 initialized successfully
+2026-03-05 20:03:19,267 - INFO - Telegram Copy Trader Started
+2026-03-05 20:03:19,269 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-05 20:03:19,277 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-05 20:03:19,868 - INFO - Connected to channel: Demo_trading_trial
+2026-03-05 20:03:19,868 - INFO - Telegram listener started
+2026-03-05 20:03:24,103 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feSELL XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5070
+\u2705 TP 5065
+\u2705 TP 5060
+\u2705 TP 5055
+\u2705 TP 5050
+\u2705 TP 5045
+\u2705 TP 5040
+\u2705 TP open
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 20:03:24,105 - INFO - Executing trade XAUUSD sell with total lot 1.0, 8 positions (~0.1250 each)
+2026-03-05 20:03:24,105 - INFO - Opening TP position for XAUUSD sell lot=0.1300 TP=5070.0 SL=5114.0
+2026-03-05 20:03:24,171 - INFO - Order executed XAUUSD sell
+2026-03-05 20:03:24,172 - INFO - Opening TP position for XAUUSD sell lot=0.1300 TP=5065.0 SL=5114.0
+2026-03-05 20:03:24,241 - INFO - Order executed XAUUSD sell
+2026-03-05 20:03:24,241 - INFO - Opening TP position for XAUUSD sell lot=0.1300 TP=5060.0 SL=5114.0
+2026-03-05 20:03:24,308 - INFO - Order executed XAUUSD sell
+2026-03-05 20:03:24,309 - INFO - Opening TP position for XAUUSD sell lot=0.1300 TP=5055.0 SL=5114.0
+2026-03-05 20:03:24,378 - INFO - Order executed XAUUSD sell
+2026-03-05 20:03:24,379 - INFO - Opening TP position for XAUUSD sell lot=0.0700 TP=5050.0 SL=5114.0
+2026-03-05 20:03:24,459 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=304826544, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=0.06999999999999999, price=5077.31, stoplimit=0.0, sl=5114.0, tp=5050.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 20:03:24,461 - INFO - Opening TP position for XAUUSD sell lot=0.0700 TP=5045.0 SL=5114.0
+2026-03-05 20:03:24,462 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=0.06999999999999999, price=5077.32, stoplimit=0.0, sl=5114.0, tp=5045.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 20:03:24,462 - INFO - Opening TP position for XAUUSD sell lot=0.0700 TP=5040.0 SL=5114.0
+2026-03-05 20:03:24,462 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=0.06999999999999999, price=5077.32, stoplimit=0.0, sl=5114.0, tp=5040.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 20:03:24,463 - INFO - Opening runner position for XAUUSD sell lot=0.0700 SL=5114.0
+2026-03-05 20:03:24,463 - ERROR - Unhandled exception on handler
+Traceback (most recent call last):
+  File "C:\Users\Dope\Desktop\telegram_copy_trader\.venv\Lib\site-packages\telethon\client\updates.py", line 574, in _dispatch_update
+    await callback(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 60, in handler
+    await new_message_listener(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 41, in new_message_listener
+    execute_trade(signal)
+    ~~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\trade_engine.py", line 151, in execute_trade
+    open_position(symbol, side, runner_lot, stop_loss, None)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\mt5_connector.py", line 49, in open_position
+    if result.retcode != mt5.TRADE_RETCODE_DONE:
+       ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'retcode'
+2026-03-05 20:06:02,856 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feSELL XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5070
+\u2705 TP 5065
+\u2705 TP 5060
+\u2705 TP 5055
+\u2705 TP 5050
+\u2705 TP 5045
+\u2705 TP 5040
+\u2705 TP open
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 20:06:02,857 - INFO - Executing trade XAUUSD sell with total lot 1.0, 8 positions (~0.1250 each)
+2026-03-05 20:06:02,857 - INFO - Opening TP position for XAUUSD sell lot=0.1300 TP=5070.0 SL=5114.0
+2026-03-05 20:06:02,919 - INFO - Order executed XAUUSD sell
+2026-03-05 20:06:02,919 - INFO - Opening TP position for XAUUSD sell lot=0.1300 TP=5065.0 SL=5114.0
+2026-03-05 20:06:02,982 - INFO - Order executed XAUUSD sell
+2026-03-05 20:06:02,982 - INFO - Opening TP position for XAUUSD sell lot=0.1300 TP=5060.0 SL=5114.0
+2026-03-05 20:06:03,045 - INFO - Order executed XAUUSD sell
+2026-03-05 20:06:03,045 - INFO - Opening TP position for XAUUSD sell lot=0.1300 TP=5055.0 SL=5114.0
+2026-03-05 20:06:03,106 - INFO - Order executed XAUUSD sell
+2026-03-05 20:06:03,107 - INFO - Opening TP position for XAUUSD sell lot=0.0500 TP=5050.0 SL=5114.0
+2026-03-05 20:06:03,107 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=0.05, price=5078.77, stoplimit=0.0, sl=5114.0, tp=5050.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 20:06:03,107 - INFO - Opening TP position for XAUUSD sell lot=0.0500 TP=5045.0 SL=5114.0
+2026-03-05 20:06:03,108 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=0.05, price=5078.77, stoplimit=0.0, sl=5114.0, tp=5045.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 20:06:03,108 - INFO - Opening TP position for XAUUSD sell lot=0.0500 TP=5040.0 SL=5114.0
+2026-03-05 20:06:03,108 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=0.05, price=5078.77, stoplimit=0.0, sl=5114.0, tp=5040.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 20:06:03,109 - INFO - Opening runner position for XAUUSD sell lot=0.0500 SL=5114.0
+2026-03-05 20:06:03,109 - ERROR - Unhandled exception on handler
+Traceback (most recent call last):
+  File "C:\Users\Dope\Desktop\telegram_copy_trader\.venv\Lib\site-packages\telethon\client\updates.py", line 574, in _dispatch_update
+    await callback(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 60, in handler
+    await new_message_listener(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 41, in new_message_listener
+    execute_trade(signal)
+    ~~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\trade_engine.py", line 151, in execute_trade
+    open_position(symbol, side, runner_lot, stop_loss, None)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\mt5_connector.py", line 49, in open_position
+    if result.retcode != mt5.TRADE_RETCODE_DONE:
+       ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'retcode'
+2026-03-05 20:15:25,242 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-03-05 20:15:25,243 - INFO - cryptg module not installed and libssl not found, falling back to (slower) Python encryption
+2026-03-05 20:17:16,862 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-03-05 20:17:16,862 - INFO - cryptg module not installed and libssl not found, falling back to (slower) Python encryption
+2026-03-05 20:17:44,464 - INFO - Listener thread started.
+2026-03-05 20:17:44,465 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-05 20:17:44,474 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-05 20:17:45,201 - INFO - Connected to channel: Demo_trading_trial
+2026-03-05 20:17:45,201 - INFO - Telegram listener started
+2026-03-05 20:18:45,288 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feSELL XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5060
+\u2705 TP 5055
+\u2705 TP 5050
+\u2705 TP 5045
+\u2705 TP 5040
+\u2705 TP 5035
+\u2705 TP 5030
+\u2705 TP open
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 20:18:45,289 - INFO - MT5 account_info() unavailable. Aborting trade.
+2026-03-05 20:19:32,561 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feSELL XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5070
+\u2705 TP 5065
+\u2705 TP 5060
+\u2705 TP 5055
+\u2705 TP 5050
+\u2705 TP 5045
+\u2705 TP 5040
+\u2705 TP open
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 20:19:32,561 - INFO - MT5 account_info() unavailable. Aborting trade.
+2026-03-05 20:21:32,764 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feSELL XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5070
+\u2705 TP 5065
+\u2705 TP 5060
+\u2705 TP 5055
+\u2705 TP 5050
+\u2705 TP 5045
+\u2705 TP 5040
+\u2705 TP open
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 20:21:32,765 - INFO - MT5 account_info() unavailable. Aborting trade.
+2026-03-05 20:21:45,069 - INFO - Stopping listener...
+2026-03-05 20:21:45,069 - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2026-03-05 20:21:45,070 - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2026-03-05 20:22:57,869 - INFO - Listener thread started.
+2026-03-05 20:23:52,368 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-03-05 20:23:52,368 - INFO - cryptg module not installed and libssl not found, falling back to (slower) Python encryption
+2026-03-05 20:24:06,355 - INFO - Listener thread started.
+2026-03-05 20:24:06,358 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-05 20:24:06,393 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-05 20:24:06,926 - INFO - Connected to channel: Demo_trading_trial
+2026-03-05 20:24:06,926 - INFO - Telegram listener started
+2026-03-05 20:24:13,511 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feSELL XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5070
+\u2705 TP 5065
+\u2705 TP 5060
+\u2705 TP 5055
+\u2705 TP 5050
+\u2705 TP 5045
+\u2705 TP 5040
+\u2705 TP open
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 20:24:13,513 - INFO - MT5 account_info() unavailable. Aborting trade.
+2026-03-05 20:26:29,454 - INFO - MT5 initialized successfully
+2026-03-05 20:26:29,454 - INFO - MT5 initialized successfully.
+2026-03-05 20:26:38,373 - INFO - Listener thread started.
+2026-03-05 20:26:38,376 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-05 20:26:38,427 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-05 20:26:39,215 - INFO - Connected to channel: Demo_trading_trial
+2026-03-05 20:26:39,215 - INFO - Telegram listener started
+2026-03-05 20:26:44,981 - INFO - Got difference for channel 3807191422 updates
+2026-03-05 20:26:44,984 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feSELL XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5070
+\u2705 TP 5065
+\u2705 TP 5060
+\u2705 TP 5055
+\u2705 TP 5050
+\u2705 TP 5045
+\u2705 TP 5040
+\u2705 TP open
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 20:26:44,986 - INFO - Executing trade XAUUSD sell with total lot 1.0, 8 positions (~0.1250 each)
+2026-03-05 20:26:44,986 - INFO - Opening TP position for XAUUSD sell lot=0.1300 TP=5070.0 SL=5114.0
+2026-03-05 20:26:44,987 - INFO - Order failed: OrderSendResult(retcode=10016, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Invalid stops', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=0.13, price=5066.84, stoplimit=0.0, sl=5114.0, tp=5070.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 20:26:44,987 - INFO - Opening TP position for XAUUSD sell lot=0.1300 TP=5065.0 SL=5114.0
+2026-03-05 20:26:45,107 - INFO - Order executed XAUUSD sell
+2026-03-05 20:26:45,108 - INFO - Opening TP position for XAUUSD sell lot=0.1300 TP=5060.0 SL=5114.0
+2026-03-05 20:26:45,199 - INFO - Order executed XAUUSD sell
+2026-03-05 20:26:45,199 - INFO - Opening TP position for XAUUSD sell lot=0.1300 TP=5055.0 SL=5114.0
+2026-03-05 20:26:45,295 - INFO - Order executed XAUUSD sell
+2026-03-05 20:26:45,296 - INFO - Opening TP position for XAUUSD sell lot=0.1300 TP=5050.0 SL=5114.0
+2026-03-05 20:26:45,374 - INFO - Order executed XAUUSD sell
+2026-03-05 20:26:45,375 - INFO - Opening TP position for XAUUSD sell lot=0.1300 TP=5045.0 SL=5114.0
+2026-03-05 20:26:45,468 - INFO - Order executed XAUUSD sell
+2026-03-05 20:26:45,468 - INFO - Opening TP position for XAUUSD sell lot=0.0600 TP=5040.0 SL=5114.0
+2026-03-05 20:26:45,468 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=0.060000000000000005, price=5066.81, stoplimit=0.0, sl=5114.0, tp=5040.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 20:26:45,468 - INFO - Opening runner position for XAUUSD sell lot=0.0600 SL=5114.0
+2026-03-05 20:26:45,469 - ERROR - Unhandled exception on handler
+Traceback (most recent call last):
+  File "C:\Users\Dope\Desktop\telegram_copy_trader\.venv\Lib\site-packages\telethon\client\updates.py", line 574, in _dispatch_update
+    await callback(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 60, in handler
+    await new_message_listener(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 41, in new_message_listener
+    execute_trade(signal)
+    ~~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\trade_engine.py", line 157, in execute_trade
+    open_position(symbol, side, runner_lot, stop_loss, None)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\mt5_connector.py", line 49, in open_position
+    if result.retcode != mt5.TRADE_RETCODE_DONE:
+       ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'retcode'
+2026-03-05 20:31:58,857 - INFO - MT5 initialized successfully
+2026-03-05 20:31:58,857 - INFO - MT5 initialized successfully.
+2026-03-05 20:32:03,121 - INFO - Listener thread started.
+2026-03-05 20:32:03,126 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-05 20:32:03,131 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-05 20:32:03,698 - INFO - Connected to channel: Demo_trading_trial
+2026-03-05 20:32:03,699 - INFO - Telegram listener started
+2026-03-05 20:32:39,947 - INFO - Got difference for channel 3807191422 updates
+2026-03-05 20:32:39,948 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feSELL XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5070
+\u2705 TP 5065
+\u2705 TP 5060
+\u2705 TP 5055
+\u2705 TP 5050
+\u2705 TP 5045
+\u2705 TP 5040
+\u2705 TP open
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 20:32:39,949 - INFO - Executing trade XAUUSD sell with total lot 1.0, 8 positions (~0.1250 each)
+2026-03-05 20:32:39,950 - INFO - Opening TP position for XAUUSD sell lot=0.1300 TP=5070.0 SL=5114.0
+2026-03-05 20:32:39,950 - INFO - Order failed: OrderSendResult(retcode=10016, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Invalid stops', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=0.13, price=5060.31, stoplimit=0.0, sl=5114.0, tp=5070.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 20:32:39,950 - INFO - Opening TP position for XAUUSD sell lot=0.1300 TP=5065.0 SL=5114.0
+2026-03-05 20:32:39,951 - INFO - Order failed: OrderSendResult(retcode=10016, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Invalid stops', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=0.13, price=5060.31, stoplimit=0.0, sl=5114.0, tp=5065.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 20:32:39,952 - INFO - Opening TP position for XAUUSD sell lot=0.1300 TP=5060.0 SL=5114.0
+2026-03-05 20:32:40,048 - INFO - Order executed XAUUSD sell
+2026-03-05 20:32:40,048 - INFO - Opening TP position for XAUUSD sell lot=0.1300 TP=5055.0 SL=5114.0
+2026-03-05 20:32:40,123 - INFO - Order executed XAUUSD sell
+2026-03-05 20:32:40,123 - INFO - Opening TP position for XAUUSD sell lot=0.1300 TP=5050.0 SL=5114.0
+2026-03-05 20:32:40,226 - INFO - Order executed XAUUSD sell
+2026-03-05 20:32:40,227 - INFO - Opening TP position for XAUUSD sell lot=0.1300 TP=5045.0 SL=5114.0
+2026-03-05 20:32:40,307 - INFO - Order executed XAUUSD sell
+2026-03-05 20:32:40,307 - INFO - Opening TP position for XAUUSD sell lot=0.1300 TP=5040.0 SL=5114.0
+2026-03-05 20:32:40,416 - INFO - Order executed XAUUSD sell
+2026-03-05 20:32:40,417 - INFO - Opening runner position for XAUUSD sell lot=0.1100 SL=5114.0
+2026-03-05 20:32:40,417 - ERROR - Unhandled exception on handler
+Traceback (most recent call last):
+  File "C:\Users\Dope\Desktop\telegram_copy_trader\.venv\Lib\site-packages\telethon\client\updates.py", line 574, in _dispatch_update
+    await callback(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 60, in handler
+    await new_message_listener(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 41, in new_message_listener
+    execute_trade(signal)
+    ~~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\trade_engine.py", line 203, in execute_trade
+    open_position(symbol, side, runner_lot, stop_loss, None)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\mt5_connector.py", line 49, in open_position
+    if result.retcode != mt5.TRADE_RETCODE_DONE:
+       ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'retcode'
+2026-03-05 20:32:40,426 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feSELL XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5061
+\u2705 TP 5059
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 20:32:40,427 - INFO - Executing trade XAUUSD sell with total lot 1.0, 3 positions (~0.3333 each)
+2026-03-05 20:32:40,428 - INFO - Opening TP position for XAUUSD sell lot=0.1100 TP=5061.0 SL=5114.0
+2026-03-05 20:32:40,428 - INFO - Order failed: OrderSendResult(retcode=10016, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Invalid stops', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=0.11, price=5060.26, stoplimit=0.0, sl=5114.0, tp=5061.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 20:32:40,428 - INFO - Opening TP position for XAUUSD sell lot=0.1100 TP=5059.0 SL=5114.0
+2026-03-05 20:32:40,501 - INFO - Order executed XAUUSD sell
+2026-03-05 20:32:40,502 - INFO - Opening runner position for XAUUSD sell lot=0.0100 SL=5114.0
+2026-03-05 20:32:40,503 - ERROR - Unhandled exception on handler
+Traceback (most recent call last):
+  File "C:\Users\Dope\Desktop\telegram_copy_trader\.venv\Lib\site-packages\telethon\client\updates.py", line 574, in _dispatch_update
+    await callback(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 60, in handler
+    await new_message_listener(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 41, in new_message_listener
+    execute_trade(signal)
+    ~~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\trade_engine.py", line 203, in execute_trade
+    open_position(symbol, side, runner_lot, stop_loss, None)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\mt5_connector.py", line 49, in open_position
+    if result.retcode != mt5.TRADE_RETCODE_DONE:
+       ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'retcode'
+2026-03-05 20:40:03,634 - INFO - MT5 initialized successfully
+2026-03-05 20:40:03,634 - INFO - MT5 initialized successfully.
+2026-03-05 20:40:09,126 - INFO - Listener thread started.
+2026-03-05 20:40:09,129 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-05 20:40:09,138 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-05 20:40:09,718 - INFO - Connected to channel: Demo_trading_trial
+2026-03-05 20:40:09,719 - INFO - Telegram listener started
+2026-03-05 20:40:17,694 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feSELL XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5061
+\u2705 TP 5059
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 20:40:17,697 - INFO - XAUUSD signal has only 2 TP levels. Will still open TP positions plus one runner.
+2026-03-05 20:40:17,697 - INFO - Executing trade XAUUSD sell with total lot 1.0, 3 positions (~0.3333 each)
+2026-03-05 20:40:17,697 - INFO - Opening TP position for XAUUSD sell lot=0.2300 TP=5061.0 SL=5114.0
+2026-03-05 20:40:17,777 - INFO - Order executed XAUUSD sell
+2026-03-05 20:40:17,778 - INFO - Opening TP position for XAUUSD sell lot=0.3300 TP=5059.0 SL=5114.0
+2026-03-05 20:40:17,778 - INFO - Order failed: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=0.33, price=5061.84, stoplimit=0.0, sl=5114.0, tp=5059.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 20:40:17,778 - INFO - Opening runner position for XAUUSD sell lot=0.3300 SL=5114.0
+2026-03-05 20:40:17,779 - ERROR - Unhandled exception on handler
+Traceback (most recent call last):
+  File "C:\Users\Dope\Desktop\telegram_copy_trader\.venv\Lib\site-packages\telethon\client\updates.py", line 574, in _dispatch_update
+    await callback(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 60, in handler
+    await new_message_listener(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 41, in new_message_listener
+    execute_trade(signal)
+    ~~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\trade_engine.py", line 217, in execute_trade
+    open_position(symbol, side, runner_lot, stop_loss, None)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\mt5_connector.py", line 49, in open_position
+    if result.retcode != mt5.TRADE_RETCODE_DONE:
+       ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'retcode'
+2026-03-05 20:40:35,571 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feSELL XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5061
+\u2705 TP 5059
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 20:40:35,572 - INFO - XAUUSD signal has only 2 TP levels. Will still open TP positions plus one runner.
+2026-03-05 20:40:35,572 - INFO - Executing trade XAUUSD sell with total lot 1.0, 3 positions (~0.3333 each)
+2026-03-05 20:40:35,572 - INFO - Opening TP position for XAUUSD sell lot=0.3300 TP=5061.0 SL=5114.0
+2026-03-05 20:40:35,641 - INFO - Order executed XAUUSD sell
+2026-03-05 20:40:35,641 - INFO - Opening TP position for XAUUSD sell lot=0.3300 TP=5059.0 SL=5114.0
+2026-03-05 20:40:35,714 - INFO - Order executed XAUUSD sell
+2026-03-05 20:40:35,715 - INFO - Opening runner position for XAUUSD sell lot=0.0700 SL=5114.0
+2026-03-05 20:40:35,715 - ERROR - Unhandled exception on handler
+Traceback (most recent call last):
+  File "C:\Users\Dope\Desktop\telegram_copy_trader\.venv\Lib\site-packages\telethon\client\updates.py", line 574, in _dispatch_update
+    await callback(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 60, in handler
+    await new_message_listener(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 41, in new_message_listener
+    execute_trade(signal)
+    ~~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\trade_engine.py", line 217, in execute_trade
+    open_position(symbol, side, runner_lot, stop_loss, None)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\mt5_connector.py", line 49, in open_position
+    if result.retcode != mt5.TRADE_RETCODE_DONE:
+       ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'retcode'
+2026-03-05 20:41:55,674 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feSELL XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5061
+\u2705 TP 5059
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 20:41:55,675 - INFO - XAUUSD signal has only 2 TP levels. Will still open TP positions plus one runner.
+2026-03-05 20:41:55,676 - INFO - Executing trade XAUUSD sell with total lot 1.0, 3 positions (~0.3333 each)
+2026-03-05 20:41:55,676 - INFO - Opening TP position for XAUUSD sell lot=0.3300 TP=5061.0 SL=5114.0
+2026-03-05 20:41:55,747 - INFO - Order executed XAUUSD sell
+2026-03-05 20:41:55,748 - INFO - Opening TP position for XAUUSD sell lot=0.3300 TP=5059.0 SL=5114.0
+2026-03-05 20:41:55,811 - INFO - Order executed XAUUSD sell
+2026-03-05 20:41:55,812 - INFO - Opening runner position for XAUUSD sell lot=0.0700 SL=5114.0
+2026-03-05 20:41:55,813 - ERROR - Unhandled exception on handler
+Traceback (most recent call last):
+  File "C:\Users\Dope\Desktop\telegram_copy_trader\.venv\Lib\site-packages\telethon\client\updates.py", line 574, in _dispatch_update
+    await callback(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 60, in handler
+    await new_message_listener(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 41, in new_message_listener
+    execute_trade(signal)
+    ~~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\trade_engine.py", line 217, in execute_trade
+    open_position(symbol, side, runner_lot, stop_loss, None)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\mt5_connector.py", line 49, in open_position
+    if result.retcode != mt5.TRADE_RETCODE_DONE:
+       ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'retcode'
+2026-03-05 20:45:39,524 - INFO - MT5 initialized successfully
+2026-03-05 20:45:39,524 - INFO - MT5 initialized successfully.
+2026-03-05 20:45:49,747 - INFO - Listener thread started.
+2026-03-05 20:45:49,752 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-05 20:45:49,922 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-05 20:45:50,775 - INFO - Connected to channel: Demo_trading_trial
+2026-03-05 20:45:50,775 - INFO - Telegram listener started
+2026-03-05 20:46:29,427 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feBUY XAUUSD now
+\U0001f6d1 SL 5040
+\u2705 TP 5067
+\u2705 TP 5070
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 20:46:29,429 - INFO - XAUUSD signal has only 2 TP levels. Will still open TP positions plus one runner.
+2026-03-05 20:46:29,429 - INFO - Executing trade XAUUSD buy with total lot 1.0, 3 positions (~0.3333 each)
+2026-03-05 20:46:29,429 - INFO - Opening TP position for XAUUSD buy lot=0.3300 TP=5067.0 SL=5040.0
+2026-03-05 20:46:29,429 - INFO - Order failed: OrderSendResult(retcode=10016, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Invalid stops', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=0.33, price=5066.11, stoplimit=0.0, sl=5040.0, tp=5067.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 20:46:29,430 - INFO - Opening TP position for XAUUSD buy lot=0.3300 TP=5070.0 SL=5040.0
+2026-03-05 20:46:29,430 - INFO - Order failed: OrderSendResult(retcode=10016, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Invalid stops', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=0.33, price=5066.11, stoplimit=0.0, sl=5040.0, tp=5070.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 20:46:29,430 - INFO - Opening runner position for XAUUSD buy lot=0.3300 SL=5040.0
+2026-03-05 20:46:29,431 - ERROR - Unhandled exception on handler
+Traceback (most recent call last):
+  File "C:\Users\Dope\Desktop\telegram_copy_trader\.venv\Lib\site-packages\telethon\client\updates.py", line 574, in _dispatch_update
+    await callback(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 60, in handler
+    await new_message_listener(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 41, in new_message_listener
+    execute_trade(signal)
+    ~~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\trade_engine.py", line 228, in execute_trade
+    open_position(symbol, side, runner_lot, stop_loss, None)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\mt5_connector.py", line 49, in open_position
+    if result.retcode != mt5.TRADE_RETCODE_DONE:
+       ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'retcode'
+2026-03-05 20:47:40,497 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feBUY XAUUSD now
+\U0001f6d1 SL 5040
+\u2705 TP 5070
+\u2705 TP 5075
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 20:47:40,498 - INFO - XAUUSD signal has only 2 TP levels. Will still open TP positions plus one runner.
+2026-03-05 20:47:40,498 - INFO - Executing trade XAUUSD buy with total lot 1.0, 3 positions (~0.3333 each)
+2026-03-05 20:47:40,498 - INFO - Opening TP position for XAUUSD buy lot=0.3300 TP=5070.0 SL=5040.0
+2026-03-05 20:47:40,499 - INFO - Order failed: OrderSendResult(retcode=10016, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Invalid stops', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=0.33, price=5068.42, stoplimit=0.0, sl=5040.0, tp=5070.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 20:47:40,499 - INFO - Opening TP position for XAUUSD buy lot=0.3300 TP=5075.0 SL=5040.0
+2026-03-05 20:47:40,499 - INFO - Order failed: OrderSendResult(retcode=10016, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Invalid stops', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=0.33, price=5068.42, stoplimit=0.0, sl=5040.0, tp=5075.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 20:47:40,499 - INFO - Opening runner position for XAUUSD buy lot=0.3300 SL=5040.0
+2026-03-05 20:47:40,500 - ERROR - Unhandled exception on handler
+Traceback (most recent call last):
+  File "C:\Users\Dope\Desktop\telegram_copy_trader\.venv\Lib\site-packages\telethon\client\updates.py", line 574, in _dispatch_update
+    await callback(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 60, in handler
+    await new_message_listener(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 41, in new_message_listener
+    execute_trade(signal)
+    ~~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\trade_engine.py", line 228, in execute_trade
+    open_position(symbol, side, runner_lot, stop_loss, None)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\mt5_connector.py", line 49, in open_position
+    if result.retcode != mt5.TRADE_RETCODE_DONE:
+       ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'retcode'
+2026-03-05 20:48:38,458 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feSELL XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5067
+\u2705 TP 5059
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 20:48:38,459 - INFO - XAUUSD signal has only 2 TP levels. Will still open TP positions plus one runner.
+2026-03-05 20:48:38,460 - INFO - Executing trade XAUUSD sell with total lot 1.0, 3 positions (~0.3333 each)
+2026-03-05 20:48:38,460 - INFO - Opening TP position for XAUUSD sell lot=0.3300 TP=5067.0 SL=5114.0
+2026-03-05 20:48:38,523 - INFO - Order executed XAUUSD sell
+2026-03-05 20:48:38,523 - INFO - Opening TP position for XAUUSD sell lot=0.3300 TP=5059.0 SL=5114.0
+2026-03-05 20:48:38,583 - INFO - Order executed XAUUSD sell
+2026-03-05 20:48:38,583 - INFO - Opening runner position for XAUUSD sell lot=0.0100 SL=5114.0
+2026-03-05 20:48:38,583 - ERROR - Unhandled exception on handler
+Traceback (most recent call last):
+  File "C:\Users\Dope\Desktop\telegram_copy_trader\.venv\Lib\site-packages\telethon\client\updates.py", line 574, in _dispatch_update
+    await callback(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 60, in handler
+    await new_message_listener(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 41, in new_message_listener
+    execute_trade(signal)
+    ~~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\trade_engine.py", line 228, in execute_trade
+    open_position(symbol, side, runner_lot, stop_loss, None)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\mt5_connector.py", line 49, in open_position
+AttributeError: 'NoneType' object has no attribute 'retcode'
+2026-03-05 20:51:38,164 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feSELL XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5067
+\u2705 TP 5059
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 20:51:38,165 - INFO - XAUUSD signal has only 2 TP levels. Will still open TP positions plus one runner.
+2026-03-05 20:51:38,165 - INFO - Executing trade XAUUSD sell with total lot 1.0, 3 positions (~0.3333 each)
+2026-03-05 20:51:38,166 - INFO - Opening TP position for XAUUSD sell lot=0.3300 TP=5067.0 SL=5114.0
+2026-03-05 20:51:38,166 - INFO - Order failed: OrderSendResult(retcode=10016, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Invalid stops', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=0.33, price=5066.06, stoplimit=0.0, sl=5114.0, tp=5067.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 20:51:38,166 - INFO - Opening TP position for XAUUSD sell lot=0.3300 TP=5059.0 SL=5114.0
+2026-03-05 20:51:38,336 - INFO - Order executed XAUUSD sell
+2026-03-05 20:51:38,340 - INFO - Opening runner position for XAUUSD sell lot=0.3300 SL=5114.0
+2026-03-05 20:51:38,368 - ERROR - Unhandled exception on handler
+Traceback (most recent call last):
+  File "C:\Users\Dope\Desktop\telegram_copy_trader\.venv\Lib\site-packages\telethon\client\updates.py", line 574, in _dispatch_update
+    await callback(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 60, in handler
+    await new_message_listener(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 41, in new_message_listener
+    execute_trade(signal)
+    ~~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\trade_engine.py", line 228, in execute_trade
+    )
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\mt5_connector.py", line 49, in open_position
+AttributeError: 'NoneType' object has no attribute 'retcode'
+2026-03-05 20:52:05,074 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feSELL XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5065.5
+\u2705 TP 5059
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 20:52:05,074 - INFO - XAUUSD signal has only 2 TP levels. Will still open TP positions plus one runner.
+2026-03-05 20:52:05,075 - INFO - Executing trade XAUUSD sell with total lot 1.0, 3 positions (~0.3333 each)
+2026-03-05 20:52:05,075 - INFO - Opening TP position for XAUUSD sell lot=0.3300 TP=5065.5 SL=5114.0
+2026-03-05 20:52:05,075 - INFO - Order failed: OrderSendResult(retcode=10016, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Invalid stops', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=0.33, price=5064.51, stoplimit=0.0, sl=5114.0, tp=5065.5, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 20:52:05,075 - INFO - Opening TP position for XAUUSD sell lot=0.3300 TP=5059.0 SL=5114.0
+2026-03-05 20:52:05,136 - INFO - Order executed XAUUSD sell
+2026-03-05 20:52:05,136 - INFO - Opening runner position for XAUUSD sell lot=0.3300 SL=5114.0
+2026-03-05 20:52:05,137 - ERROR - Unhandled exception on handler
+Traceback (most recent call last):
+  File "C:\Users\Dope\Desktop\telegram_copy_trader\.venv\Lib\site-packages\telethon\client\updates.py", line 574, in _dispatch_update
+    await callback(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 60, in handler
+    await new_message_listener(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 41, in new_message_listener
+    execute_trade(signal)
+    ~~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\trade_engine.py", line 228, in execute_trade
+    )
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\mt5_connector.py", line 49, in open_position
+AttributeError: 'NoneType' object has no attribute 'retcode'
+2026-03-05 20:53:04,493 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feSELL XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5067
+\u2705 TP 5059
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 20:53:04,495 - INFO - XAUUSD signal has only 2 TP levels. Will still open TP positions plus one runner.
+2026-03-05 20:53:04,495 - INFO - Executing trade XAUUSD sell with total lot 1.0, 3 positions (~0.3333 each)
+2026-03-05 20:53:04,496 - INFO - Opening TP position for XAUUSD sell lot=0.3300 TP=5067.0 SL=5114.0
+2026-03-05 20:53:04,561 - INFO - Order executed XAUUSD sell
+2026-03-05 20:53:04,561 - INFO - Opening TP position for XAUUSD sell lot=0.3300 TP=5059.0 SL=5114.0
+2026-03-05 20:53:04,629 - INFO - Order executed XAUUSD sell
+2026-03-05 20:53:04,630 - INFO - Opening runner position for XAUUSD sell lot=0.0400 SL=5114.0
+2026-03-05 20:53:04,630 - ERROR - Unhandled exception on handler
+Traceback (most recent call last):
+  File "C:\Users\Dope\Desktop\telegram_copy_trader\.venv\Lib\site-packages\telethon\client\updates.py", line 574, in _dispatch_update
+    await callback(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 60, in handler
+    await new_message_listener(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 41, in new_message_listener
+    execute_trade(signal)
+    ~~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\trade_engine.py", line 228, in execute_trade
+    )
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\mt5_connector.py", line 49, in open_position
+AttributeError: 'NoneType' object has no attribute 'retcode'
+2026-03-05 20:56:06,216 - INFO - MT5 initialized successfully
+2026-03-05 20:56:06,216 - INFO - MT5 initialized successfully.
+2026-03-05 20:56:12,824 - INFO - Listener thread started.
+2026-03-05 20:56:12,826 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-05 20:56:12,833 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-05 20:56:13,363 - INFO - Connected to channel: Demo_trading_trial
+2026-03-05 20:56:13,363 - INFO - Telegram listener started
+2026-03-05 20:56:44,236 - INFO - Got difference for channel 3807191422 updates
+2026-03-05 20:56:44,237 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feSELL XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5067
+\u2705 TP 5059
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 20:56:44,238 - INFO - XAUUSD signal has only 2 TP levels. Will still open TP positions plus one runner.
+2026-03-05 20:56:44,238 - INFO - Executing trade XAUUSD sell with total lot 1.0, 3 positions (~0.3333 each)
+2026-03-05 20:56:44,238 - INFO - Opening TP position for XAUUSD sell lot=0.3300 TP=5067.0 SL=5114.0
+2026-03-05 20:56:44,239 - INFO - Order failed: OrderSendResult(retcode=10016, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Invalid stops', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=0.33, price=5066.07, stoplimit=0.0, sl=5114.0, tp=5067.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 20:56:44,239 - INFO - Opening TP position for XAUUSD sell lot=0.3300 TP=5059.0 SL=5114.0
+2026-03-05 20:56:44,342 - INFO - Order executed XAUUSD SELL
+2026-03-05 20:56:44,343 - INFO - Opening runner position for XAUUSD sell lot=0.3300 SL=5114.0
+2026-03-05 20:56:44,343 - ERROR - Unhandled exception on handler
+Traceback (most recent call last):
+  File "C:\Users\Dope\Desktop\telegram_copy_trader\.venv\Lib\site-packages\telethon\client\updates.py", line 574, in _dispatch_update
+    await callback(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 60, in handler
+    await new_message_listener(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 41, in new_message_listener
+    execute_trade(signal)
+    ~~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\trade_engine.py", line 229, in execute_trade
+    open_position(symbol, side.upper(), runner_lot, stop_loss, None)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\mt5_connector.py", line 50, in open_position
+    if result.retcode != mt5.TRADE_RETCODE_DONE:
+       ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'retcode'
+2026-03-05 20:56:44,346 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feBUY XAUUSD now
+\U0001f6d1 SL 5040
+\u2705 TP 5070
+\u2705 TP 5075
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 20:56:44,347 - INFO - XAUUSD signal has only 2 TP levels. Will still open TP positions plus one runner.
+2026-03-05 20:56:44,347 - INFO - Executing trade XAUUSD buy with total lot 1.0, 3 positions (~0.3333 each)
+2026-03-05 20:56:44,347 - INFO - Opening TP position for XAUUSD buy lot=0.3300 TP=5070.0 SL=5040.0
+2026-03-05 20:56:44,839 - INFO - Order executed XAUUSD BUY
+2026-03-05 20:56:44,839 - INFO - Opening TP position for XAUUSD buy lot=0.3300 TP=5075.0 SL=5040.0
+2026-03-05 20:56:44,907 - INFO - Order executed XAUUSD BUY
+2026-03-05 20:56:44,908 - INFO - Opening runner position for XAUUSD buy lot=0.0500 SL=5040.0
+2026-03-05 20:56:44,908 - ERROR - Unhandled exception on handler
+Traceback (most recent call last):
+  File "C:\Users\Dope\Desktop\telegram_copy_trader\.venv\Lib\site-packages\telethon\client\updates.py", line 574, in _dispatch_update
+    await callback(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 60, in handler
+    await new_message_listener(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 41, in new_message_listener
+    execute_trade(signal)
+    ~~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\trade_engine.py", line 229, in execute_trade
+    open_position(symbol, side.upper(), runner_lot, stop_loss, None)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\mt5_connector.py", line 50, in open_position
+    if result.retcode != mt5.TRADE_RETCODE_DONE:
+       ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'retcode'
+2026-03-05 20:57:09,045 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feBUY XAUUSD now
+\U0001f6d1 SL 5040
+\u2705 TP 5070
+\u2705 TP 5075
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 20:57:09,046 - INFO - XAUUSD signal has only 2 TP levels. Will still open TP positions plus one runner.
+2026-03-05 20:57:09,046 - INFO - Executing trade XAUUSD buy with total lot 1.0, 3 positions (~0.3333 each)
+2026-03-05 20:57:09,047 - INFO - Opening TP position for XAUUSD buy lot=0.3300 TP=5070.0 SL=5040.0
+2026-03-05 20:57:09,124 - INFO - Order executed XAUUSD BUY
+2026-03-05 20:57:09,124 - INFO - Opening TP position for XAUUSD buy lot=0.3300 TP=5075.0 SL=5040.0
+2026-03-05 20:57:09,200 - INFO - Order executed XAUUSD BUY
+2026-03-05 20:57:09,200 - INFO - Opening runner position for XAUUSD buy lot=0.0500 SL=5040.0
+2026-03-05 20:57:09,201 - ERROR - Unhandled exception on handler
+Traceback (most recent call last):
+  File "C:\Users\Dope\Desktop\telegram_copy_trader\.venv\Lib\site-packages\telethon\client\updates.py", line 574, in _dispatch_update
+    await callback(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 60, in handler
+    await new_message_listener(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 41, in new_message_listener
+    execute_trade(signal)
+    ~~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\trade_engine.py", line 229, in execute_trade
+    open_position(symbol, side.upper(), runner_lot, stop_loss, None)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\mt5_connector.py", line 50, in open_position
+    if result.retcode != mt5.TRADE_RETCODE_DONE:
+       ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'retcode'
+2026-03-05 20:58:16,913 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feBUY XAUUSD now
+\U0001f6d1 SL 5040
+\u2705 TP 5066
+\u2705 TP 5075
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 20:58:16,914 - INFO - XAUUSD signal has only 2 TP levels. Will still open TP positions plus one runner.
+2026-03-05 20:58:16,914 - INFO - Executing trade XAUUSD buy with total lot 1.0, 3 positions (~0.3333 each)
+2026-03-05 20:58:16,914 - INFO - Opening TP position for XAUUSD buy lot=0.3300 TP=5066.0 SL=5040.0
+2026-03-05 20:58:16,975 - INFO - Order executed XAUUSD BUY
+2026-03-05 20:58:16,976 - INFO - Opening TP position for XAUUSD buy lot=0.3300 TP=5075.0 SL=5040.0
+2026-03-05 20:58:17,036 - INFO - Order executed XAUUSD BUY
+2026-03-05 20:58:17,036 - INFO - Opening runner position for XAUUSD buy lot=0.0700 SL=5040.0
+2026-03-05 20:58:17,036 - ERROR - Unhandled exception on handler
+Traceback (most recent call last):
+  File "C:\Users\Dope\Desktop\telegram_copy_trader\.venv\Lib\site-packages\telethon\client\updates.py", line 574, in _dispatch_update
+    await callback(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 60, in handler
+    await new_message_listener(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 41, in new_message_listener
+    execute_trade(signal)
+    ~~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\trade_engine.py", line 229, in execute_trade
+    open_position(symbol, side.upper(), runner_lot, stop_loss, None)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\mt5_connector.py", line 50, in open_position
+    if result.retcode != mt5.TRADE_RETCODE_DONE:
+       ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'retcode'
+2026-03-05 21:03:25,532 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feBUY XAUUSD now
+\U0001f6d1 SL 5040
+\u2705 TP 5066
+\u2705 TP 5075
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 21:03:25,533 - INFO - XAUUSD signal has only 2 TP levels. Will still open TP positions plus one runner.
+2026-03-05 21:03:25,534 - INFO - Executing trade XAUUSD buy with total lot 1.0, 3 positions (~0.3333 each)
+2026-03-05 21:03:25,534 - INFO - Opening TP position for XAUUSD buy lot=0.3300 TP=5066.0 SL=5040.0
+2026-03-05 21:03:25,596 - INFO - Order executed XAUUSD BUY
+2026-03-05 21:03:25,596 - INFO - Opening TP position for XAUUSD buy lot=0.3300 TP=5075.0 SL=5040.0
+2026-03-05 21:03:25,656 - INFO - Order executed XAUUSD BUY
+2026-03-05 21:03:25,657 - INFO - Opening runner position for XAUUSD buy lot=0.0700 SL=5040.0
+2026-03-05 21:03:25,658 - ERROR - Unhandled exception on handler
+Traceback (most recent call last):
+  File "C:\Users\Dope\Desktop\telegram_copy_trader\.venv\Lib\site-packages\telethon\client\updates.py", line 574, in _dispatch_update
+    await callback(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 60, in handler
+    await new_message_listener(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 41, in new_message_listener
+    execute_trade(signal)
+    ~~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\trade_engine.py", line 229, in execute_trade
+    )
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\mt5_connector.py", line 50, in open_position
+    if result.retcode != mt5.TRADE_RETCODE_DONE:
+       ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'retcode'
+2026-03-05 21:04:14,638 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feBUY XAUUSD now
+\U0001f6d1 SL 5040
+\u2705 TP 5066
+\u2705 TP 5075
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 21:04:14,639 - INFO - XAUUSD signal has only 2 TP levels. Will still open TP positions plus one runner.
+2026-03-05 21:04:14,640 - INFO - Executing trade XAUUSD buy with total lot 1.0, 3 positions (~0.3333 each)
+2026-03-05 21:04:14,640 - INFO - Opening TP position for XAUUSD buy lot=0.3300 TP=5066.0 SL=5040.0
+2026-03-05 21:04:14,704 - INFO - Order executed XAUUSD BUY
+2026-03-05 21:04:14,705 - INFO - Opening TP position for XAUUSD buy lot=0.3300 TP=5075.0 SL=5040.0
+2026-03-05 21:04:14,786 - INFO - Order executed XAUUSD BUY
+2026-03-05 21:04:14,787 - INFO - Opening runner position for XAUUSD buy lot=0.0700 SL=5040.0
+2026-03-05 21:04:14,788 - ERROR - Unhandled exception on handler
+Traceback (most recent call last):
+  File "C:\Users\Dope\Desktop\telegram_copy_trader\.venv\Lib\site-packages\telethon\client\updates.py", line 574, in _dispatch_update
+    await callback(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 60, in handler
+    await new_message_listener(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 41, in new_message_listener
+    execute_trade(signal)
+    ~~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\trade_engine.py", line 229, in execute_trade
+    )
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\mt5_connector.py", line 50, in open_position
+    if result.retcode != mt5.TRADE_RETCODE_DONE:
+       ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'retcode'
+2026-03-05 21:14:49,326 - INFO - MT5 initialized successfully
+2026-03-05 21:14:49,327 - INFO - MT5 initialized successfully.
+2026-03-05 21:14:52,392 - INFO - Listener thread started.
+2026-03-05 21:14:52,396 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-05 21:14:52,719 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-05 21:14:53,645 - INFO - Connected to channel: Demo_trading_trial
+2026-03-05 21:14:53,645 - INFO - Telegram listener started
+2026-03-05 21:15:21,465 - INFO - Got difference for channel 3807191422 updates
+2026-03-05 21:15:21,466 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feBUY XAUUSD now
+\U0001f6d1 SL 5040
+\u2705 TP 5066
+\u2705 TP 5075
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 21:15:21,467 - INFO - XAUUSD signal has only 2 TP levels. Will still open TP positions plus one runner.
+2026-03-05 21:15:21,468 - INFO - Executing trade XAUUSD buy with total lot 1.0, 3 positions (~0.3333 each)
+2026-03-05 21:15:21,468 - INFO - First TP used for break-even on XAUUSD buy: entry=5082.79, first_tp=5075.0, all_tps=[5066.0, 5075.0]
+2026-03-05 21:15:21,468 - INFO - Opening TP position for XAUUSD buy lot=0.3300 TP=5066.0 SL=5040.0
+2026-03-05 21:15:21,468 - INFO - Order failed: OrderSendResult(retcode=10016, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Invalid stops', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=0.33, price=5082.79, stoplimit=0.0, sl=5040.0, tp=5066.0, deviation=20, type=0, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 21:15:21,469 - INFO - Opening TP position for XAUUSD buy lot=0.3300 TP=5075.0 SL=5040.0
+2026-03-05 21:15:21,469 - INFO - Order failed: OrderSendResult(retcode=10016, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Invalid stops', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=0.33, price=5082.79, stoplimit=0.0, sl=5040.0, tp=5075.0, deviation=20, type=0, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 21:15:21,469 - INFO - Opening runner position for XAUUSD buy lot=0.3300 SL=5040.0
+2026-03-05 21:15:21,469 - ERROR - Unhandled exception on handler
+Traceback (most recent call last):
+  File "C:\Users\Dope\Desktop\telegram_copy_trader\.venv\Lib\site-packages\telethon\client\updates.py", line 574, in _dispatch_update
+    await callback(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 60, in handler
+    await new_message_listener(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 41, in new_message_listener
+    execute_trade(signal)
+    ~~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\trade_engine.py", line 250, in execute_trade
+    open_position(symbol, side.upper(), runner_lot, stop_loss, None)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\mt5_connector.py", line 50, in open_position
+    if result.retcode != mt5.TRADE_RETCODE_DONE:
+       ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'retcode'
+2026-03-05 21:15:21,475 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feBUY XAUUSD now
+\U0001f6d1 SL 5040
+\u2705 TP 5081
+\u2705 TP 5085
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 21:15:21,476 - INFO - XAUUSD signal has only 2 TP levels. Will still open TP positions plus one runner.
+2026-03-05 21:15:21,476 - INFO - Executing trade XAUUSD buy with total lot 1.0, 3 positions (~0.3333 each)
+2026-03-05 21:15:21,476 - INFO - First TP used for break-even on XAUUSD buy: entry=5082.79, first_tp=5085.0, all_tps=[5081.0, 5085.0]
+2026-03-05 21:15:21,477 - INFO - Opening TP position for XAUUSD buy lot=0.3300 TP=5081.0 SL=5040.0
+2026-03-05 21:15:21,477 - INFO - Order failed: OrderSendResult(retcode=10016, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Invalid stops', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=0.33, price=5082.79, stoplimit=0.0, sl=5040.0, tp=5081.0, deviation=20, type=0, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 21:15:21,477 - INFO - Opening TP position for XAUUSD buy lot=0.3300 TP=5085.0 SL=5040.0
+2026-03-05 21:15:21,611 - INFO - Order executed XAUUSD BUY
+2026-03-05 21:15:21,612 - INFO - Opening runner position for XAUUSD buy lot=0.3300 SL=5040.0
+2026-03-05 21:15:21,612 - ERROR - Unhandled exception on handler
+Traceback (most recent call last):
+  File "C:\Users\Dope\Desktop\telegram_copy_trader\.venv\Lib\site-packages\telethon\client\updates.py", line 574, in _dispatch_update
+    await callback(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 60, in handler
+    await new_message_listener(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 41, in new_message_listener
+    execute_trade(signal)
+    ~~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\trade_engine.py", line 250, in execute_trade
+    open_position(symbol, side.upper(), runner_lot, stop_loss, None)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\mt5_connector.py", line 50, in open_position
+    if result.retcode != mt5.TRADE_RETCODE_DONE:
+       ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'retcode'
+2026-03-05 21:15:35,463 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feBUY XAUUSD now
+\U0001f6d1 SL 5040
+\u2705 TP 5081
+\u2705 TP 5085
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 21:15:35,465 - INFO - XAUUSD signal has only 2 TP levels. Will still open TP positions plus one runner.
+2026-03-05 21:15:35,465 - INFO - Executing trade XAUUSD buy with total lot 1.0, 3 positions (~0.3333 each)
+2026-03-05 21:15:35,465 - INFO - First TP used for break-even on XAUUSD buy: entry=5080.68, first_tp=5081.0, all_tps=[5081.0, 5085.0]
+2026-03-05 21:15:35,465 - INFO - Opening TP position for XAUUSD buy lot=0.3300 TP=5081.0 SL=5040.0
+2026-03-05 21:15:35,545 - INFO - Order executed XAUUSD BUY
+2026-03-05 21:15:35,546 - INFO - Opening TP position for XAUUSD buy lot=0.3300 TP=5085.0 SL=5040.0
+2026-03-05 21:15:35,615 - INFO - Order executed XAUUSD BUY
+2026-03-05 21:15:35,615 - INFO - Opening runner position for XAUUSD buy lot=0.0500 SL=5040.0
+2026-03-05 21:15:35,616 - ERROR - Unhandled exception on handler
+Traceback (most recent call last):
+  File "C:\Users\Dope\Desktop\telegram_copy_trader\.venv\Lib\site-packages\telethon\client\updates.py", line 574, in _dispatch_update
+    await callback(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 60, in handler
+    await new_message_listener(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 41, in new_message_listener
+    execute_trade(signal)
+    ~~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\trade_engine.py", line 250, in execute_trade
+    open_position(symbol, side.upper(), runner_lot, stop_loss, None)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\mt5_connector.py", line 50, in open_position
+    if result.retcode != mt5.TRADE_RETCODE_DONE:
+       ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'retcode'
+2026-03-05 21:19:13,269 - INFO - MT5 initialized successfully
+2026-03-05 21:19:13,270 - INFO - MT5 initialized successfully.
+2026-03-05 21:19:16,478 - INFO - Listener thread started.
+2026-03-05 21:19:16,481 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-05 21:19:16,486 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-05 21:19:17,104 - INFO - Connected to channel: Demo_trading_trial
+2026-03-05 21:19:17,104 - INFO - Telegram listener started
+2026-03-05 21:19:45,530 - INFO - Stopping listener...
+2026-03-05 21:19:45,531 - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2026-03-05 21:19:45,531 - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2026-03-05 21:19:51,574 - INFO - Listener thread started.
+2026-03-05 21:20:50,341 - INFO - Stopping listener...
+2026-03-05 21:20:50,342 - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-10' coro=<CopyTraderUI.run_async_listener.<locals>.runner() done, defined at c:\Users\Dope\Desktop\telegram_copy_trader\ui.py:146> exception=RuntimeError('The asyncio event loop must not change after connection (see the FAQ for details)')>
+Traceback (most recent call last):
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\ui.py", line 148, in runner
+    await start_listener()
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 53, in start_listener
+    channel = await get_channel_entity()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\telegram_listener.py", line 17, in get_channel_entity
+    await client.start()
+  File "C:\Users\Dope\Desktop\telegram_copy_trader\.venv\Lib\site-packages\telethon\client\auth.py", line 135, in _start
+    await self.connect()
+  File "C:\Users\Dope\Desktop\telegram_copy_trader\.venv\Lib\site-packages\telethon\client\telegrambaseclient.py", line 520, in connect
+    raise RuntimeError('The asyncio event loop must not change after connection (see the FAQ for details)')
+RuntimeError: The asyncio event loop must not change after connection (see the FAQ for details)
+2026-03-05 21:21:24,978 - INFO - MT5 initialized successfully
+2026-03-05 21:21:24,979 - INFO - MT5 initialized successfully.
+2026-03-05 21:21:27,208 - INFO - Listener thread started.
+2026-03-05 21:21:27,211 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-05 21:21:27,218 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-05 21:21:27,762 - INFO - Connected to channel: Demo_trading_trial
+2026-03-05 21:21:27,762 - INFO - Telegram listener started
+2026-03-05 21:21:52,271 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feBUY XAUUSD now
+\U0001f6d1 SL 5040
+\u2705 TP 5087
+\u2705 TP 5096
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 21:21:52,272 - INFO - XAUUSD signal has only 2 TP levels. Will still open TP positions plus one runner.
+2026-03-05 21:21:52,272 - INFO - Executing trade XAUUSD buy with total lot 1.0, 3 positions (~0.3333 each)
+2026-03-05 21:21:52,273 - INFO - First TP used for break-even on XAUUSD buy: entry=5086.25, first_tp=5087.0, all_tps=[5087.0, 5096.0]
+2026-03-05 21:21:52,273 - INFO - Opening TP position for XAUUSD buy lot=0.3300 TP=5087.0 SL=5040.0
+2026-03-05 21:21:52,396 - INFO - Order executed XAUUSD BUY
+2026-03-05 21:21:52,397 - INFO - Opening TP position for XAUUSD buy lot=0.3300 TP=5096.0 SL=5040.0
+2026-03-05 21:21:52,476 - INFO - Order executed XAUUSD BUY
+2026-03-05 21:21:52,479 - INFO - Opening runner position for XAUUSD buy lot=0.0800 SL=5040.0
+2026-03-05 21:21:52,481 - INFO - Order failed (None result) for XAUUSD BUY: last_error=(-2, 'Invalid "tp" argument')
+2026-03-05 21:21:52,486 - INFO - Break-even monitor started for XAUUSD buy at trigger 5087.0
+2026-03-05 21:23:14,510 - INFO - Break-even monitor for XAUUSD stopped: no open positions.
+2026-03-05 21:23:42,234 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feSELL XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5083
+\u2705 TP 5059
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 21:23:42,235 - INFO - XAUUSD signal has only 2 TP levels. Will still open TP positions plus one runner.
+2026-03-05 21:23:42,235 - INFO - Executing trade XAUUSD sell with total lot 1.0, 3 positions (~0.3333 each)
+2026-03-05 21:23:42,235 - INFO - First TP used for break-even on XAUUSD sell: entry=5083.53, first_tp=5083.0, all_tps=[5083.0, 5059.0]
+2026-03-05 21:23:42,236 - INFO - Opening TP position for XAUUSD sell lot=0.3300 TP=5083.0 SL=5114.0
+2026-03-05 21:23:42,625 - INFO - Order executed XAUUSD SELL
+2026-03-05 21:23:42,625 - INFO - Opening TP position for XAUUSD sell lot=0.3300 TP=5059.0 SL=5114.0
+2026-03-05 21:23:42,741 - INFO - Order executed XAUUSD SELL
+2026-03-05 21:23:42,742 - INFO - Opening runner position for XAUUSD sell lot=0.0500 SL=5114.0
+2026-03-05 21:23:42,742 - INFO - Order failed (None result) for XAUUSD SELL: last_error=(-2, 'Invalid "tp" argument')
+2026-03-05 21:23:42,743 - INFO - Break-even monitor started for XAUUSD sell at trigger 5083.0
+2026-03-05 21:23:50,745 - INFO - XAUUSD BID 5082.42 reached first TP 5083.0. Moving all SLs to break-even.
+2026-03-05 21:23:50,830 - INFO - Modified SL for 151743727436: OrderSendResult(retcode=10009, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Request executed', request_id=2040673079, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSD', volume=0.0, price=0.0, stoplimit=0.0, sl=5083.32, tp=5059.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=151743727436, position_by=0))
+2026-03-05 21:23:50,830 - INFO - Break-even SL update: ticket=151743727436 symbol=XAUUSD type=1 old_sl=5114.0 new_sl=5083.32
+2026-03-05 21:23:50,831 - INFO - All positions moved to break even
+2026-03-05 21:29:01,038 - INFO - MT5 initialized successfully
+2026-03-05 21:29:01,038 - INFO - MT5 initialized successfully.
+2026-03-05 21:29:03,430 - INFO - Listener thread started.
+2026-03-05 21:29:03,433 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-05 21:29:03,441 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-05 21:29:03,967 - INFO - Connected to channel: Demo_trading_trial
+2026-03-05 21:29:03,967 - INFO - Telegram listener started
+2026-03-05 21:29:25,059 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feSELL XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5078
+\u2705 TP 5059
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 21:29:25,061 - INFO - XAUUSD signal has only 2 TP levels. Will still open TP positions plus one runner.
+2026-03-05 21:29:25,061 - INFO - Executing trade XAUUSD sell with total lot 1.0, 3 positions (~0.3333 each)
+2026-03-05 21:29:25,061 - INFO - First TP used for break-even on XAUUSD sell: entry=5079.36, first_tp=5078.0, all_tps=[5078.0, 5059.0]
+2026-03-05 21:29:25,061 - INFO - Opening TP position for XAUUSD sell lot=0.3300 TP=5078.0 SL=5114.0
+2026-03-05 21:29:25,210 - INFO - Order executed XAUUSD SELL
+2026-03-05 21:29:25,211 - INFO - Opening TP position for XAUUSD sell lot=0.3300 TP=5059.0 SL=5114.0
+2026-03-05 21:29:25,429 - INFO - Order executed XAUUSD SELL
+2026-03-05 21:29:25,430 - INFO - Opening runner position for XAUUSD sell lot=0.0500 SL=5114.0
+2026-03-05 21:29:25,430 - INFO - Order failed (None result) for XAUUSD SELL: last_error=(-2, 'Invalid "tp" argument')
+2026-03-05 21:29:25,430 - INFO - Break-even monitor started for XAUUSD sell at trigger 5078.0
+2026-03-05 21:30:27,445 - INFO - XAUUSD BID 5077.78 reached first TP 5078.0. Moving all SLs to break-even.
+2026-03-05 21:30:27,524 - INFO - Modified SL for 151743754923: OrderSendResult(retcode=10009, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Request executed', request_id=2040673082, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSD', volume=0.0, price=0.0, stoplimit=0.0, sl=5079.0, tp=5059.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=151743754923, position_by=0))
+2026-03-05 21:30:27,525 - INFO - Break-even SL update: ticket=151743754923 symbol=XAUUSD type=1 old_sl=5114.0 new_sl=5079.0
+2026-03-05 21:30:27,525 - INFO - All positions moved to break even
+2026-03-05 21:30:58,467 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feBUY XAUUSD now
+\U0001f6d1 SL 5040
+\u2705 TP 5079
+\u2705 TP 5096
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 21:30:58,468 - INFO - XAUUSD signal has only 2 TP levels. Will still open TP positions plus one runner.
+2026-03-05 21:30:58,468 - INFO - Executing trade XAUUSD buy with total lot 1.0, 3 positions (~0.3333 each)
+2026-03-05 21:30:58,469 - INFO - First TP used for break-even on XAUUSD buy: entry=5079.1, first_tp=5096.0, all_tps=[5079.0, 5096.0]
+2026-03-05 21:30:58,469 - INFO - Opening TP position for XAUUSD buy lot=0.3300 TP=5079.0 SL=5040.0
+2026-03-05 21:30:58,623 - INFO - Order executed XAUUSD BUY
+2026-03-05 21:30:58,623 - INFO - Opening TP position for XAUUSD buy lot=0.3300 TP=5096.0 SL=5040.0
+2026-03-05 21:30:58,720 - INFO - Order executed XAUUSD BUY
+2026-03-05 21:30:58,720 - INFO - Opening runner position for XAUUSD buy lot=0.0700 SL=5040.0
+2026-03-05 21:30:58,720 - INFO - Order failed (None result) for XAUUSD BUY: last_error=(-2, 'Invalid "tp" argument')
+2026-03-05 21:30:58,721 - INFO - Break-even monitor started for XAUUSD buy at trigger 5096.0
+2026-03-05 21:35:44,069 - INFO - Stopping listener...
+2026-03-05 21:35:44,069 - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2026-03-05 21:35:44,070 - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2026-03-05 21:48:38,296 - INFO - MT5 initialized successfully
+2026-03-05 21:48:38,297 - INFO - MT5 initialized successfully.
+2026-03-05 21:48:42,639 - INFO - Listener thread started.
+2026-03-05 21:48:42,644 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-05 21:48:42,689 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-05 21:48:43,657 - INFO - Connected to channel: Demo_trading_trial
+2026-03-05 21:48:43,657 - INFO - Telegram listener started
+2026-03-05 21:49:25,572 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feSELL XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5070
+\u2705 TP 5065
+\u2705 TP 5060
+\u2705 TP 5055
+\u2705 TP 5050
+\u2705 TP 5045
+\u2705 TP 5040
+\u2705 TP open
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 21:49:25,574 - INFO - Executing trade XAUUSD sell with total lot 1.0, 8 positions (~0.1250 each)
+2026-03-05 21:49:25,574 - INFO - First TP used for break-even on XAUUSD sell: entry=5078.92, first_tp=5070.0, all_tps=[5070.0, 5065.0, 5060.0, 5055.0, 5050.0, 5045.0, 5040.0]
+2026-03-05 21:49:25,575 - INFO - Opening TP position for XAUUSD sell lot=0.1300 TP=5070.0 SL=5114.0
+2026-03-05 21:49:25,671 - INFO - Order executed XAUUSD SELL
+2026-03-05 21:49:25,671 - INFO - Opening TP position for XAUUSD sell lot=0.1300 TP=5065.0 SL=5114.0
+2026-03-05 21:49:25,795 - INFO - Order executed XAUUSD SELL
+2026-03-05 21:49:25,795 - INFO - Opening TP position for XAUUSD sell lot=0.1300 TP=5060.0 SL=5114.0
+2026-03-05 21:49:25,859 - INFO - Order executed XAUUSD SELL
+2026-03-05 21:49:25,860 - INFO - Opening TP position for XAUUSD sell lot=0.1300 TP=5055.0 SL=5114.0
+2026-03-05 21:49:25,925 - INFO - Order executed XAUUSD SELL
+2026-03-05 21:49:25,925 - INFO - Opening TP position for XAUUSD sell lot=0.1300 TP=5050.0 SL=5114.0
+2026-03-05 21:49:25,992 - INFO - Order executed XAUUSD SELL
+2026-03-05 21:49:25,992 - INFO - Opening TP position for XAUUSD sell lot=0.0800 TP=5045.0 SL=5114.0
+2026-03-05 21:49:26,061 - INFO - Order executed XAUUSD SELL
+2026-03-05 21:49:26,061 - INFO - Opening TP position for XAUUSD sell lot=0.0100 TP=5040.0 SL=5114.0
+2026-03-05 21:49:26,062 - INFO - Order failed for XAUUSD SELL: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=0.01, price=5078.99, stoplimit=0.0, sl=5114.0, tp=5040.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-05 21:49:26,063 - INFO - Opening runner position for XAUUSD sell lot=0.0100 SL=5114.0
+2026-03-05 21:49:26,063 - INFO - Order failed (None result) for XAUUSD SELL: last_error=(-2, 'Invalid "tp" argument')
+2026-03-05 21:49:26,064 - INFO - Break-even monitor started for XAUUSD sell at trigger 5070.0
+2026-03-05 22:01:54,057 - INFO - New message received: I don't like it close it
+2026-03-05 22:01:54,573 - INFO - All positions closed
+2026-03-05 22:01:56,373 - INFO - Break-even monitor for XAUUSD stopped: no open positions.
+2026-03-05 22:02:31,654 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feBUY XAUUSD now
+\U0001f6d1 SL 5040
+\u2705 TP 5080
+\u2705 TP 5096
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 22:02:31,655 - INFO - XAUUSD signal has only 2 TP levels. Will still open TP positions plus one runner.
+2026-03-05 22:02:31,655 - INFO - Executing trade XAUUSD buy with total lot 1.0, 3 positions (~0.3333 each)
+2026-03-05 22:02:31,655 - INFO - First TP used for break-even on XAUUSD buy: entry=5079.7, first_tp=5080.0, all_tps=[5080.0, 5096.0]
+2026-03-05 22:02:31,655 - INFO - Opening TP position for XAUUSD buy lot=0.3300 TP=5080.0 SL=5040.0
+2026-03-05 22:02:31,718 - INFO - Order executed XAUUSD BUY
+2026-03-05 22:02:31,718 - INFO - Opening TP position for XAUUSD buy lot=0.3300 TP=5096.0 SL=5040.0
+2026-03-05 22:02:31,780 - INFO - Order executed XAUUSD BUY
+2026-03-05 22:02:31,781 - INFO - Opening runner position for XAUUSD buy lot=0.0500 SL=5040.0
+2026-03-05 22:02:31,781 - INFO - Order failed (None result) for XAUUSD BUY: last_error=(-2, 'Invalid "tp" argument')
+2026-03-05 22:02:31,782 - INFO - Break-even monitor started for XAUUSD buy at trigger 5080.0
+2026-03-05 22:02:39,786 - INFO - XAUUSD ASK 5080.39 reached first TP 5080.0. Moving all SLs to break-even.
+2026-03-05 22:02:39,954 - INFO - Modified SL for 151743873654: OrderSendResult(retcode=10009, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Request executed', request_id=2040673099, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSD', volume=0.0, price=0.0, stoplimit=0.0, sl=5079.7, tp=5096.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=151743873654, position_by=0))
+2026-03-05 22:02:39,954 - INFO - Break-even SL update: ticket=151743873654 symbol=XAUUSD type=0 old_sl=5040.0 new_sl=5079.7
+2026-03-05 22:02:39,955 - INFO - All positions moved to break even
+2026-03-05 22:03:43,436 - INFO - Got difference for account updates
+2026-03-05 22:05:59,915 - INFO - MT5 initialized successfully
+2026-03-05 22:05:59,915 - INFO - MT5 initialized successfully.
+2026-03-05 22:06:03,202 - INFO - Listener thread started.
+2026-03-05 22:06:03,206 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-05 22:06:03,368 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-05 22:06:06,464 - INFO - Connected to channel: Demo_trading_trial
+2026-03-05 22:06:06,464 - INFO - Telegram listener started
+2026-03-05 22:06:19,986 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feSELL XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5070
+\u2705 TP 5065
+\u2705 TP 5060
+\u2705 TP 5055
+\u2705 TP 5050
+\u2705 TP 5045
+\u2705 TP 5040
+\u2705 TP open
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 22:06:19,987 - INFO - Executing trade XAUUSD sell with total lot 0.35, 8 positions (~0.0437 each)
+2026-03-05 22:06:19,987 - INFO - First TP used for break-even on XAUUSD sell: entry=5083.1, first_tp=5070.0, all_tps=[5070.0, 5065.0, 5060.0, 5055.0, 5050.0, 5045.0, 5040.0]
+2026-03-05 22:06:19,988 - INFO - Opening TP position for XAUUSD sell lot=0.0400 TP=5070.0 SL=5114.0
+2026-03-05 22:06:20,061 - INFO - Order executed XAUUSD SELL
+2026-03-05 22:06:20,061 - INFO - Opening TP position for XAUUSD sell lot=0.0400 TP=5065.0 SL=5114.0
+2026-03-05 22:06:20,157 - INFO - Order executed XAUUSD SELL
+2026-03-05 22:06:20,158 - INFO - Opening TP position for XAUUSD sell lot=0.0400 TP=5060.0 SL=5114.0
+2026-03-05 22:06:20,417 - INFO - Order executed XAUUSD SELL
+2026-03-05 22:06:20,418 - INFO - Opening TP position for XAUUSD sell lot=0.0400 TP=5055.0 SL=5114.0
+2026-03-05 22:06:20,529 - INFO - Order executed XAUUSD SELL
+2026-03-05 22:06:20,529 - INFO - Opening TP position for XAUUSD sell lot=0.0400 TP=5050.0 SL=5114.0
+2026-03-05 22:06:20,871 - INFO - Order executed XAUUSD SELL
+2026-03-05 22:06:20,872 - INFO - Opening TP position for XAUUSD sell lot=0.0400 TP=5045.0 SL=5114.0
+2026-03-05 22:06:21,432 - INFO - Order executed XAUUSD SELL
+2026-03-05 22:06:21,432 - INFO - Opening TP position for XAUUSD sell lot=0.0400 TP=5040.0 SL=5114.0
+2026-03-05 22:06:22,029 - INFO - Order executed XAUUSD SELL
+2026-03-05 22:06:22,030 - INFO - Opening runner position for XAUUSD sell lot=0.0400 SL=5114.0
+2026-03-05 22:06:22,030 - INFO - Order failed (None result) for XAUUSD SELL: last_error=(-2, 'Invalid "tp" argument')
+2026-03-05 22:06:22,032 - INFO - Break-even monitor started for XAUUSD sell at trigger 5070.0
+2026-03-05 22:11:58,754 - INFO - MT5 initialized successfully
+2026-03-05 22:11:58,754 - INFO - MT5 initialized successfully.
+2026-03-05 22:11:58,754 - INFO - Runner position has been enabled via UI.
+2026-03-05 22:12:05,292 - INFO - Listener thread started.
+2026-03-05 22:12:05,295 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-05 22:12:05,621 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-05 22:12:07,605 - INFO - Connected to channel: Demo_trading_trial
+2026-03-05 22:12:07,606 - INFO - Telegram listener started
+2026-03-05 22:12:19,797 - INFO - Got difference for channel 3807191422 updates
+2026-03-05 22:12:19,798 - INFO - New message received: Close
+2026-03-05 22:12:19,804 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feSELL XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5070
+\u2705 TP 5065
+\u2705 TP 5060
+\u2705 TP 5055
+\u2705 TP 5050
+\u2705 TP 5045
+\u2705 TP 5040
+\u2705 TP open
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 22:12:19,806 - INFO - Executing trade XAUUSD sell with total lot 0.31, 8 positions (~0.0387 each), runner_enabled=True
+2026-03-05 22:12:19,806 - INFO - First TP used for break-even on XAUUSD sell: entry=5076.57, first_tp=5070.0, all_tps=[5070.0, 5065.0, 5060.0, 5055.0, 5050.0, 5045.0, 5040.0]
+2026-03-05 22:12:19,806 - INFO - Opening TP position for XAUUSD sell lot=0.0400 TP=5070.0 SL=5114.0
+2026-03-05 22:12:19,872 - INFO - Order executed XAUUSD SELL
+2026-03-05 22:12:19,873 - INFO - Opening TP position for XAUUSD sell lot=0.0400 TP=5065.0 SL=5114.0
+2026-03-05 22:12:19,945 - INFO - Order executed XAUUSD SELL
+2026-03-05 22:12:19,945 - INFO - Opening TP position for XAUUSD sell lot=0.0400 TP=5060.0 SL=5114.0
+2026-03-05 22:12:20,109 - INFO - Order executed XAUUSD SELL
+2026-03-05 22:12:20,110 - INFO - Opening TP position for XAUUSD sell lot=0.0400 TP=5055.0 SL=5114.0
+2026-03-05 22:12:20,193 - INFO - Order executed XAUUSD SELL
+2026-03-05 22:12:20,193 - INFO - Opening TP position for XAUUSD sell lot=0.0400 TP=5050.0 SL=5114.0
+2026-03-05 22:12:20,275 - INFO - Order executed XAUUSD SELL
+2026-03-05 22:12:20,275 - INFO - Opening TP position for XAUUSD sell lot=0.0400 TP=5045.0 SL=5114.0
+2026-03-05 22:12:21,017 - INFO - Order executed XAUUSD SELL
+2026-03-05 22:12:21,017 - INFO - Opening TP position for XAUUSD sell lot=0.0400 TP=5040.0 SL=5114.0
+2026-03-05 22:12:21,092 - INFO - Order executed XAUUSD SELL
+2026-03-05 22:12:21,093 - INFO - Opening runner position for XAUUSD sell lot=0.0400 SL=5114.0
+2026-03-05 22:12:21,094 - INFO - Order failed (None result) for XAUUSD SELL: last_error=(-2, 'Invalid "tp" argument')
+2026-03-05 22:12:21,095 - INFO - Break-even monitor started for XAUUSD sell at trigger 5070.0
+2026-03-05 22:12:37,920 - INFO - Runner position has been disabled via UI.
+2026-03-05 22:12:37,920 - INFO - Runner (no TP) toggle set to OFF.
+2026-03-05 22:12:42,709 - INFO - Runner position has been enabled via UI.
+2026-03-05 22:12:42,710 - INFO - Runner (no TP) toggle set to ON.
+2026-03-05 22:14:12,931 - INFO - New message received: Close
+2026-03-05 22:14:13,581 - INFO - All positions closed
+2026-03-05 22:14:15,196 - INFO - Break-even monitor for XAUUSD stopped: no open positions.
+2026-03-05 22:17:10,810 - INFO - MT5 initialized successfully
+2026-03-05 22:17:10,810 - INFO - MT5 initialized successfully.
+2026-03-05 22:17:10,810 - INFO - Runner position has been enabled via UI.
+2026-03-05 22:17:13,592 - INFO - Listener thread started.
+2026-03-05 22:17:13,594 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-05 22:17:13,600 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-05 22:17:14,281 - INFO - Connected to channel: Demo_trading_trial
+2026-03-05 22:17:14,281 - INFO - Telegram listener started
+2026-03-05 22:17:27,063 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feSELL XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5070
+\u2705 TP 5065
+\u2705 TP 5060
+\u2705 TP 5055
+\u2705 TP 5050
+\u2705 TP 5045
+\u2705 TP 5040
+\u2705 TP open
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 22:17:27,064 - INFO - execute_trade: runner_enabled=True for XAUUSD sell, TPs=[5070.0, 5065.0, 5060.0, 5055.0, 5050.0, 5045.0, 5040.0]
+2026-03-05 22:17:27,064 - INFO - Executing trade XAUUSD sell with total lot 0.33, 8 positions (~0.0413 each), runner_enabled=True
+2026-03-05 22:17:27,065 - INFO - First TP used for break-even on XAUUSD sell: entry=5078.67, first_tp=5070.0, all_tps=[5070.0, 5065.0, 5060.0, 5055.0, 5050.0, 5045.0, 5040.0]
+2026-03-05 22:17:27,065 - INFO - Opening TP position for XAUUSD sell lot=0.0400 TP=5070.0 SL=5114.0
+2026-03-05 22:17:27,285 - INFO - Order executed XAUUSD SELL
+2026-03-05 22:17:27,286 - INFO - Opening TP position for XAUUSD sell lot=0.0400 TP=5065.0 SL=5114.0
+2026-03-05 22:17:27,348 - INFO - Order executed XAUUSD SELL
+2026-03-05 22:17:27,348 - INFO - Opening TP position for XAUUSD sell lot=0.0400 TP=5060.0 SL=5114.0
+2026-03-05 22:17:27,423 - INFO - Order executed XAUUSD SELL
+2026-03-05 22:17:27,423 - INFO - Opening TP position for XAUUSD sell lot=0.0400 TP=5055.0 SL=5114.0
+2026-03-05 22:17:27,490 - INFO - Order executed XAUUSD SELL
+2026-03-05 22:17:27,491 - INFO - Opening TP position for XAUUSD sell lot=0.0400 TP=5050.0 SL=5114.0
+2026-03-05 22:17:27,559 - INFO - Order executed XAUUSD SELL
+2026-03-05 22:17:27,560 - INFO - Opening TP position for XAUUSD sell lot=0.0400 TP=5045.0 SL=5114.0
+2026-03-05 22:17:27,632 - INFO - Order executed XAUUSD SELL
+2026-03-05 22:17:27,632 - INFO - Opening TP position for XAUUSD sell lot=0.0400 TP=5040.0 SL=5114.0
+2026-03-05 22:17:27,706 - INFO - Order executed XAUUSD SELL
+2026-03-05 22:17:27,706 - INFO - Opening runner position for XAUUSD sell lot=0.0400 SL=5114.0
+2026-03-05 22:17:27,707 - INFO - Order failed (None result) for XAUUSD SELL: last_error=(-2, 'Invalid "tp" argument')
+2026-03-05 22:17:27,707 - INFO - Break-even monitor started for XAUUSD sell at trigger 5070.0
+2026-03-05 22:26:35,122 - INFO - MT5 initialized successfully
+2026-03-05 22:26:35,122 - INFO - MT5 initialized successfully.
+2026-03-05 22:26:35,122 - INFO - Runner position has been enabled via UI.
+2026-03-05 22:26:44,255 - INFO - Listener thread started.
+2026-03-05 22:26:44,257 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-05 22:26:44,324 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-05 22:26:45,404 - INFO - Connected to channel: Demo_trading_trial
+2026-03-05 22:26:45,405 - INFO - Telegram listener started
+2026-03-05 22:26:53,881 - INFO - Got difference for channel 3807191422 updates
+2026-03-05 22:26:53,882 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feSELL XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5070
+\u2705 TP 5065
+\u2705 TP 5060
+\u2705 TP 5055
+\u2705 TP 5050
+\u2705 TP 5045
+\u2705 TP 5040
+\u2705 TP open
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-05 22:26:53,883 - INFO - execute_trade: runner_enabled=True for XAUUSD sell, TPs=[5070.0, 5065.0, 5060.0, 5055.0, 5050.0, 5045.0, 5040.0]
+2026-03-05 22:26:53,883 - INFO - Executing trade XAUUSD sell with total lot 0.33, 8 positions (~0.0413 each), runner_enabled=True
+2026-03-05 22:26:53,883 - INFO - First TP used for break-even on XAUUSD sell: entry=5078.42, first_tp=5070.0, all_tps=[5070.0, 5065.0, 5060.0, 5055.0, 5050.0, 5045.0, 5040.0]
+2026-03-05 22:26:53,884 - INFO - Opening TP position for XAUUSD sell lot=0.0400 TP=5070.0 SL=5114.0
+2026-03-05 22:26:53,951 - INFO - Order executed XAUUSD SELL
+2026-03-05 22:26:53,951 - INFO - Opening TP position for XAUUSD sell lot=0.0400 TP=5065.0 SL=5114.0
+2026-03-05 22:26:54,102 - INFO - Order executed XAUUSD SELL
+2026-03-05 22:26:54,103 - INFO - Opening TP position for XAUUSD sell lot=0.0400 TP=5060.0 SL=5114.0
+2026-03-05 22:26:54,181 - INFO - Order executed XAUUSD SELL
+2026-03-05 22:26:54,182 - INFO - Opening TP position for XAUUSD sell lot=0.0400 TP=5055.0 SL=5114.0
+2026-03-05 22:26:54,256 - INFO - Order executed XAUUSD SELL
+2026-03-05 22:26:54,256 - INFO - Opening TP position for XAUUSD sell lot=0.0400 TP=5050.0 SL=5114.0
+2026-03-05 22:26:54,321 - INFO - Order executed XAUUSD SELL
+2026-03-05 22:26:54,322 - INFO - Opening TP position for XAUUSD sell lot=0.0400 TP=5045.0 SL=5114.0
+2026-03-05 22:26:54,413 - INFO - Order executed XAUUSD SELL
+2026-03-05 22:26:54,414 - INFO - Opening TP position for XAUUSD sell lot=0.0400 TP=5040.0 SL=5114.0
+2026-03-05 22:26:54,487 - INFO - Order executed XAUUSD SELL
+2026-03-05 22:26:54,487 - INFO - Opening runner position for XAUUSD sell lot=0.0400 SL=5114.0
+2026-03-05 22:26:54,566 - INFO - Order executed XAUUSD SELL
+2026-03-05 22:26:54,567 - INFO - Break-even monitor started for XAUUSD sell at trigger 5070.0
+2026-03-05 22:28:07,917 - INFO - New message received: Clse
+2026-03-05 22:28:21,354 - INFO - New message received: Close
+2026-03-05 22:28:22,485 - INFO - All positions closed
+2026-03-05 22:28:22,602 - INFO - Break-even monitor for XAUUSD stopped: no open positions.
+2026-03-05 22:29:47,672 - INFO - MT5 initialized successfully
+2026-03-05 22:29:47,673 - INFO - MT5 initialized successfully.
+2026-03-05 22:29:47,673 - INFO - Runner position has been enabled via UI.
+2026-03-05 22:30:55,586 - INFO - Listener thread started.
+2026-03-05 22:30:55,589 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-05 22:30:55,630 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-05 22:30:56,558 - INFO - Connected to channel: 100$ to 30000$ year 2026
+2026-03-05 22:30:56,558 - INFO - Telegram listener started
