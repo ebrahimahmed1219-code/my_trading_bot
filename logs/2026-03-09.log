@@ -1,0 +1,415 @@
+2026-03-09 06:24:08,995 - INFO - MT5 initialized successfully
+2026-03-09 06:24:08,996 - INFO - MT5 initialized successfully.
+2026-03-09 06:24:08,997 - INFO - Runner position has been enabled via UI.
+2026-03-09 06:24:44,103 - INFO - Listener thread started.
+2026-03-09 06:24:44,113 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-09 06:24:44,123 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-09 06:24:44,688 - INFO - Connected to channel: 100$ to 30000$ year 2026
+2026-03-09 06:24:44,689 - INFO - Telegram listener started
+2026-03-09 06:25:24,079 - INFO - New message received: RiskY traDE \u2620\ufe0f
+\U0001f449\U0001f3fesell XAUUSD now 
+\U0001f6d1 SL 5110
+\u2705 TP 5093
+\u2705 TP 5088
+\u2705 TP 5083
+\u2705 TP 5078
+\u2705 TP 5073
+\u2705 TP 5068
+\u2705 TP 5063
+\u2705 TP open 
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set. 
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-09 06:25:24,091 - INFO - execute_trade: runner_enabled=True for XAUUSD sell, TPs=[5093.0, 5088.0, 5083.0, 5078.0, 5073.0, 5068.0, 5063.0]
+2026-03-09 06:25:24,091 - INFO - Executing trade XAUUSD sell with total lot 0.18, 8 positions (~0.0225 each), runner_enabled=True
+2026-03-09 06:25:24,091 - INFO - First TP used for break-even on XAUUSD sell: entry=5093.3, first_tp=5093.0, all_tps=[5093.0, 5088.0, 5083.0, 5078.0, 5073.0, 5068.0, 5063.0]
+2026-03-09 06:25:24,091 - INFO - Opening TP position for XAUUSD sell lot=0.0200 TP=5093.0 SL=5110.0
+2026-03-09 06:25:24,159 - INFO - Order executed XAUUSD SELL
+2026-03-09 06:25:24,159 - INFO - Opening TP position for XAUUSD sell lot=0.0200 TP=5088.0 SL=5110.0
+2026-03-09 06:25:24,223 - INFO - Order executed XAUUSD SELL
+2026-03-09 06:25:24,223 - INFO - Opening TP position for XAUUSD sell lot=0.0200 TP=5083.0 SL=5110.0
+2026-03-09 06:25:24,287 - INFO - Order executed XAUUSD SELL
+2026-03-09 06:25:24,288 - INFO - Opening TP position for XAUUSD sell lot=0.0200 TP=5078.0 SL=5110.0
+2026-03-09 06:25:24,354 - INFO - Order executed XAUUSD SELL
+2026-03-09 06:25:24,355 - INFO - Opening TP position for XAUUSD sell lot=0.0200 TP=5073.0 SL=5110.0
+2026-03-09 06:25:24,423 - INFO - Order executed XAUUSD SELL
+2026-03-09 06:25:24,423 - INFO - Opening TP position for XAUUSD sell lot=0.0200 TP=5068.0 SL=5110.0
+2026-03-09 06:25:24,484 - INFO - Order executed XAUUSD SELL
+2026-03-09 06:25:24,484 - INFO - Opening TP position for XAUUSD sell lot=0.0200 TP=5063.0 SL=5110.0
+2026-03-09 06:25:24,545 - INFO - Order executed XAUUSD SELL
+2026-03-09 06:25:24,546 - INFO - Opening runner position for XAUUSD sell lot=0.0200 SL=5110.0
+2026-03-09 06:25:24,605 - INFO - Order executed XAUUSD SELL
+2026-03-09 06:25:24,605 - INFO - Runner position confirmed open for XAUUSD (retcode=10009)
+2026-03-09 06:25:24,605 - INFO - Break-even monitor started for XAUUSD sell at trigger 5093.0
+2026-03-09 06:30:08,699 - INFO - XAUUSD BID 5092.01 reached first TP 5093.0. Moving all SLs to break-even.
+2026-03-09 06:30:08,765 - INFO - Modified SL for 151752854487: OrderSendResult(retcode=10009, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Request executed', request_id=1635628718, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSD', volume=0.0, price=0.0, stoplimit=0.0, sl=5093.22, tp=5088.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=151752854487, position_by=0))
+2026-03-09 06:30:08,765 - INFO - Break-even SL update: ticket=151752854487 symbol=XAUUSD type=1 old_sl=5110.0 new_sl=5093.22
+2026-03-09 06:30:08,829 - INFO - Modified SL for 151752854490: OrderSendResult(retcode=10009, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Request executed', request_id=1635628719, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSD', volume=0.0, price=0.0, stoplimit=0.0, sl=5093.22, tp=5083.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=151752854490, position_by=0))
+2026-03-09 06:30:08,829 - INFO - Break-even SL update: ticket=151752854490 symbol=XAUUSD type=1 old_sl=5110.0 new_sl=5093.22
+2026-03-09 06:30:08,890 - INFO - Modified SL for 151752854497: OrderSendResult(retcode=10009, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Request executed', request_id=1635628720, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSD', volume=0.0, price=0.0, stoplimit=0.0, sl=5093.42, tp=5078.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=151752854497, position_by=0))
+2026-03-09 06:30:08,890 - INFO - Break-even SL update: ticket=151752854497 symbol=XAUUSD type=1 old_sl=5110.0 new_sl=5093.42
+2026-03-09 06:30:08,951 - INFO - Modified SL for 151752854501: OrderSendResult(retcode=10009, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Request executed', request_id=1635628721, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSD', volume=0.0, price=0.0, stoplimit=0.0, sl=5093.6, tp=5073.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=151752854501, position_by=0))
+2026-03-09 06:30:08,952 - INFO - Break-even SL update: ticket=151752854501 symbol=XAUUSD type=1 old_sl=5110.0 new_sl=5093.6
+2026-03-09 06:30:09,010 - INFO - Modified SL for 151752854505: OrderSendResult(retcode=10009, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Request executed', request_id=1635628722, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSD', volume=0.0, price=0.0, stoplimit=0.0, sl=5093.57, tp=5068.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=151752854505, position_by=0))
+2026-03-09 06:30:09,011 - INFO - Break-even SL update: ticket=151752854505 symbol=XAUUSD type=1 old_sl=5110.0 new_sl=5093.57
+2026-03-09 06:30:09,071 - INFO - Modified SL for 151752854510: OrderSendResult(retcode=10009, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Request executed', request_id=1635628723, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSD', volume=0.0, price=0.0, stoplimit=0.0, sl=5093.57, tp=5063.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=151752854510, position_by=0))
+2026-03-09 06:30:09,071 - INFO - Break-even SL update: ticket=151752854510 symbol=XAUUSD type=1 old_sl=5110.0 new_sl=5093.57
+2026-03-09 06:30:09,129 - INFO - Modified SL for 151752854531: OrderSendResult(retcode=10009, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Request executed', request_id=1635628724, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSD', volume=0.0, price=0.0, stoplimit=0.0, sl=5093.58, tp=0.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=151752854531, position_by=0))
+2026-03-09 06:30:09,129 - INFO - Break-even SL update: ticket=151752854531 symbol=XAUUSD type=1 old_sl=5110.0 new_sl=5093.58
+2026-03-09 06:30:09,129 - INFO - All positions moved to break even
+2026-03-09 06:30:29,253 - INFO - New message received: \u2705 Our first TP successfully hit \u2705 
+
+COPY TRADERS check your account if you trades is not SET TO TP AND SL CONTACT for manual traders you can put your self SUPPORT FOR HELP  another positions  STILL ON MAKE SURE
+2026-03-09 06:31:42,899 - INFO - New message received: Gold is active wild today to much going on stay on market and wait my instructions for anything
+2026-03-09 06:32:06,778 - INFO - New message received: Close all position
+2026-03-09 06:34:54,320 - INFO - New message received: Sorry guys I don’t like it 
+Anymore wait for my instructions
+
+Am losing so as well when I try to text for you guys 
+
+We have a big move coming so wait on the market active
+2026-03-09 06:37:28,242 - INFO - New message received: Send your trade screenshots to my team please they will repot for me
+2026-03-09 06:53:05,950 - INFO - New message received: Looking sells on gold
+2026-03-09 06:54:25,378 - INFO - MT5 initialized successfully
+2026-03-09 06:54:25,378 - INFO - MT5 initialized successfully.
+2026-03-09 06:54:25,378 - INFO - Runner position has been enabled via UI.
+2026-03-09 06:55:04,457 - INFO - MT5 initialized successfully
+2026-03-09 06:55:04,457 - INFO - MT5 initialized successfully.
+2026-03-09 06:55:04,457 - INFO - Runner position has been enabled via UI.
+2026-03-09 06:55:06,978 - INFO - Listener thread started.
+2026-03-09 06:55:06,979 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-09 06:55:06,984 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-09 06:55:07,503 - INFO - Connected to channel: 100$ to 30000$ year 2026
+2026-03-09 06:55:07,503 - INFO - Telegram listener started
+2026-03-09 06:55:45,978 - INFO - New message received: Sell again
+2026-03-09 06:57:37,165 - INFO - New message received: RiskY traDE \u2620\ufe0f
+\U0001f449\U0001f3fesell XAUUSD now 
+\U0001f6d1 SL 5143
+\u2705 TP 5122
+\u2705 TP 5117
+\u2705 TP 5112
+\u2705 TP 5107
+\u2705 TP 5102
+\u2705 TP 5097
+\u2705 TP 5092
+\u2705 TP open 
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set. 
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-09 06:57:37,166 - INFO - execute_trade: runner_enabled=True for XAUUSD sell, TPs=[5122.0, 5117.0, 5112.0, 5107.0, 5102.0, 5097.0, 5092.0]
+2026-03-09 06:57:37,166 - INFO - Executing trade XAUUSD sell with total lot 0.15, 8 positions (~0.0187 each), runner_enabled=True
+2026-03-09 06:57:37,167 - INFO - First TP used for break-even on XAUUSD sell: entry=5122.75, first_tp=5122.0, all_tps=[5122.0, 5117.0, 5112.0, 5107.0, 5102.0, 5097.0, 5092.0]
+2026-03-09 06:57:37,167 - INFO - Adjusted first TP for XAUUSD sell: original=5122.0, adjusted=5120.0
+2026-03-09 06:57:37,167 - INFO - Opening TP position for XAUUSD sell lot=0.0200 TP=5120.0 SL=5143.0
+2026-03-09 06:57:37,230 - INFO - Order executed XAUUSD SELL
+2026-03-09 06:57:37,231 - INFO - Opening TP position for XAUUSD sell lot=0.0200 TP=5117.0 SL=5143.0
+2026-03-09 06:57:37,294 - INFO - Order executed XAUUSD SELL
+2026-03-09 06:57:37,294 - INFO - Opening TP position for XAUUSD sell lot=0.0200 TP=5112.0 SL=5143.0
+2026-03-09 06:57:37,354 - INFO - Order executed XAUUSD SELL
+2026-03-09 06:57:37,354 - INFO - Opening TP position for XAUUSD sell lot=0.0200 TP=5107.0 SL=5143.0
+2026-03-09 06:57:37,415 - INFO - Order executed XAUUSD SELL
+2026-03-09 06:57:37,415 - INFO - Opening TP position for XAUUSD sell lot=0.0200 TP=5102.0 SL=5143.0
+2026-03-09 06:57:37,475 - INFO - Order executed XAUUSD SELL
+2026-03-09 06:57:37,475 - INFO - Opening TP position for XAUUSD sell lot=0.0200 TP=5097.0 SL=5143.0
+2026-03-09 06:57:37,535 - INFO - Order executed XAUUSD SELL
+2026-03-09 06:57:37,535 - INFO - Opening TP position for XAUUSD sell lot=0.0200 TP=5092.0 SL=5143.0
+2026-03-09 06:57:37,598 - INFO - Order executed XAUUSD SELL
+2026-03-09 06:57:37,599 - INFO - Opening runner position for XAUUSD sell lot=0.0200 SL=5143.0
+2026-03-09 06:57:37,662 - INFO - Order executed XAUUSD SELL
+2026-03-09 06:57:37,663 - INFO - Runner position confirmed open for XAUUSD (retcode=10009)
+2026-03-09 06:57:37,665 - INFO - Break-even monitor started for XAUUSD sell at trigger 5122.0
+2026-03-09 06:57:47,667 - INFO - XAUUSD BID 5121.69 reached first TP 5122.0. Moving all SLs to break-even.
+2026-03-09 06:57:47,727 - INFO - Modified SL for 151753065094: OrderSendResult(retcode=10009, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Request executed', request_id=1635628733, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSD', volume=0.0, price=0.0, stoplimit=0.0, sl=5122.69, tp=5120.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=151753065094, position_by=0))
+2026-03-09 06:57:47,727 - INFO - Break-even SL update: ticket=151753065094 symbol=XAUUSD type=1 old_sl=5143.0 new_sl=5122.69
+2026-03-09 06:57:47,789 - INFO - Modified SL for 151753065098: OrderSendResult(retcode=10009, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Request executed', request_id=1635628734, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSD', volume=0.0, price=0.0, stoplimit=0.0, sl=5122.69, tp=5117.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=151753065098, position_by=0))
+2026-03-09 06:57:47,789 - INFO - Break-even SL update: ticket=151753065098 symbol=XAUUSD type=1 old_sl=5143.0 new_sl=5122.69
+2026-03-09 06:57:47,851 - INFO - Modified SL for 151753065112: OrderSendResult(retcode=10009, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Request executed', request_id=1635628735, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSD', volume=0.0, price=0.0, stoplimit=0.0, sl=5122.69, tp=5112.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=151753065112, position_by=0))
+2026-03-09 06:57:47,852 - INFO - Break-even SL update: ticket=151753065112 symbol=XAUUSD type=1 old_sl=5143.0 new_sl=5122.69
+2026-03-09 06:57:47,913 - INFO - Modified SL for 151753065115: OrderSendResult(retcode=10009, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Request executed', request_id=1635628736, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSD', volume=0.0, price=0.0, stoplimit=0.0, sl=5122.68, tp=5107.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=151753065115, position_by=0))
+2026-03-09 06:57:47,914 - INFO - Break-even SL update: ticket=151753065115 symbol=XAUUSD type=1 old_sl=5143.0 new_sl=5122.68
+2026-03-09 06:57:47,975 - INFO - Modified SL for 151753065121: OrderSendResult(retcode=10009, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Request executed', request_id=1635628737, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSD', volume=0.0, price=0.0, stoplimit=0.0, sl=5122.81, tp=5102.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=151753065121, position_by=0))
+2026-03-09 06:57:47,975 - INFO - Break-even SL update: ticket=151753065121 symbol=XAUUSD type=1 old_sl=5143.0 new_sl=5122.81
+2026-03-09 06:57:48,034 - INFO - Modified SL for 151753065124: OrderSendResult(retcode=10009, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Request executed', request_id=1635628738, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSD', volume=0.0, price=0.0, stoplimit=0.0, sl=5122.81, tp=5097.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=151753065124, position_by=0))
+2026-03-09 06:57:48,035 - INFO - Break-even SL update: ticket=151753065124 symbol=XAUUSD type=1 old_sl=5143.0 new_sl=5122.81
+2026-03-09 06:57:48,095 - INFO - Modified SL for 151753065127: OrderSendResult(retcode=10009, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Request executed', request_id=1635628739, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSD', volume=0.0, price=0.0, stoplimit=0.0, sl=5122.79, tp=5092.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=151753065127, position_by=0))
+2026-03-09 06:57:48,096 - INFO - Break-even SL update: ticket=151753065127 symbol=XAUUSD type=1 old_sl=5143.0 new_sl=5122.79
+2026-03-09 06:57:48,156 - INFO - Modified SL for 151753065134: OrderSendResult(retcode=10009, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Request executed', request_id=1635628740, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSD', volume=0.0, price=0.0, stoplimit=0.0, sl=5122.79, tp=0.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=151753065134, position_by=0))
+2026-03-09 06:57:48,157 - INFO - Break-even SL update: ticket=151753065134 symbol=XAUUSD type=1 old_sl=5143.0 new_sl=5122.79
+2026-03-09 06:57:48,158 - INFO - All positions moved to break even
+2026-03-09 06:59:33,815 - INFO - New message received: \u2705 Our first TP successfully hit \u2705 
+
+COPY TRADERS check your account if you trades is not SET TO TP AND SL CONTACT for manual traders you can put your self SUPPORT FOR HELP  another positions  STILL ON MAKE SURE
+2026-03-09 07:01:26,088 - INFO - New message received: Family, we have seen your results and many of you are doing very well with risk management. Keep it up and continue trading with discipline.
+
+Remember, this challenge is here to teach you every part of trading. Winning is part of the game, but losing is also part of the journey. The most important thing is to always protect your account.
+
+Stay focused, stay disciplined, and manage your risk properly. If we continue like this, we will keep making money until the end of the month.
+2026-03-09 07:13:03,156 - INFO - New message received: I will be honest 
+Today is crazy Not good at all
+2026-03-09 07:26:45,511 - INFO - MT5 initialized successfully
+2026-03-09 07:26:45,511 - INFO - MT5 initialized successfully.
+2026-03-09 07:26:45,511 - INFO - Runner position has been enabled via UI.
+2026-03-09 07:26:48,350 - INFO - Listener thread started.
+2026-03-09 07:26:48,351 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-09 07:26:48,356 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-09 07:26:49,033 - INFO - Connected to channel: 100$ to 30000$ year 2026
+2026-03-09 07:26:49,033 - INFO - Telegram listener started
+2026-03-09 07:38:26,265 - INFO - New message received: \u2705 Our SECOND TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you sure you follow my instructions well
+2026-03-09 07:38:49,967 - INFO - New message received: Move stop loss to breakeven
+2026-03-09 07:41:49,408 - INFO - Got difference for channel 2531465477 updates
+2026-03-09 07:43:14,274 - INFO - New message received: 
+2026-03-09 07:43:44,251 - INFO - New message received: \u2705 Our 3rd TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you sure you follow my instructions well
+2026-03-09 07:44:06,639 - INFO - New message received: \u2705 Our 4th  TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you follow my instructions well
+2026-03-09 07:46:14,805 - INFO - New message received: This what trading means 
+We control loss we let the wins 
+Small loss to big wins 
+Push us 
+#Rrrrrrraaaaaaaaaaa
+2026-03-09 07:46:45,395 - INFO - New message received: Congratulations again family we eat !!! 
+Not bad for Monday
+2026-03-09 07:49:36,356 - INFO - New message received: \u2705 Our 5th  TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you follow my instructions well
+2026-03-09 07:50:41,039 - INFO - New message received: #Rrrrrrraaaaaaaaaaa
+2026-03-09 07:51:01,967 - INFO - New message received: Share your results and account size to my team
+2026-03-09 07:56:48,937 - INFO - Got difference for account updates
+2026-03-09 08:01:06,518 - INFO - New message received: \u2705 Our 6th  TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you follow my instructions well
+2026-03-09 08:04:31,725 - INFO - New message received: \u2705 Our 7th TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you follow my instructions well
+2026-03-09 08:06:17,506 - INFO - New message received: Congratulations family 
+#Rrrrrrrrraaaaaaaaa
+2026-03-09 08:26:49,120 - INFO - Got difference for account updates
+2026-03-09 08:55:10,829 - INFO - New message received: Sell gold again
+2026-03-09 08:56:17,835 - INFO - MT5 initialized successfully
+2026-03-09 08:56:17,836 - INFO - MT5 initialized successfully.
+2026-03-09 08:56:17,836 - INFO - Runner position has been enabled via UI.
+2026-03-09 08:56:19,325 - INFO - Listener thread started.
+2026-03-09 08:56:19,326 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-09 08:56:19,333 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-09 08:56:19,861 - INFO - Connected to channel: 100$ to 30000$ year 2026
+2026-03-09 08:56:19,861 - INFO - Telegram listener started
+2026-03-09 09:01:33,033 - INFO - New message received: I don’t like it cancel this trade
+2026-03-09 09:02:34,093 - INFO - New message received: 
+2026-03-09 09:02:55,904 - INFO - New message received: Looking buys on gold
+2026-03-09 09:05:32,614 - INFO - New message received: Buy gold
+2026-03-09 09:06:02,765 - INFO - New message received: Don’t forget I’m also human 
+We might take loss so always use proper risk management
+2026-03-09 09:11:20,401 - INFO - Got difference for channel 1337885990 updates
+2026-03-09 09:12:28,249 - INFO - New message received: RiskY traDE \u2620\ufe0f
+\U0001f449\U0001f3feBUY XAUUSD now 5105
+\U0001f6d1 SL 5092
+\u2705 TP 5110
+\u2705 TP 5115
+\u2705 TP 5120
+\u2705 TP 5125
+\u2705 TP 5130
+\u2705 TP 5135
+\u2705 TP 5140
+\u2705 TP open 
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set. 
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-09 09:12:28,253 - INFO - execute_trade: runner_enabled=True for XAUUSD buy, TPs=[5110.0, 5115.0, 5120.0, 5125.0, 5130.0, 5135.0, 5140.0]
+2026-03-09 09:12:28,253 - INFO - Executing trade XAUUSD buy with total lot 0.27, 8 positions (~0.0338 each), runner_enabled=True
+2026-03-09 09:12:28,253 - INFO - Two-stage BE triggers for XAUUSD buy: entry=5103.43, tp1_trigger=5112.0, tp2_trigger=5115.0, all_tps=[5110.0, 5115.0, 5120.0, 5125.0, 5130.0, 5135.0, 5140.0]
+2026-03-09 09:12:28,254 - INFO - Adjusted first TP for XAUUSD buy: original=5110.0, adjusted=5112.0
+2026-03-09 09:12:28,254 - INFO - Opening TP position for XAUUSD buy lot=0.0300 TP=5112.0 SL=5092.0
+2026-03-09 09:12:28,336 - INFO - Order executed XAUUSD BUY
+2026-03-09 09:12:28,337 - INFO - Opening TP position for XAUUSD buy lot=0.0300 TP=5115.0 SL=5092.0
+2026-03-09 09:12:28,396 - INFO - Order executed XAUUSD BUY
+2026-03-09 09:12:28,397 - INFO - Opening TP position for XAUUSD buy lot=0.0300 TP=5120.0 SL=5092.0
+2026-03-09 09:12:28,621 - INFO - Order executed XAUUSD BUY
+2026-03-09 09:12:28,622 - INFO - Opening TP position for XAUUSD buy lot=0.0300 TP=5125.0 SL=5092.0
+2026-03-09 09:12:28,685 - INFO - Order executed XAUUSD BUY
+2026-03-09 09:12:28,685 - INFO - Opening TP position for XAUUSD buy lot=0.0300 TP=5130.0 SL=5092.0
+2026-03-09 09:12:28,747 - INFO - Order executed XAUUSD BUY
+2026-03-09 09:12:28,748 - INFO - Opening TP position for XAUUSD buy lot=0.0300 TP=5135.0 SL=5092.0
+2026-03-09 09:12:28,809 - INFO - Order executed XAUUSD BUY
+2026-03-09 09:12:28,809 - INFO - Opening TP position for XAUUSD buy lot=0.0200 TP=5140.0 SL=5092.0
+2026-03-09 09:12:28,868 - INFO - Order executed XAUUSD BUY
+2026-03-09 09:12:28,869 - INFO - Opening runner position for XAUUSD buy lot=0.0100 SL=5092.0
+2026-03-09 09:12:28,869 - INFO - Order failed for XAUUSD BUY: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=0.01, price=5103.44, stoplimit=0.0, sl=5092.0, tp=0.0, deviation=20, type=0, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-09 09:12:28,870 - INFO - Runner position may have failed for XAUUSD (retcode=10019). Check MT5 journal.
+2026-03-09 09:12:28,874 - INFO - Break-even monitor started for XAUUSD buy. first_trigger=5112.0, second_trigger=5115.0, first_buffer=2.0
+2026-03-09 09:13:02,161 - INFO - New message received: Don’t risk to much today 
+Guys there is a lot going on in the world so market might be very hard to understand
+2026-03-09 09:13:02,794 - INFO - New message received: This might be another manipulation
+2026-03-09 09:16:53,094 - INFO - New message received: I really don’t like what I see 
+Wait for my instructions on the market to volatile 
+
+This might be our first stop loss
+2026-03-09 09:18:54,323 - INFO - New message received: Crazy we are back in profit
+2026-03-09 09:26:19,909 - INFO - Got difference for account updates
+2026-03-09 09:27:54,247 - INFO - New message received: I did not see anything like this on market like today since last year
+Let it be our last trade we have good win already this trade win or lose 
+Better to continue tomorrow family 
+Always use proper risk management and we will be okay 
+I will try to finish the month with a loss let’s see
+2026-03-09 09:29:01,093 - INFO - Break-even monitor for XAUUSD stopped: no open positions.
+2026-03-09 09:29:22,074 - INFO - New message received: *Without a lose
+2026-03-09 09:30:36,458 - INFO - New message received: Our first official stop loss hit 
+Waiting this trade was necessary to see if it was manipulation
+2026-03-09 09:32:07,543 - INFO - New message received: Send you account size and your trades to my team
+2026-03-09 09:32:32,765 - INFO - New message received: Sell again gold 
+Last trade
+2026-03-09 09:36:01,663 - INFO - New message received: RiskY traDE \u2620\ufe0f
+\U0001f449\U0001f3fesell XAUUSD now 
+\U0001f6d1 SL 5110
+\u2705 TP 5089
+\u2705 TP 5084
+\u2705 TP 5079
+\u2705 TP 5074
+\u2705 TP 5069
+\u2705 TP 5064
+\u2705 TP 5059
+\u2705 TP open 
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set. 
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-09 09:36:01,680 - INFO - execute_trade: runner_enabled=True for XAUUSD sell, TPs=[5089.0, 5084.0, 5079.0, 5074.0, 5069.0, 5064.0, 5059.0]
+2026-03-09 09:36:01,681 - INFO - Executing trade XAUUSD sell with total lot 0.16, 8 positions (~0.0200 each), runner_enabled=True
+2026-03-09 09:36:01,681 - INFO - Two-stage BE triggers for XAUUSD sell: entry=5095.38, tp1_trigger=5087.0, tp2_trigger=5084.0, all_tps=[5089.0, 5084.0, 5079.0, 5074.0, 5069.0, 5064.0, 5059.0]
+2026-03-09 09:36:01,683 - INFO - Adjusted first TP for XAUUSD sell: original=5089.0, adjusted=5087.0
+2026-03-09 09:36:01,683 - INFO - Opening TP position for XAUUSD sell lot=0.0200 TP=5087.0 SL=5110.0
+2026-03-09 09:36:01,753 - INFO - Order executed XAUUSD SELL
+2026-03-09 09:36:01,753 - INFO - Opening TP position for XAUUSD sell lot=0.0200 TP=5084.0 SL=5110.0
+2026-03-09 09:36:01,841 - INFO - Order executed XAUUSD SELL
+2026-03-09 09:36:01,842 - INFO - Opening TP position for XAUUSD sell lot=0.0200 TP=5079.0 SL=5110.0
+2026-03-09 09:36:01,903 - INFO - Order executed XAUUSD SELL
+2026-03-09 09:36:01,904 - INFO - Opening TP position for XAUUSD sell lot=0.0200 TP=5074.0 SL=5110.0
+2026-03-09 09:36:01,965 - INFO - Order executed XAUUSD SELL
+2026-03-09 09:36:01,965 - INFO - Opening TP position for XAUUSD sell lot=0.0200 TP=5069.0 SL=5110.0
+2026-03-09 09:36:02,032 - INFO - Order executed XAUUSD SELL
+2026-03-09 09:36:02,032 - INFO - Opening TP position for XAUUSD sell lot=0.0200 TP=5064.0 SL=5110.0
+2026-03-09 09:36:02,099 - INFO - Order executed XAUUSD SELL
+2026-03-09 09:36:02,100 - INFO - Opening TP position for XAUUSD sell lot=0.0200 TP=5059.0 SL=5110.0
+2026-03-09 09:36:02,175 - INFO - Order executed XAUUSD SELL
+2026-03-09 09:36:02,175 - INFO - Opening runner position for XAUUSD sell lot=0.0200 SL=5110.0
+2026-03-09 09:36:02,177 - INFO - Order failed for XAUUSD SELL: OrderSendResult(retcode=10019, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No money', request_id=0, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSD', volume=0.02, price=5095.5, stoplimit=0.0, sl=5110.0, tp=0.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-09 09:36:02,178 - INFO - Runner position may have failed for XAUUSD (retcode=10019). Check MT5 journal.
+2026-03-09 09:36:02,186 - INFO - Break-even monitor started for XAUUSD sell. first_trigger=5087.0, second_trigger=5084.0, first_buffer=2.0
+2026-03-09 09:36:31,322 - INFO - New message received: \u2705 Our first TP successfully hit \u2705 
+
+COPY TRADERS check your account if you trades is not SET TO TP AND SL CONTACT for manual traders you can put your self SUPPORT FOR HELP  another positions  STILL ON MAKE SURE
+2026-03-09 09:37:10,435 - INFO - New message received: 
+2026-03-09 09:41:20,010 - INFO - Got difference for account updates
+2026-03-09 09:45:48,242 - INFO - New message received: \u2705 Our 2nd TP successfully hit \u2705 
+
+COPY TRADERS check your account if you trades is not SET TO TP AND SL CONTACT for manual traders you can put your self SUPPORT FOR HELP  another positions  STILL ON MAKE SURE
+2026-03-09 09:46:59,893 - INFO - New message received: Set SL to breakeven
+2026-03-09 09:50:23,506 - INFO - New message received: Break even touched !
+2026-03-09 09:50:23,516 - INFO - Modified SL for 151753958771: OrderSendResult(retcode=10016, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Invalid stops', request_id=0, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSD', volume=0.0, price=0.0, stoplimit=0.0, sl=5095.25, tp=5087.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=151753958771, position_by=0))
+2026-03-09 09:50:23,518 - INFO - Break-even SL update: ticket=151753958771 symbol=XAUUSD type=1 old_sl=5110.0 new_sl=5095.25 buffer=0.0
+2026-03-09 09:50:23,518 - INFO - Modified SL for 151753958778: OrderSendResult(retcode=10016, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Invalid stops', request_id=0, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSD', volume=0.0, price=0.0, stoplimit=0.0, sl=5095.25, tp=5084.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=151753958778, position_by=0))
+2026-03-09 09:50:23,518 - INFO - Break-even SL update: ticket=151753958778 symbol=XAUUSD type=1 old_sl=5110.0 new_sl=5095.25 buffer=0.0
+2026-03-09 09:50:23,518 - INFO - Modified SL for 151753958782: OrderSendResult(retcode=10016, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Invalid stops', request_id=0, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSD', volume=0.0, price=0.0, stoplimit=0.0, sl=5095.25, tp=5079.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=151753958782, position_by=0))
+2026-03-09 09:50:23,519 - INFO - Break-even SL update: ticket=151753958782 symbol=XAUUSD type=1 old_sl=5110.0 new_sl=5095.25 buffer=0.0
+2026-03-09 09:50:23,519 - INFO - Modified SL for 151753958785: OrderSendResult(retcode=10016, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Invalid stops', request_id=0, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSD', volume=0.0, price=0.0, stoplimit=0.0, sl=5095.27, tp=5074.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=151753958785, position_by=0))
+2026-03-09 09:50:23,519 - INFO - Break-even SL update: ticket=151753958785 symbol=XAUUSD type=1 old_sl=5110.0 new_sl=5095.27 buffer=0.0
+2026-03-09 09:50:23,520 - INFO - Modified SL for 151753958787: OrderSendResult(retcode=10016, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Invalid stops', request_id=0, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSD', volume=0.0, price=0.0, stoplimit=0.0, sl=5095.34, tp=5069.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=151753958787, position_by=0))
+2026-03-09 09:50:23,520 - INFO - Break-even SL update: ticket=151753958787 symbol=XAUUSD type=1 old_sl=5110.0 new_sl=5095.34 buffer=0.0
+2026-03-09 09:50:23,520 - INFO - Modified SL for 151753958796: OrderSendResult(retcode=10016, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Invalid stops', request_id=0, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSD', volume=0.0, price=0.0, stoplimit=0.0, sl=5095.34, tp=5064.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=151753958796, position_by=0))
+2026-03-09 09:50:23,520 - INFO - Break-even SL update: ticket=151753958796 symbol=XAUUSD type=1 old_sl=5110.0 new_sl=5095.34 buffer=0.0
+2026-03-09 09:50:23,520 - INFO - Modified SL for 151753958800: OrderSendResult(retcode=10016, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='Invalid stops', request_id=0, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSD', volume=0.0, price=0.0, stoplimit=0.0, sl=5095.46, tp=5059.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=151753958800, position_by=0))
+2026-03-09 09:50:23,521 - INFO - Break-even SL update: ticket=151753958800 symbol=XAUUSD type=1 old_sl=5110.0 new_sl=5095.46 buffer=0.0
+2026-03-09 09:50:23,521 - INFO - All positions moved to exact break-even
+2026-03-09 09:53:17,911 - INFO - New message received: Share your results and account size to my team
+2026-03-09 09:59:25,431 - INFO - New message received: We still in profit today your result and RM is good keep going. rest today and we will continue tomorrow
+2026-03-09 10:09:10,672 - INFO - Break-even monitor for XAUUSD stopped: no open positions.
+2026-03-09 10:14:29,318 - INFO - Stopping listener...
+2026-03-09 10:14:29,327 - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2026-03-09 10:14:29,332 - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2026-03-09 10:15:01,060 - INFO - MT5 initialized successfully
+2026-03-09 10:15:01,061 - INFO - MT5 initialized successfully.
+2026-03-09 10:15:01,061 - INFO - Runner position has been enabled via UI.
+2026-03-09 10:15:05,575 - INFO - Listener thread started.
+2026-03-09 10:15:05,577 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-09 10:15:05,582 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-09 10:15:06,094 - INFO - Connected to channel: 100$ to 30000$ year 2026
+2026-03-09 10:15:06,094 - INFO - Telegram listener started
+2026-03-09 10:45:06,136 - INFO - Got difference for account updates
+2026-03-09 11:20:11,148 - WARNING - Server closed the connection: [WinError 1236] The network connection was aborted by the local system
+2026-03-09 11:20:11,149 - INFO - Connection closed while receiving data: [WinError 1236] The network connection was aborted by the local system
+2026-03-09 11:20:11,150 - INFO - Closing current connection to begin reconnect...
+2026-03-09 11:20:11,150 - INFO - <class 'ConnectionAbortedError'> during disconnect: [WinError 1236] The network connection was aborted by the local system
+2026-03-09 11:20:11,150 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-09 11:20:11,151 - WARNING - Attempt 1 at connecting failed: OSError: [WinError 1231] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-03-09 11:20:12,292 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-09 11:38:54,337 - WARNING - Server closed the connection: [WinError 121] The semaphore timeout period has expired
+2026-03-09 11:38:54,337 - INFO - Connection closed while receiving data: [WinError 121] The semaphore timeout period has expired
+2026-03-09 11:38:54,337 - INFO - Closing current connection to begin reconnect...
+2026-03-09 11:38:54,338 - INFO - <class 'OSError'> during disconnect: [WinError 121] The semaphore timeout period has expired
+2026-03-09 11:38:54,338 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-09 11:38:55,103 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-09 11:39:07,428 - INFO - Closing current connection to begin reconnect...
+2026-03-09 11:39:07,429 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-09 11:39:07,602 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-09 11:53:26,923 - WARNING - Server closed the connection: [WinError 121] The semaphore timeout period has expired
+2026-03-09 11:53:26,924 - INFO - Connection closed while receiving data: [WinError 121] The semaphore timeout period has expired
+2026-03-09 11:53:26,924 - INFO - Closing current connection to begin reconnect...
+2026-03-09 11:53:26,925 - INFO - <class 'OSError'> during disconnect: [WinError 121] The semaphore timeout period has expired
+2026-03-09 11:53:26,925 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-09 11:53:26,927 - WARNING - Attempt 1 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-03-09 11:53:27,943 - WARNING - Attempt 2 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-03-09 11:53:28,957 - WARNING - Attempt 3 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-03-09 11:53:29,970 - WARNING - Attempt 4 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-03-09 11:53:30,972 - WARNING - Attempt 5 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-03-09 11:53:31,980 - WARNING - Attempt 6 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-03-09 11:53:32,982 - INFO - Failed reconnection attempt 1 with ConnectionError
+2026-03-09 11:53:33,986 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-09 11:53:33,987 - WARNING - Attempt 1 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-03-09 11:53:34,991 - WARNING - Attempt 2 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-03-09 11:53:35,996 - WARNING - Attempt 3 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-03-09 11:53:37,013 - WARNING - Attempt 4 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-03-09 11:53:38,019 - WARNING - Attempt 5 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-03-09 11:53:39,024 - WARNING - Attempt 6 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-03-09 11:53:40,027 - INFO - Failed reconnection attempt 2 with ConnectionError
+2026-03-09 11:53:41,040 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-09 11:53:41,042 - WARNING - Attempt 1 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-03-09 11:53:42,047 - WARNING - Attempt 2 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-03-09 11:53:43,050 - WARNING - Attempt 3 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-03-09 11:53:44,060 - WARNING - Attempt 4 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-03-09 11:53:45,074 - WARNING - Attempt 5 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-03-09 11:53:46,077 - WARNING - Attempt 6 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-03-09 11:53:47,086 - INFO - Failed reconnection attempt 3 with ConnectionError
+2026-03-09 11:53:48,090 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-09 11:53:48,092 - WARNING - Attempt 1 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-03-09 11:53:49,104 - WARNING - Attempt 2 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-03-09 11:53:50,106 - WARNING - Attempt 3 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-03-09 11:53:51,119 - WARNING - Attempt 4 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-03-09 11:53:52,123 - WARNING - Attempt 5 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-03-09 11:53:53,137 - WARNING - Attempt 6 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-03-09 11:53:54,141 - INFO - Failed reconnection attempt 4 with ConnectionError
+2026-03-09 11:53:55,143 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-09 11:53:55,145 - WARNING - Attempt 1 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-03-09 11:53:56,150 - WARNING - Attempt 2 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-03-09 11:53:57,154 - WARNING - Attempt 3 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-03-09 11:53:58,157 - WARNING - Attempt 4 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-03-09 11:53:59,158 - WARNING - Attempt 5 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-03-09 11:54:00,163 - WARNING - Attempt 6 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-03-09 11:54:01,173 - INFO - Failed reconnection attempt 5 with ConnectionError
+2026-03-09 11:54:02,180 - ERROR - Automatic reconnection failed 5 time(s)
+2026-03-09 11:54:02,181 - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2026-03-09 11:54:02,181 - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2026-03-09 11:54:02,183 - ERROR - Future exception was never retrieved
+future: <Future finished exception=ConnectionError('Connection to Telegram failed 5 time(s)')>
+ConnectionError: Connection to Telegram failed 5 time(s)
+2026-03-09 11:54:02,186 - ERROR - ConnectionError exception in shielded future
+future: <Future finished exception=ConnectionError('Connection to Telegram failed 5 time(s)')>
+ConnectionError: Connection to Telegram failed 5 time(s)
+2026-03-09 11:54:02,186 - INFO - Not disconnecting (already have no connection)

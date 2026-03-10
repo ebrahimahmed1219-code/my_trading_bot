@@ -1,6 +1,17 @@
-### risk_manager.py
-from config import MAX_ACCOUNT_RISK
 import MetaTrader5 as mt5
+
+
+def _risk_ratio_for_balance(account_balance):
+    """Return the configured risk ratio for the current account balance."""
+    if account_balance < 101:
+        return 0.60
+    if account_balance < 200:
+        return 0.75
+    if account_balance < 500:
+        return 0.80
+    if account_balance <= 800:
+        return 0.80
+    return 0.90
 
 
 def _estimate_current_risk():
@@ -16,21 +27,14 @@ def _estimate_current_risk():
     for pos in positions:
         sl = getattr(pos, "sl", None)
         if not sl or sl == 0:
-            # If there's no SL, we can't cap risk accurately. Treat as "already at max".
             return float("inf")
 
         volume = pos.volume
         entry = pos.price_open
-
-        # Use MT5's own profit calculator for exact SL loss.
-        if pos.type == mt5.POSITION_TYPE_BUY:
-            action = mt5.ORDER_TYPE_BUY
-        else:
-            action = mt5.ORDER_TYPE_SELL
+        action = mt5.ORDER_TYPE_BUY if pos.type == mt5.POSITION_TYPE_BUY else mt5.ORDER_TYPE_SELL
 
         loss_at_sl = mt5.order_calc_profit(action, pos.symbol, volume, entry, sl)
         if loss_at_sl is None:
-            # If MT5 can't calculate, be conservative.
             return float("inf")
 
         total_risk += abs(loss_at_sl)
@@ -40,49 +44,33 @@ def _estimate_current_risk():
 
 def calculate_lot_size(account_balance, entry_price, stop_loss_price, symbol="XAUUSD"):
     """
-    Calculate lot size so that the TOTAL risk across all open trades plus this one
-    does not exceed MAX_ACCOUNT_RISK * account_balance.
+    Calculate total lot size so that combined open-trade risk plus this new trade
+    stays within the configured account-balance tier risk.
     """
     if stop_loss_price == entry_price:
         return 0.0
 
-    # Global risk budget in account currency
-    max_global_risk = account_balance * MAX_ACCOUNT_RISK
+    risk_ratio = _risk_ratio_for_balance(account_balance)
+    max_global_risk = account_balance * risk_ratio
 
-    # Estimated risk of all currently open positions
     current_risk = _estimate_current_risk()
     if current_risk == float("inf"):
         return 0.0
 
     remaining_risk_budget = max_global_risk - current_risk
     if remaining_risk_budget <= 0:
-        # Already at or above global risk limit
         return 0.0
 
-    # Stop-loss distance in price
-    sl_distance = abs(entry_price - stop_loss_price)
-    if sl_distance <= 0:
-        return 0.0
-
-    # Use MT5 profit calculator: loss for 1.0 lot if SL hits
     action = mt5.ORDER_TYPE_BUY if stop_loss_price < entry_price else mt5.ORDER_TYPE_SELL
     loss_per_lot = mt5.order_calc_profit(action, symbol, 1.0, entry_price, stop_loss_price)
     if loss_per_lot is None or loss_per_lot == 0:
         return 0.0
 
-    loss_per_lot = abs(loss_per_lot)
-    lot = remaining_risk_budget / loss_per_lot
+    lot = remaining_risk_budget / abs(loss_per_lot)
 
-    # Margin sanity cap (best-effort)
     symbol_info = mt5.symbol_info(symbol)
     margin_per_lot = (symbol_info.margin_initial if symbol_info else None) or account_balance
     max_lot_by_margin = account_balance / margin_per_lot if margin_per_lot > 0 else lot
     lot = min(lot, max_lot_by_margin)
 
-    # Ensure lot does not exceed margin or become negative
-    lot = max(0.0, lot)
-
-    # Round to 2 decimal places for typical FX symbols
-    lot = round(lot, 2)
-
-    return lot
+    return round(max(0.0, lot), 2)

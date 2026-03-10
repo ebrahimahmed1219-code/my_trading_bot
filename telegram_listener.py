@@ -1,27 +1,32 @@
 from telethon import TelegramClient, events
-import asyncio
 
 from config import TELEGRAM_API_ID, TELEGRAM_API_HASH, TELEGRAM_CHANNEL
-from signal_classifier import classify_message
-from signal_parser import parse_trade_signal
-from trade_engine import execute_trade
-from position_manager import move_all_to_break_even, close_all_positions
-from database import store_message, message_exists
+from database import message_exists, store_message
 from logger import log_event
+from position_manager import close_all_positions, move_all_to_break_even
+from signal_classifier import classify_message
+from signal_parser import parse_quick_direction_signal, parse_trade_signal
+from trade_engine import (
+    apply_signal_to_existing_positions,
+    execute_pre_signal_trade,
+    execute_trade,
+)
 
 # Create Telegram client
-client = TelegramClient("session", 33485084, "25e730e1cb2e6665f22837ef9fff1c06")
+client = TelegramClient("session", TELEGRAM_API_ID, TELEGRAM_API_HASH)
+
 
 # Resolve the invite link (for private channels)
 async def get_channel_entity():
     await client.start()
     try:
-        entity = await client.get_entity("https://t.me/+pLsvUIjzAx81YmU1")
+        entity = await client.get_entity(TELEGRAM_CHANNEL)
         log_event(f"Connected to channel: {entity.title}")
         return entity
     except Exception as e:
         log_event(f"Error resolving channel: {e}")
         return None
+
 
 # Listener function
 async def new_message_listener(event):
@@ -35,10 +40,17 @@ async def new_message_listener(event):
 
     message_type = classify_message(message_text)
 
-    if message_type == "NEW_TRADE":
+    if message_type == "PRE_TRADE":
+        quick_signal = parse_quick_direction_signal(message_text)
+        if quick_signal:
+            execute_pre_signal_trade(quick_signal)
+
+    elif message_type == "NEW_TRADE":
         signal = parse_trade_signal(message_text)
         if signal:
-            execute_trade(signal)
+            edited_existing = apply_signal_to_existing_positions(signal)
+            if not edited_existing:
+                execute_trade(signal)
 
     elif message_type == "MOVE_SL":
         move_all_to_break_even()
@@ -47,6 +59,7 @@ async def new_message_listener(event):
         close_all_positions()
 
     store_message(message_id, message_text)
+
 
 # Start listener
 async def start_listener():
