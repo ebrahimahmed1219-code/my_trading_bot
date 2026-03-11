@@ -1,6 +1,9 @@
 import MetaTrader5 as mt5
 
 
+DEFAULT_REENTRY_RISK_RATIO = 0.40
+
+
 def _risk_ratio_for_balance(account_balance):
     """Return the configured risk ratio for the current account balance."""
     if account_balance < 101:
@@ -42,7 +45,7 @@ def _estimate_current_risk():
     return total_risk
 
 
-def calculate_lot_size(account_balance, entry_price, stop_loss_price, symbol="XAUUSD"):
+def calculate_lot_size(account_balance, entry_price, stop_loss_price, symbol="XAUUSD", risk_ratio_override=None):
     """
     Calculate total lot size so that combined open-trade risk plus this new trade
     stays within the configured account-balance tier risk.
@@ -50,7 +53,7 @@ def calculate_lot_size(account_balance, entry_price, stop_loss_price, symbol="XA
     if stop_loss_price == entry_price:
         return 0.0
 
-    risk_ratio = _risk_ratio_for_balance(account_balance)
+    risk_ratio = risk_ratio_override if risk_ratio_override is not None else _risk_ratio_for_balance(account_balance)
     max_global_risk = account_balance * risk_ratio
 
     current_risk = _estimate_current_risk()

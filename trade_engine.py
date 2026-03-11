@@ -10,15 +10,18 @@ from mt5_connector import (
     get_symbol_price,
     initialize_mt5,
     modify_position_targets,
+    open_pending_position,
     open_position,
 )
 from position_manager import move_all_to_break_even
-from risk_manager import calculate_lot_size
+from risk_manager import DEFAULT_REENTRY_RISK_RATIO, calculate_lot_size
 
 
 RUNNER_ENABLED = True
 RUNNER_SLOT_INDEX = TOTAL_POSITIONS - 1
 TP_SLOT_COUNT = TOTAL_POSITIONS - 1
+REENTRY_OFFSET = 5.0
+REENTRY_STOP_LOSS_DISTANCE = 3.0
 
 PENDING_PRE_SIGNAL = {
     "symbol": None,
@@ -72,13 +75,32 @@ def _fixed_stop_loss(entry_price, side):
     return entry_price - FIXED_STOP_LOSS_DISTANCE if side == "buy" else entry_price + FIXED_STOP_LOSS_DISTANCE
 
 
+def _reentry_entry(reference_entry, side):
+    """Return reentry pending price using the requested +/-5 rule."""
+    return reference_entry - REENTRY_OFFSET if side == "buy" else reference_entry + REENTRY_OFFSET
+
+
+def _reentry_stop_loss(entry_price, side):
+    """Return SL exactly 3 USD away from the reentry price."""
+    return entry_price - REENTRY_STOP_LOSS_DISTANCE if side == "buy" else entry_price + REENTRY_STOP_LOSS_DISTANCE
+
+
 def _selected_take_profits(take_profits):
     """Use only the first five TP values; the sixth slot is the runner."""
     return list((take_profits or [])[:TP_SLOT_COUNT])
 
 
-def _start_break_even_monitor(symbol, side, first_trigger_price):
-    """Move all open positions for the symbol to exact break-even once TP1 is hit."""
+def _reentry_cutoff_tp(take_profits):
+    """Reentry stays active only until TP4 is reached."""
+    if not take_profits:
+        return None
+    if len(take_profits) >= 4:
+        return take_profits[3]
+    return take_profits[-1]
+
+
+def _start_break_even_monitor(symbol, side, first_trigger_price, tracked_tickets=None, reference_entry=None, take_profits=None):
+    """Move tracked positions to exact break-even once TP1 is hit, then arm reentry watcher."""
 
     def _monitor():
         if mt5.account_info() is None:
@@ -110,6 +132,8 @@ def _start_break_even_monitor(symbol, side, first_trigger_price):
                         "Moving all SLs to exact break-even."
                     )
                     move_all_to_break_even(0.0)
+                    if tracked_tickets and reference_entry is not None and take_profits:
+                        _start_reentry_monitor(symbol, side, tracked_tickets, reference_entry, take_profits)
                     break
             else:
                 price = tick.bid or tick.last
@@ -122,7 +146,56 @@ def _start_break_even_monitor(symbol, side, first_trigger_price):
                         "Moving all SLs to exact break-even."
                     )
                     move_all_to_break_even(0.0)
+                    if tracked_tickets and reference_entry is not None and take_profits:
+                        _start_reentry_monitor(symbol, side, tracked_tickets, reference_entry, take_profits)
                     break
+
+            time.sleep(2)
+
+    Thread(target=_monitor, daemon=True).start()
+
+
+def _start_reentry_monitor(symbol, side, tracked_tickets, reference_entry, take_profits):
+    """Wait for the break-even batch to close unless TP4 is reached first."""
+
+    def _monitor():
+        if mt5.account_info() is None:
+            initialize_mt5()
+
+        tracked_ticket_set = set(tracked_tickets)
+        cutoff_tp = _reentry_cutoff_tp(take_profits)
+        log_event(
+            f"Reentry monitor armed for {symbol} {side}. "
+            f"tracked_tickets={sorted(tracked_ticket_set)}, reference_entry={reference_entry}, cutoff_tp={cutoff_tp}"
+        )
+
+        while True:
+            positions = mt5.positions_get(symbol=symbol) or []
+            open_tickets = {pos.ticket for pos in positions}
+            remaining = tracked_ticket_set.intersection(open_tickets)
+            if not remaining:
+                log_event(
+                    f"Tracked break-even batch for {symbol} {side} has closed before TP4. Placing pending reentry orders."
+                )
+                _place_reentry_orders(symbol, side, reference_entry, take_profits)
+                break
+
+            tick = mt5.symbol_info_tick(symbol)
+            if tick is not None and cutoff_tp is not None:
+                if side == "buy":
+                    price = tick.ask or tick.last
+                    if price is not None and price >= cutoff_tp:
+                        log_event(
+                            f"Reentry cancelled for {symbol} {side}: TP4 {cutoff_tp} was reached before break-even close."
+                        )
+                        break
+                else:
+                    price = tick.bid or tick.last
+                    if price is not None and price <= cutoff_tp:
+                        log_event(
+                            f"Reentry cancelled for {symbol} {side}: TP4 {cutoff_tp} was reached before break-even close."
+                        )
+                        break
 
             time.sleep(2)
 
@@ -181,9 +254,15 @@ def _margin_per_lot(symbol, entry_price, symbol_info, side):
     return symbol_info.margin_initial or 0.0
 
 
-def _plan_position_sizing(balance, entry_price, stop_loss, symbol, symbol_info, side):
+def _plan_position_sizing(balance, entry_price, stop_loss, symbol, symbol_info, side, risk_ratio_override=None):
     """Plan one equal lot size for all six positions before sending any order."""
-    risk_total_lot = calculate_lot_size(balance, entry_price, stop_loss, symbol)
+    risk_total_lot = calculate_lot_size(
+        balance,
+        entry_price,
+        stop_loss,
+        symbol,
+        risk_ratio_override=risk_ratio_override,
+    )
     if risk_total_lot <= 0:
         log_event(f"Calculated lot size <= 0 for {symbol}. Aborting trade.")
         return None, None
@@ -209,9 +288,62 @@ def _plan_position_sizing(balance, entry_price, stop_loss, symbol, symbol_info, 
     log_event(
         f"Planned sizing for {symbol} {side}: risk_total_lot={risk_total_lot:.4f}, "
         f"margin_total_lot={margin_total_lot:.4f}, planned_total_lot={planned_total_lot:.4f}, "
-        f"per_position_lot={per_position_lot:.4f}"
+        f"per_position_lot={per_position_lot:.4f}, risk_override={risk_ratio_override}"
     )
     return per_position_lot, planned_total_lot
+
+
+def _place_reentry_orders(symbol, side, reference_entry, take_profits):
+    """Place 6 pending reentry orders using 40% risk and 3 USD SL distance."""
+    prep = _prepare_symbol_and_account(symbol)
+    if prep[0] is None:
+        return
+    balance, _, symbol_info = prep
+
+    reentry_price = _reentry_entry(reference_entry, side)
+    stop_loss = _reentry_stop_loss(reentry_price, side)
+    per_position_lot, planned_total_lot = _plan_position_sizing(
+        balance,
+        reentry_price,
+        stop_loss,
+        symbol,
+        symbol_info,
+        side,
+        risk_ratio_override=DEFAULT_REENTRY_RISK_RATIO,
+    )
+    if per_position_lot is None:
+        return
+
+    selected_tps = _selected_take_profits(take_profits)
+    log_event(
+        f"Placing reentry orders for {symbol} {side}: reentry_price={reentry_price}, "
+        f"sl={stop_loss}, planned_total_lot={planned_total_lot:.4f}, per_position_lot={per_position_lot:.4f}"
+    )
+
+    placed_any = False
+    for tp in selected_tps:
+        result = open_pending_position(symbol, side.upper(), per_position_lot, reentry_price, stop_loss, tp)
+        if result is not None and getattr(result, "retcode", None) in {
+            mt5.TRADE_RETCODE_DONE,
+            mt5.TRADE_RETCODE_PLACED,
+            mt5.TRADE_RETCODE_DONE_PARTIAL,
+        }:
+            placed_any = True
+        else:
+            log_event(f"Pending TP reentry order could not be completed for {symbol} {side}. Stopping batch.")
+            break
+
+    runner_should_open = RUNNER_ENABLED and TOTAL_POSITIONS > len(selected_tps)
+    if runner_should_open and placed_any:
+        result = open_pending_position(symbol, side.upper(), per_position_lot, reentry_price, stop_loss, None)
+        if result is not None and getattr(result, "retcode", None) in {
+            mt5.TRADE_RETCODE_DONE,
+            mt5.TRADE_RETCODE_PLACED,
+            mt5.TRADE_RETCODE_DONE_PARTIAL,
+        }:
+            log_event(f"Pending runner reentry order placed for {symbol} {side}.")
+        else:
+            log_event(f"Pending runner reentry order failed for {symbol} {side}.")
 
 
 def execute_pre_signal_trade(quick_signal):
@@ -308,13 +440,16 @@ def apply_signal_to_existing_positions(signal_data):
     side_positions.sort(key=lambda p: p.ticket)
     first_tp = take_profits[0]
     edited_any = False
+    tracked_positions = side_positions[:TOTAL_POSITIONS]
+    tracked_tickets = [pos.ticket for pos in tracked_positions]
+    reference_entry = sum(pos.price_open for pos in tracked_positions) / len(tracked_positions)
 
     log_event(
         f"Applying main signal to existing positions for {symbol} {side}: "
         f"count={len(side_positions)}, fixed_sl_distance={FIXED_STOP_LOSS_DISTANCE}, tps={take_profits}"
     )
 
-    for idx, pos in enumerate(side_positions[:TOTAL_POSITIONS]):
+    for idx, pos in enumerate(tracked_positions):
         new_sl = _fixed_stop_loss(pos.price_open, side)
         new_tp = take_profits[idx] if idx < len(take_profits) else 0.0
         if idx == RUNNER_SLOT_INDEX or idx >= TP_SLOT_COUNT:
@@ -332,7 +467,7 @@ def apply_signal_to_existing_positions(signal_data):
     if not edited_any:
         return False
 
-    _start_break_even_monitor(symbol, side, first_tp)
+    _start_break_even_monitor(symbol, side, first_tp, tracked_tickets, reference_entry, take_profits)
     PENDING_PRE_SIGNAL = {"symbol": None, "side": None, "tickets": [], "created_at": 0.0}
     return True
 
@@ -370,6 +505,10 @@ def execute_trade(signal_data):
         f"fixed_sl={stop_loss}, per_position_lot={per_position_lot:.4f}"
     )
 
+    position_type = _get_position_type_for_side(side)
+    before = mt5.positions_get(symbol=symbol) or []
+    before_tickets = {p.ticket for p in before if p.type == position_type}
+
     opened_any = False
 
     for tp in take_profits:
@@ -406,5 +545,16 @@ def execute_trade(signal_data):
         log_event(f"No positions opened for {symbol} due to risk/margin constraints.")
         return
 
-    _start_break_even_monitor(symbol, side, first_tp)
+    time.sleep(1)
+    after = mt5.positions_get(symbol=symbol) or []
+    tracked_positions = [
+        pos for pos in after if pos.type == position_type and pos.ticket not in before_tickets
+    ]
+    tracked_positions.sort(key=lambda pos: pos.ticket)
+    tracked_positions = tracked_positions[:TOTAL_POSITIONS]
+    tracked_tickets = [pos.ticket for pos in tracked_positions]
+    reference_entry = entry_price
+    if tracked_positions:
+        reference_entry = sum(pos.price_open for pos in tracked_positions) / len(tracked_positions)
 
+    _start_break_even_monitor(symbol, side, first_tp, tracked_tickets, reference_entry, take_profits)

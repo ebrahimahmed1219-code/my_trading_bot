@@ -52,6 +52,9 @@ def classify_message(message_text):
         "i do not like it",
         "dont like it",
         "do not like it",
+        "touched be",
+        "touched breakeven",
+        "touched break even",
     ]
     if any(kw in normalized for kw in close_keywords):
         return "CLOSE_ALL"

@@ -26,12 +26,11 @@ def get_symbol_price(symbol):
 
 
 def open_position(symbol, side, lot, sl, tp=None):
-    """Open MT5 trade"""
+    """Open MT5 market trade."""
     price = get_symbol_price(symbol)
     normalized_side = str(side).upper()
     order_type = mt5.ORDER_TYPE_BUY if normalized_side == "BUY" else mt5.ORDER_TYPE_SELL
 
-    # MT5 rejects None as a tp/sl value - use 0.0 to mean "no level set"
     tp_value = float(tp) if tp else 0.0
     sl_value = float(sl) if sl else 0.0
 
@@ -58,6 +57,57 @@ def open_position(symbol, side, lot, sl, tp=None):
         log_event(f"Order failed for {symbol} {normalized_side}: {result}")
     else:
         log_event(f"Order executed {symbol} {normalized_side}")
+    return result
+
+
+def open_pending_position(symbol, side, lot, entry_price, sl, tp=None):
+    """Place MT5 pending reentry order."""
+    tick = mt5.symbol_info_tick(symbol)
+    if tick is None:
+        log_event(f"Pending order failed for {symbol} {side}: no symbol tick available")
+        return None
+
+    normalized_side = str(side).upper()
+    tp_value = float(tp) if tp else 0.0
+    sl_value = float(sl) if sl else 0.0
+
+    if normalized_side == "BUY":
+        current_price = tick.ask or tick.last or entry_price
+        order_type = mt5.ORDER_TYPE_BUY_LIMIT if entry_price <= current_price else mt5.ORDER_TYPE_BUY_STOP
+    else:
+        current_price = tick.bid or tick.last or entry_price
+        order_type = mt5.ORDER_TYPE_SELL_LIMIT if entry_price >= current_price else mt5.ORDER_TYPE_SELL_STOP
+
+    request = {
+        "action": mt5.TRADE_ACTION_PENDING,
+        "symbol": symbol,
+        "volume": lot,
+        "type": order_type,
+        "price": float(entry_price),
+        "sl": sl_value,
+        "tp": tp_value,
+        "deviation": 20,
+        "magic": 123456,
+        "comment": "telegram_reentry",
+        "type_time": mt5.ORDER_TIME_GTC,
+        "type_filling": mt5.ORDER_FILLING_RETURN,
+    }
+    result = mt5.order_send(request)
+    if result is None:
+        err = mt5.last_error()
+        log_event(f"Pending order failed (None result) for {symbol} {normalized_side}: last_error={err}")
+        return None
+    success_retcodes = {
+        mt5.TRADE_RETCODE_DONE,
+        mt5.TRADE_RETCODE_PLACED,
+        mt5.TRADE_RETCODE_DONE_PARTIAL,
+    }
+    if result.retcode not in success_retcodes:
+        log_event(f"Pending order failed for {symbol} {normalized_side}: {result}")
+    else:
+        log_event(
+            f"Pending order placed for {symbol} {normalized_side} at {entry_price} with sl={sl_value} tp={tp_value}"
+        )
     return result
 
 
