@@ -161,5 +161,22 @@ def close_position(ticket):
     mt5.order_send(request)
 
 
+def cancel_pending_order(ticket):
+    """Cancel a pending MT5 order by ticket."""
+    request = {
+        "action": mt5.TRADE_ACTION_REMOVE,
+        "order": ticket,
+        "magic": 123456,
+        "comment": "cancel_pending_reentry",
+    }
+    result = mt5.order_send(request)
+    log_event(f"Cancelled pending order {ticket}: {result}")
+    return result
+
+
 def get_open_positions():
     return mt5.positions_get()
+
+
+def get_pending_orders():
+    return mt5.orders_get()

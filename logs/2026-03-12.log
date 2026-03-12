@@ -1,0 +1,225 @@
+2026-03-12 06:56:00,444 - INFO - MT5 initialized successfully
+2026-03-12 06:56:00,445 - INFO - MT5 initialized successfully.
+2026-03-12 06:56:00,445 - INFO - Runner position has been enabled via UI.
+2026-03-12 06:56:04,014 - INFO - Listener thread started.
+2026-03-12 06:56:04,017 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-12 06:56:04,023 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-12 06:56:04,654 - INFO - Connected to channel: Demo_trading_trial
+2026-03-12 06:56:04,654 - INFO - Telegram listener started
+2026-03-12 06:56:59,187 - INFO - Got difference for channel 3807191422 updates
+2026-03-12 06:56:59,195 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feBUY XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5160
+\u2705 TP 5165
+\u2705 TP 5170
+\u2705 TP 5175
+\u2705 TP 5180
+\u2705 TP 5185
+\u2705 TP 5190
+\u2705 TP open
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-12 06:56:59,198 - INFO - Symbol info not found for XAUUSD.
+2026-03-12 07:02:05,320 - INFO - MT5 initialized successfully
+2026-03-12 07:02:05,321 - INFO - MT5 initialized successfully.
+2026-03-12 07:02:05,321 - INFO - Runner position has been enabled via UI.
+2026-03-12 07:02:07,575 - INFO - Listener thread started.
+2026-03-12 07:02:07,576 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-12 07:02:07,846 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-12 07:02:09,137 - INFO - Connected to channel: Demo_trading_trial
+2026-03-12 07:02:09,137 - INFO - Telegram listener started
+2026-03-12 07:02:22,663 - INFO - Got difference for channel 3807191422 updates
+2026-03-12 07:02:22,667 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feBUY XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5160
+\u2705 TP 5165
+\u2705 TP 5170
+\u2705 TP 5175
+\u2705 TP 5180
+\u2705 TP 5185
+\u2705 TP 5190
+\u2705 TP open
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-12 07:02:22,696 - INFO - Resolved broker symbol XAUUSD -> XAUUSDm
+2026-03-12 07:02:22,698 - ERROR - Unhandled exception on handler
+Traceback (most recent call last):
+  File "C:\Users\Dope\Desktop\telegram_copy_trader\my_trading_bot\.venv\Lib\site-packages\telethon\client\updates.py", line 574, in _dispatch_update
+    await callback(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\my_trading_bot\telegram_listener.py", line 73, in handler
+    await new_message_listener(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\my_trading_bot\telegram_listener.py", line 51, in new_message_listener
+    edited_existing = apply_signal_to_existing_positions(signal)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\my_trading_bot\trade_engine.py", line 481, in apply_signal_to_existing_positions
+    PENDING_PRE_SIGNAL.get("symbol") == symbol
+    ^^^^^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'PENDING_PRE_SIGNAL' where it is not associated with a value
+2026-03-12 07:05:24,554 - INFO - MT5 initialized successfully
+2026-03-12 07:05:24,555 - INFO - MT5 initialized successfully.
+2026-03-12 07:05:24,555 - INFO - Runner position has been enabled via UI.
+2026-03-12 07:05:26,804 - INFO - Listener thread started.
+2026-03-12 07:05:26,805 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-12 07:05:27,010 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-12 07:05:28,389 - INFO - Connected to channel: Demo_trading_trial
+2026-03-12 07:05:28,389 - INFO - Telegram listener started
+2026-03-12 07:05:41,418 - INFO - Got difference for channel 3807191422 updates
+2026-03-12 07:05:41,418 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feBUY XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5160
+\u2705 TP 5165
+\u2705 TP 5170
+\u2705 TP 5175
+\u2705 TP 5180
+\u2705 TP 5185
+\u2705 TP 5190
+\u2705 TP open
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-12 07:05:41,425 - INFO - Resolved broker symbol XAUUSD -> XAUUSDm
+2026-03-12 07:05:41,430 - INFO - Resolved broker symbol XAUUSD -> XAUUSDm
+2026-03-12 07:05:41,434 - INFO - Planned sizing for XAUUSDm buy: risk_total_lot=0.2000, margin_total_lot=0.2000, planned_total_lot=0.1800, per_position_lot=0.0300, risk_override=None
+2026-03-12 07:05:41,435 - INFO - Executing trade XAUUSDm buy: planned_total_lot=0.1800, positions=6, used_tps=[5160.0, 5165.0, 5170.0, 5175.0, 5180.0], runner_enabled=True, fixed_sl=5150.741, per_position_lot=0.0300
+2026-03-12 07:05:41,435 - INFO - Opening TP position for XAUUSDm buy lot=0.0300 TP=5160.0 SL=5150.741
+2026-03-12 07:05:41,783 - INFO - Order executed XAUUSDm BUY
+2026-03-12 07:05:41,783 - INFO - Opening TP position for XAUUSDm buy lot=0.0300 TP=5165.0 SL=5150.741
+2026-03-12 07:05:42,113 - INFO - Order executed XAUUSDm BUY
+2026-03-12 07:05:42,113 - INFO - Opening TP position for XAUUSDm buy lot=0.0300 TP=5170.0 SL=5150.741
+2026-03-12 07:05:42,476 - INFO - Order executed XAUUSDm BUY
+2026-03-12 07:05:42,477 - INFO - Opening TP position for XAUUSDm buy lot=0.0300 TP=5175.0 SL=5150.741
+2026-03-12 07:05:42,828 - INFO - Order executed XAUUSDm BUY
+2026-03-12 07:05:42,829 - INFO - Opening TP position for XAUUSDm buy lot=0.0300 TP=5180.0 SL=5150.741
+2026-03-12 07:05:43,197 - INFO - Order executed XAUUSDm BUY
+2026-03-12 07:05:43,198 - INFO - Opening runner position for XAUUSDm buy lot=0.0300 SL=5150.741
+2026-03-12 07:05:43,554 - INFO - Order executed XAUUSDm BUY
+2026-03-12 07:05:43,554 - INFO - Runner position confirmed open for XAUUSDm (retcode=10009)
+2026-03-12 07:05:44,560 - INFO - Break-even monitor started for XAUUSDm buy. first_trigger=5160.0
+2026-03-12 07:05:44,576 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feBUY XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5160
+\u2705 TP 5165
+\u2705 TP 5170
+\u2705 TP 5175
+\u2705 TP 5180
+\u2705 TP 5185
+\u2705 TP 5190
+\u2705 TP open
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-12 07:05:44,582 - INFO - Resolved broker symbol XAUUSD -> XAUUSDm
+2026-03-12 07:05:44,583 - INFO - Applying main signal to existing positions for XAUUSDm buy: count=6, fixed_sl_distance=4.0, tps=[5160.0, 5165.0, 5170.0, 5175.0, 5180.0]
+2026-03-12 07:05:44,585 - INFO - Modified targets for 2494151414: sl=5150.741, tp=5160.0, result=OrderSendResult(retcode=10025, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No changes', request_id=0, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSDm', volume=0.0, price=0.0, stoplimit=0.0, sl=5150.741, tp=5160.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='apply_main_signal', position=2494151414, position_by=0))
+2026-03-12 07:05:44,586 - INFO - Modified targets for 2494151415: sl=5150.741, tp=5165.0, result=OrderSendResult(retcode=10025, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No changes', request_id=0, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSDm', volume=0.0, price=0.0, stoplimit=0.0, sl=5150.741, tp=5165.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='apply_main_signal', position=2494151415, position_by=0))
+2026-03-12 07:05:44,937 - INFO - Modified targets for 2494151422: sl=5150.933, tp=5170.0, result=OrderSendResult(retcode=10009, deal=0, order=0, volume=0.03, price=5154.433, bid=5154.5380000000005, ask=5154.934, comment='', request_id=1838240948, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSDm', volume=0.0, price=0.0, stoplimit=0.0, sl=5150.933, tp=5170.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='apply_main_signal', position=2494151422, position_by=0))
+2026-03-12 07:05:45,260 - INFO - Modified targets for 2494151433: sl=5150.933, tp=5175.0, result=OrderSendResult(retcode=10009, deal=0, order=0, volume=0.03, price=5154.538, bid=5154.5380000000005, ask=5154.934, comment='', request_id=1838240949, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSDm', volume=0.0, price=0.0, stoplimit=0.0, sl=5150.933, tp=5175.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='apply_main_signal', position=2494151433, position_by=0))
+2026-03-12 07:05:45,608 - INFO - Modified targets for 2494151443: sl=5151.036, tp=5180.0, result=OrderSendResult(retcode=10009, deal=0, order=0, volume=0.03, price=5154.538, bid=5154.5380000000005, ask=5154.934, comment='', request_id=1838240950, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSDm', volume=0.0, price=0.0, stoplimit=0.0, sl=5151.036, tp=5180.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='apply_main_signal', position=2494151443, position_by=0))
+2026-03-12 07:05:45,987 - INFO - Modified targets for 2494151453: sl=5151.036, tp=0.0, result=OrderSendResult(retcode=10009, deal=0, order=0, volume=0.03, price=5154.538, bid=5154.5380000000005, ask=5154.934, comment='', request_id=1838240951, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSDm', volume=0.0, price=0.0, stoplimit=0.0, sl=5151.036, tp=0.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='apply_main_signal', position=2494151453, position_by=0))
+2026-03-12 07:05:45,990 - INFO - Break-even monitor started for XAUUSDm buy. first_trigger=5160.0
+2026-03-12 07:06:40,008 - INFO - Break-even monitor for XAUUSDm stopped: no open positions.
+2026-03-12 07:06:40,579 - INFO - Break-even monitor for XAUUSDm stopped: no open positions.
+2026-03-12 07:15:45,641 - INFO - MT5 initialized successfully
+2026-03-12 07:15:45,663 - INFO - MT5 initialized successfully.
+2026-03-12 07:15:45,663 - INFO - Runner position has been enabled via UI.
+2026-03-12 07:15:48,252 - INFO - Listener thread started.
+2026-03-12 07:15:48,256 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-12 07:15:48,264 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-12 07:15:49,322 - INFO - Connected to channel: Demo_trading_trial
+2026-03-12 07:15:49,322 - INFO - Telegram listener started
+2026-03-12 07:16:01,338 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feBUY XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5160
+\u2705 TP 5165
+\u2705 TP 5170
+\u2705 TP 5175
+\u2705 TP 5180
+\u2705 TP 5185
+\u2705 TP 5190
+\u2705 TP open
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-12 07:16:01,346 - INFO - Resolved broker symbol XAUUSD -> XAUUSDm
+2026-03-12 07:16:01,347 - ERROR - Unhandled exception on handler
+Traceback (most recent call last):
+  File "C:\Users\Dope\Desktop\telegram_copy_trader\my_trading_bot\.venv\Lib\site-packages\telethon\client\updates.py", line 574, in _dispatch_update
+    await callback(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\my_trading_bot\telegram_listener.py", line 73, in handler
+    await new_message_listener(event)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\my_trading_bot\telegram_listener.py", line 51, in new_message_listener
+    edited_existing = apply_signal_to_existing_positions(signal)
+  File "c:\Users\Dope\Desktop\telegram_copy_trader\my_trading_bot\trade_engine.py", line 483, in apply_signal_to_existing_positions
+    if prep[0] is not None:
+       ^^^^
+NameError: name 'prep' is not defined
+2026-03-12 07:18:50,059 - INFO - MT5 initialized successfully
+2026-03-12 07:18:50,059 - INFO - MT5 initialized successfully.
+2026-03-12 07:18:50,059 - INFO - Runner position has been enabled via UI.
+2026-03-12 07:18:52,612 - INFO - Listener thread started.
+2026-03-12 07:18:52,613 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-12 07:18:52,619 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-12 07:18:53,142 - INFO - Connected to channel: Demo_trading_trial
+2026-03-12 07:18:53,142 - INFO - Telegram listener started
+2026-03-12 07:19:09,114 - INFO - Got difference for channel 3807191422 updates
+2026-03-12 07:19:09,116 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feBUY XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5160
+\u2705 TP 5165
+\u2705 TP 5170
+\u2705 TP 5175
+\u2705 TP 5180
+\u2705 TP 5185
+\u2705 TP 5190
+\u2705 TP open
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-12 07:19:09,123 - INFO - Resolved broker symbol XAUUSD -> XAUUSDm
+2026-03-12 07:19:09,126 - INFO - Planned sizing for XAUUSDm buy: risk_total_lot=0.1500, margin_total_lot=0.1500, planned_total_lot=0.1200, per_position_lot=0.0200, risk_override=None
+2026-03-12 07:19:09,126 - INFO - Executing trade XAUUSDm buy: planned_total_lot=0.1200, positions=6, used_tps=[5160.0, 5165.0, 5170.0, 5175.0, 5180.0], runner_enabled=True, fixed_sl=5147.535, per_position_lot=0.0200
+2026-03-12 07:19:09,126 - INFO - Opening TP position for XAUUSDm buy lot=0.0200 TP=5160.0 SL=5147.535
+2026-03-12 07:19:09,466 - INFO - Order executed XAUUSDm BUY
+2026-03-12 07:19:09,467 - INFO - Opening TP position for XAUUSDm buy lot=0.0200 TP=5165.0 SL=5147.535
+2026-03-12 07:19:09,807 - INFO - Order executed XAUUSDm BUY
+2026-03-12 07:19:09,808 - INFO - Opening TP position for XAUUSDm buy lot=0.0200 TP=5170.0 SL=5147.535
+2026-03-12 07:19:10,115 - INFO - Order executed XAUUSDm BUY
+2026-03-12 07:19:10,116 - INFO - Opening TP position for XAUUSDm buy lot=0.0200 TP=5175.0 SL=5147.535
+2026-03-12 07:19:10,447 - INFO - Order executed XAUUSDm BUY
+2026-03-12 07:19:10,447 - INFO - Opening TP position for XAUUSDm buy lot=0.0200 TP=5180.0 SL=5147.535
+2026-03-12 07:19:10,756 - INFO - Order executed XAUUSDm BUY
+2026-03-12 07:19:10,757 - INFO - Opening runner position for XAUUSDm buy lot=0.0200 SL=5147.535
+2026-03-12 07:19:11,088 - INFO - Order executed XAUUSDm BUY
+2026-03-12 07:19:11,089 - INFO - Runner position confirmed open for XAUUSDm (retcode=10009)
+2026-03-12 07:19:12,090 - INFO - Break-even monitor started for XAUUSDm buy. first_trigger=5160.0
+2026-03-12 07:19:12,098 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feBUY XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5160
+\u2705 TP 5165
+\u2705 TP 5170
+\u2705 TP 5175
+\u2705 TP 5180
+\u2705 TP 5185
+\u2705 TP 5190
+\u2705 TP open
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-12 07:19:12,098 - INFO - Applying main signal to existing positions for XAUUSDm buy: count=6, fixed_sl_distance=4.0, tps=[5160.0, 5165.0, 5170.0, 5175.0, 5180.0]
+2026-03-12 07:19:12,099 - INFO - Modified targets for 2494184903: sl=5147.535, tp=5160.0, result=OrderSendResult(retcode=10025, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No changes', request_id=0, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSDm', volume=0.0, price=0.0, stoplimit=0.0, sl=5147.535, tp=5160.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='apply_main_signal', position=2494184903, position_by=0))
+2026-03-12 07:19:12,100 - INFO - Modified targets for 2494184908: sl=5147.535, tp=5165.0, result=OrderSendResult(retcode=10025, deal=0, order=0, volume=0.0, price=0.0, bid=0.0, ask=0.0, comment='No changes', request_id=0, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSDm', volume=0.0, price=0.0, stoplimit=0.0, sl=5147.535, tp=5165.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='apply_main_signal', position=2494184908, position_by=0))
+2026-03-12 07:19:12,439 - INFO - Modified targets for 2494184928: sl=5147.5289999999995, tp=5170.0, result=OrderSendResult(retcode=10009, deal=0, order=0, volume=0.02, price=5151.133, bid=5151.1320000000005, ask=5151.528, comment='', request_id=1838240958, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSDm', volume=0.0, price=0.0, stoplimit=0.0, sl=5147.5289999999995, tp=5170.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='apply_main_signal', position=2494184928, position_by=0))
+2026-03-12 07:19:12,743 - INFO - Modified targets for 2494184938: sl=5147.5289999999995, tp=5175.0, result=OrderSendResult(retcode=10009, deal=0, order=0, volume=0.02, price=5151.132, bid=5151.1320000000005, ask=5151.528, comment='', request_id=1838240959, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSDm', volume=0.0, price=0.0, stoplimit=0.0, sl=5147.5289999999995, tp=5175.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='apply_main_signal', position=2494184938, position_by=0))
+2026-03-12 07:19:13,086 - INFO - Modified targets for 2494184942: sl=5147.5289999999995, tp=5180.0, result=OrderSendResult(retcode=10009, deal=0, order=0, volume=0.02, price=5150.666, bid=5150.371, ask=5150.767, comment='', request_id=1838240960, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSDm', volume=0.0, price=0.0, stoplimit=0.0, sl=5147.5289999999995, tp=5180.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='apply_main_signal', position=2494184942, position_by=0))
+2026-03-12 07:19:13,429 - INFO - Modified targets for 2494184944: sl=5147.5289999999995, tp=0.0, result=OrderSendResult(retcode=10009, deal=0, order=0, volume=0.02, price=5150.371, bid=5150.371, ask=5150.767, comment='', request_id=1838240961, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSDm', volume=0.0, price=0.0, stoplimit=0.0, sl=5147.5289999999995, tp=0.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='apply_main_signal', position=2494184944, position_by=0))
+2026-03-12 07:19:13,431 - INFO - Break-even monitor started for XAUUSDm buy. first_trigger=5160.0
+2026-03-12 07:20:59,465 - INFO - Break-even monitor for XAUUSDm stopped: no open positions.
+2026-03-12 07:21:00,127 - INFO - Break-even monitor for XAUUSDm stopped: no open positions.

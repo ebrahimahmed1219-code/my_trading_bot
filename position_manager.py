@@ -1,6 +1,12 @@
 import MetaTrader5 as mt5
 
-from mt5_connector import get_open_positions, modify_stop_loss, close_position
+from mt5_connector import (
+    cancel_pending_order,
+    close_position,
+    get_open_positions,
+    get_pending_orders,
+    modify_stop_loss,
+)
 from logger import log_event
 
 
@@ -43,14 +49,18 @@ def move_all_to_break_even(buffer=0.0):
 
 
 def close_all_positions():
-    """Close every open position"""
+    """Close every open position and cancel any pending reentry orders."""
 
-    positions = get_open_positions()
-
-    if not positions:
-        return
+    positions = get_open_positions() or []
+    pending_orders = get_pending_orders() or []
 
     for pos in positions:
         close_position(pos.ticket)
 
-    log_event("All positions closed")
+    for order in pending_orders:
+        cancel_pending_order(order.ticket)
+
+    if positions or pending_orders:
+        log_event(
+            f"All positions and pending orders closed: positions={len(positions)}, pending_orders={len(pending_orders)}"
+        )

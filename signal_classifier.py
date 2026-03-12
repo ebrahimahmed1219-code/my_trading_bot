@@ -37,8 +37,6 @@ def classify_message(message_text):
     if _is_short_gold_command(raw_text):
         return "PRE_TRADE"
 
-    # Check CLOSE_ALL before MOVE_SL: a message can contain both
-    # "close" and "break even" and close intent must win.
     close_keywords = [
         "close all",
         "close position",
@@ -55,6 +53,8 @@ def classify_message(message_text):
         "touched be",
         "touched breakeven",
         "touched break even",
+        "breakeven touched",
+        "break even touched",
     ]
     if any(kw in normalized for kw in close_keywords):
         return "CLOSE_ALL"

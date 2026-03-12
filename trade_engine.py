@@ -30,6 +30,8 @@ PENDING_PRE_SIGNAL = {
     "created_at": 0.0,
 }
 
+SYMBOL_CACHE = {}
+
 
 def set_runner_enabled(enabled: bool):
     """Enable/disable opening the runner position without TP."""
@@ -88,6 +90,62 @@ def _reentry_stop_loss(entry_price, side):
 def _selected_take_profits(take_profits):
     """Use only the first five TP values; the sixth slot is the runner."""
     return list((take_profits or [])[:TP_SLOT_COUNT])
+
+
+def _resolve_symbol_info(requested_symbol):
+    """Resolve broker-specific symbol names such as XAUUSDm or XAUUSD."""
+    cached_name = SYMBOL_CACHE.get(requested_symbol.upper())
+    if cached_name:
+        cached_info = mt5.symbol_info(cached_name)
+        if cached_info is not None:
+            return cached_info
+    exact = mt5.symbol_info(requested_symbol)
+    if exact is not None:
+        SYMBOL_CACHE[requested_symbol.upper()] = exact.name
+        return exact
+
+    try:
+        symbols = mt5.symbols_get()
+    except Exception:
+        symbols = None
+
+    if not symbols:
+        return None
+
+    requested_upper = requested_symbol.upper()
+    requested_compact = requested_upper.replace(".", "").replace("_", "")
+
+    def _score(name):
+        upper = name.upper()
+        compact = upper.replace(".", "").replace("_", "")
+        if upper == requested_upper:
+            return 0
+        if compact == requested_compact:
+            return 1
+        if upper.startswith(requested_upper):
+            return 2
+        if requested_upper in upper:
+            return 3
+        if compact.startswith(requested_compact):
+            return 4
+        if requested_compact in compact:
+            return 5
+        return 99
+
+    candidates = []
+    for symbol in symbols:
+        score = _score(symbol.name)
+        if score < 99:
+            candidates.append((score, len(symbol.name), symbol))
+
+    if not candidates:
+        return None
+
+    candidates.sort(key=lambda item: (item[0], item[1]))
+    resolved = candidates[0][2]
+    SYMBOL_CACHE[requested_symbol.upper()] = resolved.name
+    log_event(f"Resolved broker symbol {requested_symbol} -> {resolved.name}")
+    return resolved
 
 
 def _reentry_cutoff_tp(take_profits):
@@ -214,36 +272,37 @@ def _free_margin_or_balance(balance):
     return max(0.0, free_margin)
 
 
-def _prepare_symbol_and_account(symbol):
+def _prepare_symbol_and_account(requested_symbol):
     balance = get_account_balance()
     account_info = mt5.account_info()
     if account_info is None:
         if not initialize_mt5():
             log_event("MT5 account_info() unavailable and MT5 init failed.")
-            return None, None, None
+            return None, None, None, None
         account_info = mt5.account_info()
         if account_info is None:
             log_event("MT5 account_info() still unavailable after init.")
-            return None, None, None
+            return None, None, None, None
 
-    entry_price = get_symbol_price(symbol)
-    if entry_price is None:
-        log_event(f"Cannot get current market price for {symbol}.")
-        return None, None, None
-
-    symbol_info = mt5.symbol_info(symbol)
+    symbol_info = _resolve_symbol_info(requested_symbol)
     if not symbol_info:
-        log_event(f"Symbol info not found for {symbol}.")
-        return None, None, None
+        log_event(f"Symbol info not found for {requested_symbol}.")
+        return None, None, None, None
 
     if not symbol_info.visible:
-        mt5.symbol_select(symbol, True)
-        symbol_info = mt5.symbol_info(symbol)
+        mt5.symbol_select(symbol_info.name, True)
+        symbol_info = mt5.symbol_info(symbol_info.name)
         if not symbol_info or not symbol_info.visible:
-            log_event(f"Symbol {symbol} not visible/selected.")
-            return None, None, None
+            log_event(f"Symbol {requested_symbol} not visible/selected.")
+            return None, None, None, None
 
-    return balance, entry_price, symbol_info
+    resolved_symbol = symbol_info.name
+    entry_price = get_symbol_price(resolved_symbol)
+    if entry_price is None:
+        log_event(f"Cannot get current market price for {resolved_symbol}.")
+        return None, None, None, None
+
+    return balance, entry_price, symbol_info, resolved_symbol
 
 
 def _margin_per_lot(symbol, entry_price, symbol_info, side):
@@ -298,7 +357,7 @@ def _place_reentry_orders(symbol, side, reference_entry, take_profits):
     prep = _prepare_symbol_and_account(symbol)
     if prep[0] is None:
         return
-    balance, _, symbol_info = prep
+    balance, _, symbol_info, resolved_symbol = prep
 
     reentry_price = _reentry_entry(reference_entry, side)
     stop_loss = _reentry_stop_loss(reentry_price, side)
@@ -306,7 +365,7 @@ def _place_reentry_orders(symbol, side, reference_entry, take_profits):
         balance,
         reentry_price,
         stop_loss,
-        symbol,
+        resolved_symbol,
         symbol_info,
         side,
         risk_ratio_override=DEFAULT_REENTRY_RISK_RATIO,
@@ -316,13 +375,13 @@ def _place_reentry_orders(symbol, side, reference_entry, take_profits):
 
     selected_tps = _selected_take_profits(take_profits)
     log_event(
-        f"Placing reentry orders for {symbol} {side}: reentry_price={reentry_price}, "
+        f"Placing reentry orders for {resolved_symbol} {side}: reentry_price={reentry_price}, "
         f"sl={stop_loss}, planned_total_lot={planned_total_lot:.4f}, per_position_lot={per_position_lot:.4f}"
     )
 
     placed_any = False
     for tp in selected_tps:
-        result = open_pending_position(symbol, side.upper(), per_position_lot, reentry_price, stop_loss, tp)
+        result = open_pending_position(resolved_symbol, side.upper(), per_position_lot, reentry_price, stop_loss, tp)
         if result is not None and getattr(result, "retcode", None) in {
             mt5.TRADE_RETCODE_DONE,
             mt5.TRADE_RETCODE_PLACED,
@@ -330,37 +389,37 @@ def _place_reentry_orders(symbol, side, reference_entry, take_profits):
         }:
             placed_any = True
         else:
-            log_event(f"Pending TP reentry order could not be completed for {symbol} {side}. Stopping batch.")
+            log_event(f"Pending TP reentry order could not be completed for {resolved_symbol} {side}. Stopping batch.")
             break
 
     runner_should_open = RUNNER_ENABLED and TOTAL_POSITIONS > len(selected_tps)
     if runner_should_open and placed_any:
-        result = open_pending_position(symbol, side.upper(), per_position_lot, reentry_price, stop_loss, None)
+        result = open_pending_position(resolved_symbol, side.upper(), per_position_lot, reentry_price, stop_loss, None)
         if result is not None and getattr(result, "retcode", None) in {
             mt5.TRADE_RETCODE_DONE,
             mt5.TRADE_RETCODE_PLACED,
             mt5.TRADE_RETCODE_DONE_PARTIAL,
         }:
-            log_event(f"Pending runner reentry order placed for {symbol} {side}.")
+            log_event(f"Pending runner reentry order placed for {resolved_symbol} {side}.")
         else:
-            log_event(f"Pending runner reentry order failed for {symbol} {side}.")
+            log_event(f"Pending runner reentry order failed for {resolved_symbol} {side}.")
 
 
 def execute_pre_signal_trade(quick_signal):
     """Open six positions with fixed 4 USD SL and no TP."""
     global PENDING_PRE_SIGNAL
 
-    symbol = (quick_signal or {}).get("symbol") or SYMBOL_DEFAULT
+    requested_symbol = (quick_signal or {}).get("symbol") or SYMBOL_DEFAULT
     side = str((quick_signal or {}).get("side", "")).lower()
 
     if side not in {"buy", "sell"}:
         log_event(f"Invalid pre-signal side: {quick_signal}")
         return
 
-    prep = _prepare_symbol_and_account(symbol)
+    prep = _prepare_symbol_and_account(requested_symbol)
     if prep[0] is None:
         return
-    balance, entry_price, symbol_info = prep
+    balance, entry_price, symbol_info, symbol = prep
 
     stop_loss = _fixed_stop_loss(entry_price, side)
     per_position_lot, planned_total_lot = _plan_position_sizing(
@@ -409,16 +468,18 @@ def execute_pre_signal_trade(quick_signal):
 def apply_signal_to_existing_positions(signal_data):
     """Apply the main signal to matching pre-opened positions instead of opening duplicates."""
     global PENDING_PRE_SIGNAL
-
-    symbol = signal_data.get("symbol")
+    requested_symbol = signal_data.get("symbol")
     side = str(signal_data.get("side", "")).lower()
     take_profits = _selected_take_profits(signal_data.get("take_profits") or [])
 
-    if not symbol or side not in {"buy", "sell"}:
+    if not requested_symbol or side not in {"buy", "sell"}:
         return False
 
     if not take_profits:
         return False
+
+    symbol_info = _resolve_symbol_info(requested_symbol)
+    symbol = symbol_info.name if symbol_info is not None else requested_symbol
 
     positions = mt5.positions_get(symbol=symbol) or []
     position_type = _get_position_type_for_side(side)
@@ -474,22 +535,22 @@ def apply_signal_to_existing_positions(signal_data):
 
 def execute_trade(signal_data):
     """Open exactly six positions: five TP trades and one runner, all with fixed 4 USD SL."""
-    symbol = signal_data.get("symbol")
+    requested_symbol = signal_data.get("symbol")
     side = str(signal_data.get("side", "")).lower()
     take_profits = _selected_take_profits(signal_data.get("take_profits") or [])
 
-    if not symbol or side not in {"buy", "sell"}:
+    if not requested_symbol or side not in {"buy", "sell"}:
         log_event(f"Invalid trade signal: {signal_data}")
         return
 
     if not take_profits:
-        log_event(f"No usable take-profit levels provided for {symbol}. Aborting trade.")
+        log_event(f"No usable take-profit levels provided for {requested_symbol}. Aborting trade.")
         return
 
-    prep = _prepare_symbol_and_account(symbol)
+    prep = _prepare_symbol_and_account(requested_symbol)
     if prep[0] is None:
         return
-    balance, entry_price, symbol_info = prep
+    balance, entry_price, symbol_info, symbol = prep
 
     stop_loss = _fixed_stop_loss(entry_price, side)
     per_position_lot, planned_total_lot = _plan_position_sizing(
@@ -558,3 +619,7 @@ def execute_trade(signal_data):
         reference_entry = sum(pos.price_open for pos in tracked_positions) / len(tracked_positions)
 
     _start_break_even_monitor(symbol, side, first_tp, tracked_tickets, reference_entry, take_profits)
+
+
+
+

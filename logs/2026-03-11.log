@@ -223,3 +223,88 @@ Thanks AB, the Lord of Forex Trading \U0001fac5
 2026-03-11 09:56:43,114 - INFO - New message received: Reached 2k and lost it all due to poor risk management started from the bottom and we’re here again thanks to you \U0001f64f\U0001f64f you are not just a trader you are a legend, changing lives out here thank you!!
 2026-03-11 09:59:11,529 - INFO - Got difference for channel 1799443074 updates
 2026-03-11 10:20:48,037 - INFO - New message received: Marshal you are the undisputed King of Gold!\U0001f44c Your precision in the market is unmatched, and your signals are changing lives every day. Thank you for being a mentor and a true leader in the Forex world\U0001f64f Deep respect to the Goat of Gold Trading! May Allah reward you; I have kept you in my prayers (Du'a) during this holy month of Ramadan.
+2026-03-11 10:27:02,269 - INFO - MT5 initialized successfully
+2026-03-11 10:27:02,270 - INFO - MT5 initialized successfully.
+2026-03-11 10:27:02,270 - INFO - Runner position has been enabled via UI.
+2026-03-11 10:27:06,993 - INFO - Listener thread started.
+2026-03-11 10:27:06,997 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-11 10:27:07,025 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-11 10:27:07,603 - INFO - Connected to channel: 100$ to 30000$ year 2026
+2026-03-11 10:27:07,604 - INFO - Telegram listener started
+2026-03-11 10:42:07,541 - WARNING - Cannot get difference since the account is likely misusing the session: Could not find a matching Constructor ID for the TLObject that was supposed to be read with ID 83259464. See the FAQ for more details. Remaining bytes: b'd\x94%\x83  \x00\x00\x01\x00\x00\x00\xf5^+x\x00\x00\x00\x00\x8c z\x98v\x96\xd2d\x11Programmer \xe2\x99\xa8\xef\xb8\x8f\x00\x00\x11\x1cn\x1c\x02\x00\x00\x00\xc6\xd61\x1b\x1c\xb3\tK\x0f\x01\x08\x08\xccb\xa5G\xf7\xbb\xd1E\x15\xd1p?\x02\x00\x00\x00\x7f\xd2\x99i\x15\xc4\xb5\x1c\x07\x00\x00\x00G6\x07\xb4\x02\x00\x00\x00\nprogrammer\x00G6\x07\xb4\x02\x00\x00\x00\x07programG6\x07\xb4\x02\x00\x00\x00\x0bapplicationG6\x07\xb4\x02\x00\x00\x00\x06source\x00G6\x07\xb4\x02\x00\x00\x00\x08internet\x00\x00\x00G6\x07\xb4\x02\x00\x00\x00\nfreelancer\x00G6\x07\xb4\x02\x00\x00\x00\x07careers\x15\xc4\xb5\x1c\x00\x00\x00\x00>*l\xa5\xd2\x1e\x00\x00\x00\x00\x00\x00\xef8\xb1i\x12\x03\x00\x00\x03\x00\x00\x00'
+2026-03-11 10:42:07,541 - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2026-03-11 10:42:07,542 - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2026-03-11 10:42:07,548 - INFO - Not disconnecting (already have no connection)
+2026-03-11 20:02:33,504 - INFO - MT5 initialized successfully
+2026-03-11 20:02:33,505 - INFO - MT5 initialized successfully.
+2026-03-11 20:02:33,506 - INFO - Runner position has been enabled via UI.
+2026-03-11 20:02:38,211 - INFO - Listener thread started.
+2026-03-11 20:02:38,212 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-11 20:02:38,220 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-11 20:02:38,839 - INFO - Connected to channel: 100$ to 30000$ year 2026
+2026-03-11 20:02:38,840 - INFO - Telegram listener started
+2026-03-11 20:47:39,596 - INFO - Got difference for channel 1799443074 updates
+2026-03-11 21:47:39,640 - INFO - Got difference for channel 2629379150 updates
+2026-03-11 21:58:56,830 - INFO - MT5 initialization failed
+2026-03-11 21:58:56,831 - INFO - MT5 initialization failed. Check terminal and account settings.
+2026-03-11 21:58:56,831 - INFO - Runner position has been enabled via UI.
+2026-03-11 22:10:44,472 - INFO - MT5 initialized successfully
+2026-03-11 22:10:44,472 - INFO - MT5 initialized successfully.
+2026-03-11 22:10:44,472 - INFO - Runner position has been enabled via UI.
+2026-03-11 22:12:23,515 - INFO - Listener thread started.
+2026-03-11 22:12:23,517 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-11 22:12:23,523 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-11 22:12:24,068 - INFO - Connected to channel: 100$ to 30000$ year 2026
+2026-03-11 22:12:24,069 - INFO - Telegram listener started
+2026-03-11 22:57:24,278 - INFO - Got difference for channel 1300741465 updates
+2026-03-12 02:57:26,046 - INFO - Got difference for channel 1300741465 updates
+2026-03-12 03:45:54,030 - INFO - New message received: Good morning
+2026-03-12 03:47:06,902 - INFO - New message received: Sell gold
+2026-03-12 03:47:06,904 - INFO - Cannot get current market price for XAUUSD.
+2026-03-12 03:50:15,872 - INFO - New message received: RiskY traDE \u2620\ufe0f
+\U0001f449\U0001f3fesell XAUUSD now at 5153
+\U0001f6d1 SL 5175
+\u2705 TP 5148
+\u2705 TP 5143
+\u2705 TP 5138
+\u2705 TP 5133
+\u2705 TP 5128
+\u2705 TP 5123
+\u2705 TP 5118
+\u2705 TP open 
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set. 
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-12 03:50:15,876 - INFO - Cannot get current market price for XAUUSD.
+2026-03-12 03:51:38,073 - INFO - New message received: \u2705 Our first TP successfully hit \u2705 
+
+COPY TRADERS check your account if you trades is not SET TO TP AND SL CONTACT for manual traders you can put your self SUPPORT FOR HELP  another positions  STILL ON MAKE SURE
+2026-03-12 04:18:17,005 - INFO - New message received: \u2705 Our SECOND TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you sure you follow my instructions well
+2026-03-12 04:19:09,160 - INFO - New message received: Sorry gang 
+I put times same TP
+2026-03-12 04:19:09,170 - INFO - New message received: Sorry it was first TP lol
+2026-03-12 04:21:35,626 - INFO - New message received: 
+2026-03-12 04:42:26,634 - INFO - Got difference for channel 1523353611 updates
+2026-03-12 05:48:08,689 - INFO - New message received: \u2705 Our SECOND TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you you follow my instructions well
+2026-03-12 05:56:59,832 - INFO - New message received: Move stop loss to breakeven
+2026-03-12 06:27:05,397 - INFO - New message received: \u2705 Our 3rd TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-12 06:28:10,782 - INFO - New message received: Everyday we wake up and eat lol 
+Total madness
+2026-03-12 06:28:10,882 - INFO - New message received: #Rrrrrrraaaaaaaaaaa
+2026-03-12 06:28:54,263 - INFO - New message received: Send your account balance and trade to my team
+2026-03-12 06:30:15,265 - INFO - New message received: Congratulations again everyone
+2026-03-12 06:35:46,660 - INFO - New message received: I love when you guys eat 
+We are super blessed my plan is to make 500 millionaires in 2026 so far the plan is working let’s goooooooooooo
+2026-03-12 06:35:46,795 - INFO - New message received: Marshal I don't know what i have to say thank you my brother my big supporter you did a lot of things for us my god bless you \U0001f64f
+2026-03-12 06:36:26,639 - INFO - New message received: I love when you guys eat 
+We are super blessed my plan is to make 500 millionaires in 2026 so far the plan is working let’s goooooooooooo
+2026-03-12 06:42:27,273 - INFO - Got difference for account updates
