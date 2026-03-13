@@ -1,0 +1,190 @@
+2026-03-13 06:04:56,639 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-03-13 06:04:56,640 - INFO - cryptg module not installed and libssl not found, falling back to (slower) Python encryption
+2026-03-13 06:04:57,088 - INFO - Database initialized successfully
+2026-03-13 06:04:57,113 - INFO - MT5 initialized successfully
+2026-03-13 06:04:57,113 - INFO - Telegram Copy Trader Started
+2026-03-13 06:04:57,115 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-13 06:04:57,120 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-13 06:04:57,616 - INFO - Connected to channel: 100$ to 30000$ year 2026
+2026-03-13 06:04:57,617 - INFO - Telegram listener handler registered
+2026-03-13 06:04:57,617 - INFO - Telegram listener started
+2026-03-13 06:31:26,417 - INFO - New message received: Close at breakeven it will have big drawdown
+2026-03-13 06:51:25,569 - INFO - New message received: RiskY traDE \u2620\ufe0f
+\U0001f449\U0001f3fesell XAUUSD now at 5105 -5107
+\U0001f6d1 SL 5130
+\u2705 TP 5101
+\u2705 TP 5095
+\u2705 TP 5090
+\u2705 TP 5080
+\u2705 TP 5075
+\u2705 TP 5070
+\u2705 TP 5065
+\u2705 TP 5060
+\u2705 TP 5055
+\u2705 TP open 
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set. 
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-13 06:51:25,598 - INFO - Resolved broker symbol XAUUSD -> XAUUSDm
+2026-03-13 06:51:25,599 - INFO - Planned sizing for XAUUSDm sell: risk_total_lot=0.2000, margin_total_lot=0.2000, planned_total_lot=0.1800, per_position_lot=0.0300, risk_override=None
+2026-03-13 06:51:25,600 - INFO - Executing trade XAUUSDm sell: planned_total_lot=0.1800, positions=6, used_tps=[5101.0, 5095.0, 5090.0, 5080.0, 5075.0], runner_enabled=True, fixed_sl=5107.151, per_position_lot=0.0300
+2026-03-13 06:51:25,600 - INFO - Opening TP position for XAUUSDm sell lot=0.0300 TP=5101.0 SL=5107.151
+2026-03-13 06:51:25,933 - INFO - Order executed XAUUSDm SELL
+2026-03-13 06:51:25,933 - INFO - Opening TP position for XAUUSDm sell lot=0.0300 TP=5095.0 SL=5107.151
+2026-03-13 06:51:26,234 - INFO - Order executed XAUUSDm SELL
+2026-03-13 06:51:26,235 - INFO - Opening TP position for XAUUSDm sell lot=0.0300 TP=5090.0 SL=5107.151
+2026-03-13 06:51:26,560 - INFO - Order executed XAUUSDm SELL
+2026-03-13 06:51:26,560 - INFO - Opening TP position for XAUUSDm sell lot=0.0300 TP=5080.0 SL=5107.151
+2026-03-13 06:51:26,915 - INFO - Order executed XAUUSDm SELL
+2026-03-13 06:51:26,915 - INFO - Opening TP position for XAUUSDm sell lot=0.0300 TP=5075.0 SL=5107.151
+2026-03-13 06:51:27,248 - INFO - Order executed XAUUSDm SELL
+2026-03-13 06:51:27,249 - INFO - Opening runner position for XAUUSDm sell lot=0.0300 SL=5107.151
+2026-03-13 06:51:27,560 - INFO - Order executed XAUUSDm SELL
+2026-03-13 06:51:27,561 - INFO - Runner position confirmed open for XAUUSDm (retcode=10009)
+2026-03-13 06:51:28,565 - INFO - Break-even monitor started for XAUUSDm sell. first_trigger=5101.0
+2026-03-13 06:52:36,593 - INFO - XAUUSDm BID 5101.0 reached TP1 trigger 5101.0. Moving all SLs to exact break-even.
+2026-03-13 06:52:36,894 - INFO - Modified targets for 2499459714: sl=5102.755, tp=5101.0, result=OrderSendResult(retcode=10009, deal=0, order=0, volume=0.03, price=5101.396, bid=5101.0, ask=5101.396, comment='', request_id=2962628948, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSDm', volume=0.0, price=0.0, stoplimit=0.0, sl=5102.755, tp=5101.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=2499459714, position_by=0))
+2026-03-13 06:52:36,894 - INFO - Break-even SL update: ticket=2499459714 symbol=XAUUSDm type=1 old_sl=5107.151 new_sl=5102.755 buffer=0.0
+2026-03-13 06:52:37,223 - INFO - Modified targets for 2499459719: sl=5102.684, tp=5095.0, result=OrderSendResult(retcode=10009, deal=0, order=0, volume=0.03, price=5101.396, bid=5101.0, ask=5101.396, comment='', request_id=2962628949, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSDm', volume=0.0, price=0.0, stoplimit=0.0, sl=5102.684, tp=5095.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=2499459719, position_by=0))
+2026-03-13 06:52:37,225 - INFO - Break-even SL update: ticket=2499459719 symbol=XAUUSDm type=1 old_sl=5107.151 new_sl=5102.684 buffer=0.0
+2026-03-13 06:52:37,510 - INFO - Modified targets for 2499459725: sl=5102.684, tp=5090.0, result=OrderSendResult(retcode=10009, deal=0, order=0, volume=0.03, price=5101.494, bid=5101.098, ask=5101.494, comment='', request_id=2962628950, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSDm', volume=0.0, price=0.0, stoplimit=0.0, sl=5102.684, tp=5090.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=2499459725, position_by=0))
+2026-03-13 06:52:37,512 - INFO - Break-even SL update: ticket=2499459725 symbol=XAUUSDm type=1 old_sl=5107.151 new_sl=5102.684 buffer=0.0
+2026-03-13 06:52:37,841 - INFO - Modified targets for 2499459736: sl=5102.684, tp=5080.0, result=OrderSendResult(retcode=10009, deal=0, order=0, volume=0.03, price=5101.459, bid=5101.063, ask=5101.459, comment='', request_id=2962628951, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSDm', volume=0.0, price=0.0, stoplimit=0.0, sl=5102.684, tp=5080.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=2499459736, position_by=0))
+2026-03-13 06:52:37,842 - INFO - Break-even SL update: ticket=2499459736 symbol=XAUUSDm type=1 old_sl=5107.151 new_sl=5102.684 buffer=0.0
+2026-03-13 06:52:38,131 - INFO - Modified targets for 2499459740: sl=5102.773, tp=5075.0, result=OrderSendResult(retcode=10009, deal=0, order=0, volume=0.03, price=5101.459, bid=5101.063, ask=5101.459, comment='', request_id=2962628952, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSDm', volume=0.0, price=0.0, stoplimit=0.0, sl=5102.773, tp=5075.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=2499459740, position_by=0))
+2026-03-13 06:52:38,132 - INFO - Break-even SL update: ticket=2499459740 symbol=XAUUSDm type=1 old_sl=5107.151 new_sl=5102.773 buffer=0.0
+2026-03-13 06:52:38,439 - INFO - Modified targets for 2499459742: sl=5102.773, tp=0.0, result=OrderSendResult(retcode=10009, deal=0, order=0, volume=0.03, price=5101.459, bid=5101.101, ask=5101.460999999999, comment='', request_id=2962628953, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSDm', volume=0.0, price=0.0, stoplimit=0.0, sl=5102.773, tp=0.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=2499459742, position_by=0))
+2026-03-13 06:52:38,439 - INFO - Break-even SL update: ticket=2499459742 symbol=XAUUSDm type=1 old_sl=5107.151 new_sl=5102.773 buffer=0.0
+2026-03-13 06:52:38,440 - INFO - All positions moved to exact break-even
+2026-03-13 06:52:38,441 - INFO - Reentry monitor armed for XAUUSDm sell. tracked_tickets=[2499459714, 2499459719, 2499459725, 2499459736, 2499459740, 2499459742], reference_entry=5102.7255000000005, cutoff_tp=5080.0
+2026-03-13 06:54:05,454 - INFO - New message received: \u2705 Our first TP successfully hit \u2705 
+
+COPY TRADERS check your account if you trades is not SET TO TP AND SL CONTACT for manual traders you can put your self SUPPORT FOR HELP  another positions  STILL ON MAKE SURE
+2026-03-13 06:56:17,874 - WARNING - Server closed the connection: [WinError 121] The semaphore timeout period has expired
+2026-03-13 06:56:17,875 - INFO - Connection closed while receiving data: [WinError 121] The semaphore timeout period has expired
+2026-03-13 06:56:17,876 - INFO - Closing current connection to begin reconnect...
+2026-03-13 06:56:17,876 - INFO - <class 'OSError'> during disconnect: [WinError 121] The semaphore timeout period has expired
+2026-03-13 06:56:17,877 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-13 06:56:17,960 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-13 06:57:21,938 - WARNING - Server closed the connection: [WinError 121] The semaphore timeout period has expired
+2026-03-13 06:57:21,939 - INFO - Connection closed while receiving data: [WinError 121] The semaphore timeout period has expired
+2026-03-13 06:57:21,940 - INFO - Closing current connection to begin reconnect...
+2026-03-13 06:57:21,940 - INFO - <class 'OSError'> during disconnect: [WinError 121] The semaphore timeout period has expired
+2026-03-13 06:57:21,941 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-13 06:57:31,946 - WARNING - Attempt 1 at connecting failed: TimeoutError: 
+2026-03-13 06:57:42,948 - WARNING - Attempt 2 at connecting failed: TimeoutError: 
+2026-03-13 06:57:47,043 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-13 06:58:17,944 - WARNING - Server closed the connection: [WinError 121] The semaphore timeout period has expired
+2026-03-13 06:58:17,945 - INFO - Connection closed while receiving data: [WinError 121] The semaphore timeout period has expired
+2026-03-13 06:58:17,945 - INFO - Closing current connection to begin reconnect...
+2026-03-13 06:58:17,946 - INFO - <class 'OSError'> during disconnect: [WinError 121] The semaphore timeout period has expired
+2026-03-13 06:58:17,946 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-13 06:58:17,979 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-13 06:59:00,595 - INFO - Tracked break-even batch for XAUUSDm sell has closed before TP4. Placing pending reentry orders.
+2026-03-13 06:59:00,596 - INFO - Planned sizing for XAUUSDm sell: risk_total_lot=0.1500, margin_total_lot=0.1500, planned_total_lot=0.1200, per_position_lot=0.0200, risk_override=0.4
+2026-03-13 06:59:00,596 - INFO - Placing reentry orders for XAUUSDm sell: reentry_price=5107.7255000000005, sl=5110.7255000000005, planned_total_lot=0.1200, per_position_lot=0.0200
+2026-03-13 06:59:01,013 - INFO - Pending order placed for XAUUSDm SELL at 5107.7255000000005 with sl=5110.7255000000005 tp=5101.0
+2026-03-13 06:59:01,447 - INFO - Pending order placed for XAUUSDm SELL at 5107.7255000000005 with sl=5110.7255000000005 tp=5095.0
+2026-03-13 06:59:01,914 - INFO - Pending order placed for XAUUSDm SELL at 5107.7255000000005 with sl=5110.7255000000005 tp=5090.0
+2026-03-13 06:59:02,336 - INFO - Pending order placed for XAUUSDm SELL at 5107.7255000000005 with sl=5110.7255000000005 tp=5080.0
+2026-03-13 06:59:02,786 - INFO - Pending order placed for XAUUSDm SELL at 5107.7255000000005 with sl=5110.7255000000005 tp=5075.0
+2026-03-13 06:59:03,208 - INFO - Pending order placed for XAUUSDm SELL at 5107.7255000000005 with sl=5110.7255000000005 tp=0.0
+2026-03-13 06:59:03,209 - INFO - Pending runner reentry order placed for XAUUSDm sell.
+2026-03-13 07:04:58,012 - INFO - Got difference for channel 1799443074 updates
+2026-03-13 07:25:12,321 - INFO - New message received: \u2705 Our SECOND TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you sure you follow my instructions well
+2026-03-13 07:26:17,332 - INFO - New message received: Move stop loss to breakeven
+2026-03-13 07:29:07,392 - INFO - New message received: \u2705 Our 3rd TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-13 07:30:58,796 - INFO - New message received: Thank you GOD 
+We are back !!!!
+Congratulations again family 
+You can wait without risk now
+2026-03-13 07:34:58,156 - INFO - Got difference for channel 1799443074 updates
+2026-03-13 07:37:17,682 - INFO - New message received: Send you results and account balance to my team
+2026-03-13 07:39:28,317 - INFO - New message received: Fix the Tp family
+2026-03-13 07:40:05,742 - INFO - New message received: Fix starting TP 4
+2026-03-13 07:40:05,889 - INFO - New message received: \u2705 TP 5085
+\u2705 TP 5080
+\u2705 TP 5075
+\u2705 TP 5070
+\u2705 TP 5065
+\u2705 TP 5060
+\u2705 TP open
+2026-03-13 08:04:42,333 - INFO - New message received: \u2705 Our 4th TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-13 08:04:58,339 - INFO - Got difference for channel 1799443074 updates
+2026-03-13 08:21:12,436 - INFO - New message received: \u2705 Our 5th TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-13 08:21:42,537 - INFO - New message received: \u2705 Our 6th TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-13 08:21:59,515 - INFO - New message received: #Rrrrrrraaaaaaaaaaa
+2026-03-13 08:25:47,652 - INFO - New message received: Congratulations everyone 
+This is trading !!!!
+Send your results to my team
+2026-03-13 09:04:16,518 - INFO - New message received: \u2705 Our 7th TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-13 09:04:30,327 - INFO - New message received: #Rrrrrrraaaaaaaaaaa
+2026-03-13 09:07:47,321 - INFO - New message received: Report your account balance to my team for next week 
+I will go according to your size 
+Not like last week we manage to 
+make money 
+Next week it’s going to be crazy 
+Holding the last positions 
+
+So far your results is amazing make sure everyone send your balance to my team
+2026-03-13 09:31:31,325 - INFO - New message received: \u2705 Our 8th TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-13 09:53:28,240 - INFO - Got difference for account updates
+2026-03-13 09:56:29,113 - INFO - New message received: We take 
+46 trades 
+We have 2 stop loss 
+We have 7 early exit 
+And we have 37 win trades 
+
+Over 8000 pips secured just in 2 weeks 
+
+This is a new record for me 
+Crazy 
+
+
+So many people life changed 
+I received so many testimony and kind words from each one of you that make me push more and more 
+
+Even though I finish the challenge I will continue to help each one of you 
+Today we recovered from yesterday loss and make even more 
+
+Next week 
+1 I will try not to loose a single trade 
+
+2 I will finish the second account I start and start again from 100$ 
+
+3 I will give 4 people a chance to win copy trading place for new challenges 
+
+Always go with a proper risk most of you guys learned that we can’t win always but we always win more with 
+Ab Marshall simple 
+
+So far over 100 people made at list 1-5 million Ethiopian birr 
+I will send all testimony from all once we finish this 
+
+Other I see some people loss their money with 1 stop loss that disappoint me because you need discipline 
+
+
+See you all next week 
+
+Be readyyyyyyyyyyyyyyy
+2026-03-13 10:08:28,417 - INFO - Got difference for channel 1799443074 updates

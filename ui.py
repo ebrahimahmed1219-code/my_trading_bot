@@ -185,7 +185,14 @@ class CopyTraderUI:
 
             task = self.loop.create_task(runner())
             self.loop.run_forever()
-            if not task.done():
+            if task.done():
+                try:
+                    exc = task.exception()
+                except asyncio.CancelledError:
+                    exc = None
+                if exc is not None:
+                    self.append_log(f"Listener task stopped with error: {exc}")
+            else:
                 task.cancel()
                 try:
                     self.loop.run_until_complete(task)
@@ -234,3 +241,4 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = CopyTraderUI(root)
     root.mainloop()
+

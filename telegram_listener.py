@@ -1,6 +1,9 @@
-from telethon import TelegramClient, events
+import asyncio
 
-from config import TELEGRAM_API_ID, TELEGRAM_API_HASH, TELEGRAM_CHANNEL
+from telethon import TelegramClient, events
+from telethon.errors.common import TypeNotFoundError
+
+from config import TELEGRAM_API_ID, TELEGRAM_API_HASH, TELEGRAM_CHANNEL, TELEGRAM_SESSION_NAME
 from database import message_exists, store_message
 from logger import log_event
 from position_manager import close_all_positions, move_all_to_break_even
@@ -12,13 +15,15 @@ from trade_engine import (
     execute_trade,
 )
 
+RECONNECT_DELAY_SECONDS = 5
+
 # Create Telegram client
-client = TelegramClient("session", TELEGRAM_API_ID, TELEGRAM_API_HASH)
+client = TelegramClient(TELEGRAM_SESSION_NAME, TELEGRAM_API_ID, TELEGRAM_API_HASH)
+_listener_registered = False
 
 
-# Resolve the invite link (for private channels)
 async def get_channel_entity():
-    await client.start()
+    """Resolve the configured Telegram channel entity."""
     try:
         entity = await client.get_entity(TELEGRAM_CHANNEL)
         log_event(f"Connected to channel: {entity.title}")
@@ -28,8 +33,8 @@ async def get_channel_entity():
         return None
 
 
-# Listener function
 async def new_message_listener(event):
+    """Handle incoming Telegram messages."""
     message_id = event.id
     message_text = event.raw_text
 
@@ -61,16 +66,47 @@ async def new_message_listener(event):
     store_message(message_id, message_text)
 
 
-# Start listener
 async def start_listener():
-    channel = await get_channel_entity()
-    if not channel:
-        log_event("Cannot start listener without valid channel")
-        return
+    """Run the Telegram listener and reconnect automatically on disconnect."""
+    global _listener_registered
 
-    @client.on(events.NewMessage(chats=channel))
-    async def handler(event):
-        await new_message_listener(event)
+    while True:
+        try:
+            await client.start()
+            channel = await get_channel_entity()
+            if not channel:
+                log_event(
+                    f"Cannot start listener without valid channel. Retrying in {RECONNECT_DELAY_SECONDS}s."
+                )
+                await asyncio.sleep(RECONNECT_DELAY_SECONDS)
+                continue
 
-    log_event("Telegram listener started")
-    await client.run_until_disconnected()
+            if not _listener_registered:
+                @client.on(events.NewMessage(chats=channel))
+                async def handler(event):
+                    await new_message_listener(event)
+
+                _listener_registered = True
+                log_event("Telegram listener handler registered")
+
+            log_event("Telegram listener started")
+            await client.run_until_disconnected()
+            log_event(
+                f"Telegram listener disconnected. Reconnecting in {RECONNECT_DELAY_SECONDS}s."
+            )
+
+        except TypeNotFoundError as e:
+            log_event(
+                "Telegram session decode error. Stop every other bot using this Telegram session, "
+                f"delete {TELEGRAM_SESSION_NAME}.session, sign in again, and then restart the bot. "
+                f"Details: {e}"
+            )
+            try:
+                await client.disconnect()
+            except Exception:
+                pass
+
+        except Exception as e:
+            log_event(f"Telegram listener error: {e}. Reconnecting in {RECONNECT_DELAY_SECONDS}s.")
+
+        await asyncio.sleep(RECONNECT_DELAY_SECONDS)

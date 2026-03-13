@@ -6,6 +6,7 @@ import MetaTrader5 as mt5
 from config import FIXED_STOP_LOSS_DISTANCE, SYMBOL_DEFAULT, TOTAL_POSITIONS
 from logger import log_event
 from mt5_connector import (
+    cancel_pending_order,
     get_account_balance,
     get_symbol_price,
     initialize_mt5,
@@ -20,8 +21,8 @@ from risk_manager import DEFAULT_REENTRY_RISK_RATIO, calculate_lot_size
 RUNNER_ENABLED = True
 RUNNER_SLOT_INDEX = TOTAL_POSITIONS - 1
 TP_SLOT_COUNT = TOTAL_POSITIONS - 1
-REENTRY_OFFSET = 5.0
-REENTRY_STOP_LOSS_DISTANCE = 3.0
+REENTRY_OFFSET = 4.0
+REENTRY_STOP_LOSS_DISTANCE = 4.0
 
 PENDING_PRE_SIGNAL = {
     "symbol": None,
@@ -31,6 +32,7 @@ PENDING_PRE_SIGNAL = {
 }
 
 SYMBOL_CACHE = {}
+REENTRY_CANCEL_DISTANCE = 25.0
 
 
 def set_runner_enabled(enabled: bool):
@@ -78,12 +80,12 @@ def _fixed_stop_loss(entry_price, side):
 
 
 def _reentry_entry(reference_entry, side):
-    """Return reentry pending price using the requested +/-5 rule."""
+    """Return reentry pending price using the requested +/-4 rule."""
     return reference_entry - REENTRY_OFFSET if side == "buy" else reference_entry + REENTRY_OFFSET
 
 
 def _reentry_stop_loss(entry_price, side):
-    """Return SL exactly 3 USD away from the reentry price."""
+    """Return SL exactly 4 USD away from the reentry price."""
     return entry_price - REENTRY_STOP_LOSS_DISTANCE if side == "buy" else entry_price + REENTRY_STOP_LOSS_DISTANCE
 
 
@@ -260,6 +262,51 @@ def _start_reentry_monitor(symbol, side, tracked_tickets, reference_entry, take_
     Thread(target=_monitor, daemon=True).start()
 
 
+
+def _start_pending_reentry_guard(symbol, side, pending_tickets, reentry_price):
+    """Cancel pending reentry orders if price runs 25 USD away from their entry."""
+
+    def _monitor():
+        if mt5.account_info() is None:
+            initialize_mt5()
+
+        tracked_ticket_set = set(pending_tickets)
+        log_event(
+            f"Pending reentry guard armed for {symbol} {side}. "
+            f"tracked_tickets={sorted(tracked_ticket_set)}, reentry_price={reentry_price}, "
+            f"cancel_distance={REENTRY_CANCEL_DISTANCE}"
+        )
+
+        while True:
+            orders = mt5.orders_get(symbol=symbol) or []
+            open_order_tickets = {order.ticket for order in orders}
+            remaining = tracked_ticket_set.intersection(open_order_tickets)
+            if not remaining:
+                log_event(f"Pending reentry guard stopped for {symbol} {side}: no tracked pending orders remain.")
+                break
+
+            tick = mt5.symbol_info_tick(symbol)
+            if tick is None:
+                time.sleep(2)
+                continue
+
+            price = (tick.ask or tick.last) if side == "buy" else (tick.bid or tick.last)
+            if price is None:
+                time.sleep(2)
+                continue
+
+            if abs(price - reentry_price) >= REENTRY_CANCEL_DISTANCE:
+                log_event(
+                    f"Cancelling pending reentry orders for {symbol} {side}: current_price={price}, "
+                    f"reentry_price={reentry_price}, distance={abs(price - reentry_price):.2f}"
+                )
+                for ticket in sorted(remaining):
+                    cancel_pending_order(ticket)
+                break
+
+            time.sleep(2)
+
+    Thread(target=_monitor, daemon=True).start()
 def _free_margin_or_balance(balance):
     acc = mt5.account_info()
     if acc is None:
@@ -353,7 +400,7 @@ def _plan_position_sizing(balance, entry_price, stop_loss, symbol, symbol_info, 
 
 
 def _place_reentry_orders(symbol, side, reference_entry, take_profits):
-    """Place 6 pending reentry orders using 40% risk and 3 USD SL distance."""
+    """Place 6 pending reentry orders using 30% risk and 4 USD SL distance."""
     prep = _prepare_symbol_and_account(symbol)
     if prep[0] is None:
         return
@@ -380,6 +427,7 @@ def _place_reentry_orders(symbol, side, reference_entry, take_profits):
     )
 
     placed_any = False
+    pending_tickets = []
     for tp in selected_tps:
         result = open_pending_position(resolved_symbol, side.upper(), per_position_lot, reentry_price, stop_loss, tp)
         if result is not None and getattr(result, "retcode", None) in {
@@ -388,6 +436,8 @@ def _place_reentry_orders(symbol, side, reference_entry, take_profits):
             mt5.TRADE_RETCODE_DONE_PARTIAL,
         }:
             placed_any = True
+            if getattr(result, "order", 0):
+                pending_tickets.append(result.order)
         else:
             log_event(f"Pending TP reentry order could not be completed for {resolved_symbol} {side}. Stopping batch.")
             break
@@ -400,9 +450,14 @@ def _place_reentry_orders(symbol, side, reference_entry, take_profits):
             mt5.TRADE_RETCODE_PLACED,
             mt5.TRADE_RETCODE_DONE_PARTIAL,
         }:
+            if getattr(result, "order", 0):
+                pending_tickets.append(result.order)
             log_event(f"Pending runner reentry order placed for {resolved_symbol} {side}.")
         else:
             log_event(f"Pending runner reentry order failed for {resolved_symbol} {side}.")
+
+    if pending_tickets:
+        _start_pending_reentry_guard(resolved_symbol, side, pending_tickets, reentry_price)
 
 
 def execute_pre_signal_trade(quick_signal):
@@ -619,6 +674,9 @@ def execute_trade(signal_data):
         reference_entry = sum(pos.price_open for pos in tracked_positions) / len(tracked_positions)
 
     _start_break_even_monitor(symbol, side, first_tp, tracked_tickets, reference_entry, take_profits)
+
+
+
 
 
 

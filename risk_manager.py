@@ -1,13 +1,13 @@
 import MetaTrader5 as mt5
 
 
-DEFAULT_REENTRY_RISK_RATIO = 0.40
+DEFAULT_REENTRY_RISK_RATIO = 0.30
 
 
 def _risk_ratio_for_balance(account_balance):
     """Return the configured risk ratio for the current account balance."""
     if account_balance < 101:
-        return 0.60
+        return 0.50
     if account_balance < 200:
         return 0.75
     if account_balance < 500:
@@ -77,3 +77,4 @@ def calculate_lot_size(account_balance, entry_price, stop_loss_price, symbol="XA
     lot = min(lot, max_lot_by_margin)
 
     return round(max(0.0, lot), 2)
+
