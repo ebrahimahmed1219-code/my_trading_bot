@@ -6,23 +6,20 @@ import MetaTrader5 as mt5
 from config import FIXED_STOP_LOSS_DISTANCE, SYMBOL_DEFAULT, TOTAL_POSITIONS
 from logger import log_event
 from mt5_connector import (
-    cancel_pending_order,
     get_account_balance,
     get_symbol_price,
     initialize_mt5,
     modify_position_targets,
-    open_pending_position,
     open_position,
 )
 from position_manager import move_all_to_break_even
-from risk_manager import DEFAULT_REENTRY_RISK_RATIO, calculate_lot_size
+from risk_manager import calculate_lot_size
 
 
 RUNNER_ENABLED = True
 RUNNER_SLOT_INDEX = TOTAL_POSITIONS - 1
 TP_SLOT_COUNT = TOTAL_POSITIONS - 1
-REENTRY_OFFSET = 4.0
-REENTRY_STOP_LOSS_DISTANCE = 4.0
+NO_MONEY_RETCODE = getattr(mt5, "TRADE_RETCODE_NO_MONEY", 10019)
 
 PENDING_PRE_SIGNAL = {
     "symbol": None,
@@ -32,7 +29,6 @@ PENDING_PRE_SIGNAL = {
 }
 
 SYMBOL_CACHE = {}
-REENTRY_CANCEL_DISTANCE = 25.0
 
 
 def set_runner_enabled(enabled: bool):
@@ -77,16 +73,6 @@ def _get_side_order_type(side):
 def _fixed_stop_loss(entry_price, side):
     """Return SL exactly 4 USD away from entry."""
     return entry_price - FIXED_STOP_LOSS_DISTANCE if side == "buy" else entry_price + FIXED_STOP_LOSS_DISTANCE
-
-
-def _reentry_entry(reference_entry, side):
-    """Return reentry pending price using the requested +/-4 rule."""
-    return reference_entry - REENTRY_OFFSET if side == "buy" else reference_entry + REENTRY_OFFSET
-
-
-def _reentry_stop_loss(entry_price, side):
-    """Return SL exactly 4 USD away from the reentry price."""
-    return entry_price - REENTRY_STOP_LOSS_DISTANCE if side == "buy" else entry_price + REENTRY_STOP_LOSS_DISTANCE
 
 
 def _selected_take_profits(take_profits):
@@ -150,24 +136,23 @@ def _resolve_symbol_info(requested_symbol):
     return resolved
 
 
-def _reentry_cutoff_tp(take_profits):
-    """Reentry stays active only until TP4 is reached."""
-    if not take_profits:
-        return None
-    if len(take_profits) >= 4:
-        return take_profits[3]
-    return take_profits[-1]
-
-
 def _start_break_even_monitor(symbol, side, first_trigger_price, tracked_tickets=None, reference_entry=None, take_profits=None):
-    """Move tracked positions to exact break-even once TP1 is hit, then arm reentry watcher."""
+    """Move tracked positions to entry +/- 2.5 at TP1, then exact break-even at TP2."""
 
     def _monitor():
         if mt5.account_info() is None:
             initialize_mt5()
 
+        second_trigger_price = None
+        if take_profits and len(take_profits) >= 2:
+            second_trigger_price = take_profits[1]
+        else:
+            second_trigger_price = first_trigger_price
+
+        first_stage_done = False
         log_event(
-            f"Break-even monitor started for {symbol} {side}. first_trigger={first_trigger_price}"
+            f"Break-even monitor started for {symbol} {side}. "
+            f"first_trigger={first_trigger_price}, second_trigger={second_trigger_price}"
         )
 
         while True:
@@ -186,123 +171,39 @@ def _start_break_even_monitor(symbol, side, first_trigger_price, tracked_tickets
                 if price is None:
                     time.sleep(2)
                     continue
-                if price >= first_trigger_price:
+                if not first_stage_done and price >= first_trigger_price:
                     log_event(
                         f"{symbol} ASK {price} reached TP1 trigger {first_trigger_price}. "
+                        "Moving all SLs to entry - 2.5."
+                    )
+                    move_all_to_break_even(2.5, symbol=symbol, tickets=tracked_tickets)
+                    first_stage_done = True
+                elif first_stage_done and price >= second_trigger_price:
+                    log_event(
+                        f"{symbol} ASK {price} reached TP2 trigger {second_trigger_price}. "
                         "Moving all SLs to exact break-even."
                     )
                     move_all_to_break_even(0.0, symbol=symbol, tickets=tracked_tickets)
-                    if tracked_tickets and reference_entry is not None and take_profits:
-                        _start_reentry_monitor(symbol, side, tracked_tickets, reference_entry, take_profits)
                     break
             else:
                 price = tick.bid or tick.last
                 if price is None:
                     time.sleep(2)
                     continue
-                if price <= first_trigger_price:
+                if not first_stage_done and price <= first_trigger_price:
                     log_event(
                         f"{symbol} BID {price} reached TP1 trigger {first_trigger_price}. "
+                        "Moving all SLs to entry + 2.5."
+                    )
+                    move_all_to_break_even(2.5, symbol=symbol, tickets=tracked_tickets)
+                    first_stage_done = True
+                elif first_stage_done and price <= second_trigger_price:
+                    log_event(
+                        f"{symbol} BID {price} reached TP2 trigger {second_trigger_price}. "
                         "Moving all SLs to exact break-even."
                     )
                     move_all_to_break_even(0.0, symbol=symbol, tickets=tracked_tickets)
-                    if tracked_tickets and reference_entry is not None and take_profits:
-                        _start_reentry_monitor(symbol, side, tracked_tickets, reference_entry, take_profits)
                     break
-
-            time.sleep(2)
-
-    Thread(target=_monitor, daemon=True).start()
-
-
-def _start_reentry_monitor(symbol, side, tracked_tickets, reference_entry, take_profits):
-    """Wait for the break-even batch to close unless TP4 is reached first."""
-
-    def _monitor():
-        if mt5.account_info() is None:
-            initialize_mt5()
-
-        tracked_ticket_set = set(tracked_tickets)
-        cutoff_tp = _reentry_cutoff_tp(take_profits)
-        log_event(
-            f"Reentry monitor armed for {symbol} {side}. "
-            f"tracked_tickets={sorted(tracked_ticket_set)}, reference_entry={reference_entry}, cutoff_tp={cutoff_tp}"
-        )
-
-        while True:
-            positions = mt5.positions_get(symbol=symbol) or []
-            open_tickets = {pos.ticket for pos in positions}
-            remaining = tracked_ticket_set.intersection(open_tickets)
-            if not remaining:
-                log_event(
-                    f"Tracked break-even batch for {symbol} {side} has closed before TP4. Placing pending reentry orders."
-                )
-                _place_reentry_orders(symbol, side, reference_entry, take_profits)
-                break
-
-            tick = mt5.symbol_info_tick(symbol)
-            if tick is not None and cutoff_tp is not None:
-                if side == "buy":
-                    price = tick.ask or tick.last
-                    if price is not None and price >= cutoff_tp:
-                        log_event(
-                            f"Reentry cancelled for {symbol} {side}: TP4 {cutoff_tp} was reached before break-even close."
-                        )
-                        break
-                else:
-                    price = tick.bid or tick.last
-                    if price is not None and price <= cutoff_tp:
-                        log_event(
-                            f"Reentry cancelled for {symbol} {side}: TP4 {cutoff_tp} was reached before break-even close."
-                        )
-                        break
-
-            time.sleep(2)
-
-    Thread(target=_monitor, daemon=True).start()
-
-
-
-def _start_pending_reentry_guard(symbol, side, pending_tickets, reentry_price):
-    """Cancel pending reentry orders if price runs 25 USD away from their entry."""
-
-    def _monitor():
-        if mt5.account_info() is None:
-            initialize_mt5()
-
-        tracked_ticket_set = set(pending_tickets)
-        log_event(
-            f"Pending reentry guard armed for {symbol} {side}. "
-            f"tracked_tickets={sorted(tracked_ticket_set)}, reentry_price={reentry_price}, "
-            f"cancel_distance={REENTRY_CANCEL_DISTANCE}"
-        )
-
-        while True:
-            orders = mt5.orders_get(symbol=symbol) or []
-            open_order_tickets = {order.ticket for order in orders}
-            remaining = tracked_ticket_set.intersection(open_order_tickets)
-            if not remaining:
-                log_event(f"Pending reentry guard stopped for {symbol} {side}: no tracked pending orders remain.")
-                break
-
-            tick = mt5.symbol_info_tick(symbol)
-            if tick is None:
-                time.sleep(2)
-                continue
-
-            price = (tick.ask or tick.last) if side == "buy" else (tick.bid or tick.last)
-            if price is None:
-                time.sleep(2)
-                continue
-
-            if abs(price - reentry_price) >= REENTRY_CANCEL_DISTANCE:
-                log_event(
-                    f"Cancelling pending reentry orders for {symbol} {side}: current_price={price}, "
-                    f"reentry_price={reentry_price}, distance={abs(price - reentry_price):.2f}"
-                )
-                for ticket in sorted(remaining):
-                    cancel_pending_order(ticket)
-                break
 
             time.sleep(2)
 
@@ -402,65 +303,111 @@ def _plan_position_sizing(balance, entry_price, stop_loss, symbol, symbol_info, 
     return per_position_lot, planned_total_lot
 
 
-def _place_reentry_orders(symbol, side, reference_entry, take_profits):
-    """Place 6 pending reentry orders using 30% risk and 4 USD SL distance."""
-    prep = _prepare_symbol_and_account(symbol, side)
-    if prep[0] is None:
-        return
-    balance, _, symbol_info, resolved_symbol = prep
+def _success_retcodes():
+    return {
+        mt5.TRADE_RETCODE_DONE,
+        mt5.TRADE_RETCODE_PLACED,
+        mt5.TRADE_RETCODE_DONE_PARTIAL,
+    }
 
-    reentry_price = _reentry_entry(reference_entry, side)
-    stop_loss = _reentry_stop_loss(reentry_price, side)
-    per_position_lot, planned_total_lot = _plan_position_sizing(
+
+def _compute_next_order_lot(symbol, symbol_info, side, stop_loss, remaining_slots, risk_ratio_override=None):
+    """Recalculate the next affordable lot from live account state and remaining slots."""
+    if remaining_slots <= 0:
+        return 0.0, None, None
+
+    balance = get_account_balance()
+    entry_price = get_symbol_price(symbol, side.upper())
+    if entry_price is None:
+        log_event(f"Cannot get current market price for {symbol} while recalculating lot size.")
+        return 0.0, None, None
+
+    risk_total_lot = calculate_lot_size(
         balance,
-        reentry_price,
+        entry_price,
         stop_loss,
-        resolved_symbol,
-        symbol_info,
-        side,
-        risk_ratio_override=DEFAULT_REENTRY_RISK_RATIO,
+        symbol,
+        risk_ratio_override=risk_ratio_override,
     )
-    if per_position_lot is None:
-        return
+    if risk_total_lot <= 0:
+        return 0.0, balance, entry_price
 
-    selected_tps = _selected_take_profits(take_profits)
-    log_event(
-        f"Placing reentry orders for {resolved_symbol} {side}: reentry_price={reentry_price}, "
-        f"sl={stop_loss}, planned_total_lot={planned_total_lot:.4f}, per_position_lot={per_position_lot:.4f}"
-    )
+    margin_per_lot = _margin_per_lot(symbol, entry_price, symbol_info, side)
+    free_margin = _free_margin_or_balance(balance)
 
-    placed_any = False
-    pending_tickets = []
-    for tp in selected_tps:
-        result = open_pending_position(resolved_symbol, side.upper(), per_position_lot, reentry_price, stop_loss, tp)
-        if result is not None and getattr(result, "retcode", None) in {
-            mt5.TRADE_RETCODE_DONE,
-            mt5.TRADE_RETCODE_PLACED,
-            mt5.TRADE_RETCODE_DONE_PARTIAL,
-        }:
-            placed_any = True
-            if getattr(result, "order", 0):
-                pending_tickets.append(result.order)
-        else:
-            log_event(f"Pending TP reentry order could not be completed for {resolved_symbol} {side}. Stopping batch.")
+    margin_total_lot = risk_total_lot
+    if margin_per_lot > 0 and free_margin > 0:
+        margin_total_lot = free_margin / margin_per_lot
+
+    total_lot_cap = min(risk_total_lot, margin_total_lot)
+    next_lot = _clamp_volume_to_symbol(total_lot_cap / remaining_slots, symbol_info)
+    return next_lot, balance, entry_price
+
+
+def _execute_dynamic_batch(symbol, side, symbol_info, stop_loss, tp_values, include_runner=False, risk_ratio_override=None):
+    """Open a batch while recalculating affordable lot size before every order."""
+    opened_any = False
+    opened_count = 0
+    total_slots = len(tp_values) + (1 if include_runner else 0)
+    runner_opened = False
+    runner_attempted = not include_runner
+    success_codes = _success_retcodes()
+
+    def _attempt(tp):
+        nonlocal opened_any, opened_count, runner_opened, runner_attempted
+        remaining_slots = total_slots - opened_count
+        next_lot, balance, entry_price = _compute_next_order_lot(
+            symbol,
+            symbol_info,
+            side,
+            stop_loss,
+            remaining_slots,
+            risk_ratio_override=risk_ratio_override,
+        )
+        if next_lot <= 0:
+            log_event(
+                f"Skipping batch slot for {symbol} {side}: remaining_slots={remaining_slots}, "
+                f"balance={balance}, entry_price={entry_price}"
+            )
+            return False
+
+        target_text = f"TP={tp}" if tp is not None else "runner"
+        log_event(
+            f"Opening batch slot for {symbol} {side} lot={next_lot:.4f} {target_text} "
+            f"SL={stop_loss} remaining_slots={remaining_slots}"
+        )
+        result = open_position(symbol, side.upper(), next_lot, stop_loss, tp)
+        retcode = getattr(result, "retcode", None) if result is not None else None
+        if retcode == NO_MONEY_RETCODE:
+            reduced_lot = _clamp_volume_to_symbol(next_lot / 2.0, symbol_info)
+            if 0 < reduced_lot < next_lot:
+                log_event(
+                    f"No money for {symbol} {side} at lot={next_lot:.4f}. "
+                    f"Retrying once with reduced lot={reduced_lot:.4f}."
+                )
+                result = open_position(symbol, side.upper(), reduced_lot, stop_loss, tp)
+                retcode = getattr(result, "retcode", None) if result is not None else None
+
+        if retcode in success_codes:
+            opened_any = True
+            opened_count += 1
+            if tp is None:
+                runner_opened = True
+                runner_attempted = True
+            return True
+
+        if tp is None:
+            runner_attempted = True
+        return False
+
+    for tp in tp_values:
+        if not _attempt(tp):
             break
 
-    runner_should_open = RUNNER_ENABLED and TOTAL_POSITIONS > len(selected_tps)
-    if runner_should_open and placed_any:
-        result = open_pending_position(resolved_symbol, side.upper(), per_position_lot, reentry_price, stop_loss, None)
-        if result is not None and getattr(result, "retcode", None) in {
-            mt5.TRADE_RETCODE_DONE,
-            mt5.TRADE_RETCODE_PLACED,
-            mt5.TRADE_RETCODE_DONE_PARTIAL,
-        }:
-            if getattr(result, "order", 0):
-                pending_tickets.append(result.order)
-            log_event(f"Pending runner reentry order placed for {resolved_symbol} {side}.")
-        else:
-            log_event(f"Pending runner reentry order failed for {resolved_symbol} {side}.")
+    if include_runner and opened_any:
+        _attempt(None)
 
-    if pending_tickets:
-        _start_pending_reentry_guard(resolved_symbol, side, pending_tickets, reentry_price)
+    return opened_any, opened_count, runner_opened, runner_attempted
 
 
 def execute_pre_signal_trade(quick_signal):
@@ -495,18 +442,21 @@ def execute_pre_signal_trade(quick_signal):
     before = mt5.positions_get(symbol=symbol) or []
     before_tickets = {p.ticket for p in before if p.type == position_type}
 
-    opened_any = False
-    for _ in range(TOTAL_POSITIONS):
-        result = open_position(symbol, side.upper(), per_position_lot, stop_loss, None)
-        if result is not None and getattr(result, "retcode", None) == mt5.TRADE_RETCODE_DONE:
-            opened_any = True
-        else:
-            log_event(f"Pre-signal order could not be completed for {symbol} {side}. Stopping batch.")
-            break
+    opened_any, opened_count, _, _ = _execute_dynamic_batch(
+        symbol,
+        side,
+        symbol_info,
+        stop_loss,
+        [None] * TOTAL_POSITIONS,
+        include_runner=False,
+    )
 
     if not opened_any:
         log_event(f"No pre-signal positions opened for {symbol} {side}.")
         return
+
+    if opened_count < TOTAL_POSITIONS:
+        log_event(f"Pre-signal batch for {symbol} {side} opened partially: opened={opened_count}/{TOTAL_POSITIONS}")
 
     time.sleep(1)
     after = mt5.positions_get(symbol=symbol) or []
@@ -634,41 +584,29 @@ def execute_trade(signal_data):
     before = mt5.positions_get(symbol=symbol) or []
     before_tickets = {p.ticket for p in before if p.type == position_type}
 
-    opened_any = False
-
-    for tp in take_profits:
-        log_event(
-            f"Opening TP position for {symbol} {side} lot={per_position_lot:.4f} TP={tp} SL={stop_loss}"
-        )
-        result = open_position(symbol, side.upper(), per_position_lot, stop_loss, tp)
-        if result is not None and getattr(result, "retcode", None) == mt5.TRADE_RETCODE_DONE:
-            opened_any = True
-        else:
-            log_event(f"TP order could not be completed for {symbol} {side}. Stopping batch.")
-            break
-
     runner_should_open = RUNNER_ENABLED and TOTAL_POSITIONS > len(take_profits)
-    if runner_should_open and opened_any:
-        log_event(
-            f"Opening runner position for {symbol} {side} lot={per_position_lot:.4f} SL={stop_loss}"
-        )
-        runner_result = open_position(symbol, side.upper(), per_position_lot, stop_loss, None)
-        if runner_result is not None:
-            retcode = getattr(runner_result, "retcode", None)
-            success_retcodes = {
-                mt5.TRADE_RETCODE_DONE,
-                mt5.TRADE_RETCODE_PLACED,
-                mt5.TRADE_RETCODE_DONE_PARTIAL,
-            }
-            if retcode in success_retcodes:
-                opened_any = True
-                log_event(f"Runner position confirmed open for {symbol} (retcode={retcode})")
-            else:
-                log_event(f"Runner position could not be completed for {symbol} (retcode={retcode}).")
+    opened_any, opened_count, runner_opened, runner_attempted = _execute_dynamic_batch(
+        symbol,
+        side,
+        symbol_info,
+        stop_loss,
+        take_profits,
+        include_runner=runner_should_open,
+    )
 
     if not opened_any:
         log_event(f"No positions opened for {symbol} due to risk/margin constraints.")
         return
+
+    if opened_count < len(take_profits) + (1 if runner_should_open else 0):
+        log_event(
+            f"Trade batch for {symbol} {side} opened partially: opened={opened_count}/"
+            f"{len(take_profits) + (1 if runner_should_open else 0)}"
+        )
+    if runner_should_open and runner_attempted and runner_opened:
+        log_event(f"Runner position confirmed open for {symbol}.")
+    elif runner_should_open and runner_attempted and not runner_opened:
+        log_event(f"Runner position could not be completed for {symbol}.")
 
     time.sleep(1)
     after = mt5.positions_get(symbol=symbol) or []
@@ -680,7 +618,7 @@ def execute_trade(signal_data):
     if not tracked_positions:
         log_event(
             f"No newly tracked positions found after order placement for {symbol} {side}. "
-            "Skipping break-even/reentry monitor startup."
+            "Skipping break-even monitor startup."
         )
         return
     tracked_tickets = [pos.ticket for pos in tracked_positions]

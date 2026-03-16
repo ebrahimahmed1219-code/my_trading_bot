@@ -1,0 +1,159 @@
+2026-03-16 10:42:01,719 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-03-16 10:42:01,721 - INFO - cryptg module not installed and libssl not found, falling back to (slower) Python encryption
+2026-03-16 10:42:02,328 - INFO - Database initialized successfully
+2026-03-16 10:42:02,507 - INFO - MT5 initialized successfully
+2026-03-16 10:42:02,507 - INFO - Telegram Copy Trader Started
+2026-03-16 10:42:02,511 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-16 10:42:02,846 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-16 10:42:05,048 - INFO - Connected to channel: 100$ to 30000$ year 2026
+2026-03-16 10:42:05,049 - INFO - Telegram listener handler registered
+2026-03-16 10:42:05,049 - INFO - Telegram listener started
+2026-03-16 10:55:58,143 - INFO - Got difference for channel 3470659071 updates
+2026-03-16 10:55:58,147 - INFO - New message received: Last week I made $2,000. Then I started again with only $90, and today I turned it into $260. Marshal, you are truly a hero to me.
+
+In the beginning I lost almost $900 because of my greed and my mistakes. But I learned from that pain. I changed myself, and now I’m slowly making money again.
+
+If I told you my full story, you probably wouldn’t believe it. Right now I’m in Myanmar, doing a terrible job I never chose. Someone scammed me and brought me to this place without my real permission. It feels like the worst place in the world sometimes.
+
+There are so many guys here with stories like mine.
+
+Right now my only hope is to keep making money. They told me that if I want to go back to my country, I must pay about $7,000. If I can’t reach that amount, I might be stuck here for a long time. 
+
+That’s why I need your guidance in my life, Marshal. I believe that with your help and the lessons I’ve learned, I can keep growing and make more money. I will keep fighting until the day I can finally be free.
+2026-03-16 10:55:58,158 - INFO - New message received: 
+2026-03-16 10:55:58,166 - INFO - New message received: 
+2026-03-16 11:12:04,480 - INFO - Got difference for account updates
+2026-03-16 11:34:19,041 - INFO - Cannot get difference since the account is not logged in: AuthKeyUnregisteredError
+2026-03-16 11:34:19,043 - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2026-03-16 11:34:19,045 - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2026-03-16 11:34:19,053 - INFO - Not disconnecting (already have no connection)
+2026-03-16 11:34:19,061 - INFO - Telegram listener error: The key is not registered in the system (caused by GetDifferenceRequest). Reconnecting in 5s.
+2026-03-16 11:34:24,080 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-16 11:34:24,892 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-16 11:34:26,009 - INFO - Received error without parent request: RpcError(error_code=401, error_message='AUTH_KEY_UNREGISTERED')
+2026-03-16 11:42:16,511 - INFO - System clock is wrong, set time offset to 0s
+2026-03-16 11:42:16,512 - INFO - System clock is wrong, set time offset to 0s
+2026-03-16 11:42:16,553 - INFO - Cannot get difference since the account is not logged in: AuthKeyUnregisteredError
+2026-03-16 11:42:16,554 - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2026-03-16 11:42:16,554 - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2026-03-16 11:42:25,148 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-03-16 11:42:25,149 - INFO - cryptg module not installed and libssl not found, falling back to (slower) Python encryption
+2026-03-16 11:42:25,447 - INFO - Database initialized successfully
+2026-03-16 11:42:25,518 - INFO - MT5 initialized successfully
+2026-03-16 11:42:25,519 - INFO - Telegram Copy Trader Started
+2026-03-16 11:42:25,520 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-16 11:42:25,629 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-16 11:42:54,694 - INFO - Connected to channel: 100$ to 30000$ year 2026
+2026-03-16 11:42:54,695 - INFO - Telegram listener handler registered
+2026-03-16 11:42:54,695 - INFO - Telegram listener started
+2026-03-16 12:55:28,175 - INFO - Got difference for channel 1523353611 updates
+2026-03-16 13:00:49,115 - INFO - Got difference for channel 1283049346 updates
+2026-03-16 13:38:07,031 - INFO - New message received: Sell gold
+2026-03-16 13:38:07,041 - INFO - Resolved broker symbol XAUUSD -> XAUUSDm
+2026-03-16 13:38:07,042 - INFO - Planned sizing for XAUUSDm sell: risk_total_lot=0.2200, margin_total_lot=0.2200, planned_total_lot=0.1800, per_position_lot=0.0300, risk_override=None
+2026-03-16 13:38:07,043 - INFO - Pre-signal open for XAUUSDm sell: planned_total_lot=0.1800, positions=6, per_position_lot=0.0300, sl=5022.82
+2026-03-16 13:38:07,361 - INFO - Order executed XAUUSDm SELL
+2026-03-16 13:38:07,713 - INFO - Order executed XAUUSDm SELL
+2026-03-16 13:38:08,047 - INFO - Order executed XAUUSDm SELL
+2026-03-16 13:38:08,409 - INFO - Order executed XAUUSDm SELL
+2026-03-16 13:38:08,755 - INFO - Order executed XAUUSDm SELL
+2026-03-16 13:38:09,124 - INFO - Order executed XAUUSDm SELL
+2026-03-16 13:38:10,128 - INFO - Stored pending pre-signal batch for XAUUSDm sell: tickets=[2508723639, 2508723767, 2508723794, 2508723809, 2508723825, 2508723854]
+2026-03-16 13:39:11,185 - INFO - New message received: RiskY traDE \u2620\ufe0f
+\U0001f449\U0001f3fesell XAUUSD now at 5020 
+\U0001f6d1 SL 5028
+\u2705 TP 5015
+\u2705 TP 5010
+\u2705 TP 5005
+\u2705 TP 5000
+\u2705 TP 4995
+\u2705 TP 4990
+\u2705 TP 4985
+\u2705 TP 4980
+\u2705 TP 4975
+\u2705 TP open 
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set. 
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-16 13:39:11,191 - INFO - Planned sizing for XAUUSDm sell: risk_total_lot=0.0700, margin_total_lot=0.0700, planned_total_lot=0.0600, per_position_lot=0.0100, risk_override=None
+2026-03-16 13:39:11,191 - INFO - Executing trade XAUUSDm sell: planned_total_lot=0.0600, positions=6, used_tps=[5015.0, 5010.0, 5005.0, 5000.0, 4995.0], runner_enabled=True, fixed_sl=5026.708, per_position_lot=0.0100
+2026-03-16 13:39:11,191 - INFO - Opening TP position for XAUUSDm sell lot=0.0100 TP=5015.0 SL=5026.708
+2026-03-16 13:39:11,565 - INFO - Order executed XAUUSDm SELL
+2026-03-16 13:39:11,566 - INFO - Opening TP position for XAUUSDm sell lot=0.0100 TP=5010.0 SL=5026.708
+2026-03-16 13:39:11,908 - INFO - Order executed XAUUSDm SELL
+2026-03-16 13:39:11,908 - INFO - Opening TP position for XAUUSDm sell lot=0.0100 TP=5005.0 SL=5026.708
+2026-03-16 13:39:12,271 - INFO - Order executed XAUUSDm SELL
+2026-03-16 13:39:12,271 - INFO - Opening TP position for XAUUSDm sell lot=0.0100 TP=5000.0 SL=5026.708
+2026-03-16 13:39:12,619 - INFO - Order executed XAUUSDm SELL
+2026-03-16 13:39:12,620 - INFO - Opening TP position for XAUUSDm sell lot=0.0100 TP=4995.0 SL=5026.708
+2026-03-16 13:39:12,987 - INFO - Order executed XAUUSDm SELL
+2026-03-16 13:39:12,988 - INFO - Opening runner position for XAUUSDm sell lot=0.0100 SL=5026.708
+2026-03-16 13:39:13,341 - INFO - Order executed XAUUSDm SELL
+2026-03-16 13:39:13,342 - INFO - Runner position confirmed open for XAUUSDm (retcode=10009)
+2026-03-16 13:39:14,346 - INFO - Break-even monitor started for XAUUSDm sell. first_trigger=5015.0, second_trigger=5010.0
+2026-03-16 13:51:00,580 - INFO - XAUUSDm BID 5014.608 reached TP1 trigger 5015.0. Moving all SLs to entry + 2.5.
+2026-03-16 13:51:00,966 - INFO - Modified targets for 2508730054: sl=5025.106, tp=5010.0, result=OrderSendResult(retcode=10009, deal=0, order=0, volume=0.01, price=5015.171, bid=5014.775000000001, ask=5015.171, comment='', request_id=354225069, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSDm', volume=0.0, price=0.0, stoplimit=0.0, sl=5025.106, tp=5010.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=2508730054, position_by=0))
+2026-03-16 13:51:00,966 - INFO - Break-even SL update: ticket=2508730054 symbol=XAUUSDm type=1 old_sl=5026.708 new_sl=5025.106 buffer=2.5
+2026-03-16 13:51:01,268 - INFO - Modified targets for 2508730098: sl=5025.178, tp=5005.0, result=OrderSendResult(retcode=10009, deal=0, order=0, volume=0.01, price=5015.171, bid=5014.775000000001, ask=5015.171, comment='', request_id=354225070, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSDm', volume=0.0, price=0.0, stoplimit=0.0, sl=5025.178, tp=5005.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=2508730098, position_by=0))
+2026-03-16 13:51:01,269 - INFO - Break-even SL update: ticket=2508730098 symbol=XAUUSDm type=1 old_sl=5026.708 new_sl=5025.178 buffer=2.5
+2026-03-16 13:51:01,752 - INFO - Modified targets for 2508730147: sl=5025.232, tp=5000.0, result=OrderSendResult(retcode=10009, deal=0, order=0, volume=0.01, price=5015.171, bid=5014.693, ask=5015.089, comment='', request_id=354225071, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSDm', volume=0.0, price=0.0, stoplimit=0.0, sl=5025.232, tp=5000.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=2508730147, position_by=0))
+2026-03-16 13:51:01,754 - INFO - Break-even SL update: ticket=2508730147 symbol=XAUUSDm type=1 old_sl=5026.708 new_sl=5025.232 buffer=2.5
+2026-03-16 13:51:02,616 - INFO - Modified targets for 2508730190: sl=5025.465, tp=4995.0, result=OrderSendResult(retcode=10009, deal=0, order=0, volume=0.01, price=5015.165, bid=5014.866, ask=5015.262, comment='', request_id=354225072, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSDm', volume=0.0, price=0.0, stoplimit=0.0, sl=5025.465, tp=4995.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=2508730190, position_by=0))
+2026-03-16 13:51:02,617 - INFO - Break-even SL update: ticket=2508730190 symbol=XAUUSDm type=1 old_sl=5026.708 new_sl=5025.465 buffer=2.5
+2026-03-16 13:51:03,346 - INFO - Modified targets for 2508730241: sl=5025.465, tp=0.0, result=OrderSendResult(retcode=10009, deal=0, order=0, volume=0.01, price=5015.181, bid=5014.668, ask=5015.063999999999, comment='', request_id=354225073, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSDm', volume=0.0, price=0.0, stoplimit=0.0, sl=5025.465, tp=0.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=2508730241, position_by=0))
+2026-03-16 13:51:03,346 - INFO - Break-even SL update: ticket=2508730241 symbol=XAUUSDm type=1 old_sl=5026.708 new_sl=5025.465 buffer=2.5
+2026-03-16 13:51:03,347 - INFO - Matching positions moved near break-even with buffer=2.5, symbol=XAUUSDm, tickets=[2508729995, 2508730054, 2508730098, 2508730147, 2508730190, 2508730241]
+2026-03-16 13:51:18,005 - INFO - New message received: \u2705 Our first TP successfully hit \u2705 
+
+COPY TRADERS check your account if you trades is not SET TO TP AND SL CONTACT for manual traders you can put your self SUPPORT FOR HELP  another positions  STILL ON MAKE SURE
+2026-03-16 13:51:32,088 - INFO - New message received: Move stop loss to breakeven
+2026-03-16 14:00:24,446 - INFO - New message received: Touched breakeven wait for my instructions
+2026-03-16 14:00:26,098 - INFO - All positions and pending orders closed: positions=5, pending_orders=0
+2026-03-16 14:00:27,781 - INFO - Break-even monitor for XAUUSDm stopped: no open positions.
+2026-03-16 14:02:34,147 - INFO - New message received: RiskY traDE \u2620\ufe0f
+\U0001f449\U0001f3fesell XAUUSD now at 5020 
+\U0001f6d1 SL 5028
+\u2705 TP 5015
+\u2705 TP 5010
+\u2705 TP 5005
+\u2705 TP 5000
+\u2705 TP 4995
+\u2705 TP 4990
+\u2705 TP 4985
+\u2705 TP 4980
+\u2705 TP 4975
+\u2705 TP open 
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set. 
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-16 14:02:34,148 - INFO - Planned sizing for XAUUSDm sell: risk_total_lot=0.1200, margin_total_lot=0.1200, planned_total_lot=0.1200, per_position_lot=0.0200, risk_override=None
+2026-03-16 14:02:34,149 - INFO - Executing trade XAUUSDm sell: planned_total_lot=0.1200, positions=6, used_tps=[5015.0, 5010.0, 5005.0, 5000.0, 4995.0], runner_enabled=True, fixed_sl=5020.103, per_position_lot=0.0200
+2026-03-16 14:02:34,149 - INFO - Opening TP position for XAUUSDm sell lot=0.0200 TP=5015.0 SL=5020.103
+2026-03-16 14:02:34,509 - INFO - Order executed XAUUSDm SELL
+2026-03-16 14:02:34,509 - INFO - Opening TP position for XAUUSDm sell lot=0.0200 TP=5010.0 SL=5020.103
+2026-03-16 14:02:34,767 - INFO - Order failed for XAUUSDm SELL: OrderSendResult(retcode=10019, deal=0, order=2508868083, volume=0.02, price=0.0, bid=0.0, ask=0.0, comment='telegram_copy_tr', request_id=354225080, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSDm', volume=0.02, price=5016.103, stoplimit=0.0, sl=5020.103, tp=5010.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-16 14:02:34,768 - INFO - TP order could not be completed for XAUUSDm sell. Stopping batch.
+2026-03-16 14:02:34,768 - INFO - Opening runner position for XAUUSDm sell lot=0.0200 SL=5020.103
+2026-03-16 14:02:35,518 - INFO - Order failed for XAUUSDm SELL: OrderSendResult(retcode=10019, deal=0, order=2508868099, volume=0.02, price=0.0, bid=0.0, ask=0.0, comment='telegram_copy_tr', request_id=354225081, retcode_external=0, request=TradeRequest(action=1, magic=123456, order=0, symbol='XAUUSDm', volume=0.02, price=5016.269, stoplimit=0.0, sl=5020.103, tp=0.0, deviation=20, type=1, type_filling=1, type_time=0, expiration=0, comment='telegram_copy_trade', position=0, position_by=0))
+2026-03-16 14:02:35,518 - INFO - Runner position could not be completed for XAUUSDm (retcode=10019).
+2026-03-16 14:02:36,519 - INFO - Break-even monitor started for XAUUSDm sell. first_trigger=5015.0, second_trigger=5010.0
+2026-03-16 14:03:48,535 - INFO - Break-even monitor for XAUUSDm stopped: no open positions.
+2026-03-16 14:04:18,856 - INFO - New message received: \u2705 Our first TP successfully hit \u2705 
+
+COPY TRADERS check your account if you trades is not SET TO TP AND SL CONTACT for manual traders you can put your self SUPPORT FOR HELP  another positions  STILL ON MAKE SURE
+2026-03-16 14:08:44,814 - INFO - New message received: Please be active and wait for my instructions
+2026-03-16 14:09:59,159 - INFO - New message received: Close at BE
+2026-03-16 14:09:59,284 - INFO - New message received: Close it it’s not good
+2026-03-16 14:11:01,350 - INFO - New message received: Finished another 100$ to 30k I will start new tomorrow
+2026-03-16 14:11:01,440 - INFO - New message received: Let’s wait it to be clear
+2026-03-16 14:28:54,336 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-03-16 14:28:54,338 - INFO - cryptg module not installed and libssl not found, falling back to (slower) Python encryption
+2026-03-16 14:28:54,922 - INFO - Database initialized successfully
+2026-03-16 14:28:54,950 - INFO - MT5 initialized successfully
+2026-03-16 14:28:54,950 - INFO - Telegram Copy Trader Started
+2026-03-16 14:28:54,955 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-16 14:28:55,049 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-16 14:28:56,344 - INFO - Connected to channel: 100$ to 30000$ year 2026
+2026-03-16 14:28:56,345 - INFO - Telegram listener handler registered
+2026-03-16 14:28:56,345 - INFO - Telegram listener started
+2026-03-16 14:43:56,034 - INFO - Got difference for account updates
