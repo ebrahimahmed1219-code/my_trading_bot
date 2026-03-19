@@ -2,6 +2,18 @@ import MetaTrader5 as mt5
 from logger import log_event
 
 
+SUCCESS_RETCODES = {
+    mt5.TRADE_RETCODE_DONE,
+    mt5.TRADE_RETCODE_PLACED,
+    mt5.TRADE_RETCODE_DONE_PARTIAL,
+}
+
+
+def is_success_result(result):
+    """Return True when MT5 reports a successful trade operation."""
+    return result is not None and getattr(result, "retcode", None) in SUCCESS_RETCODES
+
+
 def initialize_mt5():
     """Initialize MT5 connection"""
     if not mt5.initialize():
@@ -76,7 +88,7 @@ def open_position(symbol, side, lot, sl, tp=None):
 
 
 def open_pending_position(symbol, side, lot, entry_price, sl, tp=None):
-    """Place MT5 pending reentry order."""
+    """Place an MT5 pending order with automatic limit/stop selection."""
     tick = mt5.symbol_info_tick(symbol)
     if tick is None:
         log_event(f"Pending order failed for {symbol} {side}: no symbol tick available")
@@ -103,7 +115,7 @@ def open_pending_position(symbol, side, lot, entry_price, sl, tp=None):
         "tp": tp_value,
         "deviation": 20,
         "magic": 123456,
-        "comment": "telegram_reentry",
+        "comment": "telegram_pending_trade",
         "type_time": mt5.ORDER_TIME_GTC,
         "type_filling": mt5.ORDER_FILLING_RETURN,
     }
@@ -112,12 +124,7 @@ def open_pending_position(symbol, side, lot, entry_price, sl, tp=None):
         err = mt5.last_error()
         log_event(f"Pending order failed (None result) for {symbol} {normalized_side}: last_error={err}")
         return None
-    success_retcodes = {
-        mt5.TRADE_RETCODE_DONE,
-        mt5.TRADE_RETCODE_PLACED,
-        mt5.TRADE_RETCODE_DONE_PARTIAL,
-    }
-    if result.retcode not in success_retcodes:
+    if result.retcode not in SUCCESS_RETCODES:
         log_event(f"Pending order failed for {symbol} {normalized_side}: {result}")
     else:
         log_event(
@@ -148,7 +155,10 @@ def modify_position_targets(ticket, new_sl=None, new_tp=None, comment="update_ta
     }
 
     result = mt5.order_send(request)
-    log_event(f"Modified targets for {ticket}: sl={sl_value}, tp={tp_value}, result={result}")
+    if not is_success_result(result):
+        log_event(f"Modify targets failed for {ticket}: sl={sl_value}, tp={tp_value}, result={result}")
+    else:
+        log_event(f"Modified targets for {ticket}: sl={sl_value}, tp={tp_value}, result={result}")
     return result
 
 
@@ -177,7 +187,12 @@ def close_position(ticket):
         "deviation": 20,
         "magic": 123456,
     }
-    mt5.order_send(request)
+    result = mt5.order_send(request)
+    if not is_success_result(result):
+        log_event(f"Close failed for {position.symbol} ticket={ticket}: result={result}")
+    else:
+        log_event(f"Closed position {position.symbol} ticket={ticket}")
+    return result
 
 
 def cancel_pending_order(ticket):
@@ -186,10 +201,13 @@ def cancel_pending_order(ticket):
         "action": mt5.TRADE_ACTION_REMOVE,
         "order": ticket,
         "magic": 123456,
-        "comment": "cancel_pending_reentry",
+        "comment": "cancel_pending_trade",
     }
     result = mt5.order_send(request)
-    log_event(f"Cancelled pending order {ticket}: {result}")
+    if not is_success_result(result):
+        log_event(f"Cancel pending order failed for {ticket}: {result}")
+    else:
+        log_event(f"Cancelled pending order {ticket}: {result}")
     return result
 
 

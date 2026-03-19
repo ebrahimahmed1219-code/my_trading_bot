@@ -13,11 +13,12 @@ from config import (
 )
 from database import message_exists, store_message
 from logger import log_event
-from position_manager import close_all_positions, move_all_to_break_even
+from position_manager import close_all_positions
 from signal_classifier import classify_message
 from signal_parser import parse_quick_direction_signal, parse_trade_signal
 from trade_engine import (
     apply_signal_to_existing_positions,
+    clear_active_signal_references,
     execute_pre_signal_trade,
     execute_trade,
 )
@@ -90,10 +91,8 @@ async def new_message_listener(event):
             if not edited_existing:
                 execute_trade(signal)
 
-    elif message_type == "MOVE_SL":
-        move_all_to_break_even()
-
     elif message_type == "CLOSE_ALL":
+        clear_active_signal_references()
         close_all_positions()
 
     store_message(message_id, message_text)

@@ -6,10 +6,13 @@ import MetaTrader5 as mt5
 from config import FIXED_STOP_LOSS_DISTANCE, SYMBOL_DEFAULT, TOTAL_POSITIONS
 from logger import log_event
 from mt5_connector import (
+    cancel_pending_order,
     get_account_balance,
     get_symbol_price,
     initialize_mt5,
+    is_success_result,
     modify_position_targets,
+    open_pending_position,
     open_position,
 )
 from position_manager import move_all_to_break_even
@@ -29,6 +32,7 @@ PENDING_PRE_SIGNAL = {
 }
 
 SYMBOL_CACHE = {}
+ACTIVE_SIGNAL_REFERENCES = {}
 
 
 def set_runner_enabled(enabled: bool):
@@ -37,6 +41,36 @@ def set_runner_enabled(enabled: bool):
     RUNNER_ENABLED = bool(enabled)
     state = "enabled" if RUNNER_ENABLED else "disabled"
     log_event(f"Runner position has been {state} via UI.")
+
+
+def _store_active_signal_reference(symbol, reference_entry):
+    if symbol and reference_entry is not None:
+        ACTIVE_SIGNAL_REFERENCES[symbol] = float(reference_entry)
+
+
+def clear_active_signal_references():
+    ACTIVE_SIGNAL_REFERENCES.clear()
+
+
+def _clear_active_signal_reference(symbol):
+    if symbol:
+        ACTIVE_SIGNAL_REFERENCES.pop(symbol, None)
+
+
+def move_managed_positions_to_break_even():
+    """Move open positions to break-even, using synthetic entry references when available."""
+    positions = mt5.positions_get() or []
+    if not positions:
+        move_all_to_break_even()
+        return
+
+    tickets_by_symbol = {}
+    for pos in positions:
+        tickets_by_symbol.setdefault(pos.symbol, []).append(pos.ticket)
+
+    for symbol, tickets in tickets_by_symbol.items():
+        reference_entry = ACTIVE_SIGNAL_REFERENCES.get(symbol)
+        move_all_to_break_even(0.0, symbol=symbol, tickets=tickets, reference_entry=reference_entry)
 
 
 def _clamp_volume_to_symbol(volume, symbol_info):
@@ -71,19 +105,21 @@ def _get_side_order_type(side):
 
 
 def _fixed_stop_loss(entry_price, side):
-    """Return SL exactly 6 USD away from entry."""
+    """Return SL exactly 10 USD away from entry."""
     return entry_price - FIXED_STOP_LOSS_DISTANCE if side == "buy" else entry_price + FIXED_STOP_LOSS_DISTANCE
 
 
 def _selected_take_profits(take_profits):
-    """Skip the first TP from Telegram, then keep the next five TP values."""
-    return list((take_profits or [])[1 : 1 + TP_SLOT_COUNT])
+    """Use TP3 through TP7 as the five trade targets."""
+    return list((take_profits or [])[2 : 2 + TP_SLOT_COUNT])
 
 
-def _adjust_take_profits_for_side(take_profits, side):
-    """Apply the TP offset rule: SELL +1, BUY -1."""
-    offset = -1.0 if side == "buy" else 1.0
-    return [tp + offset for tp in (take_profits or [])]
+def _signal_entry_price(take_profits):
+    """Use TP2 from Telegram as the synthetic entry reference."""
+    values = list(take_profits or [])
+    if len(values) < 2:
+        return None
+    return float(values[1])
 
 
 def _filter_valid_take_profits(take_profits, reference_entry, side):
@@ -193,7 +229,7 @@ def _start_break_even_monitor(symbol, side, first_trigger_price, tracked_tickets
                         f"{symbol} ASK {price} reached TP1 trigger {first_trigger_price}. "
                         "Moving all SLs to exact break-even."
                     )
-                    move_all_to_break_even(0.0, symbol=symbol, tickets=tracked_tickets)
+                    move_all_to_break_even(0.0, symbol=symbol, tickets=tracked_tickets, reference_entry=reference_entry)
                     break
             else:
                 price = tick.bid or tick.last
@@ -205,7 +241,118 @@ def _start_break_even_monitor(symbol, side, first_trigger_price, tracked_tickets
                         f"{symbol} BID {price} reached TP1 trigger {first_trigger_price}. "
                         "Moving all SLs to exact break-even."
                     )
-                    move_all_to_break_even(0.0, symbol=symbol, tickets=tracked_tickets)
+                    move_all_to_break_even(0.0, symbol=symbol, tickets=tracked_tickets, reference_entry=reference_entry)
+                    break
+
+            time.sleep(2)
+
+    Thread(target=_monitor, daemon=True).start()
+
+
+def _start_pending_activation_monitor(
+    symbol,
+    side,
+    before_position_tickets,
+    pending_order_tickets,
+    first_trigger_price,
+    reference_entry,
+    pending_cancel_reference,
+):
+    """Wait for pending main-signal orders to trigger, or cancel them if the pre-trigger cutoff is hit first."""
+
+    def _monitor():
+        if mt5.account_info() is None:
+            initialize_mt5()
+
+        position_type = _get_position_type_for_side(side)
+        tracked_ticket_set = set()
+        pending_ticket_set = set(pending_order_tickets or [])
+        cancel_cutoff = (
+            pending_cancel_reference - 5.0
+            if side == "buy"
+            else pending_cancel_reference + 5.0
+        )
+        log_event(
+            f"Pending activation monitor started for {symbol} {side}. "
+            f"pending_orders={sorted(pending_ticket_set)}, first_trigger={first_trigger_price}, "
+            f"reference_entry={reference_entry}, pending_cancel_reference={pending_cancel_reference}, "
+            f"cancel_cutoff={cancel_cutoff}"
+        )
+
+        while True:
+            positions = mt5.positions_get(symbol=symbol) or []
+            tracked_positions = [
+                pos
+                for pos in positions
+                if pos.type == position_type and pos.ticket not in before_position_tickets
+            ]
+            tracked_ticket_set = {pos.ticket for pos in tracked_positions}
+
+            orders = mt5.orders_get(symbol=symbol) or []
+            live_order_tickets = {order.ticket for order in orders}
+            remaining_pending = pending_ticket_set.intersection(live_order_tickets)
+
+            if not tracked_ticket_set and not remaining_pending:
+                _clear_active_signal_reference(symbol)
+                log_event(f"Pending activation monitor for {symbol} {side} stopped: no triggered or pending orders remain.")
+                break
+
+            tick = mt5.symbol_info_tick(symbol)
+            if tick is None:
+                time.sleep(2)
+                continue
+
+            if not tracked_ticket_set and remaining_pending:
+                if side == "buy":
+                    price = tick.ask or tick.last
+                    cutoff_hit = price is not None and price <= cancel_cutoff
+                else:
+                    price = tick.bid or tick.last
+                    cutoff_hit = price is not None and price >= cancel_cutoff
+
+                if cutoff_hit:
+                    log_event(
+                        f"{symbol} {side} pending main batch cancelled before trigger: "
+                        f"price={price} reached pre-trigger cutoff={cancel_cutoff}."
+                    )
+                    for order_ticket in sorted(remaining_pending):
+                        cancel_pending_order(order_ticket)
+                    _clear_active_signal_reference(symbol)
+                    break
+
+            if not tracked_ticket_set:
+                time.sleep(2)
+                continue
+
+            if side == "buy":
+                price = tick.ask or tick.last
+                if price is not None and price >= first_trigger_price:
+                    log_event(
+                        f"{symbol} ASK {price} reached TP1 trigger {first_trigger_price} for pending main batch. "
+                        "Moving triggered positions to exact break-even."
+                    )
+                    move_all_to_break_even(
+                        0.0,
+                        symbol=symbol,
+                        tickets=sorted(tracked_ticket_set),
+                        reference_entry=reference_entry,
+                    )
+                    _clear_active_signal_reference(symbol)
+                    break
+            else:
+                price = tick.bid or tick.last
+                if price is not None and price <= first_trigger_price:
+                    log_event(
+                        f"{symbol} BID {price} reached TP1 trigger {first_trigger_price} for pending main batch. "
+                        "Moving triggered positions to exact break-even."
+                    )
+                    move_all_to_break_even(
+                        0.0,
+                        symbol=symbol,
+                        tickets=sorted(tracked_ticket_set),
+                        reference_entry=reference_entry,
+                    )
+                    _clear_active_signal_reference(symbol)
                     break
 
             time.sleep(2)
@@ -314,13 +461,15 @@ def _success_retcodes():
     }
 
 
-def _compute_next_order_lot(symbol, symbol_info, side, stop_loss, remaining_slots, risk_ratio_override=None):
+def _compute_next_order_lot(symbol, symbol_info, side, stop_loss, remaining_slots, risk_ratio_override=None, entry_reference=None):
     """Recalculate the next affordable lot from live account state and remaining slots."""
     if remaining_slots <= 0:
         return 0.0, None, None
 
     balance = get_account_balance()
-    entry_price = get_symbol_price(symbol, side.upper())
+    entry_price = entry_reference
+    if entry_price is None:
+        entry_price = get_symbol_price(symbol, side.upper())
     if entry_price is None:
         log_event(f"Cannot get current market price for {symbol} while recalculating lot size.")
         return 0.0, None, None
@@ -347,7 +496,16 @@ def _compute_next_order_lot(symbol, symbol_info, side, stop_loss, remaining_slot
     return next_lot, balance, entry_price
 
 
-def _execute_dynamic_batch(symbol, side, symbol_info, stop_loss, tp_values, include_runner=False, risk_ratio_override=None):
+def _execute_dynamic_batch(
+    symbol,
+    side,
+    symbol_info,
+    stop_loss,
+    tp_values,
+    include_runner=False,
+    risk_ratio_override=None,
+    entry_reference=None,
+):
     """Open a batch while recalculating affordable lot size before every order."""
     opened_any = False
     opened_count = 0
@@ -366,6 +524,7 @@ def _execute_dynamic_batch(symbol, side, symbol_info, stop_loss, tp_values, incl
             stop_loss,
             remaining_slots,
             risk_ratio_override=risk_ratio_override,
+            entry_reference=entry_reference,
         )
         if next_lot <= 0:
             log_event(
@@ -413,8 +572,87 @@ def _execute_dynamic_batch(symbol, side, symbol_info, stop_loss, tp_values, incl
     return opened_any, opened_count, runner_opened, runner_attempted
 
 
+def _execute_dynamic_pending_batch(
+    symbol,
+    side,
+    symbol_info,
+    entry_reference,
+    stop_loss,
+    tp_values,
+    include_runner=False,
+    risk_ratio_override=None,
+):
+    """Place a pending batch while recalculating affordable lot size before every order."""
+    placed_any = False
+    placed_count = 0
+    total_slots = len(tp_values) + (1 if include_runner else 0)
+    runner_placed = False
+    runner_attempted = not include_runner
+    success_codes = _success_retcodes()
+    pending_order_tickets = []
+
+    def _attempt(tp):
+        nonlocal placed_any, placed_count, runner_placed, runner_attempted
+        remaining_slots = total_slots - placed_count
+        next_lot, balance, _ = _compute_next_order_lot(
+            symbol,
+            symbol_info,
+            side,
+            stop_loss,
+            remaining_slots,
+            risk_ratio_override=risk_ratio_override,
+            entry_reference=entry_reference,
+        )
+        if next_lot <= 0:
+            log_event(
+                f"Skipping pending batch slot for {symbol} {side}: remaining_slots={remaining_slots}, "
+                f"balance={balance}, entry_reference={entry_reference}"
+            )
+            return False
+
+        target_text = f"TP={tp}" if tp is not None else "runner"
+        log_event(
+            f"Placing pending batch slot for {symbol} {side} lot={next_lot:.4f} {target_text} "
+            f"entry={entry_reference} SL={stop_loss} remaining_slots={remaining_slots}"
+        )
+        result = open_pending_position(symbol, side.upper(), next_lot, entry_reference, stop_loss, tp)
+        retcode = getattr(result, "retcode", None) if result is not None else None
+        if retcode == NO_MONEY_RETCODE:
+            reduced_lot = _clamp_volume_to_symbol(next_lot / 2.0, symbol_info)
+            if 0 < reduced_lot < next_lot:
+                log_event(
+                    f"No money for pending {symbol} {side} at lot={next_lot:.4f}. "
+                    f"Retrying once with reduced lot={reduced_lot:.4f}."
+                )
+                result = open_pending_position(symbol, side.upper(), reduced_lot, entry_reference, stop_loss, tp)
+                retcode = getattr(result, "retcode", None) if result is not None else None
+
+        if retcode in success_codes:
+            placed_any = True
+            placed_count += 1
+            if getattr(result, "order", 0):
+                pending_order_tickets.append(result.order)
+            if tp is None:
+                runner_placed = True
+                runner_attempted = True
+            return True
+
+        if tp is None:
+            runner_attempted = True
+        return False
+
+    for tp in tp_values:
+        if not _attempt(tp):
+            break
+
+    if include_runner and placed_any:
+        _attempt(None)
+
+    return placed_any, placed_count, runner_placed, runner_attempted, pending_order_tickets
+
+
 def execute_pre_signal_trade(quick_signal):
-    """Open six positions with fixed 6 USD SL and no TP."""
+    """Open six positions with fixed 10 USD SL and no TP."""
     global PENDING_PRE_SIGNAL
 
     requested_symbol = (quick_signal or {}).get("symbol") or SYMBOL_DEFAULT
@@ -487,12 +725,15 @@ def apply_signal_to_existing_positions(signal_data):
     global PENDING_PRE_SIGNAL
     requested_symbol = signal_data.get("symbol")
     side = str(signal_data.get("side", "")).lower()
-    take_profits = _adjust_take_profits_for_side(
-        _selected_take_profits(signal_data.get("take_profits") or []),
-        side,
-    )
+    raw_take_profits = signal_data.get("take_profits") or []
+    entry_reference = _signal_entry_price(raw_take_profits)
+    take_profits = _selected_take_profits(raw_take_profits)
 
     if not requested_symbol or side not in {"buy", "sell"}:
+        return False
+
+    if entry_reference is None:
+        log_event(f"No TP2 entry reference provided for existing-position signal on {requested_symbol}.")
         return False
 
     if not take_profits:
@@ -522,7 +763,7 @@ def apply_signal_to_existing_positions(signal_data):
     edited_any = False
     tracked_positions = side_positions[:TOTAL_POSITIONS]
     tracked_tickets = [pos.ticket for pos in tracked_positions]
-    reference_entry = sum(pos.price_open for pos in tracked_positions) / len(tracked_positions)
+    reference_entry = entry_reference
     take_profits = _filter_valid_take_profits(take_profits, reference_entry, side)
 
     log_event(
@@ -536,7 +777,7 @@ def apply_signal_to_existing_positions(signal_data):
 
     first_tp = take_profits[0]
     for idx, pos in enumerate(tracked_positions):
-        new_sl = _fixed_stop_loss(pos.price_open, side)
+        new_sl = _fixed_stop_loss(reference_entry, side)
         new_tp = take_profits[idx] if idx < len(take_profits) else 0.0
         if idx == RUNNER_SLOT_INDEX or idx >= TP_SLOT_COUNT:
             new_tp = 0.0
@@ -547,28 +788,37 @@ def apply_signal_to_existing_positions(signal_data):
             new_tp=new_tp,
             comment="apply_main_signal",
         )
-        if result is not None:
+        if is_success_result(result):
             edited_any = True
 
     if not edited_any:
         return False
 
+    _store_active_signal_reference(symbol, reference_entry)
     _start_break_even_monitor(symbol, side, first_tp, tracked_tickets, reference_entry, take_profits)
     PENDING_PRE_SIGNAL = {"symbol": None, "side": None, "tickets": [], "created_at": 0.0}
     return True
 
 
 def execute_trade(signal_data):
-    """Open exactly six positions: five TP trades and one runner, all with fixed 6 USD SL."""
+    """Place exactly six pending positions using TP2 as entry, TP3-TP7 as targets, and one runner."""
     requested_symbol = signal_data.get("symbol")
     side = str(signal_data.get("side", "")).lower()
-    take_profits = _adjust_take_profits_for_side(
-        _selected_take_profits(signal_data.get("take_profits") or []),
-        side,
-    )
+    raw_take_profits = signal_data.get("take_profits") or []
+    pending_cancel_reference = float(raw_take_profits[0]) if raw_take_profits else None
+    entry_reference = _signal_entry_price(raw_take_profits)
+    take_profits = _selected_take_profits(raw_take_profits)
 
     if not requested_symbol or side not in {"buy", "sell"}:
         log_event(f"Invalid trade signal: {signal_data}")
+        return
+
+    if pending_cancel_reference is None:
+        log_event(f"No TP1 cancel reference provided for {requested_symbol}. Aborting trade.")
+        return
+
+    if entry_reference is None:
+        log_event(f"No TP2 entry reference provided for {requested_symbol}. Aborting trade.")
         return
 
     if not take_profits:
@@ -578,24 +828,24 @@ def execute_trade(signal_data):
     prep = _prepare_symbol_and_account(requested_symbol, side)
     if prep[0] is None:
         return
-    balance, entry_price, symbol_info, symbol = prep
+    balance, _, symbol_info, symbol = prep
 
-    take_profits = _filter_valid_take_profits(take_profits, entry_price, side)
+    take_profits = _filter_valid_take_profits(take_profits, entry_reference, side)
     if not take_profits:
-        log_event(f"No valid take-profit levels remain for {symbol} {side} at entry_price={entry_price}. Aborting trade.")
+        log_event(f"No valid take-profit levels remain for {symbol} {side} at entry_reference={entry_reference}. Aborting trade.")
         return
 
-    stop_loss = _fixed_stop_loss(entry_price, side)
+    stop_loss = _fixed_stop_loss(entry_reference, side)
     per_position_lot, planned_total_lot = _plan_position_sizing(
-        balance, entry_price, stop_loss, symbol, symbol_info, side
+        balance, entry_reference, stop_loss, symbol, symbol_info, side
     )
     if per_position_lot is None:
         return
 
     first_tp = take_profits[0]
     log_event(
-        f"Executing trade {symbol} {side}: planned_total_lot={planned_total_lot:.4f}, "
-        f"positions={TOTAL_POSITIONS}, used_tps={take_profits}, runner_enabled={RUNNER_ENABLED}, "
+        f"Placing pending main trade {symbol} {side}: planned_total_lot={planned_total_lot:.4f}, "
+        f"entry_reference={entry_reference}, positions={TOTAL_POSITIONS}, used_tps={take_profits}, runner_enabled={RUNNER_ENABLED}, "
         f"fixed_sl={stop_loss}, per_position_lot={per_position_lot:.4f}"
     )
 
@@ -604,48 +854,40 @@ def execute_trade(signal_data):
     before_tickets = {p.ticket for p in before if p.type == position_type}
 
     runner_should_open = RUNNER_ENABLED and TOTAL_POSITIONS > len(take_profits)
-    opened_any, opened_count, runner_opened, runner_attempted = _execute_dynamic_batch(
+    placed_any, placed_count, runner_placed, runner_attempted, pending_order_tickets = _execute_dynamic_pending_batch(
         symbol,
         side,
         symbol_info,
+        entry_reference,
         stop_loss,
         take_profits,
         include_runner=runner_should_open,
     )
 
-    if not opened_any:
-        log_event(f"No positions opened for {symbol} due to risk/margin constraints.")
+    if not placed_any:
+        log_event(f"No pending orders placed for {symbol} due to risk/margin constraints.")
         return
 
-    if opened_count < len(take_profits) + (1 if runner_should_open else 0):
+    if placed_count < len(take_profits) + (1 if runner_should_open else 0):
         log_event(
-            f"Trade batch for {symbol} {side} opened partially: opened={opened_count}/"
+            f"Pending trade batch for {symbol} {side} placed partially: placed={placed_count}/"
             f"{len(take_profits) + (1 if runner_should_open else 0)}"
         )
-    if runner_should_open and runner_attempted and runner_opened:
-        log_event(f"Runner position confirmed open for {symbol}.")
-    elif runner_should_open and runner_attempted and not runner_opened:
-        log_event(f"Runner position could not be completed for {symbol}.")
+    if runner_should_open and runner_attempted and runner_placed:
+        log_event(f"Pending runner order placed for {symbol}.")
+    elif runner_should_open and runner_attempted and not runner_placed:
+        log_event(f"Pending runner order could not be completed for {symbol}.")
 
-    time.sleep(1)
-    after = mt5.positions_get(symbol=symbol) or []
-    tracked_positions = [
-        pos for pos in after if pos.type == position_type and pos.ticket not in before_tickets
-    ]
-    tracked_positions.sort(key=lambda pos: pos.ticket)
-    tracked_positions = tracked_positions[:TOTAL_POSITIONS]
-    if not tracked_positions:
-        log_event(
-            f"No newly tracked positions found after order placement for {symbol} {side}. "
-            "Skipping break-even monitor startup."
-        )
-        return
-    tracked_tickets = [pos.ticket for pos in tracked_positions]
-    reference_entry = entry_price
-    if tracked_positions:
-        reference_entry = sum(pos.price_open for pos in tracked_positions) / len(tracked_positions)
-
-    _start_break_even_monitor(symbol, side, first_tp, tracked_tickets, reference_entry, take_profits)
+    _store_active_signal_reference(symbol, entry_reference)
+    _start_pending_activation_monitor(
+        symbol,
+        side,
+        before_tickets,
+        pending_order_tickets,
+        first_tp,
+        entry_reference,
+        pending_cancel_reference,
+    )
 
 
 

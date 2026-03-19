@@ -1,20 +1,21 @@
 import MetaTrader5 as mt5
 
 
-DEFAULT_REENTRY_RISK_RATIO = 0.30
-
-
 def _risk_ratio_for_balance(account_balance):
     """Return the configured risk ratio for the current account balance."""
-    if account_balance < 101:
+    if account_balance < 150:
         return 0.50
-    if account_balance < 200:
-        return 0.75
-    if account_balance < 500:
-        return 0.80
-    if account_balance <= 800:
-        return 0.80
-    return 0.90
+    if account_balance < 351:
+        return 0.66
+    if account_balance < 501:
+        return 0.63
+    if account_balance < 651:
+        return 0.58
+    if account_balance < 751:
+        return 0.57
+    if account_balance < 1000:
+        return 0.50
+    return 0.50
 
 
 def _estimate_current_risk():

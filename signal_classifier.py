@@ -52,13 +52,13 @@ def classify_message(message_text):
         "touched be",
         "touched breakeven",
         "touched break even",
+        "be hit",
+        "breakeven hit",
+        "break even hit",
         "breakeven touched",
         "break even touched",
     ]
     if any(kw in normalized for kw in close_keywords):
         return "CLOSE_ALL"
-
-    if "break even" in normalized:
-        return "MOVE_SL"
 
     return "IGNORE"
