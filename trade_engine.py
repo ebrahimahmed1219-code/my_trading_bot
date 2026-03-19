@@ -71,13 +71,38 @@ def _get_side_order_type(side):
 
 
 def _fixed_stop_loss(entry_price, side):
-    """Return SL exactly 4 USD away from entry."""
+    """Return SL exactly 6 USD away from entry."""
     return entry_price - FIXED_STOP_LOSS_DISTANCE if side == "buy" else entry_price + FIXED_STOP_LOSS_DISTANCE
 
 
 def _selected_take_profits(take_profits):
-    """Use only the first five TP values; the sixth slot is the runner."""
-    return list((take_profits or [])[:TP_SLOT_COUNT])
+    """Skip the first TP from Telegram, then keep the next five TP values."""
+    return list((take_profits or [])[1 : 1 + TP_SLOT_COUNT])
+
+
+def _adjust_take_profits_for_side(take_profits, side):
+    """Apply the TP offset rule: SELL +1, BUY -1."""
+    offset = -1.0 if side == "buy" else 1.0
+    return [tp + offset for tp in (take_profits or [])]
+
+
+def _filter_valid_take_profits(take_profits, reference_entry, side):
+    """Keep only TP levels that are valid for the trade direction from the live entry."""
+    valid = []
+    invalid = []
+
+    for tp in take_profits or []:
+        if side == "buy":
+            (valid if tp > reference_entry else invalid).append(tp)
+        else:
+            (valid if tp < reference_entry else invalid).append(tp)
+
+    if invalid:
+        log_event(
+            f"Discarding invalid TP levels for {side} at reference_entry={reference_entry}: invalid_tps={invalid}"
+        )
+
+    return valid
 
 
 def _resolve_symbol_info(requested_symbol):
@@ -137,22 +162,14 @@ def _resolve_symbol_info(requested_symbol):
 
 
 def _start_break_even_monitor(symbol, side, first_trigger_price, tracked_tickets=None, reference_entry=None, take_profits=None):
-    """Move tracked positions to entry +/- 2.5 at TP1, then exact break-even at TP2."""
+    """Move tracked positions to exact break-even once the active TP1 is hit."""
 
     def _monitor():
         if mt5.account_info() is None:
             initialize_mt5()
 
-        second_trigger_price = None
-        if take_profits and len(take_profits) >= 2:
-            second_trigger_price = take_profits[1]
-        else:
-            second_trigger_price = first_trigger_price
-
-        first_stage_done = False
         log_event(
-            f"Break-even monitor started for {symbol} {side}. "
-            f"first_trigger={first_trigger_price}, second_trigger={second_trigger_price}"
+            f"Break-even monitor started for {symbol} {side}. first_trigger={first_trigger_price}"
         )
 
         while True:
@@ -171,16 +188,9 @@ def _start_break_even_monitor(symbol, side, first_trigger_price, tracked_tickets
                 if price is None:
                     time.sleep(2)
                     continue
-                if not first_stage_done and price >= first_trigger_price:
+                if price >= first_trigger_price:
                     log_event(
                         f"{symbol} ASK {price} reached TP1 trigger {first_trigger_price}. "
-                        "Moving all SLs to entry - 2.5."
-                    )
-                    move_all_to_break_even(2.5, symbol=symbol, tickets=tracked_tickets)
-                    first_stage_done = True
-                elif first_stage_done and price >= second_trigger_price:
-                    log_event(
-                        f"{symbol} ASK {price} reached TP2 trigger {second_trigger_price}. "
                         "Moving all SLs to exact break-even."
                     )
                     move_all_to_break_even(0.0, symbol=symbol, tickets=tracked_tickets)
@@ -190,16 +200,9 @@ def _start_break_even_monitor(symbol, side, first_trigger_price, tracked_tickets
                 if price is None:
                     time.sleep(2)
                     continue
-                if not first_stage_done and price <= first_trigger_price:
+                if price <= first_trigger_price:
                     log_event(
                         f"{symbol} BID {price} reached TP1 trigger {first_trigger_price}. "
-                        "Moving all SLs to entry + 2.5."
-                    )
-                    move_all_to_break_even(2.5, symbol=symbol, tickets=tracked_tickets)
-                    first_stage_done = True
-                elif first_stage_done and price <= second_trigger_price:
-                    log_event(
-                        f"{symbol} BID {price} reached TP2 trigger {second_trigger_price}. "
                         "Moving all SLs to exact break-even."
                     )
                     move_all_to_break_even(0.0, symbol=symbol, tickets=tracked_tickets)
@@ -411,7 +414,7 @@ def _execute_dynamic_batch(symbol, side, symbol_info, stop_loss, tp_values, incl
 
 
 def execute_pre_signal_trade(quick_signal):
-    """Open six positions with fixed 4 USD SL and no TP."""
+    """Open six positions with fixed 6 USD SL and no TP."""
     global PENDING_PRE_SIGNAL
 
     requested_symbol = (quick_signal or {}).get("symbol") or SYMBOL_DEFAULT
@@ -484,7 +487,10 @@ def apply_signal_to_existing_positions(signal_data):
     global PENDING_PRE_SIGNAL
     requested_symbol = signal_data.get("symbol")
     side = str(signal_data.get("side", "")).lower()
-    take_profits = _selected_take_profits(signal_data.get("take_profits") or [])
+    take_profits = _adjust_take_profits_for_side(
+        _selected_take_profits(signal_data.get("take_profits") or []),
+        side,
+    )
 
     if not requested_symbol or side not in {"buy", "sell"}:
         return False
@@ -513,17 +519,22 @@ def apply_signal_to_existing_positions(signal_data):
         return False
 
     side_positions.sort(key=lambda p: p.ticket)
-    first_tp = take_profits[0]
     edited_any = False
     tracked_positions = side_positions[:TOTAL_POSITIONS]
     tracked_tickets = [pos.ticket for pos in tracked_positions]
     reference_entry = sum(pos.price_open for pos in tracked_positions) / len(tracked_positions)
+    take_profits = _filter_valid_take_profits(take_profits, reference_entry, side)
 
     log_event(
         f"Applying main signal to existing positions for {symbol} {side}: "
         f"count={len(side_positions)}, fixed_sl_distance={FIXED_STOP_LOSS_DISTANCE}, tps={take_profits}"
     )
 
+    if not take_profits:
+        log_event(f"No valid take-profit levels remain for existing {symbol} {side} positions. Skipping signal apply.")
+        return False
+
+    first_tp = take_profits[0]
     for idx, pos in enumerate(tracked_positions):
         new_sl = _fixed_stop_loss(pos.price_open, side)
         new_tp = take_profits[idx] if idx < len(take_profits) else 0.0
@@ -548,10 +559,13 @@ def apply_signal_to_existing_positions(signal_data):
 
 
 def execute_trade(signal_data):
-    """Open exactly six positions: five TP trades and one runner, all with fixed 4 USD SL."""
+    """Open exactly six positions: five TP trades and one runner, all with fixed 6 USD SL."""
     requested_symbol = signal_data.get("symbol")
     side = str(signal_data.get("side", "")).lower()
-    take_profits = _selected_take_profits(signal_data.get("take_profits") or [])
+    take_profits = _adjust_take_profits_for_side(
+        _selected_take_profits(signal_data.get("take_profits") or []),
+        side,
+    )
 
     if not requested_symbol or side not in {"buy", "sell"}:
         log_event(f"Invalid trade signal: {signal_data}")
@@ -565,6 +579,11 @@ def execute_trade(signal_data):
     if prep[0] is None:
         return
     balance, entry_price, symbol_info, symbol = prep
+
+    take_profits = _filter_valid_take_profits(take_profits, entry_price, side)
+    if not take_profits:
+        log_event(f"No valid take-profit levels remain for {symbol} {side} at entry_price={entry_price}. Aborting trade.")
+        return
 
     stop_loss = _fixed_stop_loss(entry_price, side)
     per_position_lot, planned_total_lot = _plan_position_sizing(

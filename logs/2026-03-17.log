@@ -1,0 +1,352 @@
+2026-03-17 07:30:36,315 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-03-17 07:30:36,315 - INFO - cryptg module not installed and libssl not found, falling back to (slower) Python encryption
+2026-03-17 07:30:36,806 - INFO - Database initialized successfully
+2026-03-17 07:30:36,851 - INFO - MT5 initialized successfully
+2026-03-17 07:30:36,854 - INFO - Telegram Copy Trader Started
+2026-03-17 07:30:36,859 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-17 07:30:36,866 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-17 07:30:37,383 - INFO - Connected to channel: 100$ to 30000$ year 2026
+2026-03-17 07:30:37,384 - INFO - Telegram listener handler registered
+2026-03-17 07:30:37,384 - INFO - Telegram listener started
+2026-03-17 07:38:21,282 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-03-17 07:38:21,282 - INFO - cryptg module not installed and libssl not found, falling back to (slower) Python encryption
+2026-03-17 07:38:21,618 - INFO - Database initialized successfully
+2026-03-17 07:38:21,635 - INFO - MT5 initialized successfully
+2026-03-17 07:38:21,635 - INFO - Telegram Copy Trader Started
+2026-03-17 07:38:21,637 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-17 07:38:21,645 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-17 07:38:22,161 - INFO - Connected to channel: 100$ to 30000$ year 2026
+2026-03-17 07:38:22,161 - INFO - Telegram listener handler registered
+2026-03-17 07:38:22,161 - INFO - Telegram listener started
+2026-03-17 07:45:41,845 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-03-17 07:45:41,845 - INFO - cryptg module not installed and libssl not found, falling back to (slower) Python encryption
+2026-03-17 07:45:42,154 - INFO - Database initialized successfully
+2026-03-17 07:45:42,168 - INFO - MT5 initialized successfully
+2026-03-17 07:45:42,169 - INFO - Telegram Copy Trader Started
+2026-03-17 07:45:42,170 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-17 07:45:42,180 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-17 07:45:42,716 - INFO - Connected to channel: 100$ to 30000$ year 2026
+2026-03-17 07:45:42,717 - INFO - Telegram listener handler registered
+2026-03-17 07:45:42,717 - INFO - Telegram listener started
+2026-03-17 07:45:59,878 - INFO - New message received: This is good trade 
+The rest of the position they might have drawdown so risk accordingly
+2026-03-17 07:47:16,800 - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2026-03-17 07:47:16,801 - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2026-03-17 07:47:16,808 - INFO - System stopped by user.
+2026-03-17 07:47:23,143 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-03-17 07:47:23,144 - INFO - cryptg module not installed and libssl not found, falling back to (slower) Python encryption
+2026-03-17 07:47:23,485 - INFO - Database initialized successfully
+2026-03-17 07:47:23,498 - INFO - MT5 initialized successfully
+2026-03-17 07:47:23,498 - INFO - Telegram Copy Trader Started
+2026-03-17 07:47:23,500 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-17 07:47:23,505 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-17 07:47:24,019 - INFO - Connected to channel: Demo_trading_trial
+2026-03-17 07:47:24,020 - INFO - Telegram listener handler registered
+2026-03-17 07:47:24,020 - INFO - Telegram listener started
+2026-03-17 07:47:59,028 - INFO - New message received: RiskY traDE \u2620
+\U0001f449\U0001f3feSELL XAUUSD now
+\U0001f6d1 SL 5114
+\u2705 TP 5010
+\u2705 TP 5005
+\u2705 TP 5000
+\u2705 TP 4995
+\u2705 TP 4990
+\u2705 TP 4985
+\u2705 TP 4980
+\u2705 TP open
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set.
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-17 07:47:59,047 - INFO - Resolved broker symbol XAUUSD -> XAUUSDm
+2026-03-17 07:47:59,050 - INFO - Planned sizing for XAUUSDm sell: risk_total_lot=0.0700, margin_total_lot=0.0700, planned_total_lot=0.0600, per_position_lot=0.0100, risk_override=None
+2026-03-17 07:47:59,050 - INFO - Executing trade XAUUSDm sell: planned_total_lot=0.0600, positions=6, used_tps=[5004.0, 4999.0, 4994.0, 4989.0, 4984.0], runner_enabled=True, fixed_sl=5018.896, per_position_lot=0.0100
+2026-03-17 07:47:59,051 - INFO - Opening batch slot for XAUUSDm sell lot=0.0100 TP=5004.0 SL=5018.896 remaining_slots=6
+2026-03-17 07:47:59,379 - INFO - Order executed XAUUSDm SELL
+2026-03-17 07:47:59,381 - INFO - Opening batch slot for XAUUSDm sell lot=0.0100 TP=4999.0 SL=5018.896 remaining_slots=5
+2026-03-17 07:47:59,707 - INFO - Order executed XAUUSDm SELL
+2026-03-17 07:47:59,714 - INFO - Opening batch slot for XAUUSDm sell lot=0.0100 TP=4994.0 SL=5018.896 remaining_slots=4
+2026-03-17 07:47:59,997 - INFO - Order executed XAUUSDm SELL
+2026-03-17 07:47:59,999 - INFO - Opening batch slot for XAUUSDm sell lot=0.0100 TP=4989.0 SL=5018.896 remaining_slots=3
+2026-03-17 07:48:00,331 - INFO - Order executed XAUUSDm SELL
+2026-03-17 07:48:00,334 - INFO - Opening batch slot for XAUUSDm sell lot=0.0100 TP=4984.0 SL=5018.896 remaining_slots=2
+2026-03-17 07:48:00,647 - INFO - Order executed XAUUSDm SELL
+2026-03-17 07:48:00,648 - INFO - Opening batch slot for XAUUSDm sell lot=0.0200 runner SL=5018.896 remaining_slots=1
+2026-03-17 07:48:00,933 - INFO - Order executed XAUUSDm SELL
+2026-03-17 07:48:00,934 - INFO - Runner position confirmed open for XAUUSDm.
+2026-03-17 07:48:01,939 - INFO - Break-even monitor started for XAUUSDm sell. first_trigger=5004.0
+2026-03-17 08:09:44,386 - INFO - Break-even monitor for XAUUSDm stopped: no open positions.
+2026-03-17 08:10:06,402 - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2026-03-17 08:10:06,403 - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2026-03-17 08:10:06,413 - INFO - System stopped by user.
+2026-03-17 08:10:11,595 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-03-17 08:10:11,596 - INFO - cryptg module not installed and libssl not found, falling back to (slower) Python encryption
+2026-03-17 08:10:11,924 - INFO - Database initialized successfully
+2026-03-17 08:10:11,939 - INFO - MT5 initialized successfully
+2026-03-17 08:10:11,939 - INFO - Telegram Copy Trader Started
+2026-03-17 08:10:11,941 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-17 08:10:11,948 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-17 08:10:12,478 - INFO - Connected to channel: 100$ to 30000$ year 2026
+2026-03-17 08:10:12,479 - INFO - Telegram listener handler registered
+2026-03-17 08:10:12,479 - INFO - Telegram listener started
+2026-03-17 08:11:52,025 - INFO - Got difference for channel 3470659071 updates
+2026-03-17 08:11:52,027 - INFO - New message received: Close the rest
+2026-03-17 08:11:52,042 - INFO - New message received: Be active and wait for my instructions am looking for another entry
+2026-03-17 08:23:05,070 - INFO - New message received: RiskY traDE \u2620\ufe0f
+\U0001f449\U0001f3fesell XAUUSD now 
+\U0001f6d1 SL 5035
+\u2705 TP 5010
+\u2705 TP 5005
+\u2705 TP 5000
+\u2705 TP 4995
+\u2705 TP 4990
+\u2705 TP 4985
+\u2705 TP 4980
+\u2705 TP 4975
+\u2705 TP open 
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set. 
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-17 08:23:05,077 - INFO - Resolved broker symbol XAUUSD -> XAUUSDm
+2026-03-17 08:23:05,078 - INFO - Planned sizing for XAUUSDm sell: risk_total_lot=0.0700, margin_total_lot=0.0700, planned_total_lot=0.0600, per_position_lot=0.0100, risk_override=None
+2026-03-17 08:23:05,078 - INFO - Executing trade XAUUSDm sell: planned_total_lot=0.0600, positions=6, used_tps=[5006.0, 5001.0, 4996.0, 4991.0, 4986.0], runner_enabled=True, fixed_sl=5016.754, per_position_lot=0.0100
+2026-03-17 08:23:05,079 - INFO - Opening batch slot for XAUUSDm sell lot=0.0100 TP=5006.0 SL=5016.754 remaining_slots=6
+2026-03-17 08:23:05,399 - INFO - Order executed XAUUSDm SELL
+2026-03-17 08:23:05,402 - INFO - Opening batch slot for XAUUSDm sell lot=0.0100 TP=5001.0 SL=5016.754 remaining_slots=5
+2026-03-17 08:23:05,708 - INFO - Order executed XAUUSDm SELL
+2026-03-17 08:23:05,709 - INFO - Opening batch slot for XAUUSDm sell lot=0.0100 TP=4996.0 SL=5016.754 remaining_slots=4
+2026-03-17 08:23:06,038 - INFO - Order executed XAUUSDm SELL
+2026-03-17 08:23:06,042 - INFO - Opening batch slot for XAUUSDm sell lot=0.0100 TP=4991.0 SL=5016.754 remaining_slots=3
+2026-03-17 08:23:06,340 - INFO - Order executed XAUUSDm SELL
+2026-03-17 08:23:06,341 - INFO - Opening batch slot for XAUUSDm sell lot=0.0100 TP=4986.0 SL=5016.754 remaining_slots=2
+2026-03-17 08:23:06,632 - INFO - Order executed XAUUSDm SELL
+2026-03-17 08:23:06,636 - INFO - Opening batch slot for XAUUSDm sell lot=0.0200 runner SL=5016.754 remaining_slots=1
+2026-03-17 08:23:06,921 - INFO - Order executed XAUUSDm SELL
+2026-03-17 08:23:06,922 - INFO - Runner position confirmed open for XAUUSDm.
+2026-03-17 08:23:07,925 - INFO - Break-even monitor started for XAUUSDm sell. first_trigger=5006.0
+2026-03-17 08:24:24,927 - INFO - New message received: This is good trade 
+The rest of the position they might have drawdown so risk accordingly
+2026-03-17 08:27:00,011 - INFO - Break-even monitor for XAUUSDm stopped: no open positions.
+2026-03-17 08:30:18,449 - INFO - New message received: Market is volatile so be active and wait for instructions as always family
+2026-03-17 08:40:12,578 - INFO - Got difference for account updates
+2026-03-17 10:21:06,251 - INFO - New message received: Back in profit let’s see
+2026-03-17 11:00:23,684 - INFO - New message received: \u2705 Our 1st TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-17 11:06:58,755 - INFO - New message received: \u2705 Our 2nd TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-17 11:07:28,029 - INFO - New message received: Move stop loss to Breakeven
+2026-03-17 11:09:57,507 - INFO - New message received: Send your results to my team family
+2026-03-17 11:14:44,222 - INFO - New message received: Both 3 trades is successful today congratulations again family
+2026-03-17 11:25:13,596 - INFO - Got difference for account updates
+2026-03-17 11:25:50,483 - INFO - New message received: Ab bro fetari yasebekehun yasakaleh 10k$ withdraw arega 56k$ exness lay aleghe edema lante melkamun hulu emeghelehalew wendemua\U0001f64c
+2026-03-17 11:25:50,491 - INFO - New message received: 
+2026-03-17 11:42:29,400 - INFO - New message received: \u2705 Our 3rd TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-17 11:45:01,554 - INFO - New message received: \u2705 Our 4th TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-17 11:45:53,254 - INFO - New message received: We did it again 
+#Rrrrrrraaaaaaaaaaa
+2026-03-17 11:47:44,881 - INFO - New message received: Move stop loss to breakeven 
+And eatttttttt 
+Let’s fucking goooooo
+2026-03-17 11:54:10,624 - INFO - New message received: This might look 
+Over night success changing 
+100$ to 30000$ + for the 3rd time 
+But I been in this game for 7 years 
+That’s the results now changing so many people life with GOD help 
+
+
+Be ready for second round interview to be selected for copy trading 
+To apply send my team your account balance and ask them for interview 
+  
+And we will make 500$ to 100k then to 1 million usd 
+
+No one has done this in this industry 
+So many people life must change this year !!!!
+2026-03-17 12:17:19,680 - INFO - New message received: Ab yleyal yenlew bemknyat nw  ##Rrrrrrrrrrrr
+Fetari yrdah mn endemlh I have no idea big respect bro \U0001f64f \U0001f64c 
+Now its  time to 500 to 100k 
+signal tinsh amltogn nw enji keza belay esera neber ... Trish ke mother gave sra neberkugn leza nw my guys kechalk le interview btredagn ena enates surprise largat ke gulit awtcha bro \U0001f64f\U0001f64f\U0001f64f\U0001f64f
+
+For this may God bless you boss  \U0001f64f
+2026-03-17 12:28:38,964 - WARNING - Server closed the connection: [WinError 121] The semaphore timeout period has expired
+2026-03-17 12:28:38,967 - INFO - Connection closed while receiving data: [WinError 121] The semaphore timeout period has expired
+2026-03-17 12:28:38,968 - INFO - Closing current connection to begin reconnect...
+2026-03-17 12:28:38,970 - INFO - <class 'OSError'> during disconnect: [WinError 121] The semaphore timeout period has expired
+2026-03-17 12:28:38,970 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-17 12:28:38,993 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-17 13:11:31,068 - INFO - New message received: I want to thank mr ab marshall from my heart
+
+2k$ withdraw arige inda addis tinant 100$ deposit arige ahun 230+$ lay negn bizu signal iyamalategn nabare ye university tamari Sila honku fatana lay nabaren leza biye bizu signal amaltognal isum hono  2k$+ belay serichalew. Le ketay interview le madarag zigiju negn. Copy trade WUST indigeba idil situgn be timirt gize indayderarbign.
+
+Btw ine ye ab tamari negn (shasha gang tamari) marshall be nesa astamiron be nesa challenge azegajito without lose weda profit amaran this is insane. Ab marshall is not from man it's from god. Big love and respect ab. Please don't forget me on the next copy trade.
+2026-03-17 13:11:31,076 - INFO - New message received: 
+2026-03-17 13:12:46,555 - INFO - New message received: 
+2026-03-17 13:12:46,573 - INFO - New message received: Monthly salary in one day ewunetim king of Gold \U0001f64c\U0001f3fd\U0001f64c\U0001f3fdbig ups my guy\U0001f44f\U0001f3fd\U0001f3c6
+2026-03-17 14:36:39,131 - WARNING - Server closed the connection: [WinError 121] The semaphore timeout period has expired
+2026-03-17 14:36:39,133 - INFO - Connection closed while receiving data: [WinError 121] The semaphore timeout period has expired
+2026-03-17 14:36:39,134 - INFO - Closing current connection to begin reconnect...
+2026-03-17 14:36:39,134 - INFO - <class 'OSError'> during disconnect: [WinError 121] The semaphore timeout period has expired
+2026-03-17 14:36:39,135 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-17 14:36:49,152 - WARNING - Attempt 1 at connecting failed: TimeoutError: 
+2026-03-17 21:17:23,650 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-03-17 21:17:23,651 - INFO - cryptg module not installed and libssl not found, falling back to (slower) Python encryption
+2026-03-17 21:17:23,961 - INFO - Database initialized successfully
+2026-03-17 21:17:30,079 - INFO - MT5 initialized successfully
+2026-03-17 21:17:30,079 - INFO - Telegram Copy Trader Started
+2026-03-17 21:17:30,084 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-17 21:17:30,341 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-17 21:17:34,130 - INFO - Connected to channel: 100$ to 30000$ year 2026
+2026-03-17 21:17:34,131 - INFO - Telegram listener handler registered
+2026-03-17 21:17:34,131 - INFO - Telegram listener started
+2026-03-17 21:32:32,155 - INFO - Got difference for channel 2629379150 updates
+2026-03-17 21:43:33,243 - INFO - Got difference for channel 2629379150 updates
+2026-03-17 21:47:32,641 - INFO - Got difference for channel 1523353611 updates
+2026-03-17 22:59:34,744 - INFO - Got difference for channel 1523353611 updates
+2026-03-17 23:17:33,399 - INFO - Got difference for channel 2629379150 updates
+2026-03-17 23:32:33,224 - INFO - Got difference for account updates
+2026-03-17 23:47:33,329 - INFO - Got difference for account updates
+2026-03-18 00:02:33,531 - INFO - Got difference for channel 1799443074 updates
+2026-03-18 01:02:36,123 - INFO - Got difference for channel 1799443074 updates
+2026-03-18 01:47:36,396 - INFO - Got difference for account updates
+2026-03-18 04:47:37,660 - INFO - Got difference for channel 1523353611 updates
+2026-03-18 06:02:38,093 - INFO - Got difference for account updates
+2026-03-18 06:02:38,192 - INFO - Got difference for channel 1900909089 updates
+2026-03-18 06:17:44,333 - INFO - Got difference for channel 1283049346 updates
+2026-03-18 07:02:38,558 - INFO - Got difference for account updates
+2026-03-18 07:32:38,740 - INFO - Got difference for account updates
+2026-03-18 08:28:31,509 - INFO - New message received: Hey support can you send this to marshal 
+Hey marshal hope you are doing well I just wanted to say I really appreciate all the effort you put to change our life around in a good way by your challenge signals you share with us every day I know it takes a lot of time and patience to do this for the us i have seen when you worried in text just to not see when we lose money bro that really cool nobody even forcing you to do this you just wanna change people life i really appreciate it i just made this money from the past two weeks thanks you for that im looking forward for the next challenge also to be selected for the copy trading and to be in  interview with you and thank you more than this
+Thank you again men keep doing it we gonna make history again
+2026-03-18 09:17:39,533 - INFO - Got difference for account updates
+2026-03-18 09:32:39,913 - INFO - Got difference for channel 1706038458 updates
+2026-03-18 11:47:40,575 - INFO - Got difference for channel 1523353611 updates
+2026-03-18 12:02:41,183 - INFO - Got difference for channel 1523353611 updates
+2026-03-18 12:17:41,141 - INFO - Got difference for channel 2135999519 updates
+2026-03-18 12:32:41,076 - INFO - Got difference for account updates
+2026-03-18 14:18:01,352 - WARNING - Server closed the connection: [WinError 121] The semaphore timeout period has expired
+2026-03-18 14:18:01,353 - INFO - Connection closed while receiving data: [WinError 121] The semaphore timeout period has expired
+2026-03-18 14:18:01,353 - INFO - Closing current connection to begin reconnect...
+2026-03-18 14:18:01,354 - INFO - <class 'OSError'> during disconnect: [WinError 121] The semaphore timeout period has expired
+2026-03-18 14:18:01,354 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-18 14:18:11,371 - WARNING - Attempt 1 at connecting failed: TimeoutError: 
+2026-03-18 14:18:22,389 - WARNING - Attempt 2 at connecting failed: TimeoutError: 
+2026-03-18 14:18:33,398 - WARNING - Attempt 3 at connecting failed: TimeoutError: 
+2026-03-18 14:18:34,416 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-18 14:18:34,664 - INFO - Got difference for channel 1498073945 updates
+2026-03-18 15:03:34,860 - INFO - Got difference for account updates
+2026-03-18 16:18:35,329 - INFO - Got difference for account updates
+2026-03-18 20:03:37,211 - INFO - Got difference for channel 2629379150 updates
+2026-03-18 20:03:38,094 - INFO - Got difference for channel 1799443074 updates
+2026-03-18 20:18:03,757 - INFO - Got difference for channel 2629379150 updates
+2026-03-18 20:18:36,978 - INFO - Got difference for channel 2629379150 updates
+2026-03-18 20:18:37,191 - INFO - Got difference for channel 1706038458 updates
+2026-03-18 20:49:31,976 - INFO - Got difference for channel 2629379150 updates
+2026-03-18 21:03:37,225 - INFO - Got difference for channel 1523353611 updates
+2026-03-18 21:18:37,328 - INFO - Got difference for channel 1523353611 updates
+2026-03-18 21:49:32,449 - INFO - Got difference for channel 2629379150 updates
+2026-03-18 21:57:17,733 - INFO - Got difference for channel 1283049346 updates
+2026-03-18 22:17:06,434 - INFO - Got difference for channel 2629379150 updates
+2026-03-18 22:21:06,551 - INFO - Got difference for channel 2629379150 updates
+2026-03-18 22:30:41,621 - INFO - Got difference for channel 2629379150 updates
+2026-03-19 01:33:40,272 - INFO - Got difference for account updates
+2026-03-19 01:48:40,340 - INFO - Got difference for account updates
+2026-03-19 02:03:40,451 - INFO - Got difference for account updates
+2026-03-19 04:16:52,891 - INFO - New message received: Good morning
+2026-03-19 04:31:25,927 - INFO - New message received: RiskY traDE \u2620\ufe0f
+\U0001f449\U0001f3fesell XAUUSD now 
+\U0001f6d1 SL 4869
+\u2705 TP 4853
+\u2705 TP 4848
+\u2705 TP 4843
+\u2705 TP 4838
+\u2705 TP 4833
+\u2705 TP 4828
+\u2705 TP 4823
+\u2705 TP 4818
+\u2705 TP 4813
+\u2705 TP 4808
+\u2705 TP open 
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set. 
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-19 04:31:25,997 - INFO - Resolved broker symbol XAUUSD -> XAUUSDm
+2026-03-19 04:31:26,007 - INFO - Planned sizing for XAUUSDm sell: risk_total_lot=0.0700, margin_total_lot=0.0700, planned_total_lot=0.0600, per_position_lot=0.0100, risk_override=None
+2026-03-19 04:31:26,008 - INFO - Executing trade XAUUSDm sell: planned_total_lot=0.0600, positions=6, used_tps=[4849.0, 4844.0, 4839.0, 4834.0, 4829.0], runner_enabled=True, fixed_sl=4862.923, per_position_lot=0.0100
+2026-03-19 04:31:26,010 - INFO - Opening batch slot for XAUUSDm sell lot=0.0100 TP=4849.0 SL=4862.923 remaining_slots=6
+2026-03-19 04:31:27,112 - INFO - Order executed XAUUSDm SELL
+2026-03-19 04:31:27,115 - INFO - Opening batch slot for XAUUSDm sell lot=0.0100 TP=4844.0 SL=4862.923 remaining_slots=5
+2026-03-19 04:31:28,620 - INFO - Order executed XAUUSDm SELL
+2026-03-19 04:31:28,621 - INFO - Opening batch slot for XAUUSDm sell lot=0.0100 TP=4839.0 SL=4862.923 remaining_slots=4
+2026-03-19 04:31:30,021 - INFO - Order executed XAUUSDm SELL
+2026-03-19 04:31:30,022 - INFO - Opening batch slot for XAUUSDm sell lot=0.0100 TP=4834.0 SL=4862.923 remaining_slots=3
+2026-03-19 04:31:31,130 - INFO - Order executed XAUUSDm SELL
+2026-03-19 04:31:31,131 - INFO - Opening batch slot for XAUUSDm sell lot=0.0100 TP=4829.0 SL=4862.923 remaining_slots=2
+2026-03-19 04:31:32,581 - INFO - Order executed XAUUSDm SELL
+2026-03-19 04:31:32,584 - INFO - Opening batch slot for XAUUSDm sell lot=0.0200 runner SL=4862.923 remaining_slots=1
+2026-03-19 04:31:33,989 - INFO - Order executed XAUUSDm SELL
+2026-03-19 04:31:33,990 - INFO - Runner position confirmed open for XAUUSDm.
+2026-03-19 04:31:35,002 - INFO - Break-even monitor started for XAUUSDm sell. first_trigger=4849.0
+2026-03-19 04:36:22,033 - INFO - New message received: \u2705 Our 1st TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-19 04:37:01,756 - INFO - New message received: Move stop loss to breakeven
+2026-03-19 04:48:43,154 - INFO - New message received: Survived the BE with 10 pips  let’s go to profittttt
+2026-03-19 04:53:48,650 - INFO - New message received: 
+2026-03-19 05:04:45,664 - INFO - XAUUSDm BID 4848.952 reached TP1 trigger 4849.0. Moving all SLs to exact break-even.
+2026-03-19 05:04:46,001 - INFO - Modified targets for 2522520441: sl=4856.794, tp=4844.0, result=OrderSendResult(retcode=10009, deal=0, order=0, volume=0.01, price=4849.152, bid=4848.952, ask=4849.152, comment='', request_id=1251859836, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSDm', volume=0.0, price=0.0, stoplimit=0.0, sl=4856.794, tp=4844.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=2522520441, position_by=0))
+2026-03-19 05:04:46,003 - INFO - Break-even SL update: ticket=2522520441 symbol=XAUUSDm type=1 old_sl=4862.923 new_sl=4856.794 buffer=0.0
+2026-03-19 05:04:46,312 - INFO - Modified targets for 2522520496: sl=4856.751, tp=4839.0, result=OrderSendResult(retcode=10009, deal=0, order=0, volume=0.01, price=4849.152, bid=4848.952, ask=4849.152, comment='', request_id=1251859837, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSDm', volume=0.0, price=0.0, stoplimit=0.0, sl=4856.751, tp=4839.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=2522520496, position_by=0))
+2026-03-19 05:04:46,313 - INFO - Break-even SL update: ticket=2522520496 symbol=XAUUSDm type=1 old_sl=4862.923 new_sl=4856.751 buffer=0.0
+2026-03-19 05:04:46,612 - INFO - Modified targets for 2522520521: sl=4856.939, tp=4834.0, result=OrderSendResult(retcode=10009, deal=0, order=0, volume=0.01, price=4849.194, bid=4848.974, ask=4849.194, comment='', request_id=1251859838, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSDm', volume=0.0, price=0.0, stoplimit=0.0, sl=4856.939, tp=4834.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=2522520521, position_by=0))
+2026-03-19 05:04:46,613 - INFO - Break-even SL update: ticket=2522520521 symbol=XAUUSDm type=1 old_sl=4862.923 new_sl=4856.939 buffer=0.0
+2026-03-19 05:04:46,911 - INFO - Modified targets for 2522520552: sl=4856.75, tp=4829.0, result=OrderSendResult(retcode=10009, deal=0, order=0, volume=0.01, price=4849.194, bid=4848.974, ask=4849.194, comment='', request_id=1251859839, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSDm', volume=0.0, price=0.0, stoplimit=0.0, sl=4856.75, tp=4829.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=2522520552, position_by=0))
+2026-03-19 05:04:46,912 - INFO - Break-even SL update: ticket=2522520552 symbol=XAUUSDm type=1 old_sl=4862.923 new_sl=4856.75 buffer=0.0
+2026-03-19 05:04:47,217 - INFO - Modified targets for 2522520585: sl=4856.733, tp=0.0, result=OrderSendResult(retcode=10009, deal=0, order=0, volume=0.02, price=4849.194, bid=4848.974, ask=4849.194, comment='', request_id=1251859840, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSDm', volume=0.0, price=0.0, stoplimit=0.0, sl=4856.733, tp=0.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=2522520585, position_by=0))
+2026-03-19 05:04:47,219 - INFO - Break-even SL update: ticket=2522520585 symbol=XAUUSDm type=1 old_sl=4862.923 new_sl=4856.733 buffer=0.0
+2026-03-19 05:04:47,221 - INFO - Matching positions moved to exact break-even, symbol=XAUUSDm, tickets=[2522520404, 2522520441, 2522520496, 2522520521, 2522520552, 2522520585]
+2026-03-19 05:06:35,618 - INFO - New message received: \u2705 Our 2nd TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-19 05:07:06,378 - INFO - New message received: If Marshall says good morning 
+Just know there will be food to eat 
+#Rrrrrrraaaaaaaaaaa
+2026-03-19 05:13:13,143 - INFO - New message received: Share your open trades and results nowwww to my team
+2026-03-19 06:31:50,694 - INFO - New message received: \u2705 Our 3rd TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-19 06:40:57,933 - INFO - New message received: \u2705 Our 4th TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-19 06:41:34,744 - INFO - New message received: #Rrrrrrraaaaaaaaaaa
+2026-03-19 06:45:22,288 - INFO - New message received: \u2705 Our 5th TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-19 06:45:42,730 - INFO - New message received: Share your results gang
+2026-03-19 06:47:32,744 - INFO - New message received: Congratulations again everyone we eat !!!
+2026-03-19 06:58:25,239 - INFO - New message received: \u2705 Our 6th TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-19 07:06:36,025 - INFO - New message received: \U0001f525\U0001f525\U0001f525\U0001f525 \u1275\u120b\u1295\u1275 I lost \u1260\u122b\u1234 \u1275\u122c\u12f4 \u1308\u1265\u127c.... \u130d\u1295 \u12db\u122c \u12f0\u130d\u121e AB \u1218\u1208\u1230\u120d\u129d...\u12a8\u12da\u1205 \u1260\u120b\u12ed \u121d\u1295 \u12f0\u1235\u1273 \u12a0\u1208?? 
+When Ab says Risky trade it means prepare to eat Gang!
+2026-03-19 07:18:42,736 - INFO - Got difference for account updates
+2026-03-19 07:26:26,427 - INFO - New message received: \u2705 Our 7th TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-19 07:31:13,788 - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2026-03-19 07:31:13,792 - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2026-03-19 07:31:13,813 - INFO - System stopped by user.

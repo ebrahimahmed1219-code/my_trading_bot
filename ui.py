@@ -1,9 +1,9 @@
 import tkinter as tk
-from tkinter import scrolledtext
+from tkinter import scrolledtext, ttk
 from threading import Thread
 import asyncio
 
-from config import SYMBOL_DEFAULT, TOTAL_POSITIONS
+from config import FORWARD_SIGNALS_ENABLED, FORWARD_TELEGRAM_CHANNEL, SYMBOL_DEFAULT, TOTAL_POSITIONS
 from telegram_listener import start_listener  # async Telegram listener
 from mt5_connector import get_account_balance, initialize_mt5
 from risk_manager import _risk_ratio_for_balance
@@ -15,25 +15,33 @@ class CopyTraderUI:
     def __init__(self, root):
         self.root = root
         self.root.title("Telegram Copy Trader")
-        self.root.geometry("750x520")
+        self.root.geometry("820x600")
+
+        self.notebook = ttk.Notebook(root)
+        self.notebook.pack(fill="both", expand=True)
+
+        self.main_page = ttk.Frame(self.notebook)
+        self.relay_page = ttk.Frame(self.notebook)
+        self.notebook.add(self.main_page, text="Trading")
+        self.notebook.add(self.relay_page, text="Relay")
 
         # Account Info
-        self.balance_label = tk.Label(root, text="Account Balance: $0.00", font=("Arial", 12))
+        self.balance_label = tk.Label(self.main_page, text="Account Balance: $0.00", font=("Arial", 12))
         self.balance_label.pack(pady=5)
 
-        self.refresh_balance_button = tk.Button(root, text="Refresh Balance", command=self.refresh_balance)
+        self.refresh_balance_button = tk.Button(self.main_page, text="Refresh Balance", command=self.refresh_balance)
         self.refresh_balance_button.pack(pady=5)
 
         # Risk Settings
         self.risk_label = tk.Label(
-            root,
+            self.main_page,
             text=self._risk_text(),
             font=("Arial", 10),
         )
         self.risk_label.pack(pady=5)
 
         # Symbol (display / manual override placeholder)
-        symbol_frame = tk.Frame(root)
+        symbol_frame = tk.Frame(self.main_page)
         symbol_frame.pack(pady=5)
         tk.Label(symbol_frame, text="Symbol:", font=("Arial", 10)).pack(side=tk.LEFT, padx=(0, 5))
         self.symbol_var = tk.StringVar(value=SYMBOL_DEFAULT)
@@ -41,7 +49,7 @@ class CopyTraderUI:
         self.symbol_entry.pack(side=tk.LEFT)
 
         # Runner (no TP) toggle
-        runner_frame = tk.Frame(root)
+        runner_frame = tk.Frame(self.main_page)
         runner_frame.pack(pady=2)
         self.runner_enabled_var = tk.BooleanVar(value=True)
         self.runner_check = tk.Checkbutton(
@@ -53,11 +61,11 @@ class CopyTraderUI:
         self.runner_check.pack(side=tk.LEFT)
 
         # Listener status
-        self.status_label = tk.Label(root, text="Status: Stopped", fg="red", font=("Arial", 10, "bold"))
+        self.status_label = tk.Label(self.main_page, text="Status: Stopped", fg="red", font=("Arial", 10, "bold"))
         self.status_label.pack(pady=5)
 
         # Start/Stop Buttons
-        controls_frame = tk.Frame(root)
+        controls_frame = tk.Frame(self.main_page)
         controls_frame.pack(pady=5)
 
         self.start_button = tk.Button(
@@ -90,8 +98,31 @@ class CopyTraderUI:
         self.clear_log_button.pack(side=tk.LEFT, padx=5)
 
         # Logs
-        self.log_box = scrolledtext.ScrolledText(root, width=90, height=20, state="disabled")
+        self.log_box = scrolledtext.ScrolledText(self.main_page, width=96, height=20, state="disabled")
         self.log_box.pack(pady=10)
+
+        # Relay Page
+        relay_title = tk.Label(self.relay_page, text="Signal Relay", font=("Arial", 14, "bold"))
+        relay_title.pack(pady=(20, 10))
+
+        relay_text = (
+            "Forward actionable incoming Telegram messages to your own channel as soon as they arrive.\n"
+            "Configure the destination in config.py using FORWARD_SIGNALS_ENABLED and FORWARD_TELEGRAM_CHANNEL."
+        )
+        self.relay_info_label = tk.Label(
+            self.relay_page,
+            text=relay_text,
+            font=("Arial", 10),
+            justify="left",
+            wraplength=700,
+        )
+        self.relay_info_label.pack(pady=5, padx=20, anchor="w")
+
+        self.relay_status_label = tk.Label(self.relay_page, text="", font=("Arial", 11))
+        self.relay_status_label.pack(pady=10, padx=20, anchor="w")
+
+        self.relay_target_label = tk.Label(self.relay_page, text="", font=("Arial", 11))
+        self.relay_target_label.pack(pady=5, padx=20, anchor="w")
 
         self.listener_thread = None
         self.loop = None
@@ -122,6 +153,16 @@ class CopyTraderUI:
 
         risk_percent = int(_risk_ratio_for_balance(balance) * 100)
         return f"Risk: {risk_percent}% across {TOTAL_POSITIONS} trades (balance used: ${balance:.2f})"
+
+    def refresh_relay_status(self):
+        status_text = "Relay Status: Enabled" if FORWARD_SIGNALS_ENABLED else "Relay Status: Disabled"
+        target_text = (
+            f"Relay Target: {FORWARD_TELEGRAM_CHANNEL}"
+            if FORWARD_TELEGRAM_CHANNEL
+            else "Relay Target: not configured"
+        )
+        self.relay_status_label.config(text=status_text, fg="green" if FORWARD_SIGNALS_ENABLED else "red")
+        self.relay_target_label.config(text=target_text)
 
     def refresh_balance(self):
         try:
@@ -232,6 +273,7 @@ class CopyTraderUI:
 
     def update_ui(self):
         self.refresh_balance()
+        self.refresh_relay_status()
         if self.running:
             self.status_label.config(text="Status: Running", fg="green")
         self.root.after(5000, self.update_ui)

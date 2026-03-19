@@ -3,7 +3,14 @@ import asyncio
 from telethon import TelegramClient, events
 from telethon.errors.common import TypeNotFoundError
 
-from config import TELEGRAM_API_ID, TELEGRAM_API_HASH, TELEGRAM_CHANNEL, TELEGRAM_SESSION_NAME
+from config import (
+    FORWARD_SIGNALS_ENABLED,
+    FORWARD_TELEGRAM_CHANNEL,
+    TELEGRAM_API_ID,
+    TELEGRAM_API_HASH,
+    TELEGRAM_CHANNEL,
+    TELEGRAM_SESSION_NAME,
+)
 from database import message_exists, store_message
 from logger import log_event
 from position_manager import close_all_positions, move_all_to_break_even
@@ -20,6 +27,7 @@ RECONNECT_DELAY_SECONDS = 5
 # Create Telegram client
 client = TelegramClient(TELEGRAM_SESSION_NAME, TELEGRAM_API_ID, TELEGRAM_API_HASH)
 _listener_registered = False
+_relay_entity = None
 
 
 async def get_channel_entity():
@@ -33,6 +41,30 @@ async def get_channel_entity():
         return None
 
 
+async def relay_signal_message(message_text, message_type):
+    """Forward actionable incoming Telegram messages to a configured destination channel."""
+    global _relay_entity
+
+    if not FORWARD_SIGNALS_ENABLED or not FORWARD_TELEGRAM_CHANNEL:
+        return
+
+    if message_type == "IGNORE":
+        return
+
+    if not (message_text or "").strip():
+        return
+
+    try:
+        if _relay_entity is None:
+            _relay_entity = await client.get_entity(FORWARD_TELEGRAM_CHANNEL)
+            log_event(f"Relay channel connected: {getattr(_relay_entity, 'title', FORWARD_TELEGRAM_CHANNEL)}")
+
+        await client.send_message(_relay_entity, message_text)
+        log_event(f"Forwarded {message_type} message to relay channel")
+    except Exception as e:
+        log_event(f"Relay forward failed: {e}")
+
+
 async def new_message_listener(event):
     """Handle incoming Telegram messages."""
     message_id = event.id
@@ -44,6 +76,7 @@ async def new_message_listener(event):
     log_event(f"New message received: {message_text}")
 
     message_type = classify_message(message_text)
+    await relay_signal_message(message_text, message_type)
 
     if message_type == "PRE_TRADE":
         quick_signal = parse_quick_direction_signal(message_text)
