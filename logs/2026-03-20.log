@@ -1,0 +1,89 @@
+2026-03-20 07:52:27,434 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-03-20 07:52:27,435 - INFO - cryptg module not installed and libssl not found, falling back to (slower) Python encryption
+2026-03-20 07:52:27,769 - INFO - Database initialized successfully
+2026-03-20 07:52:27,795 - INFO - MT5 initialized successfully
+2026-03-20 07:52:27,795 - INFO - Telegram Copy Trader Started
+2026-03-20 07:52:27,796 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-20 07:52:27,801 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-20 07:52:28,306 - INFO - Connected to channel: 100$ to 30000$ year 2026
+2026-03-20 07:52:28,310 - INFO - Telegram listener handler registered
+2026-03-20 07:52:28,311 - INFO - Telegram listener started
+2026-03-20 07:56:46,188 - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2026-03-20 07:56:46,189 - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2026-03-20 07:56:46,196 - INFO - System stopped by user.
+2026-03-20 07:58:01,665 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-03-20 07:58:01,665 - INFO - cryptg module not installed and libssl not found, falling back to (slower) Python encryption
+2026-03-20 07:58:01,948 - INFO - Database initialized successfully
+2026-03-20 07:58:01,969 - INFO - MT5 initialized successfully
+2026-03-20 07:58:01,969 - INFO - Telegram Copy Trader Started
+2026-03-20 07:58:01,970 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-20 07:58:01,976 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-20 07:58:02,482 - INFO - Connected to channel: 100$ to 30000$ year 2026
+2026-03-20 07:58:02,483 - INFO - Telegram listener handler registered
+2026-03-20 07:58:02,483 - INFO - Telegram listener started
+2026-03-20 08:02:42,815 - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2026-03-20 08:02:42,816 - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2026-03-20 08:02:42,825 - INFO - System stopped by user.
+2026-03-20 08:03:40,694 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-03-20 08:03:40,695 - INFO - cryptg module not installed and libssl not found, falling back to (slower) Python encryption
+2026-03-20 08:03:41,002 - INFO - Database initialized successfully
+2026-03-20 08:03:41,018 - INFO - MT5 initialized successfully
+2026-03-20 08:03:41,018 - INFO - Telegram Copy Trader Started
+2026-03-20 08:03:41,020 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-20 08:03:41,128 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-20 08:03:41,620 - INFO - Connected to channel: 100$ to 30000$ year 2026
+2026-03-20 08:03:41,620 - INFO - Telegram listener handler registered
+2026-03-20 08:03:41,620 - INFO - Telegram listener started
+2026-03-20 08:14:47,179 - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2026-03-20 08:14:47,179 - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2026-03-20 08:14:47,187 - INFO - System stopped by user.
+2026-03-20 08:14:52,324 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-03-20 08:14:52,325 - INFO - cryptg module not installed and libssl not found, falling back to (slower) Python encryption
+2026-03-20 08:14:52,614 - INFO - Database initialized successfully
+2026-03-20 08:14:52,629 - INFO - MT5 initialized successfully
+2026-03-20 08:14:52,630 - INFO - Telegram Copy Trader Started
+2026-03-20 08:14:52,631 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-20 08:14:52,637 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-20 08:14:53,136 - INFO - Connected to channel: 100$ to 30000$ year 2026
+2026-03-20 08:14:53,136 - INFO - Telegram listener handler registered
+2026-03-20 08:14:53,136 - INFO - Telegram listener started
+2026-03-20 08:24:25,692 - INFO - New message received: The rest positions touched BE
+2026-03-20 08:24:25,802 - INFO - Relay channel connected: Copy_trading_
+2026-03-20 08:24:25,962 - INFO - Forwarded CLOSE_ALL message to relay channel
+2026-03-20 08:25:26,637 - INFO - New message received: We have amazing week as always 
+All win not a single loss 
+
+Congratulations everyone
+2026-03-20 08:29:53,093 - INFO - Got difference for account updates
+2026-03-20 08:30:32,049 - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2026-03-20 08:30:32,051 - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2026-03-20 08:30:32,062 - INFO - System stopped by user.
+2026-03-20 08:32:42,411 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-03-20 08:32:42,481 - INFO - cryptg detected, it will be used for encryption
+2026-03-20 08:32:42,803 - INFO - Database initialized successfully
+2026-03-20 08:32:42,819 - INFO - MT5 initialized successfully
+2026-03-20 08:32:42,819 - INFO - Telegram Copy Trader Started
+2026-03-20 08:32:42,822 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-20 08:32:42,827 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-20 08:32:43,503 - INFO - Connected to channel: 100$ to 30000$ year 2026
+2026-03-20 08:32:43,503 - INFO - Telegram listener handler registered
+2026-03-20 08:32:43,503 - INFO - Telegram listener started
+2026-03-20 10:17:44,134 - INFO - Got difference for account updates
+2026-03-20 12:17:45,540 - INFO - Got difference for channel 2629379150 updates
+2026-03-20 12:38:42,420 - INFO - New message received: 
+2026-03-20 12:38:42,443 - INFO - New message received: 
+2026-03-20 13:32:45,816 - INFO - Got difference for channel 2629379150 updates
+2026-03-20 13:47:45,936 - INFO - Got difference for channel 1900909089 updates
+2026-03-20 14:08:00,939 - INFO - Got difference for channel 1955657942 updates
+2026-03-20 14:21:19,316 - INFO - Got difference for channel 1955657942 updates
+2026-03-20 15:23:07,074 - INFO - New message received: Be ready for next week ! 
+It’s our last week 
+It’s going to be life changing !!!
+2026-03-20 16:02:46,834 - INFO - Got difference for account updates
+2026-03-20 17:47:47,744 - INFO - Got difference for account updates
+2026-03-20 18:02:48,139 - INFO - Got difference for account updates
+2026-03-20 18:47:48,467 - INFO - Got difference for account updates
+2026-03-20 19:47:48,997 - INFO - Got difference for account updates
+2026-03-20 20:00:02,445 - INFO - Got difference for channel 1283049346 updates
+2026-03-20 20:02:49,097 - INFO - Got difference for account updates
+2026-03-20 20:32:49,257 - INFO - Got difference for account updates

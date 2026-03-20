@@ -414,8 +414,17 @@ def _margin_per_lot(symbol, entry_price, symbol_info, side):
     return symbol_info.margin_initial or 0.0
 
 
-def _plan_position_sizing(balance, entry_price, stop_loss, symbol, symbol_info, side, risk_ratio_override=None):
-    """Plan one equal lot size for all six positions before sending any order."""
+def _plan_position_sizing(
+    balance,
+    entry_price,
+    stop_loss,
+    symbol,
+    symbol_info,
+    side,
+    desired_slots,
+    risk_ratio_override=None,
+):
+    """Plan an equal lot size across as many slots as the account can currently afford."""
     risk_total_lot = calculate_lot_size(
         balance,
         entry_price,
@@ -425,7 +434,7 @@ def _plan_position_sizing(balance, entry_price, stop_loss, symbol, symbol_info, 
     )
     if risk_total_lot <= 0:
         log_event(f"Calculated lot size <= 0 for {symbol}. Aborting trade.")
-        return None, None
+        return None, None, 0
 
     margin_per_lot = _margin_per_lot(symbol, entry_price, symbol_info, side)
     free_margin = _free_margin_or_balance(balance)
@@ -435,22 +444,28 @@ def _plan_position_sizing(balance, entry_price, stop_loss, symbol, symbol_info, 
         margin_total_lot = free_margin / margin_per_lot
 
     total_lot_cap = min(risk_total_lot, margin_total_lot)
-    per_position_lot = _clamp_volume_to_symbol(total_lot_cap / TOTAL_POSITIONS, symbol_info)
+    vol_min = symbol_info.volume_min or 0.01
+    affordable_slots = min(desired_slots, int(total_lot_cap / vol_min)) if vol_min > 0 else desired_slots
 
-    if per_position_lot <= 0:
+    while affordable_slots > 0:
+        per_position_lot = _clamp_volume_to_symbol(total_lot_cap / affordable_slots, symbol_info)
+        if per_position_lot > 0:
+            planned_total_lot = per_position_lot * affordable_slots
+            log_event(
+                f"Planned sizing for {symbol} {side}: risk_total_lot={risk_total_lot:.4f}, "
+                f"margin_total_lot={margin_total_lot:.4f}, planned_total_lot={planned_total_lot:.4f}, "
+                f"per_position_lot={per_position_lot:.4f}, desired_slots={desired_slots}, "
+                f"affordable_slots={affordable_slots}, risk_override={risk_ratio_override}"
+            )
+            return per_position_lot, planned_total_lot, affordable_slots
+        affordable_slots -= 1
+
+    if affordable_slots <= 0:
         log_event(
-            f"Cannot afford minimum lot for all {TOTAL_POSITIONS} positions on {symbol}. "
+            f"Cannot afford minimum lot for any slot on {symbol}. "
             f"risk_total_lot={risk_total_lot:.4f}, margin_total_lot={margin_total_lot:.4f}"
         )
-        return None, None
-
-    planned_total_lot = per_position_lot * TOTAL_POSITIONS
-    log_event(
-        f"Planned sizing for {symbol} {side}: risk_total_lot={risk_total_lot:.4f}, "
-        f"margin_total_lot={margin_total_lot:.4f}, planned_total_lot={planned_total_lot:.4f}, "
-        f"per_position_lot={per_position_lot:.4f}, risk_override={risk_ratio_override}"
-    )
-    return per_position_lot, planned_total_lot
+        return None, None, 0
 
 
 def _success_retcodes():
@@ -461,7 +476,16 @@ def _success_retcodes():
     }
 
 
-def _compute_next_order_lot(symbol, symbol_info, side, stop_loss, remaining_slots, risk_ratio_override=None, entry_reference=None):
+def _compute_next_order_lot(
+    symbol,
+    symbol_info,
+    side,
+    stop_loss,
+    remaining_slots,
+    risk_ratio_override=None,
+    entry_reference=None,
+    max_lot_cap=None,
+):
     """Recalculate the next affordable lot from live account state and remaining slots."""
     if remaining_slots <= 0:
         return 0.0, None, None
@@ -493,6 +517,9 @@ def _compute_next_order_lot(symbol, symbol_info, side, stop_loss, remaining_slot
 
     total_lot_cap = min(risk_total_lot, margin_total_lot)
     next_lot = _clamp_volume_to_symbol(total_lot_cap / remaining_slots, symbol_info)
+    if max_lot_cap is not None:
+        next_lot = min(next_lot, float(max_lot_cap))
+        next_lot = _clamp_volume_to_symbol(next_lot, symbol_info)
     return next_lot, balance, entry_price
 
 
@@ -505,6 +532,7 @@ def _execute_dynamic_batch(
     include_runner=False,
     risk_ratio_override=None,
     entry_reference=None,
+    max_lot_per_slot=None,
 ):
     """Open a batch while recalculating affordable lot size before every order."""
     opened_any = False
@@ -525,6 +553,7 @@ def _execute_dynamic_batch(
             remaining_slots,
             risk_ratio_override=risk_ratio_override,
             entry_reference=entry_reference,
+            max_lot_cap=max_lot_per_slot,
         )
         if next_lot <= 0:
             log_event(
@@ -581,6 +610,7 @@ def _execute_dynamic_pending_batch(
     tp_values,
     include_runner=False,
     risk_ratio_override=None,
+    max_lot_per_slot=None,
 ):
     """Place a pending batch while recalculating affordable lot size before every order."""
     placed_any = False
@@ -602,6 +632,7 @@ def _execute_dynamic_pending_batch(
             remaining_slots,
             risk_ratio_override=risk_ratio_override,
             entry_reference=entry_reference,
+            max_lot_cap=max_lot_per_slot,
         )
         if next_lot <= 0:
             log_event(
@@ -652,7 +683,7 @@ def _execute_dynamic_pending_batch(
 
 
 def execute_pre_signal_trade(quick_signal):
-    """Open six positions with fixed 10 USD SL and no TP."""
+    """Open as many pre-signal positions as the account can afford, with fixed 10 USD SL and no TP."""
     global PENDING_PRE_SIGNAL
 
     requested_symbol = (quick_signal or {}).get("symbol") or SYMBOL_DEFAULT
@@ -668,15 +699,21 @@ def execute_pre_signal_trade(quick_signal):
     balance, entry_price, symbol_info, symbol = prep
 
     stop_loss = _fixed_stop_loss(entry_price, side)
-    per_position_lot, planned_total_lot = _plan_position_sizing(
-        balance, entry_price, stop_loss, symbol, symbol_info, side
+    per_position_lot, planned_total_lot, affordable_slots = _plan_position_sizing(
+        balance, entry_price, stop_loss, symbol, symbol_info, side, TOTAL_POSITIONS
     )
     if per_position_lot is None:
         return
 
+    if affordable_slots < TOTAL_POSITIONS:
+        log_event(
+            f"Pre-signal position count reduced for {symbol} {side}: "
+            f"opening {affordable_slots}/{TOTAL_POSITIONS} positions due to account size."
+        )
+
     log_event(
         f"Pre-signal open for {symbol} {side}: planned_total_lot={planned_total_lot:.4f}, "
-        f"positions={TOTAL_POSITIONS}, per_position_lot={per_position_lot:.4f}, sl={stop_loss}"
+        f"positions={affordable_slots}, per_position_lot={per_position_lot:.4f}, sl={stop_loss}"
     )
 
     position_type = _get_position_type_for_side(side)
@@ -688,16 +725,17 @@ def execute_pre_signal_trade(quick_signal):
         side,
         symbol_info,
         stop_loss,
-        [None] * TOTAL_POSITIONS,
+        [None] * affordable_slots,
         include_runner=False,
+        max_lot_per_slot=per_position_lot,
     )
 
     if not opened_any:
         log_event(f"No pre-signal positions opened for {symbol} {side}.")
         return
 
-    if opened_count < TOTAL_POSITIONS:
-        log_event(f"Pre-signal batch for {symbol} {side} opened partially: opened={opened_count}/{TOTAL_POSITIONS}")
+    if opened_count < affordable_slots:
+        log_event(f"Pre-signal batch for {symbol} {side} opened partially: opened={opened_count}/{affordable_slots}")
 
     time.sleep(1)
     after = mt5.positions_get(symbol=symbol) or []
@@ -801,7 +839,7 @@ def apply_signal_to_existing_positions(signal_data):
 
 
 def execute_trade(signal_data):
-    """Place exactly six pending positions using TP2 as entry, TP3-TP7 as targets, and one runner."""
+    """Place as many pending main-signal slots as the account can afford using TP2 as entry and TP3-TP7 as targets."""
     requested_symbol = signal_data.get("symbol")
     side = str(signal_data.get("side", "")).lower()
     raw_take_profits = signal_data.get("take_profits") or []
@@ -836,16 +874,30 @@ def execute_trade(signal_data):
         return
 
     stop_loss = _fixed_stop_loss(entry_reference, side)
-    per_position_lot, planned_total_lot = _plan_position_sizing(
-        balance, entry_reference, stop_loss, symbol, symbol_info, side
+    desired_slots = len(take_profits) + (1 if RUNNER_ENABLED else 0)
+    per_position_lot, planned_total_lot, affordable_slots = _plan_position_sizing(
+        balance, entry_reference, stop_loss, symbol, symbol_info, side, desired_slots
     )
     if per_position_lot is None:
         return
 
-    first_tp = take_profits[0]
+    active_take_profits = take_profits[: min(len(take_profits), affordable_slots)]
+    runner_should_open = RUNNER_ENABLED and affordable_slots > len(active_take_profits)
+
+    if affordable_slots < desired_slots:
+        log_event(
+            f"Pending main trade slot count reduced for {symbol} {side}: "
+            f"using {affordable_slots}/{desired_slots} slots due to account size."
+        )
+
+    if not active_take_profits and not runner_should_open:
+        log_event(f"No affordable TP or runner slots remain for {symbol} {side}. Aborting trade.")
+        return
+
+    first_tp = active_take_profits[0] if active_take_profits else None
     log_event(
         f"Placing pending main trade {symbol} {side}: planned_total_lot={planned_total_lot:.4f}, "
-        f"entry_reference={entry_reference}, positions={TOTAL_POSITIONS}, used_tps={take_profits}, runner_enabled={RUNNER_ENABLED}, "
+        f"entry_reference={entry_reference}, positions={affordable_slots}, used_tps={active_take_profits}, runner_enabled={runner_should_open}, "
         f"fixed_sl={stop_loss}, per_position_lot={per_position_lot:.4f}"
     )
 
@@ -853,25 +905,25 @@ def execute_trade(signal_data):
     before = mt5.positions_get(symbol=symbol) or []
     before_tickets = {p.ticket for p in before if p.type == position_type}
 
-    runner_should_open = RUNNER_ENABLED and TOTAL_POSITIONS > len(take_profits)
     placed_any, placed_count, runner_placed, runner_attempted, pending_order_tickets = _execute_dynamic_pending_batch(
         symbol,
         side,
         symbol_info,
         entry_reference,
         stop_loss,
-        take_profits,
+        active_take_profits,
         include_runner=runner_should_open,
+        max_lot_per_slot=per_position_lot,
     )
 
     if not placed_any:
         log_event(f"No pending orders placed for {symbol} due to risk/margin constraints.")
         return
 
-    if placed_count < len(take_profits) + (1 if runner_should_open else 0):
+    if placed_count < len(active_take_profits) + (1 if runner_should_open else 0):
         log_event(
             f"Pending trade batch for {symbol} {side} placed partially: placed={placed_count}/"
-            f"{len(take_profits) + (1 if runner_should_open else 0)}"
+            f"{len(active_take_profits) + (1 if runner_should_open else 0)}"
         )
     if runner_should_open and runner_attempted and runner_placed:
         log_event(f"Pending runner order placed for {symbol}.")

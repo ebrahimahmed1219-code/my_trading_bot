@@ -1398,3 +1398,76 @@ No automatic reward.
 2026-03-19 21:24:54,675 - INFO - Cancelled pending order 2528401803: OrderSendResult(retcode=10009, deal=0, order=2528401803, volume=0.05, price=4665.0, bid=4658.67, ask=4658.978, comment='', request_id=3190978381, retcode_external=0, request=TradeRequest(action=8, magic=123456, order=2528401803, symbol='', volume=0.0, price=0.0, stoplimit=0.0, sl=0.0, tp=0.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='cancel_pending_trade', position=0, position_by=0))
 2026-03-19 21:24:54,901 - INFO - Cancelled pending order 2528401857: OrderSendResult(retcode=10009, deal=0, order=2528401857, volume=0.08, price=4665.0, bid=4658.954, ask=4659.262, comment='', request_id=3190978382, retcode_external=0, request=TradeRequest(action=8, magic=123456, order=2528401857, symbol='', volume=0.0, price=0.0, stoplimit=0.0, sl=0.0, tp=0.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='cancel_pending_trade', position=0, position_by=0))
 2026-03-19 21:24:55,115 - INFO - Cancelled pending order 2528401880: OrderSendResult(retcode=10009, deal=0, order=2528401880, volume=0.17, price=4665.0, bid=4658.885, ask=4659.193, comment='', request_id=3190978383, retcode_external=0, request=TradeRequest(action=8, magic=123456, order=2528401880, symbol='', volume=0.0, price=0.0, stoplimit=0.0, sl=0.0, tp=0.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='cancel_pending_trade', position=0, position_by=0))
+2026-03-19 21:28:08,682 - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2026-03-19 21:28:08,683 - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2026-03-19 21:28:08,692 - INFO - System stopped by user.
+2026-03-19 21:32:51,327 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-03-19 21:32:51,328 - INFO - cryptg module not installed and libssl not found, falling back to (slower) Python encryption
+2026-03-19 21:32:51,578 - INFO - Database initialized successfully
+2026-03-19 21:32:51,592 - INFO - MT5 initialized successfully
+2026-03-19 21:32:51,592 - INFO - Telegram Copy Trader Started
+2026-03-19 21:32:51,593 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-19 21:32:51,602 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-19 21:32:52,181 - INFO - Connected to channel: 100$ to 30000$ year 2026
+2026-03-19 21:32:52,181 - INFO - Telegram listener handler registered
+2026-03-19 21:32:52,181 - INFO - Telegram listener started
+2026-03-19 22:17:52,331 - INFO - Got difference for account updates
+2026-03-20 04:17:54,845 - INFO - Got difference for channel 1799443074 updates
+2026-03-20 04:30:01,181 - INFO - Got difference for channel 1799443074 updates
+2026-03-20 04:32:54,887 - INFO - Got difference for account updates
+2026-03-20 05:17:55,351 - INFO - Got difference for channel 1799443074 updates
+2026-03-20 05:32:55,343 - INFO - Got difference for account updates
+2026-03-20 06:32:55,735 - INFO - Got difference for account updates
+2026-03-20 07:02:55,887 - INFO - Got difference for account updates
+2026-03-20 07:18:15,244 - INFO - New message received: 
+2026-03-20 07:18:15,280 - INFO - New message received: 
+2026-03-20 07:23:51,325 - INFO - New message received: Betam betam betam Yigermal
+2026-03-20 07:24:31,133 - INFO - New message received: Yimechen the best challenge so far is 2026 !!!!
+2026-03-20 07:31:18,712 - INFO - New message received: Sell gold
+2026-03-20 07:31:18,811 - INFO - Relay channel connected: Copy_trading_
+2026-03-20 07:31:18,990 - INFO - Forwarded PRE_TRADE message to relay channel
+2026-03-20 07:31:19,021 - INFO - Resolved broker symbol XAUUSD -> XAUUSDm
+2026-03-20 07:31:19,024 - INFO - Cannot afford minimum lot for all 6 positions on XAUUSDm. risk_total_lot=0.0500, margin_total_lot=0.3868
+2026-03-20 07:32:56,187 - INFO - Got difference for channel 1283049346 updates
+2026-03-20 07:35:39,701 - INFO - New message received: RiskY traDE \u2620\ufe0f
+\U0001f449\U0001f3fesell XAUUSD now 
+\U0001f6d1 SL 4701
+\u2705 TP 4680
+\u2705 TP 4675
+\u2705 TP 4670
+\u2705 TP 4665
+\u2705 TP 4660
+\u2705 TP 4655
+\u2705 TP 4650
+\u2705 TP 4645
+\u2705 TP 4640
+\u2705 TP 4635
+\u2705 TP open 
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set. 
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-20 07:35:39,866 - INFO - Forwarded NEW_TRADE message to relay channel
+2026-03-20 07:35:39,869 - INFO - Cannot afford minimum lot for all 6 positions on XAUUSDm. risk_total_lot=0.0500, margin_total_lot=0.3872
+2026-03-20 07:37:59,243 - INFO - New message received: \u2705 Our 1st TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-20 07:38:19,182 - INFO - New message received: \u2705 Our 2nd TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-20 07:38:49,322 - INFO - New message received: \u2705 Our 3rd TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-20 07:39:06,531 - INFO - New message received: Move stop loss to breakeven 
+#Rrrrrrraaaaaaaaaaa
+2026-03-20 07:40:04,095 - INFO - New message received: Everyday we win simple !!!!
+2026-03-20 07:40:28,729 - INFO - New message received: Share your open positions and trades to my team
+2026-03-20 07:42:01,064 - INFO - New message received: \u2705 Our 4th TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-20 07:44:12,221 - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2026-03-20 07:44:12,227 - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2026-03-20 07:44:12,247 - INFO - System stopped by user.
