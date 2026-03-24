@@ -4,7 +4,7 @@ import MetaTrader5 as mt5
 def _risk_ratio_for_balance(account_balance):
     """Return the configured risk ratio for the current account balance."""
     if account_balance < 150:
-        return 0.50
+        return 0.20
     if account_balance < 351:
         return 0.66
     if account_balance < 501:

@@ -15,11 +15,10 @@ from database import message_exists, store_message
 from logger import log_event
 from position_manager import close_all_positions
 from signal_classifier import classify_message
-from signal_parser import parse_quick_direction_signal, parse_trade_signal
+from signal_parser import parse_trade_signal
 from trade_engine import (
     apply_signal_to_existing_positions,
     clear_active_signal_references,
-    execute_pre_signal_trade,
     execute_trade,
 )
 
@@ -80,9 +79,7 @@ async def new_message_listener(event):
     await relay_signal_message(message_text, message_type)
 
     if message_type == "PRE_TRADE":
-        quick_signal = parse_quick_direction_signal(message_text)
-        if quick_signal:
-            execute_pre_signal_trade(quick_signal)
+        log_event("Standalone pre-trade message detected. Forwarding only; no local trade will be opened.")
 
     elif message_type == "NEW_TRADE":
         signal = parse_trade_signal(message_text)

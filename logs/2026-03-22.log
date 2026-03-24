@@ -1,0 +1,108 @@
+2026-03-22 18:50:03,960 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-03-22 18:50:03,996 - INFO - cryptg detected, it will be used for encryption
+2026-03-22 18:50:04,259 - INFO - Database initialized successfully
+2026-03-22 18:50:04,274 - INFO - MT5 initialized successfully
+2026-03-22 18:50:04,274 - INFO - Telegram Copy Trader Started
+2026-03-22 18:50:04,276 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-22 18:50:04,280 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-22 18:50:04,776 - INFO - Connected to channel: 100$ to 30000$ year 2026
+2026-03-22 18:50:04,778 - INFO - Telegram listener handler registered
+2026-03-22 18:50:04,779 - INFO - Telegram listener started
+2026-03-22 19:35:05,030 - INFO - Got difference for account updates
+2026-03-22 19:50:05,133 - INFO - Got difference for account updates
+2026-03-22 20:20:05,324 - INFO - Got difference for account updates
+2026-03-22 20:35:05,493 - INFO - Got difference for account updates
+2026-03-22 21:15:14,542 - INFO - Got difference for channel 2092248721 updates
+2026-03-22 21:53:43,044 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-03-22 21:53:43,101 - INFO - cryptg detected, it will be used for encryption
+2026-03-22 21:57:54,799 - INFO - Placing pending main trade XAUUSDm sell: planned_total_lot=0.1200, entry_reference=5085.0, positions=6, used_tps=[5080.0, 5075.0, 5070.0, 5065.0, 5060.0], runner_enabled=True, fixed_sl=5095.0, per_position_lot=0.0200
+2026-03-22 21:58:45,767 - INFO - Placing pending main trade XAUUSDm sell: planned_total_lot=0.1200, entry_reference=5085.0, positions=6, used_tps=[5080.0, 5075.0, 5070.0, 5065.0, 5060.0], runner_enabled=True, fixed_sl=5095.0, per_position_lot=0.0200
+2026-03-22 21:58:45,767 - INFO - Pending runner order placed for XAUUSDm.
+2026-03-22 21:58:45,767 - INFO - Pending main trade slot count reduced for XAUUSDm sell: using 1/6 slots due to account size.
+2026-03-22 21:58:45,767 - INFO - Placing pending main trade XAUUSDm sell: planned_total_lot=0.0200, entry_reference=5085.0, positions=1, used_tps=[], runner_enabled=True, fixed_sl=5095.0, per_position_lot=0.0200
+2026-03-22 21:58:45,767 - INFO - Pending runner order placed for XAUUSDm.
+2026-03-22 21:58:45,767 - INFO - Applying main signal to existing positions for XAUUSDm sell: count=2, fixed_sl_distance=10.0, tps=[5080.0, 5075.0, 5070.0, 5065.0, 5060.0]
+2026-03-22 22:39:40,636 - INFO - Got difference for channel 2092248721 updates
+2026-03-22 22:40:10,142 - INFO - Got difference for channel 2629379150 updates
+2026-03-22 23:05:06,499 - INFO - Got difference for account updates
+2026-03-23 01:20:07,271 - INFO - Got difference for channel 2629379150 updates
+2026-03-23 03:31:54,742 - INFO - New message received: Good morning
+2026-03-23 03:59:25,137 - INFO - New message received: RiskY traDE \u2620\ufe0f
+\U0001f449\U0001f3fesell XAUUSD now 
+\U0001f6d1 SL 4387
+\u2705 TP 4363
+\u2705 TP 4358
+\u2705 TP 4353
+\u2705 TP 4348
+\u2705 TP 4338
+\u2705 TP 4333
+\u2705 TP 4328
+\u2705 TP 4323
+\u2705 TP 4318
+\u2705 TP 4013
+\u2705 TP open 
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set. 
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-23 03:59:25,212 - INFO - Relay channel connected: Copy_trading_
+2026-03-23 03:59:25,332 - INFO - Forwarded NEW_TRADE message to relay channel
+2026-03-23 03:59:25,376 - INFO - Resolved broker symbol XAUUSD -> XAUUSDm
+2026-03-23 03:59:25,377 - INFO - Planned sizing for XAUUSDm sell: risk_total_lot=0.0100, margin_total_lot=0.2524, planned_total_lot=0.0100, per_position_lot=0.0100, desired_slots=6, affordable_slots=1, risk_override=None
+2026-03-23 03:59:25,377 - INFO - Pending main trade slot count reduced for XAUUSDm sell: using 1/6 slots due to account size.
+2026-03-23 03:59:25,378 - INFO - Placing pending main trade XAUUSDm sell: planned_total_lot=0.0100, entry_reference=4358.0, positions=1, used_tps=[], runner_enabled=True, fixed_sl=4368.0, per_position_lot=0.0100
+2026-03-23 03:59:25,378 - INFO - No pending orders placed for XAUUSDm due to risk/margin constraints.
+2026-03-23 04:02:56,327 - INFO - New message received: Cancel it nowww
+2026-03-23 04:05:31,590 - INFO - New message received: It’s a good setup we just need a better entry Wait for my instructions
+2026-03-23 04:09:07,206 - INFO - New message received: RiskY traDE \u2620\ufe0f
+\U0001f449\U0001f3fesell XAUUSD now 
+\U0001f6d1 SL 4387
+\u2705 TP 4363
+\u2705 TP 4358
+\u2705 TP 4353
+\u2705 TP 4348
+\u2705 TP 4338
+\u2705 TP 4333
+\u2705 TP 4328
+\u2705 TP 4323
+\u2705 TP 4318
+\u2705 TP 4013
+\u2705 TP open 
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set. 
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-23 04:09:07,312 - INFO - Forwarded NEW_TRADE message to relay channel
+2026-03-23 04:09:07,315 - INFO - Planned sizing for XAUUSDm sell: risk_total_lot=0.0100, margin_total_lot=0.2524, planned_total_lot=0.0100, per_position_lot=0.0100, desired_slots=6, affordable_slots=1, risk_override=None
+2026-03-23 04:09:07,315 - INFO - Pending main trade slot count reduced for XAUUSDm sell: using 1/6 slots due to account size.
+2026-03-23 04:09:07,316 - INFO - Placing pending main trade XAUUSDm sell: planned_total_lot=0.0100, entry_reference=4358.0, positions=1, used_tps=[], runner_enabled=True, fixed_sl=4368.0, per_position_lot=0.0100
+2026-03-23 04:09:07,316 - INFO - No pending orders placed for XAUUSDm due to risk/margin constraints.
+2026-03-23 04:10:52,650 - INFO - New message received: \u2705 Our 1st TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-23 04:11:02,621 - INFO - New message received: \u2705 Our 2nd TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-23 04:11:44,191 - INFO - New message received: \u2705 Our 3rd TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-23 04:12:20,500 - INFO - New message received: Move stop loss to breakeven
+2026-03-23 04:13:15,332 - INFO - New message received: \u2705 Our 4th TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-23 04:14:04,171 - INFO - New message received: Let’s goooooo
+2026-03-23 04:41:28,984 - INFO - New message received: \u2705 Our 5th TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-23 04:44:10,581 - INFO - New message received: Share your balance and open post in to my team as always 
+Congratulations again for good start gang
+2026-03-23 05:02:14,996 - INFO - New message received: The rest position touched breakeven 
+Congratulations we will continue again once it’s clear
+2026-03-23 05:02:15,111 - INFO - Forwarded CLOSE_ALL message to relay channel
+2026-03-23 05:18:43,494 - INFO - New message received: Looking sells again on gold
+2026-03-23 05:25:03,158 - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2026-03-23 05:25:03,159 - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2026-03-23 05:25:03,170 - INFO - System stopped by user.

@@ -1,0 +1,155 @@
+2026-03-24 03:06:22,425 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-03-24 03:06:22,462 - INFO - cryptg detected, it will be used for encryption
+2026-03-24 03:06:22,727 - INFO - Database initialized successfully
+2026-03-24 03:06:22,754 - INFO - MT5 initialized successfully
+2026-03-24 03:06:22,755 - INFO - Telegram Copy Trader Started
+2026-03-24 03:06:22,756 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-24 03:06:22,852 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-24 03:06:23,452 - INFO - Connected to channel: 100$ to 30000$ year 2026
+2026-03-24 03:06:23,455 - INFO - Telegram listener handler registered
+2026-03-24 03:06:23,456 - INFO - Telegram listener started
+2026-03-24 05:36:05,410 - INFO - New message received: Good morning
+2026-03-24 06:52:11,833 - INFO - New message received: Sell gold
+2026-03-24 06:52:11,903 - INFO - Relay channel connected: Copy_trading_
+2026-03-24 06:52:12,013 - INFO - Forwarded PRE_TRADE message to relay channel
+2026-03-24 06:52:12,014 - INFO - Standalone pre-trade message detected. Forwarding only; no local trade will be opened.
+2026-03-24 06:55:59,244 - INFO - New message received: RISKY TRADE \u2620\ufe0f
+\U0001f449\U0001f3feSELL XAUUSD @ 4359
+\U0001f6d1 SL 4373
+\u2705 TP 4354
+\u2705 TP 4349
+\u2705 TP 4341
+\u2705 TP 4336
+\u2705 TP 4331
+\u2705 TP 4326
+\u2705 TP 4321
+\u2705 TP 4316
+\u2705 TP 4311
+\u2705 TP 4306
+\u2705 TP open 
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set. 
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-24 06:55:59,395 - INFO - Forwarded NEW_TRADE message to relay channel
+2026-03-24 06:55:59,415 - INFO - Resolved broker symbol XAUUSD -> XAUUSDm
+2026-03-24 06:55:59,417 - INFO - Planned sizing for XAUUSDm sell: risk_total_lot=0.0100, margin_total_lot=0.1589, planned_total_lot=0.0100, per_position_lot=0.0100, desired_slots=6, affordable_slots=1, risk_override=None
+2026-03-24 06:55:59,417 - INFO - Pending main trade slot count reduced for XAUUSDm sell: using 1/6 slots due to account size.
+2026-03-24 06:55:59,418 - INFO - Placing pending main trade XAUUSDm sell: planned_total_lot=0.0100, entry_reference=4349.0, positions=1, used_tps=[], runner_enabled=True, fixed_sl=4359.0, per_position_lot=0.0100
+2026-03-24 06:55:59,418 - INFO - Placing pending batch slot for XAUUSDm sell lot=0.0100 runner entry=4349.0 SL=4359.0 remaining_slots=1
+2026-03-24 06:55:59,640 - INFO - Pending order placed for XAUUSDm SELL at 4349.0 with sl=4359.0 tp=0.0
+2026-03-24 06:55:59,642 - INFO - Pending runner order placed for XAUUSDm.
+2026-03-24 06:55:59,649 - INFO - Pending activation monitor started for XAUUSDm sell. pending_orders=[193655450], first_trigger=4341.0, reference_entry=4349.0, pending_cancel_reference=4354.0, cancel_cutoff=4359.0
+2026-03-24 06:56:31,314 - INFO - New message received: Move stop loss to breakeven
+2026-03-24 06:56:59,668 - INFO - New message received: \u2705 Our 1st TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-24 06:57:09,611 - INFO - New message received: \u2705 Our 2nd TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-24 06:58:01,350 - INFO - New message received: \u2705 Our 3rd TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-24 07:02:19,807 - INFO - Pending activation monitor for XAUUSDm sell stopped: no triggered or pending orders remain.
+2026-03-24 07:04:23,467 - INFO - New message received: The rest touched breakeven it’s a good start guys
+2026-03-24 07:04:23,572 - INFO - Forwarded CLOSE_ALL message to relay channel
+2026-03-24 07:04:57,533 - INFO - New message received: Am looking another entry market might be volatile so be active
+2026-03-24 07:36:06,860 - INFO - New message received: Sell gold now
+2026-03-24 07:36:06,965 - INFO - Forwarded PRE_TRADE message to relay channel
+2026-03-24 07:36:06,965 - INFO - Standalone pre-trade message detected. Forwarding only; no local trade will be opened.
+2026-03-24 07:36:24,655 - INFO - New message received: Small lot size for this please
+2026-03-24 07:37:32,917 - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2026-03-24 07:37:32,918 - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2026-03-24 07:37:32,927 - INFO - System stopped by user.
+2026-03-24 07:47:48,929 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-03-24 07:47:48,931 - INFO - cryptg detected, it will be used for encryption
+2026-03-24 07:47:49,245 - INFO - Database initialized successfully
+2026-03-24 07:47:49,260 - INFO - MT5 initialized successfully
+2026-03-24 07:47:49,260 - INFO - Telegram Copy Trader Started
+2026-03-24 07:47:49,261 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-24 07:47:49,267 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-24 07:47:49,792 - INFO - Connected to channel: 100$ to 30000$ year 2026
+2026-03-24 07:47:49,792 - INFO - Telegram listener handler registered
+2026-03-24 07:47:49,793 - INFO - Telegram listener started
+2026-03-24 07:56:39,666 - INFO - Got difference for channel 3470659071 updates
+2026-03-24 07:56:39,670 - INFO - New message received: Let’s  goooo 
+Please share your trades and open positions to my team congratulations again we staring nicely as always
+2026-03-24 07:56:39,687 - INFO - New message received: The rest positions touched breakeven 
+300 pips secured today 
+
+Am looking buys now wait for my instructions
+2026-03-24 07:56:39,760 - INFO - Relay channel connected: Copy_trading_
+2026-03-24 07:56:39,869 - INFO - Forwarded CLOSE_ALL message to relay channel
+2026-03-24 08:01:29,005 - INFO - New message received: looking buys wait for me
+2026-03-24 08:23:39,468 - INFO - New message received: Sir yhen adrsulgh
+Not once,not twice but three times damn G\U0001f934 getan tchlalek discipline out of this world 
+When BOSS says good morning it means food is ready dig in \U0001f60bwhat a blessed month thank you BOSS \U0001f64c 
+You are our inspiration ye ychalal temsalet can't wait for the next chapter
+Rrrraaaaaaaaa
+2026-03-24 08:47:43,049 - INFO - New message received: Buy now
+2026-03-24 08:48:06,153 - INFO - New message received: RISKY TRADE \u2620\ufe0f
+\U0001f449\U0001f3feBUY XAUUSD NOW
+\U0001f6d1 SL 4463
+
+\u2705 TP 4410
+\u2705 TP 4415
+\u2705 TP 4420
+\u2705 TP 4425
+\u2705 TP 4430
+\u2705 TP 4435
+\u2705 TP 4440
+\u2705 TP 4445
+\u2705 TP 4450
+\u2705 TP 4455
+\u2705 TP open 
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set. 
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-24 08:48:06,266 - INFO - Forwarded NEW_TRADE message to relay channel
+2026-03-24 08:48:06,299 - INFO - Resolved broker symbol XAUUSD -> XAUUSDm
+2026-03-24 08:48:06,300 - INFO - Planned sizing for XAUUSDm buy: risk_total_lot=0.0100, margin_total_lot=0.0100, planned_total_lot=0.0100, per_position_lot=0.0100, desired_slots=6, affordable_slots=1, risk_override=None
+2026-03-24 08:48:06,301 - INFO - Pending main trade slot count reduced for XAUUSDm buy: using 1/6 slots due to account size.
+2026-03-24 08:48:06,301 - INFO - Placing pending main trade XAUUSDm buy: planned_total_lot=0.0100, entry_reference=4415.0, positions=1, used_tps=[], runner_enabled=True, fixed_sl=4405.0, per_position_lot=0.0100
+2026-03-24 08:48:06,302 - INFO - Placing pending batch slot for XAUUSDm buy lot=0.0100 runner entry=4415.0 SL=4405.0 remaining_slots=1
+2026-03-24 08:48:06,606 - INFO - Pending order placed for XAUUSDm BUY at 4415.0 with sl=4405.0 tp=0.0
+2026-03-24 08:48:06,606 - INFO - Pending runner order placed for XAUUSDm.
+2026-03-24 08:48:06,607 - INFO - Pending activation monitor started for XAUUSDm buy. pending_orders=[2546304009], first_trigger=4420.0, reference_entry=4415.0, pending_cancel_reference=4410.0, cancel_cutoff=4405.0
+2026-03-24 08:48:26,616 - INFO - XAUUSDm ASK 4420.66 reached TP1 trigger 4420.0 for pending main batch. Moving triggered positions to exact break-even.
+2026-03-24 08:48:26,910 - INFO - Modified targets for 2546304009: sl=4415.0, tp=0.0, result=OrderSendResult(retcode=10009, deal=0, order=0, volume=0.01, price=4420.344, bid=4420.494, ask=4420.893999999999, comment='', request_id=1843958246, retcode_external=0, request=TradeRequest(action=6, magic=123456, order=0, symbol='XAUUSDm', volume=0.0, price=0.0, stoplimit=0.0, sl=4415.0, tp=0.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='move_to_break_even', position=2546304009, position_by=0))
+2026-03-24 08:48:26,911 - INFO - Break-even SL update: ticket=2546304009 symbol=XAUUSDm type=0 old_sl=4405.0 new_sl=4415.0 buffer=0.0 reference_entry=4415.0
+2026-03-24 08:48:26,911 - INFO - Matching positions moved to exact break-even, symbol=XAUUSDm, tickets=[2546304009], reference_entry=4415.0
+2026-03-24 08:48:55,982 - INFO - New message received: \u2705 Our 1st TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-24 08:49:24,423 - INFO - New message received: \u2705 Our 2nd TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-24 08:50:03,164 - INFO - New message received: \u2705 Our 3rd TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-24 08:51:05,218 - INFO - New message received: \u2705 Our 4th TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-24 08:53:39,573 - INFO - New message received: Move stop loss to breakeven
+2026-03-24 08:57:32,319 - INFO - New message received: 
+2026-03-24 09:04:44,104 - INFO - New message received: Congratulations share your results and open positions to my team Let’s fucking gooooooo
+2026-03-24 09:05:38,147 - INFO - New message received: 700 pips secured today
+2026-03-24 09:20:48,399 - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2026-03-24 09:20:48,400 - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2026-03-24 09:20:48,411 - INFO - System stopped by user.
+2026-03-24 09:20:51,957 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-03-24 09:20:51,962 - INFO - cryptg detected, it will be used for encryption
+2026-03-24 09:20:52,305 - INFO - Database initialized successfully
+2026-03-24 09:20:52,321 - INFO - MT5 initialized successfully
+2026-03-24 09:20:52,321 - INFO - Telegram Copy Trader Started
+2026-03-24 09:20:52,323 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-03-24 09:20:52,335 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-03-24 09:20:52,880 - INFO - Connected to channel: 100$ to 30000$ year 2026
+2026-03-24 09:20:52,880 - INFO - Telegram listener handler registered
+2026-03-24 09:20:52,880 - INFO - Telegram listener started

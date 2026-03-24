@@ -147,12 +147,12 @@ class CopyTraderUI:
     def _risk_text(self, balance=None):
         if balance is None:
             return (
-                f"Risk tiers with {TOTAL_POSITIONS} trades: "
-                "<150=50%, 150-<351=66%, 351-<501=63%, 501-<651=58%, 651-<751=57%, >=751=50%."
+                f"Risk tiers with up to {TOTAL_POSITIONS} trades: "
+                "<150=20%, 150-<351=66%, 351-<501=63%, 501-<651=58%, 651-<751=57%, >=751=50%."
             )
 
         risk_percent = int(_risk_ratio_for_balance(balance) * 100)
-        return f"Risk: {risk_percent}% across {TOTAL_POSITIONS} trades (balance used: ${balance:.2f})"
+        return f"Risk: {risk_percent}% with up to {TOTAL_POSITIONS} trades (balance used: ${balance:.2f})"
 
     def refresh_relay_status(self):
         status_text = "Relay Status: Enabled" if FORWARD_SIGNALS_ENABLED else "Relay Status: Disabled"

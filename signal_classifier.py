@@ -37,6 +37,7 @@ def classify_message(message_text):
         return "PRE_TRADE"
 
     close_keywords = [
+        "close",
         "close all",
         "close position",
         "close trade",
@@ -45,6 +46,9 @@ def classify_message(message_text):
         "not good anymore",
         "close everything",
         "cancel this trade",
+        "cancel it",
+        "cancel it now",
+        "cancel it nowww",
         "i dont like it",
         "i do not like it",
         "dont like it",
@@ -60,5 +64,8 @@ def classify_message(message_text):
     ]
     if any(kw in normalized for kw in close_keywords):
         return "CLOSE_ALL"
+
+    if "break even" in normalized or "breakeven" in normalized:
+        return "FORWARD_ONLY"
 
     return "IGNORE"

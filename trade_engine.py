@@ -109,17 +109,22 @@ def _fixed_stop_loss(entry_price, side):
     return entry_price - FIXED_STOP_LOSS_DISTANCE if side == "buy" else entry_price + FIXED_STOP_LOSS_DISTANCE
 
 
-def _selected_take_profits(take_profits):
-    """Use TP3 through TP7 as the five trade targets."""
-    return list((take_profits or [])[2 : 2 + TP_SLOT_COUNT])
-
-
 def _signal_entry_price(take_profits):
     """Use TP2 from Telegram as the synthetic entry reference."""
     values = list(take_profits or [])
     if len(values) < 2:
         return None
     return float(values[1])
+
+
+def _selected_take_profits(take_profits, side):
+    """Build five TP levels at fixed 5 USD intervals away from TP2, ignoring later Telegram TPs."""
+    entry_reference = _signal_entry_price(take_profits)
+    if entry_reference is None or side not in {"buy", "sell"}:
+        return []
+
+    step = 5.0 if side == "buy" else -5.0
+    return [entry_reference + step * i for i in range(1, TP_SLOT_COUNT + 1)]
 
 
 def _filter_valid_take_profits(take_profits, reference_entry, side):
@@ -199,6 +204,10 @@ def _resolve_symbol_info(requested_symbol):
 
 def _start_break_even_monitor(symbol, side, first_trigger_price, tracked_tickets=None, reference_entry=None, take_profits=None):
     """Move tracked positions to exact break-even once the active TP1 is hit."""
+
+    if first_trigger_price is None:
+        log_event(f"Break-even monitor not started for {symbol} {side}: no active TP trigger available.")
+        return
 
     def _monitor():
         if mt5.account_info() is None:
@@ -323,6 +332,14 @@ def _start_pending_activation_monitor(
             if not tracked_ticket_set:
                 time.sleep(2)
                 continue
+
+            if first_trigger_price is None:
+                log_event(
+                    f"Pending activation monitor for {symbol} {side} stopped after trigger: "
+                    "runner-only batch has no TP1 break-even trigger."
+                )
+                _clear_active_signal_reference(symbol)
+                break
 
             if side == "buy":
                 price = tick.ask or tick.last
@@ -595,7 +612,7 @@ def _execute_dynamic_batch(
         if not _attempt(tp):
             break
 
-    if include_runner and opened_any:
+    if include_runner:
         _attempt(None)
 
     return opened_any, opened_count, runner_opened, runner_attempted
@@ -676,7 +693,7 @@ def _execute_dynamic_pending_batch(
         if not _attempt(tp):
             break
 
-    if include_runner and placed_any:
+    if include_runner:
         _attempt(None)
 
     return placed_any, placed_count, runner_placed, runner_attempted, pending_order_tickets
@@ -765,7 +782,7 @@ def apply_signal_to_existing_positions(signal_data):
     side = str(signal_data.get("side", "")).lower()
     raw_take_profits = signal_data.get("take_profits") or []
     entry_reference = _signal_entry_price(raw_take_profits)
-    take_profits = _selected_take_profits(raw_take_profits)
+    take_profits = _selected_take_profits(raw_take_profits, side)
 
     if not requested_symbol or side not in {"buy", "sell"}:
         return False
@@ -801,6 +818,7 @@ def apply_signal_to_existing_positions(signal_data):
     edited_any = False
     tracked_positions = side_positions[:TOTAL_POSITIONS]
     tracked_tickets = [pos.ticket for pos in tracked_positions]
+    tracked_count = len(tracked_positions)
     reference_entry = entry_reference
     take_profits = _filter_valid_take_profits(take_profits, reference_entry, side)
 
@@ -809,15 +827,17 @@ def apply_signal_to_existing_positions(signal_data):
         f"count={len(side_positions)}, fixed_sl_distance={FIXED_STOP_LOSS_DISTANCE}, tps={take_profits}"
     )
 
-    if not take_profits:
+    if not take_profits and tracked_count > 1:
         log_event(f"No valid take-profit levels remain for existing {symbol} {side} positions. Skipping signal apply.")
         return False
 
-    first_tp = take_profits[0]
+    runner_index = tracked_count - 1 if tracked_count > 0 else None
+    usable_take_profits = take_profits[: max(0, tracked_count - 1)]
+    first_tp = usable_take_profits[0] if usable_take_profits else (take_profits[0] if take_profits else None)
     for idx, pos in enumerate(tracked_positions):
         new_sl = _fixed_stop_loss(reference_entry, side)
-        new_tp = take_profits[idx] if idx < len(take_profits) else 0.0
-        if idx == RUNNER_SLOT_INDEX or idx >= TP_SLOT_COUNT:
+        new_tp = usable_take_profits[idx] if idx < len(usable_take_profits) else 0.0
+        if idx == runner_index:
             new_tp = 0.0
 
         result = modify_position_targets(
@@ -833,7 +853,7 @@ def apply_signal_to_existing_positions(signal_data):
         return False
 
     _store_active_signal_reference(symbol, reference_entry)
-    _start_break_even_monitor(symbol, side, first_tp, tracked_tickets, reference_entry, take_profits)
+    _start_break_even_monitor(symbol, side, first_tp, tracked_tickets, reference_entry, usable_take_profits)
     PENDING_PRE_SIGNAL = {"symbol": None, "side": None, "tickets": [], "created_at": 0.0}
     return True
 
@@ -845,7 +865,7 @@ def execute_trade(signal_data):
     raw_take_profits = signal_data.get("take_profits") or []
     pending_cancel_reference = float(raw_take_profits[0]) if raw_take_profits else None
     entry_reference = _signal_entry_price(raw_take_profits)
-    take_profits = _selected_take_profits(raw_take_profits)
+    take_profits = _selected_take_profits(raw_take_profits, side)
 
     if not requested_symbol or side not in {"buy", "sell"}:
         log_event(f"Invalid trade signal: {signal_data}")
@@ -881,8 +901,14 @@ def execute_trade(signal_data):
     if per_position_lot is None:
         return
 
-    active_take_profits = take_profits[: min(len(take_profits), affordable_slots)]
-    runner_should_open = RUNNER_ENABLED and affordable_slots > len(active_take_profits)
+    if RUNNER_ENABLED and affordable_slots >= 1:
+        runner_should_open = True
+        tp_slot_count = max(0, affordable_slots - 1)
+    else:
+        runner_should_open = False
+        tp_slot_count = affordable_slots
+
+    active_take_profits = take_profits[: min(len(take_profits), tp_slot_count)]
 
     if affordable_slots < desired_slots:
         log_event(
@@ -894,7 +920,7 @@ def execute_trade(signal_data):
         log_event(f"No affordable TP or runner slots remain for {symbol} {side}. Aborting trade.")
         return
 
-    first_tp = active_take_profits[0] if active_take_profits else None
+    first_tp = active_take_profits[0] if active_take_profits else (take_profits[0] if take_profits else None)
     log_event(
         f"Placing pending main trade {symbol} {side}: planned_total_lot={planned_total_lot:.4f}, "
         f"entry_reference={entry_reference}, positions={affordable_slots}, used_tps={active_take_profits}, runner_enabled={runner_should_open}, "
