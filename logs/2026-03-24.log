@@ -153,3 +153,156 @@ Others make sure you  follow my instructions well
 2026-03-24 09:20:52,880 - INFO - Connected to channel: 100$ to 30000$ year 2026
 2026-03-24 09:20:52,880 - INFO - Telegram listener handler registered
 2026-03-24 09:20:52,880 - INFO - Telegram listener started
+2026-03-24 09:35:52,910 - INFO - Got difference for channel 1706038458 updates
+2026-03-24 10:42:28,504 - INFO - New message received: Looking buys again be active and wait
+2026-03-24 10:46:00,793 - INFO - New message received: RISKY TRADE \u2620\ufe0f
+\U0001f449\U0001f3feBUY XAUUSD NOW
+\U0001f6d1 SL 4489
+\u2705 TP 4420
+\u2705 TP 4425
+\u2705 TP 4430
+\u2705 TP 4435
+\u2705 TP 4440
+\u2705 TP 4445
+\u2705 TP 4450
+\u2705 TP 4455
+\u2705 TP 4460
+\u2705 TP 4465
+\u2705 TP open 
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set. 
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-24 10:46:00,873 - INFO - Relay channel connected: Copy_trading_
+2026-03-24 10:46:01,011 - INFO - Forwarded NEW_TRADE message to relay channel
+2026-03-24 10:46:01,046 - INFO - Resolved broker symbol XAUUSD -> XAUUSDm
+2026-03-24 10:46:01,048 - INFO - Planned sizing for XAUUSDm buy: risk_total_lot=0.1700, margin_total_lot=0.1700, planned_total_lot=0.1200, per_position_lot=0.0200, desired_slots=6, affordable_slots=6, risk_override=None
+2026-03-24 10:46:01,049 - INFO - Placing pending main trade XAUUSDm buy: planned_total_lot=0.1200, entry_reference=4425.0, positions=6, used_tps=[4430.0, 4435.0, 4440.0, 4445.0, 4450.0], runner_enabled=True, fixed_sl=4415.0, per_position_lot=0.0200
+2026-03-24 10:46:01,049 - INFO - Placing pending batch slot for XAUUSDm buy lot=0.0200 TP=4430.0 entry=4425.0 SL=4415.0 remaining_slots=6
+2026-03-24 10:46:01,392 - INFO - Pending order placed for XAUUSDm BUY at 4425.0 with sl=4415.0 tp=4430.0
+2026-03-24 10:46:01,392 - INFO - Placing pending batch slot for XAUUSDm buy lot=0.0200 TP=4435.0 entry=4425.0 SL=4415.0 remaining_slots=5
+2026-03-24 10:46:01,705 - INFO - Pending order placed for XAUUSDm BUY at 4425.0 with sl=4415.0 tp=4435.0
+2026-03-24 10:46:01,706 - INFO - Placing pending batch slot for XAUUSDm buy lot=0.0200 TP=4440.0 entry=4425.0 SL=4415.0 remaining_slots=4
+2026-03-24 10:46:02,034 - INFO - Pending order placed for XAUUSDm BUY at 4425.0 with sl=4415.0 tp=4440.0
+2026-03-24 10:46:02,037 - INFO - Placing pending batch slot for XAUUSDm buy lot=0.0200 TP=4445.0 entry=4425.0 SL=4415.0 remaining_slots=3
+2026-03-24 10:46:02,364 - INFO - Pending order placed for XAUUSDm BUY at 4425.0 with sl=4415.0 tp=4445.0
+2026-03-24 10:46:02,367 - INFO - Placing pending batch slot for XAUUSDm buy lot=0.0200 TP=4450.0 entry=4425.0 SL=4415.0 remaining_slots=2
+2026-03-24 10:46:02,709 - INFO - Pending order placed for XAUUSDm BUY at 4425.0 with sl=4415.0 tp=4450.0
+2026-03-24 10:46:02,710 - INFO - Placing pending batch slot for XAUUSDm buy lot=0.0200 runner entry=4425.0 SL=4415.0 remaining_slots=1
+2026-03-24 10:46:03,147 - INFO - Pending order placed for XAUUSDm BUY at 4425.0 with sl=4415.0 tp=0.0
+2026-03-24 10:46:03,148 - INFO - Pending runner order placed for XAUUSDm.
+2026-03-24 10:46:03,159 - INFO - Pending activation monitor started for XAUUSDm buy. pending_orders=[2546897715, 2546897752, 2546897770, 2546897790, 2546897906, 2546898018], first_trigger=4430.0, reference_entry=4425.0, pending_cancel_reference=4420.0, cancel_cutoff=4415.0
+2026-03-24 10:50:21,268 - INFO - XAUUSDm buy pending main batch cancelled before trigger: price=4414.752 reached pre-trigger cutoff=4415.0.
+2026-03-24 10:50:21,507 - INFO - Cancelled pending order 2546897715: OrderSendResult(retcode=10009, deal=0, order=2546897715, volume=0.02, price=4425.0, bid=4414.298, ask=4414.697999999999, comment='', request_id=1843958253, retcode_external=0, request=TradeRequest(action=8, magic=123456, order=2546897715, symbol='', volume=0.0, price=0.0, stoplimit=0.0, sl=0.0, tp=0.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='cancel_pending_trade', position=0, position_by=0))
+2026-03-24 10:50:21,743 - INFO - Cancelled pending order 2546897752: OrderSendResult(retcode=10009, deal=0, order=2546897752, volume=0.02, price=4425.0, bid=4414.298, ask=4414.697999999999, comment='', request_id=1843958254, retcode_external=0, request=TradeRequest(action=8, magic=123456, order=2546897752, symbol='', volume=0.0, price=0.0, stoplimit=0.0, sl=0.0, tp=0.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='cancel_pending_trade', position=0, position_by=0))
+2026-03-24 10:50:21,970 - INFO - Cancelled pending order 2546897770: OrderSendResult(retcode=10009, deal=0, order=2546897770, volume=0.02, price=4425.0, bid=4414.354, ask=4414.754, comment='', request_id=1843958255, retcode_external=0, request=TradeRequest(action=8, magic=123456, order=2546897770, symbol='', volume=0.0, price=0.0, stoplimit=0.0, sl=0.0, tp=0.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='cancel_pending_trade', position=0, position_by=0))
+2026-03-24 10:50:22,200 - INFO - Cancelled pending order 2546897790: OrderSendResult(retcode=10009, deal=0, order=2546897790, volume=0.02, price=4425.0, bid=4414.209, ask=4414.6089999999995, comment='', request_id=1843958256, retcode_external=0, request=TradeRequest(action=8, magic=123456, order=2546897790, symbol='', volume=0.0, price=0.0, stoplimit=0.0, sl=0.0, tp=0.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='cancel_pending_trade', position=0, position_by=0))
+2026-03-24 10:50:22,422 - INFO - Cancelled pending order 2546897906: OrderSendResult(retcode=10009, deal=0, order=2546897906, volume=0.02, price=4425.0, bid=4414.262, ask=4414.661999999999, comment='', request_id=1843958257, retcode_external=0, request=TradeRequest(action=8, magic=123456, order=2546897906, symbol='', volume=0.0, price=0.0, stoplimit=0.0, sl=0.0, tp=0.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='cancel_pending_trade', position=0, position_by=0))
+2026-03-24 10:50:22,647 - INFO - Cancelled pending order 2546898018: OrderSendResult(retcode=10009, deal=0, order=2546898018, volume=0.02, price=4425.0, bid=4413.983, ask=4414.383, comment='', request_id=1843958258, retcode_external=0, request=TradeRequest(action=8, magic=123456, order=2546898018, symbol='', volume=0.0, price=0.0, stoplimit=0.0, sl=0.0, tp=0.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='cancel_pending_trade', position=0, position_by=0))
+2026-03-24 10:50:53,492 - INFO - Got difference for account updates
+2026-03-24 10:52:47,993 - INFO - New message received: 
+2026-03-24 10:54:24,153 - INFO - New message received: SL 4389 edited it was mistake
+2026-03-24 10:55:40,962 - INFO - New message received: \u2705 Our 1st TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-24 10:57:01,228 - INFO - New message received: \u2705 Our 2nd TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-24 10:58:52,114 - INFO - New message received: \u2705 Our 3rd TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-24 10:59:10,851 - INFO - New message received: Move stop loss to breakeven lets goooo
+2026-03-24 10:59:11,027 - INFO - Forwarded FORWARD_ONLY message to relay channel
+2026-03-24 11:02:58,278 - INFO - Got difference for channel 1283049346 updates
+2026-03-24 11:09:14,310 - INFO - New message received: There is big rejection above TP we will be all the way to full TP
+2026-03-24 11:09:14,322 - INFO - New message received: Survived in 10 pips let’s see if we can push full TP this time
+2026-03-24 11:43:56,259 - INFO - Got difference for channel 2629379150 updates
+2026-03-24 11:50:53,982 - INFO - Got difference for account updates
+2026-03-24 11:57:00,021 - INFO - New message received: \u2705 Our 4th TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-24 11:58:23,558 - INFO - New message received: \u2705 Our 5th TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-24 12:01:34,504 - INFO - New message received: Congratulations again everyone please share your results and open positions to my team congratulations again
+2026-03-24 12:05:39,791 - INFO - New message received: The rest touched BE
+2026-03-24 12:05:40,080 - INFO - Forwarded CLOSE_ALL message to relay channel
+2026-03-24 12:05:54,073 - INFO - Got difference for account updates
+2026-03-24 12:20:54,292 - INFO - Got difference for channel 2629379150 updates
+2026-03-24 13:01:58,272 - INFO - New message received: 
+2026-03-24 13:02:19,527 - INFO - New message received: 
+2026-03-24 13:20:54,613 - INFO - Got difference for channel 2629379150 updates
+2026-03-24 13:56:58,951 - INFO - Got difference for channel 1283049346 updates
+2026-03-24 14:00:59,106 - INFO - Got difference for channel 1283049346 updates
+2026-03-24 14:01:55,168 - INFO - Got difference for channel 2135999519 updates
+2026-03-24 14:50:56,104 - INFO - Got difference for account updates
+2026-03-24 15:20:56,434 - INFO - Got difference for channel 2135999519 updates
+2026-03-24 15:50:56,488 - INFO - Got difference for account updates
+2026-03-24 16:05:56,706 - INFO - Got difference for channel 2016108277 updates
+2026-03-24 16:05:57,303 - INFO - Got difference for channel 1523353611 updates
+2026-03-24 16:20:56,705 - INFO - Got difference for account updates
+2026-03-24 16:50:57,543 - INFO - Got difference for channel 1966009898 updates
+2026-03-24 18:45:04,818 - INFO - Got difference for channel 1283049346 updates
+2026-03-24 19:20:58,169 - INFO - Got difference for channel 2629379150 updates
+2026-03-24 20:00:02,601 - INFO - Got difference for channel 1283049346 updates
+2026-03-24 22:15:03,925 - INFO - Got difference for channel 1283049346 updates
+2026-03-24 23:35:59,423 - INFO - Got difference for account updates
+2026-03-25 05:17:56,109 - INFO - New message received: Good morning
+2026-03-25 08:21:04,429 - INFO - Got difference for channel 1523353611 updates
+2026-03-25 08:36:04,448 - INFO - Got difference for account updates
+2026-03-25 08:48:07,995 - INFO - New message received: Sell gold
+2026-03-25 08:48:08,162 - INFO - Forwarded PRE_TRADE message to relay channel
+2026-03-25 08:48:08,163 - INFO - Standalone pre-trade message detected. Forwarding only; no local trade will be opened.
+2026-03-25 08:51:32,871 - INFO - New message received: RISKY TRADE \u2620\ufe0f
+\U0001f449\U0001f3fe SEll XAUUSD NOW
+\U0001f6d1 SL 4575
+\u2705 TP 4540
+\u2705 TP 4535
+\u2705 TP 4530
+\u2705 TP 4525
+\u2705 TP 4520
+\u2705 TP 4515
+\u2705 TP 4510
+\u2705 TP 4505
+\u2705 TP 4500
+\u2705 TP 4495
+\u2705 TP open 
+disclaimer: For copy trading make sure your the bot work perfectly SL and TP is set. 
+Past Profits do not predict future earnings. Risk only 1-3 % per position.
+No automatic reward.
+2026-03-25 08:51:32,997 - INFO - Forwarded NEW_TRADE message to relay channel
+2026-03-25 08:51:33,014 - INFO - Planned sizing for XAUUSDm sell: risk_total_lot=0.1700, margin_total_lot=0.1700, planned_total_lot=0.1200, per_position_lot=0.0200, desired_slots=6, affordable_slots=6, risk_override=None
+2026-03-25 08:51:33,016 - INFO - Placing pending main trade XAUUSDm sell: planned_total_lot=0.1200, entry_reference=4535.0, positions=6, used_tps=[4530.0, 4525.0, 4520.0, 4515.0, 4510.0], runner_enabled=True, fixed_sl=4545.0, per_position_lot=0.0200
+2026-03-25 08:51:33,016 - INFO - Placing pending batch slot for XAUUSDm sell lot=0.0200 TP=4530.0 entry=4535.0 SL=4545.0 remaining_slots=6
+2026-03-25 08:51:33,330 - INFO - Pending order placed for XAUUSDm SELL at 4535.0 with sl=4545.0 tp=4530.0
+2026-03-25 08:51:33,333 - INFO - Placing pending batch slot for XAUUSDm sell lot=0.0200 TP=4525.0 entry=4535.0 SL=4545.0 remaining_slots=5
+2026-03-25 08:51:33,630 - INFO - Pending order placed for XAUUSDm SELL at 4535.0 with sl=4545.0 tp=4525.0
+2026-03-25 08:51:33,631 - INFO - Placing pending batch slot for XAUUSDm sell lot=0.0200 TP=4520.0 entry=4535.0 SL=4545.0 remaining_slots=4
+2026-03-25 08:51:33,976 - INFO - Pending order placed for XAUUSDm SELL at 4535.0 with sl=4545.0 tp=4520.0
+2026-03-25 08:51:33,978 - INFO - Placing pending batch slot for XAUUSDm sell lot=0.0200 TP=4515.0 entry=4535.0 SL=4545.0 remaining_slots=3
+2026-03-25 08:51:34,307 - INFO - Pending order placed for XAUUSDm SELL at 4535.0 with sl=4545.0 tp=4515.0
+2026-03-25 08:51:34,308 - INFO - Placing pending batch slot for XAUUSDm sell lot=0.0200 TP=4510.0 entry=4535.0 SL=4545.0 remaining_slots=2
+2026-03-25 08:51:34,608 - INFO - Pending order placed for XAUUSDm SELL at 4535.0 with sl=4545.0 tp=4510.0
+2026-03-25 08:51:34,609 - INFO - Placing pending batch slot for XAUUSDm sell lot=0.0200 runner entry=4535.0 SL=4545.0 remaining_slots=1
+2026-03-25 08:51:35,118 - INFO - Pending order placed for XAUUSDm SELL at 4535.0 with sl=4545.0 tp=0.0
+2026-03-25 08:51:35,118 - INFO - Pending runner order placed for XAUUSDm.
+2026-03-25 08:51:35,127 - INFO - Pending activation monitor started for XAUUSDm sell. pending_orders=[2552377752, 2552377767, 2552377780, 2552377793, 2552377811, 2552377824], first_trigger=4530.0, reference_entry=4535.0, pending_cancel_reference=4540.0, cancel_cutoff=4545.0
+2026-03-25 08:51:35,128 - INFO - XAUUSDm sell pending main batch cancelled before trigger: price=4545.228 reached pre-trigger cutoff=4545.0.
+2026-03-25 08:51:35,378 - INFO - Cancelled pending order 2552377752: OrderSendResult(retcode=10009, deal=0, order=2552377752, volume=0.02, price=4535.0, bid=4545.228, ask=4545.536, comment='', request_id=1843958265, retcode_external=0, request=TradeRequest(action=8, magic=123456, order=2552377752, symbol='', volume=0.0, price=0.0, stoplimit=0.0, sl=0.0, tp=0.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='cancel_pending_trade', position=0, position_by=0))
+2026-03-25 08:51:35,644 - INFO - Cancelled pending order 2552377767: OrderSendResult(retcode=10009, deal=0, order=2552377767, volume=0.02, price=4535.0, bid=4545.246, ask=4545.554, comment='', request_id=1843958266, retcode_external=0, request=TradeRequest(action=8, magic=123456, order=2552377767, symbol='', volume=0.0, price=0.0, stoplimit=0.0, sl=0.0, tp=0.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='cancel_pending_trade', position=0, position_by=0))
+2026-03-25 08:51:35,885 - INFO - Cancelled pending order 2552377780: OrderSendResult(retcode=10009, deal=0, order=2552377780, volume=0.02, price=4535.0, bid=4545.246, ask=4545.554, comment='', request_id=1843958267, retcode_external=0, request=TradeRequest(action=8, magic=123456, order=2552377780, symbol='', volume=0.0, price=0.0, stoplimit=0.0, sl=0.0, tp=0.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='cancel_pending_trade', position=0, position_by=0))
+2026-03-25 08:51:36,157 - INFO - Cancelled pending order 2552377793: OrderSendResult(retcode=10009, deal=0, order=2552377793, volume=0.02, price=4535.0, bid=4545.246, ask=4545.554, comment='', request_id=1843958268, retcode_external=0, request=TradeRequest(action=8, magic=123456, order=2552377793, symbol='', volume=0.0, price=0.0, stoplimit=0.0, sl=0.0, tp=0.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='cancel_pending_trade', position=0, position_by=0))
+2026-03-25 08:51:36,380 - INFO - Cancelled pending order 2552377811: OrderSendResult(retcode=10009, deal=0, order=2552377811, volume=0.02, price=4535.0, bid=4545.246, ask=4545.554, comment='', request_id=1843958269, retcode_external=0, request=TradeRequest(action=8, magic=123456, order=2552377811, symbol='', volume=0.0, price=0.0, stoplimit=0.0, sl=0.0, tp=0.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='cancel_pending_trade', position=0, position_by=0))
+2026-03-25 08:51:36,609 - INFO - Cancelled pending order 2552377824: OrderSendResult(retcode=10009, deal=0, order=2552377824, volume=0.02, price=4535.0, bid=4545.246, ask=4545.554, comment='', request_id=1843958270, retcode_external=0, request=TradeRequest(action=8, magic=123456, order=2552377824, symbol='', volume=0.0, price=0.0, stoplimit=0.0, sl=0.0, tp=0.0, deviation=0, type=0, type_filling=0, type_time=0, expiration=0, comment='cancel_pending_trade', position=0, position_by=0))
+2026-03-25 08:51:48,064 - INFO - New message received: Don’t risk to much on this trade
+2026-03-25 08:58:50,694 - INFO - New message received: \u2705 Our 1st TP successfully hit \u2705 
+
+COPY TRADERS check your account SET TP AND SL 
+Others make sure you  follow my instructions well
+2026-03-25 09:06:29,198 - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2026-03-25 09:06:29,204 - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2026-03-25 09:06:29,227 - INFO - System stopped by user.

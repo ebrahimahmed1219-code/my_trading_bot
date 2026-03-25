@@ -42,13 +42,10 @@ async def get_channel_entity():
 
 
 async def relay_signal_message(message_text, message_type):
-    """Forward actionable incoming Telegram messages to a configured destination channel."""
+    """Forward every non-empty incoming Telegram message to a configured destination channel."""
     global _relay_entity
 
     if not FORWARD_SIGNALS_ENABLED or not FORWARD_TELEGRAM_CHANNEL:
-        return
-
-    if message_type == "IGNORE":
         return
 
     if not (message_text or "").strip():
