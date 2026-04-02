@@ -87,8 +87,8 @@ def open_position(symbol, side, lot, sl, tp=None):
     return result
 
 
-def open_pending_position(symbol, side, lot, entry_price, sl, tp=None):
-    """Place an MT5 pending stop order."""
+def open_pending_position(symbol, side, lot, entry_price, sl, tp=None, pending_type="STOP"):
+    """Place an MT5 pending limit/stop order."""
     tick = mt5.symbol_info_tick(symbol)
     if tick is None:
         log_event(f"Pending order failed for {symbol} {side}: no symbol tick available")
@@ -98,10 +98,12 @@ def open_pending_position(symbol, side, lot, entry_price, sl, tp=None):
     tp_value = float(tp) if tp else 0.0
     sl_value = float(sl) if sl else 0.0
 
+    pending_type = str(pending_type or "STOP").upper()
+
     if normalized_side == "BUY":
-        order_type = mt5.ORDER_TYPE_BUY_STOP
+        order_type = mt5.ORDER_TYPE_BUY_LIMIT if pending_type == "LIMIT" else mt5.ORDER_TYPE_BUY_STOP
     else:
-        order_type = mt5.ORDER_TYPE_SELL_STOP
+        order_type = mt5.ORDER_TYPE_SELL_LIMIT if pending_type == "LIMIT" else mt5.ORDER_TYPE_SELL_STOP
 
     request = {
         "action": mt5.TRADE_ACTION_PENDING,

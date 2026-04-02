@@ -1,0 +1,82 @@
+2026-04-02 16:06:40,315 - INFO - Placing VIP limit trade XAUUSDm sell: planned_total_lot=0.0600, entry_reference=4721.5, positions=3, used_tps=[4709.7, 4697.9, 4686.1], sl=4733.3, per_position_lot=0.0200
+2026-04-02 16:06:40,317 - INFO - No limit orders placed for XAUUSDm due to risk/margin constraints.
+2026-04-02 16:07:19,679 - INFO - Placing VIP limit trade XAUUSDm sell: planned_total_lot=0.0600, entry_reference=4721.5, positions=3, used_tps=[4709.7, 4697.9, 4686.1], sl=4733.3, per_position_lot=0.0200
+2026-04-02 16:07:19,679 - INFO - Executing VIP market trade XAUUSDm buy: planned_total_lot=0.0600, entry_reference=4720.0, positions=2, used_tps=[4730.0, 4740.0], sl=4710.0, per_position_lot=0.0200
+2026-04-02 16:40:37,000 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-04-02 16:40:37,080 - INFO - cryptg detected, it will be used for encryption
+2026-04-02 16:40:37,427 - INFO - Database initialized successfully
+2026-04-02 16:40:42,690 - INFO - MT5 initialized successfully
+2026-04-02 16:40:42,690 - INFO - Telegram Copy Trader Started
+2026-04-02 16:40:42,693 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-04-02 16:40:42,698 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-04-02 16:40:43,347 - INFO - Error resolving channel: The chat the user tried to join has expired and is not valid anymore (caused by CheckChatInviteRequest)
+2026-04-02 16:40:43,347 - INFO - Cannot start listener without valid channel. Retrying in 5s.
+2026-04-02 16:40:48,547 - INFO - Error resolving channel: The chat the user tried to join has expired and is not valid anymore (caused by CheckChatInviteRequest)
+2026-04-02 16:40:48,548 - INFO - Cannot start listener without valid channel. Retrying in 5s.
+2026-04-02 16:40:53,745 - INFO - Error resolving channel: The chat the user tried to join has expired and is not valid anymore (caused by CheckChatInviteRequest)
+2026-04-02 16:40:53,745 - INFO - Cannot start listener without valid channel. Retrying in 5s.
+2026-04-02 16:40:58,942 - INFO - Error resolving channel: The chat the user tried to join has expired and is not valid anymore (caused by CheckChatInviteRequest)
+2026-04-02 16:40:58,942 - INFO - Cannot start listener without valid channel. Retrying in 5s.
+2026-04-02 16:41:00,802 - INFO - System stopped by user.
+2026-04-02 16:56:20,449 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-04-02 16:56:20,452 - INFO - cryptg detected, it will be used for encryption
+2026-04-02 16:56:20,749 - INFO - Database initialized successfully
+2026-04-02 16:56:20,763 - INFO - MT5 initialized successfully
+2026-04-02 16:56:20,763 - INFO - Telegram Copy Trader Started
+2026-04-02 16:56:20,764 - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2026-04-02 16:56:20,788 - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2026-04-02 16:56:43,352 - INFO - Phone migrated to 4
+2026-04-02 16:56:43,416 - INFO - Reconnecting to new data center 4
+2026-04-02 16:56:43,481 - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2026-04-02 16:56:43,482 - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2026-04-02 16:56:43,482 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-04-02 16:56:44,814 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-04-02 16:58:45,075 - INFO - Telegram listener error: . Reconnecting in 5s.
+2026-04-02 16:58:45,078 - INFO - System stopped by user.
+2026-04-02 16:58:48,501 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-04-02 16:58:48,504 - INFO - cryptg detected, it will be used for encryption
+2026-04-02 16:58:48,816 - INFO - Database initialized successfully
+2026-04-02 16:58:48,829 - INFO - MT5 initialized successfully
+2026-04-02 16:58:48,829 - INFO - Telegram Copy Trader Started
+2026-04-02 16:58:48,831 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-04-02 16:58:48,835 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-04-02 16:59:53,071 - INFO - Telegram listener error: You also need to provide a phone_code_hash.. Reconnecting in 5s.
+2026-04-02 17:02:38,362 - INFO - Telegram listener error: . Reconnecting in 5s.
+2026-04-02 17:02:38,375 - INFO - System stopped by user.
+2026-04-02 17:02:42,039 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-04-02 17:02:42,043 - INFO - cryptg detected, it will be used for encryption
+2026-04-02 17:02:42,343 - INFO - Database initialized successfully
+2026-04-02 17:02:42,355 - INFO - MT5 initialized successfully
+2026-04-02 17:02:42,355 - INFO - Telegram Copy Trader Started
+2026-04-02 17:02:42,357 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-04-02 17:02:42,364 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-04-02 17:03:21,082 - INFO - Error resolving channel: The chat the user tried to join has expired and is not valid anymore (caused by CheckChatInviteRequest)
+2026-04-02 17:03:21,082 - INFO - Cannot start listener without valid channel. Retrying in 5s.
+2026-04-02 17:03:26,296 - INFO - Error resolving channel: The chat the user tried to join has expired and is not valid anymore (caused by CheckChatInviteRequest)
+2026-04-02 17:03:26,296 - INFO - Cannot start listener without valid channel. Retrying in 5s.
+2026-04-02 17:03:31,494 - INFO - Error resolving channel: The chat the user tried to join has expired and is not valid anymore (caused by CheckChatInviteRequest)
+2026-04-02 17:03:31,495 - INFO - Cannot start listener without valid channel. Retrying in 5s.
+2026-04-02 17:03:34,586 - INFO - System stopped by user.
+2026-04-02 17:05:27,264 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-04-02 17:05:27,267 - INFO - cryptg detected, it will be used for encryption
+2026-04-02 17:05:27,582 - INFO - Database initialized successfully
+2026-04-02 17:05:27,598 - INFO - MT5 initialized successfully
+2026-04-02 17:05:27,598 - INFO - Telegram Copy Trader Started
+2026-04-02 17:05:27,600 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-04-02 17:05:27,606 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-04-02 17:05:28,194 - INFO - Connected to channel: VIP
+2026-04-02 17:05:28,194 - INFO - Telegram listener handler registered
+2026-04-02 17:05:28,195 - INFO - Telegram listener started
+2026-04-02 17:05:34,795 - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2026-04-02 17:05:34,796 - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2026-04-02 17:05:34,806 - INFO - System stopped by user.
+2026-04-02 17:07:46,538 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-04-02 17:07:46,540 - INFO - cryptg detected, it will be used for encryption
+2026-04-02 17:07:46,855 - INFO - Database initialized successfully
+2026-04-02 17:07:46,869 - INFO - MT5 initialized successfully
+2026-04-02 17:07:46,870 - INFO - Telegram Copy Trader Started
+2026-04-02 17:07:46,871 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-04-02 17:07:46,880 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-04-02 17:07:47,756 - INFO - Connected to channel: VIP
+2026-04-02 17:07:47,756 - INFO - Telegram listener handler registered
+2026-04-02 17:07:47,756 - INFO - Telegram listener started

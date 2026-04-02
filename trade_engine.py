@@ -109,22 +109,15 @@ def _fixed_stop_loss(entry_price, side):
     return entry_price - FIXED_STOP_LOSS_DISTANCE if side == "buy" else entry_price + FIXED_STOP_LOSS_DISTANCE
 
 
-def _signal_entry_price(take_profits):
-    """Use TP2 from Telegram as the synthetic entry reference."""
-    values = list(take_profits or [])
-    if len(values) < 2:
-        return None
-    return float(values[1])
+def _signal_entry_price(signal_data):
+    """Use the parsed entry price from the new VIP signal format."""
+    return (signal_data or {}).get("entry_price")
 
 
-def _selected_take_profits(take_profits, side):
-    """Build five TP levels at fixed 5 USD intervals away from TP2, ignoring later Telegram TPs."""
-    entry_reference = _signal_entry_price(take_profits)
-    if entry_reference is None or side not in {"buy", "sell"}:
-        return []
-
-    step = 5.0 if side == "buy" else -5.0
-    return [entry_reference + step * i for i in range(1, TP_SLOT_COUNT + 1)]
+def _selected_take_profits(signal_data):
+    """Use up to the first three TP levels written in the VIP signal."""
+    values = list((signal_data or {}).get("take_profits") or [])
+    return values[:3]
 
 
 def _filter_valid_take_profits(take_profits, reference_entry, side):
@@ -267,7 +260,7 @@ def _start_pending_activation_monitor(
     reference_entry,
     pending_cancel_reference,
 ):
-    """Wait for pending main-signal orders to trigger, or cancel them if the pre-trigger cutoff is hit first."""
+    """Wait for pending VIP orders to trigger, then move the triggered batch to break-even at TP1."""
 
     def _monitor():
         if mt5.account_info() is None:
@@ -276,16 +269,10 @@ def _start_pending_activation_monitor(
         position_type = _get_position_type_for_side(side)
         tracked_ticket_set = set()
         pending_ticket_set = set(pending_order_tickets or [])
-        cancel_cutoff = (
-            pending_cancel_reference - 5.0
-            if side == "buy"
-            else pending_cancel_reference + 5.0
-        )
         log_event(
             f"Pending activation monitor started for {symbol} {side}. "
             f"pending_orders={sorted(pending_ticket_set)}, first_trigger={first_trigger_price}, "
-            f"reference_entry={reference_entry}, pending_cancel_reference={pending_cancel_reference}, "
-            f"cancel_cutoff={cancel_cutoff}"
+            f"reference_entry={reference_entry}, pending_cancel_reference={pending_cancel_reference}"
         )
 
         while True:
@@ -311,7 +298,12 @@ def _start_pending_activation_monitor(
                 time.sleep(2)
                 continue
 
-            if not tracked_ticket_set and remaining_pending:
+            if pending_cancel_reference is not None and not tracked_ticket_set and remaining_pending:
+                cancel_cutoff = (
+                    pending_cancel_reference - 5.0
+                    if side == "buy"
+                    else pending_cancel_reference + 5.0
+                )
                 if side == "buy":
                     price = tick.ask or tick.last
                     cutoff_hit = price is not None and price <= cancel_cutoff
@@ -452,6 +444,45 @@ def _plan_position_sizing(
     if risk_total_lot <= 0:
         log_event(f"Calculated lot size <= 0 for {symbol}. Aborting trade.")
         return None, None, 0
+
+
+def _plan_vip_position_sizing(balance, entry_price, stop_loss, symbol, symbol_info, side, desired_slots):
+    """VIP sizing: prefer 0.02 lots, fall back to 0.01, and open as many TP slots as affordable up to 3."""
+    risk_total_lot = calculate_lot_size(balance, entry_price, stop_loss, symbol)
+    if risk_total_lot <= 0:
+        log_event(f"Calculated VIP lot size <= 0 for {symbol}. Aborting trade.")
+        return None, None, 0
+
+    margin_per_lot = _margin_per_lot(symbol, entry_price, symbol_info, side)
+    free_margin = _free_margin_or_balance(balance)
+
+    margin_total_lot = risk_total_lot
+    if margin_per_lot > 0 and free_margin > 0:
+        margin_total_lot = free_margin / margin_per_lot
+
+    total_lot_cap = min(risk_total_lot, margin_total_lot)
+    lot_choices = [0.02, 0.01]
+
+    for base_lot in lot_choices:
+        candidate_lot = _clamp_volume_to_symbol(base_lot, symbol_info)
+        if candidate_lot <= 0:
+            continue
+        affordable_slots = min(desired_slots, int(total_lot_cap / candidate_lot))
+        if affordable_slots > 0:
+            planned_total_lot = candidate_lot * affordable_slots
+            log_event(
+                f"Planned VIP sizing for {symbol} {side}: risk_total_lot={risk_total_lot:.4f}, "
+                f"margin_total_lot={margin_total_lot:.4f}, planned_total_lot={planned_total_lot:.4f}, "
+                f"per_position_lot={candidate_lot:.4f}, desired_slots={desired_slots}, "
+                f"affordable_slots={affordable_slots}"
+            )
+            return candidate_lot, planned_total_lot, affordable_slots
+
+    log_event(
+        f"Cannot afford minimum VIP lot for any TP slot on {symbol}. "
+        f"risk_total_lot={risk_total_lot:.4f}, margin_total_lot={margin_total_lot:.4f}"
+    )
+    return None, None, 0
 
     margin_per_lot = _margin_per_lot(symbol, entry_price, symbol_info, side)
     free_margin = _free_margin_or_balance(balance)
@@ -776,107 +807,25 @@ def execute_pre_signal_trade(quick_signal):
 
 
 def apply_signal_to_existing_positions(signal_data):
-    """Apply the main signal to matching pre-opened positions instead of opening duplicates."""
-    global PENDING_PRE_SIGNAL
-    requested_symbol = signal_data.get("symbol")
-    side = str(signal_data.get("side", "")).lower()
-    raw_take_profits = signal_data.get("take_profits") or []
-    entry_reference = _signal_entry_price(raw_take_profits)
-    take_profits = _selected_take_profits(raw_take_profits, side)
-
-    if not requested_symbol or side not in {"buy", "sell"}:
-        return False
-
-    if entry_reference is None:
-        log_event(f"No TP2 entry reference provided for existing-position signal on {requested_symbol}.")
-        return False
-
-    if not take_profits:
-        return False
-
-    symbol_info = _resolve_symbol_info(requested_symbol)
-    symbol = symbol_info.name if symbol_info is not None else requested_symbol
-
-    positions = mt5.positions_get(symbol=symbol) or []
-    position_type = _get_position_type_for_side(side)
-    side_positions = [p for p in positions if p.type == position_type]
-
-    pending_matches = (
-        PENDING_PRE_SIGNAL.get("symbol") == symbol
-        and PENDING_PRE_SIGNAL.get("side") == side
-        and PENDING_PRE_SIGNAL.get("tickets")
-    )
-
-    if pending_matches:
-        pending_tickets = set(PENDING_PRE_SIGNAL["tickets"])
-        side_positions = [p for p in side_positions if p.ticket in pending_tickets]
-
-    if not side_positions:
-        return False
-
-    side_positions.sort(key=lambda p: p.ticket)
-    edited_any = False
-    tracked_positions = side_positions[:TOTAL_POSITIONS]
-    tracked_tickets = [pos.ticket for pos in tracked_positions]
-    tracked_count = len(tracked_positions)
-    reference_entry = entry_reference
-    take_profits = _filter_valid_take_profits(take_profits, reference_entry, side)
-
-    log_event(
-        f"Applying main signal to existing positions for {symbol} {side}: "
-        f"count={len(side_positions)}, fixed_sl_distance={FIXED_STOP_LOSS_DISTANCE}, tps={take_profits}"
-    )
-
-    if not take_profits and tracked_count > 1:
-        log_event(f"No valid take-profit levels remain for existing {symbol} {side} positions. Skipping signal apply.")
-        return False
-
-    runner_index = tracked_count - 1 if tracked_count > 0 else None
-    usable_take_profits = take_profits[: max(0, tracked_count - 1)]
-    first_tp = usable_take_profits[0] if usable_take_profits else (take_profits[0] if take_profits else None)
-    for idx, pos in enumerate(tracked_positions):
-        new_sl = _fixed_stop_loss(reference_entry, side)
-        new_tp = usable_take_profits[idx] if idx < len(usable_take_profits) else 0.0
-        if idx == runner_index:
-            new_tp = 0.0
-
-        result = modify_position_targets(
-            pos.ticket,
-            new_sl=new_sl,
-            new_tp=new_tp,
-            comment="apply_main_signal",
-        )
-        if is_success_result(result):
-            edited_any = True
-
-    if not edited_any:
-        return False
-
-    _store_active_signal_reference(symbol, reference_entry)
-    _start_break_even_monitor(symbol, side, first_tp, tracked_tickets, reference_entry, usable_take_profits)
-    PENDING_PRE_SIGNAL = {"symbol": None, "side": None, "tickets": [], "created_at": 0.0}
-    return True
+    """Legacy path disabled for the VIP-only workflow."""
+    return False
 
 
 def execute_trade(signal_data):
-    """Place as many pending main-signal slots as the account can afford using TP2 as entry and TP3-TP7 as targets."""
+    """Execute VIP signals exactly as written: market, limit, or stop; up to 3 written TPs."""
     requested_symbol = signal_data.get("symbol")
     side = str(signal_data.get("side", "")).lower()
-    raw_take_profits = signal_data.get("take_profits") or []
-    pending_cancel_reference = float(raw_take_profits[0]) if raw_take_profits else None
-    entry_reference = _signal_entry_price(raw_take_profits)
-    take_profits = _selected_take_profits(raw_take_profits, side)
+    order_kind = str(signal_data.get("order_kind", "MARKET")).upper()
+    entry_reference = _signal_entry_price(signal_data)
+    take_profits = _selected_take_profits(signal_data)
+    stop_loss = signal_data.get("stop_loss")
 
     if not requested_symbol or side not in {"buy", "sell"}:
         log_event(f"Invalid trade signal: {signal_data}")
         return
 
-    if pending_cancel_reference is None:
-        log_event(f"No TP1 cancel reference provided for {requested_symbol}. Aborting trade.")
-        return
-
-    if entry_reference is None:
-        log_event(f"No TP2 entry reference provided for {requested_symbol}. Aborting trade.")
+    if stop_loss is None:
+        log_event(f"No stop loss provided for {requested_symbol}. Aborting trade.")
         return
 
     if not take_profits:
@@ -886,85 +835,125 @@ def execute_trade(signal_data):
     prep = _prepare_symbol_and_account(requested_symbol, side)
     if prep[0] is None:
         return
-    balance, _, symbol_info, symbol = prep
+    balance, market_price, symbol_info, symbol = prep
 
-    take_profits = _filter_valid_take_profits(take_profits, entry_reference, side)
+    if order_kind == "MARKET":
+        entry_for_sizing = market_price
+    else:
+        if entry_reference is None:
+            log_event(f"No entry price provided for {order_kind} {requested_symbol}. Aborting trade.")
+            return
+        entry_for_sizing = entry_reference
+
+    take_profits = _filter_valid_take_profits(take_profits, entry_for_sizing, side)
     if not take_profits:
-        log_event(f"No valid take-profit levels remain for {symbol} {side} at entry_reference={entry_reference}. Aborting trade.")
+        log_event(f"No valid take-profit levels remain for {symbol} {side} at entry_reference={entry_for_sizing}. Aborting trade.")
         return
 
-    stop_loss = _fixed_stop_loss(entry_reference, side)
-    desired_slots = len(take_profits) + (1 if RUNNER_ENABLED else 0)
-    per_position_lot, planned_total_lot, affordable_slots = _plan_position_sizing(
-        balance, entry_reference, stop_loss, symbol, symbol_info, side, desired_slots
+    desired_slots = min(3, len(take_profits))
+    per_position_lot, planned_total_lot, affordable_slots = _plan_vip_position_sizing(
+        balance, entry_for_sizing, stop_loss, symbol, symbol_info, side, desired_slots
     )
     if per_position_lot is None:
         return
 
-    if RUNNER_ENABLED and affordable_slots >= 1:
-        runner_should_open = True
-        tp_slot_count = max(0, affordable_slots - 1)
-    else:
-        runner_should_open = False
-        tp_slot_count = affordable_slots
-
-    active_take_profits = take_profits[: min(len(take_profits), tp_slot_count)]
+    active_take_profits = take_profits[: min(len(take_profits), affordable_slots)]
 
     if affordable_slots < desired_slots:
         log_event(
-            f"Pending main trade slot count reduced for {symbol} {side}: "
+            f"VIP trade slot count reduced for {symbol} {side}: "
             f"using {affordable_slots}/{desired_slots} slots due to account size."
         )
 
-    if not active_take_profits and not runner_should_open:
-        log_event(f"No affordable TP or runner slots remain for {symbol} {side}. Aborting trade.")
+    if not active_take_profits:
+        log_event(f"No affordable TP slots remain for {symbol} {side}. Aborting trade.")
         return
 
-    first_tp = active_take_profits[0] if active_take_profits else (take_profits[0] if take_profits else None)
-    log_event(
-        f"Placing pending main trade {symbol} {side}: planned_total_lot={planned_total_lot:.4f}, "
-        f"entry_reference={entry_reference}, positions={affordable_slots}, used_tps={active_take_profits}, runner_enabled={runner_should_open}, "
-        f"fixed_sl={stop_loss}, per_position_lot={per_position_lot:.4f}"
-    )
-
+    first_tp = active_take_profits[0]
     position_type = _get_position_type_for_side(side)
     before = mt5.positions_get(symbol=symbol) or []
     before_tickets = {p.ticket for p in before if p.type == position_type}
 
-    placed_any, placed_count, runner_placed, runner_attempted, pending_order_tickets = _execute_dynamic_pending_batch(
-        symbol,
-        side,
-        symbol_info,
-        entry_reference,
-        stop_loss,
-        active_take_profits,
-        include_runner=runner_should_open,
-        max_lot_per_slot=per_position_lot,
-    )
-
-    if not placed_any:
-        log_event(f"No pending orders placed for {symbol} due to risk/margin constraints.")
+    if order_kind == "MARKET":
+        log_event(
+            f"Executing VIP market trade {symbol} {side}: planned_total_lot={planned_total_lot:.4f}, "
+            f"entry_reference={entry_for_sizing}, positions={affordable_slots}, used_tps={active_take_profits}, "
+            f"sl={stop_loss}, per_position_lot={per_position_lot:.4f}"
+        )
+        opened_any, opened_count, _, _ = _execute_dynamic_batch(
+            symbol,
+            side,
+            symbol_info,
+            stop_loss,
+            active_take_profits,
+            include_runner=False,
+            entry_reference=entry_for_sizing,
+            max_lot_per_slot=per_position_lot,
+        )
+        if not opened_any:
+            log_event(f"No market orders placed for {symbol} due to risk/margin constraints.")
+            return
+        if opened_count < len(active_take_profits):
+            log_event(f"VIP market trade batch for {symbol} {side} placed partially: placed={opened_count}/{len(active_take_profits)}")
+        time.sleep(1)
+        after = mt5.positions_get(symbol=symbol) or []
+        tracked_tickets = [p.ticket for p in after if p.type == position_type and p.ticket not in before_tickets]
+        _store_active_signal_reference(symbol, entry_for_sizing)
+        _start_break_even_monitor(symbol, side, first_tp, tracked_tickets, entry_for_sizing, active_take_profits)
         return
 
-    if placed_count < len(active_take_profits) + (1 if runner_should_open else 0):
-        log_event(
-            f"Pending trade batch for {symbol} {side} placed partially: placed={placed_count}/"
-            f"{len(active_take_profits) + (1 if runner_should_open else 0)}"
+    log_event(
+        f"Placing VIP {order_kind.lower()} trade {symbol} {side}: planned_total_lot={planned_total_lot:.4f}, "
+        f"entry_reference={entry_for_sizing}, positions={affordable_slots}, used_tps={active_take_profits}, "
+        f"sl={stop_loss}, per_position_lot={per_position_lot:.4f}"
+    )
+    placed_any = False
+    placed_count = 0
+    pending_order_tickets = []
+    for tp in active_take_profits:
+        next_lot, _, _ = _compute_next_order_lot(
+            symbol,
+            symbol_info,
+            side,
+            stop_loss,
+            len(active_take_profits) - placed_count,
+            entry_reference=entry_for_sizing,
+            max_lot_cap=per_position_lot,
         )
-    if runner_should_open and runner_attempted and runner_placed:
-        log_event(f"Pending runner order placed for {symbol}.")
-    elif runner_should_open and runner_attempted and not runner_placed:
-        log_event(f"Pending runner order could not be completed for {symbol}.")
+        if next_lot <= 0:
+            break
+        result = open_pending_position(
+            symbol,
+            side.upper(),
+            next_lot,
+            entry_for_sizing,
+            stop_loss,
+            tp,
+            pending_type=order_kind,
+        )
+        if is_success_result(result):
+            placed_any = True
+            placed_count += 1
+            if getattr(result, "order", 0):
+                pending_order_tickets.append(result.order)
+        else:
+            break
 
-    _store_active_signal_reference(symbol, entry_reference)
+    if not placed_any:
+        log_event(f"No {order_kind.lower()} orders placed for {symbol} due to risk/margin constraints.")
+        return
+    if placed_count < len(active_take_profits):
+        log_event(f"VIP {order_kind.lower()} trade batch for {symbol} {side} placed partially: placed={placed_count}/{len(active_take_profits)}")
+
+    _store_active_signal_reference(symbol, entry_for_sizing)
     _start_pending_activation_monitor(
         symbol,
         side,
         before_tickets,
         pending_order_tickets,
         first_tp,
-        entry_reference,
-        pending_cancel_reference,
+        entry_for_sizing,
+        None,
     )
 
 
