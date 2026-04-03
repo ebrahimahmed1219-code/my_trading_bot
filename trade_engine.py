@@ -24,13 +24,6 @@ RUNNER_SLOT_INDEX = TOTAL_POSITIONS - 1
 TP_SLOT_COUNT = TOTAL_POSITIONS - 1
 NO_MONEY_RETCODE = getattr(mt5, "TRADE_RETCODE_NO_MONEY", 10019)
 
-PENDING_PRE_SIGNAL = {
-    "symbol": None,
-    "side": None,
-    "tickets": [],
-    "created_at": 0.0,
-}
-
 SYMBOL_CACHE = {}
 ACTIVE_SIGNAL_REFERENCES = {}
 
@@ -423,29 +416,6 @@ def _margin_per_lot(symbol, entry_price, symbol_info, side):
     return symbol_info.margin_initial or 0.0
 
 
-def _plan_position_sizing(
-    balance,
-    entry_price,
-    stop_loss,
-    symbol,
-    symbol_info,
-    side,
-    desired_slots,
-    risk_ratio_override=None,
-):
-    """Plan an equal lot size across as many slots as the account can currently afford."""
-    risk_total_lot = calculate_lot_size(
-        balance,
-        entry_price,
-        stop_loss,
-        symbol,
-        risk_ratio_override=risk_ratio_override,
-    )
-    if risk_total_lot <= 0:
-        log_event(f"Calculated lot size <= 0 for {symbol}. Aborting trade.")
-        return None, None, 0
-
-
 def _plan_vip_position_sizing(balance, entry_price, stop_loss, symbol, symbol_info, side, desired_slots):
     """VIP sizing: prefer 0.02 lots, fall back to 0.01, and open as many TP slots as affordable up to 3."""
     risk_total_lot = calculate_lot_size(balance, entry_price, stop_loss, symbol)
@@ -483,37 +453,6 @@ def _plan_vip_position_sizing(balance, entry_price, stop_loss, symbol, symbol_in
         f"risk_total_lot={risk_total_lot:.4f}, margin_total_lot={margin_total_lot:.4f}"
     )
     return None, None, 0
-
-    margin_per_lot = _margin_per_lot(symbol, entry_price, symbol_info, side)
-    free_margin = _free_margin_or_balance(balance)
-
-    margin_total_lot = risk_total_lot
-    if margin_per_lot > 0 and free_margin > 0:
-        margin_total_lot = free_margin / margin_per_lot
-
-    total_lot_cap = min(risk_total_lot, margin_total_lot)
-    vol_min = symbol_info.volume_min or 0.01
-    affordable_slots = min(desired_slots, int(total_lot_cap / vol_min)) if vol_min > 0 else desired_slots
-
-    while affordable_slots > 0:
-        per_position_lot = _clamp_volume_to_symbol(total_lot_cap / affordable_slots, symbol_info)
-        if per_position_lot > 0:
-            planned_total_lot = per_position_lot * affordable_slots
-            log_event(
-                f"Planned sizing for {symbol} {side}: risk_total_lot={risk_total_lot:.4f}, "
-                f"margin_total_lot={margin_total_lot:.4f}, planned_total_lot={planned_total_lot:.4f}, "
-                f"per_position_lot={per_position_lot:.4f}, desired_slots={desired_slots}, "
-                f"affordable_slots={affordable_slots}, risk_override={risk_ratio_override}"
-            )
-            return per_position_lot, planned_total_lot, affordable_slots
-        affordable_slots -= 1
-
-    if affordable_slots <= 0:
-        log_event(
-            f"Cannot afford minimum lot for any slot on {symbol}. "
-            f"risk_total_lot={risk_total_lot:.4f}, margin_total_lot={margin_total_lot:.4f}"
-        )
-        return None, None, 0
 
 
 def _success_retcodes():
@@ -728,82 +667,6 @@ def _execute_dynamic_pending_batch(
         _attempt(None)
 
     return placed_any, placed_count, runner_placed, runner_attempted, pending_order_tickets
-
-
-def execute_pre_signal_trade(quick_signal):
-    """Open as many pre-signal positions as the account can afford, with fixed 10 USD SL and no TP."""
-    global PENDING_PRE_SIGNAL
-
-    requested_symbol = (quick_signal or {}).get("symbol") or SYMBOL_DEFAULT
-    side = str((quick_signal or {}).get("side", "")).lower()
-
-    if side not in {"buy", "sell"}:
-        log_event(f"Invalid pre-signal side: {quick_signal}")
-        return
-
-    prep = _prepare_symbol_and_account(requested_symbol, side)
-    if prep[0] is None:
-        return
-    balance, entry_price, symbol_info, symbol = prep
-
-    stop_loss = _fixed_stop_loss(entry_price, side)
-    per_position_lot, planned_total_lot, affordable_slots = _plan_position_sizing(
-        balance, entry_price, stop_loss, symbol, symbol_info, side, TOTAL_POSITIONS
-    )
-    if per_position_lot is None:
-        return
-
-    if affordable_slots < TOTAL_POSITIONS:
-        log_event(
-            f"Pre-signal position count reduced for {symbol} {side}: "
-            f"opening {affordable_slots}/{TOTAL_POSITIONS} positions due to account size."
-        )
-
-    log_event(
-        f"Pre-signal open for {symbol} {side}: planned_total_lot={planned_total_lot:.4f}, "
-        f"positions={affordable_slots}, per_position_lot={per_position_lot:.4f}, sl={stop_loss}"
-    )
-
-    position_type = _get_position_type_for_side(side)
-    before = mt5.positions_get(symbol=symbol) or []
-    before_tickets = {p.ticket for p in before if p.type == position_type}
-
-    opened_any, opened_count, _, _ = _execute_dynamic_batch(
-        symbol,
-        side,
-        symbol_info,
-        stop_loss,
-        [None] * affordable_slots,
-        include_runner=False,
-        max_lot_per_slot=per_position_lot,
-    )
-
-    if not opened_any:
-        log_event(f"No pre-signal positions opened for {symbol} {side}.")
-        return
-
-    if opened_count < affordable_slots:
-        log_event(f"Pre-signal batch for {symbol} {side} opened partially: opened={opened_count}/{affordable_slots}")
-
-    time.sleep(1)
-    after = mt5.positions_get(symbol=symbol) or []
-    new_tickets = [
-        p.ticket for p in after if p.type == position_type and p.ticket not in before_tickets
-    ]
-    if not new_tickets:
-        log_event(
-            f"Pre-signal positions were opened for {symbol} {side}, but no new tickets were confirmed yet. "
-            "Skipping pending pre-signal tracking."
-        )
-        return
-
-    PENDING_PRE_SIGNAL = {
-        "symbol": symbol,
-        "side": side,
-        "tickets": new_tickets,
-        "created_at": time.time(),
-    }
-    log_event(f"Stored pending pre-signal batch for {symbol} {side}: tickets={new_tickets}")
 
 
 def apply_signal_to_existing_positions(signal_data):

@@ -74,10 +74,7 @@ async def new_message_listener(event):
     message_type = classify_message(message_text)
     await relay_signal_message(message_text, message_type)
 
-    if message_type == "PRE_TRADE":
-        log_event("Standalone pre-trade message detected. Forwarding only; no local trade will be opened.")
-
-    elif message_type == "NEW_TRADE":
+    if message_type == "NEW_TRADE":
         signal = parse_trade_signal(message_text)
         if signal:
             execute_trade(signal)

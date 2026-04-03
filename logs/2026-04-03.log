@@ -1,0 +1,31 @@
+2026-04-03 07:59:56,416 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-04-03 07:59:56,459 - INFO - cryptg detected, it will be used for encryption
+2026-04-03 07:59:56,738 - INFO - Database initialized successfully
+2026-04-03 07:59:56,766 - INFO - MT5 initialized successfully
+2026-04-03 07:59:56,766 - INFO - Telegram Copy Trader Started
+2026-04-03 07:59:56,768 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-04-03 07:59:56,774 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-04-03 07:59:57,579 - INFO - Connected to channel: VIP
+2026-04-03 07:59:57,579 - INFO - Telegram listener handler registered
+2026-04-03 07:59:57,579 - INFO - Telegram listener started
+2026-04-03 08:44:57,757 - INFO - Got difference for account updates
+2026-04-03 11:14:58,772 - INFO - Got difference for account updates
+2026-04-03 12:13:03,324 - INFO - Got difference for channel 2055972347 updates
+2026-04-03 12:45:00,542 - INFO - Got difference for account updates
+2026-04-03 13:32:04,526 - INFO - Got difference for channel 2055972347 updates
+2026-04-03 13:46:23,189 - WARNING - Server closed the connection: [WinError 121] The semaphore timeout period has expired
+2026-04-03 13:46:23,191 - INFO - Connection closed while receiving data: [WinError 121] The semaphore timeout period has expired
+2026-04-03 13:46:23,192 - INFO - Closing current connection to begin reconnect...
+2026-04-03 13:46:23,196 - INFO - <class 'OSError'> during disconnect: [WinError 121] The semaphore timeout period has expired
+2026-04-03 13:46:23,197 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-04-03 13:46:30,259 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-04-03 14:00:01,080 - INFO - Got difference for account updates
+2026-04-03 14:03:29,663 - INFO - Got difference for channel 2055972347 updates
+2026-04-03 15:00:01,489 - INFO - Got difference for channel 2055972347 updates
+2026-04-03 15:39:06,524 - INFO - Got difference for channel 2055972347 updates
+2026-04-03 15:43:53,429 - WARNING - Server closed the connection: [WinError 121] The semaphore timeout period has expired
+2026-04-03 15:43:53,429 - INFO - Connection closed while receiving data: [WinError 121] The semaphore timeout period has expired
+2026-04-03 15:43:53,429 - INFO - Closing current connection to begin reconnect...
+2026-04-03 15:43:53,431 - INFO - <class 'OSError'> during disconnect: [WinError 121] The semaphore timeout period has expired
+2026-04-03 15:43:53,432 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-04-03 15:43:53,440 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
