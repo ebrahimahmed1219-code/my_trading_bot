@@ -38,3 +38,120 @@ Final TP 4618.00
 2026-04-06 08:46:54,316 - INFO - Connected to channel: VIP
 2026-04-06 08:46:54,316 - INFO - Telegram listener handler registered
 2026-04-06 08:46:54,316 - INFO - Telegram listener started
+2026-04-06 09:53:05,734 - INFO - New message received: Market hit SL after running 150+ pips in profit.
+
+Let's wait recovery
+2026-04-06 10:23:10,764 - INFO - Got difference for channel 1787802955 updates
+2026-04-06 10:38:10,836 - INFO - Got difference for channel 1787802955 updates
+2026-04-06 10:53:11,012 - INFO - Got difference for channel 1787802955 updates
+2026-04-06 11:08:11,118 - INFO - Got difference for channel 1787802955 updates
+2026-04-06 11:23:11,207 - INFO - Got difference for channel 1787802955 updates
+2026-04-06 11:38:11,373 - INFO - Got difference for channel 1787802955 updates
+2026-04-06 11:46:55,921 - INFO - Got difference for channel 1814562728 updates
+2026-04-06 11:53:11,511 - INFO - Got difference for channel 1787802955 updates
+2026-04-06 12:01:56,047 - INFO - Got difference for channel 1814562728 updates
+2026-04-06 12:53:12,009 - INFO - Got difference for channel 1787802955 updates
+2026-04-06 13:01:56,365 - INFO - Got difference for channel 1814562728 updates
+2026-04-06 13:02:56,373 - INFO - New message received: Ready for last trade
+2026-04-06 13:05:00,205 - INFO - New message received: Gold sell now @4695
+2026-04-06 13:06:11,001 - INFO - New message received: Gold sell now 4695
+
+Sl @4706.7
+2026-04-06 13:07:24,224 - INFO - New message received: Gold Sell @4695
+SL \U0001f534 4706.7
+
+TP1 4683.3 (1:1)
+Final TP 4671.651 (1:2)
+
+\u26a1 Risk Management: Close 50% at TP1 or move SL to Break Even and let the rest run to final TP.
+2026-04-06 13:07:24,281 - INFO - Resolved broker symbol XAUUSD -> XAUUSDm
+2026-04-06 13:07:24,285 - INFO - Planned VIP sizing for XAUUSDm sell: risk_total_lot=0.1200, margin_total_lot=0.1200, planned_total_lot=0.0400, per_position_lot=0.0200, desired_slots=2, affordable_slots=2
+2026-04-06 13:07:24,287 - INFO - Executing VIP market trade XAUUSDm sell: planned_total_lot=0.0400, entry_reference=4692.42, positions=2, used_tps=[4683.3, 4671.651], sl=4706.7, per_position_lot=0.0200
+2026-04-06 13:07:24,287 - INFO - Opening batch slot for XAUUSDm sell lot=0.0200 TP=4683.3 SL=4706.7 remaining_slots=2
+2026-04-06 13:07:24,527 - INFO - Order executed XAUUSDm SELL
+2026-04-06 13:07:24,528 - INFO - Opening batch slot for XAUUSDm sell lot=0.0200 TP=4671.651 SL=4706.7 remaining_slots=1
+2026-04-06 13:07:24,744 - INFO - Order executed XAUUSDm SELL
+2026-04-06 13:07:25,756 - INFO - Break-even monitor started for XAUUSDm sell. first_trigger=4683.3
+2026-04-06 13:08:12,112 - INFO - Got difference for channel 1787802955 updates
+2026-04-06 13:10:40,757 - INFO - New message received: last trade \u2705
+2026-04-06 13:14:50,799 - INFO - New message received: At the current market structure, 4681.776 is the main target \U0001f3af
+
+If you prefer to close, this level is the safest option.
+Once price hits this level, we will have recovered our morning loss.
+2026-04-06 13:14:51,025 - INFO - Closed position XAUUSDm ticket=2598349498
+2026-04-06 13:14:51,242 - INFO - Closed position XAUUSDm ticket=2598349503
+2026-04-06 13:14:51,242 - INFO - All positions and pending orders closed: positions=2, pending_orders=0
+2026-04-06 13:14:51,927 - INFO - Break-even monitor for XAUUSDm stopped: no open positions.
+2026-04-06 13:15:52,198 - INFO - Got difference for channel 1814562728 updates
+2026-04-06 13:23:12,231 - INFO - Got difference for channel 1787802955 updates
+2026-04-06 13:31:56,504 - INFO - Got difference for channel 2111966967 updates
+2026-04-06 13:38:12,316 - INFO - Got difference for channel 1787802955 updates
+2026-04-06 13:46:00,226 - INFO - New message received: TP1 successfully hit.
+
+Risk Management: Close 50% of the position now or move SL to Break Even and let the rest run to the final TP.
+2026-04-06 13:46:38,199 - INFO - New message received: Now mezgat yichalal recover adirgenal.
+
+Yalzegachu dgmo BE adrigu
+2026-04-06 13:48:52,175 - INFO - New message received: #Cleannnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+2026-04-06 13:49:17,092 - INFO - New message received: Yalzegachu 50% close argachu BE adrigu
+2026-04-06 13:50:22,241 - INFO - New message received: Result lakulign @biftufx_zone
+2026-04-06 13:51:36,424 - INFO - Got difference for channel 1814562728 updates
+2026-04-06 13:53:12,461 - INFO - Got difference for channel 1787802955 updates
+2026-04-06 13:57:32,849 - INFO - Got difference for channel 1814562728 updates
+2026-04-06 14:16:23,286 - INFO - New message received: full tp done
+2026-04-06 14:23:12,635 - INFO - Got difference for channel 1787802955 updates
+2026-04-06 14:25:19,506 - INFO - Got difference for channel 1787802955 updates
+2026-04-06 14:31:57,025 - INFO - Got difference for account updates
+2026-04-06 14:31:57,146 - INFO - Got difference for channel 1130580549 updates
+2026-04-06 14:40:19,597 - INFO - Got difference for channel 1787802955 updates
+2026-04-06 14:55:19,700 - INFO - Got difference for channel 1787802955 updates
+2026-04-06 15:09:54,941 - INFO - Got difference for channel 2715260012 updates
+2026-04-06 15:10:09,264 - INFO - Got difference for channel 2704944093 updates
+2026-04-06 15:10:19,816 - INFO - Got difference for channel 1787802955 updates
+2026-04-06 15:27:13,878 - INFO - New message received: Keep the momentum clean and clear. \U0001f3af
+
+Today’s Trades (Monday):
+
+• First trade — Missed by 3 pips, then hit full TP
+
+• Second trade — Hit SL
+
+• Third trade — Hit full TP \u2705
+
+
+Discipline maintained. Momentum continues. \U0001f4c8
+2026-04-06 15:40:09,446 - INFO - Got difference for channel 2704944093 updates
+2026-04-06 15:40:20,081 - INFO - Got difference for channel 1787802955 updates
+2026-04-06 15:55:20,230 - INFO - Got difference for channel 1787802955 updates
+2026-04-06 16:01:57,585 - INFO - Got difference for account updates
+2026-04-06 16:27:33,730 - INFO - Got difference for channel 1814562728 updates
+2026-04-06 17:25:20,777 - INFO - Got difference for channel 1787802955 updates
+2026-04-06 17:37:00,340 - INFO - Got difference for channel 1814562728 updates
+2026-04-06 17:40:20,860 - INFO - Got difference for channel 1787802955 updates
+2026-04-06 18:10:21,097 - INFO - Got difference for channel 1787802955 updates
+2026-04-06 18:16:58,491 - INFO - Got difference for account updates
+2026-04-06 18:40:21,263 - INFO - Got difference for channel 1787802955 updates
+2026-04-06 19:01:59,830 - INFO - Got difference for channel 2055972347 updates
+2026-04-06 19:10:21,443 - INFO - Got difference for channel 1787802955 updates
+2026-04-06 19:16:01,387 - INFO - Got difference for channel 2055972347 updates
+2026-04-06 19:25:21,614 - INFO - Got difference for channel 1787802955 updates
+2026-04-06 19:40:21,757 - INFO - Got difference for channel 1787802955 updates
+2026-04-06 19:55:22,090 - INFO - Got difference for channel 1787802955 updates
+2026-04-06 20:10:22,174 - INFO - Got difference for channel 1787802955 updates
+2026-04-06 20:16:59,275 - INFO - Got difference for account updates
+2026-04-06 20:46:59,468 - INFO - Got difference for account updates
+2026-04-06 20:55:22,424 - INFO - Got difference for channel 1787802955 updates
+2026-04-06 21:10:22,553 - INFO - Got difference for channel 1787802955 updates
+2026-04-06 21:11:17,049 - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2026-04-06 21:11:17,059 - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2026-04-06 21:11:17,262 - INFO - System stopped by user.
+2026-04-06 21:11:22,823 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-04-06 21:11:22,879 - INFO - cryptg detected, it will be used for encryption
+2026-04-06 21:11:23,312 - INFO - Database initialized successfully
+2026-04-06 21:11:23,351 - INFO - MT5 initialized successfully
+2026-04-06 21:11:23,352 - INFO - Telegram Copy Trader Started
+2026-04-06 21:11:23,354 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-04-06 21:11:23,360 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-04-06 21:11:23,966 - INFO - Connected to channel: VIP
+2026-04-06 21:11:23,966 - INFO - Telegram listener handler registered
+2026-04-06 21:11:23,966 - INFO - Telegram listener started

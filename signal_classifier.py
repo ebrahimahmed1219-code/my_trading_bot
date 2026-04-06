@@ -19,11 +19,14 @@ def classify_message(message_text):
     if parse_trade_signal(raw_text):
         return "NEW_TRADE"
 
-    close_keywords = [
+    close_commands = {
         "close",
         "close all",
+        "close now",
         "close position",
+        "close positions",
         "close trade",
+        "close trades",
         "exit all",
         "get out",
         "not good anymore",
@@ -44,8 +47,8 @@ def classify_message(message_text):
         "break even hit",
         "breakeven touched",
         "break even touched",
-    ]
-    if any(kw in normalized for kw in close_keywords):
+    }
+    if normalized in close_commands:
         return "CLOSE_ALL"
 
     if "break even" in normalized or "breakeven" in normalized:
