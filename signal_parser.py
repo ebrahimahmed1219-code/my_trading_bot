@@ -4,12 +4,9 @@ from config import SYMBOL_DEFAULT
 
 
 def parse_trade_signal(message_text):
-    """Parse VIP Gold signals such as 'Gold Sell limit @4721.5' with up to 3 TP levels."""
+    """Parse structured Gold trade signals with up to 3 TP levels."""
     text = (message_text or "").strip()
     upper = text.upper()
-
-    if "VIP" not in upper:
-        return None
 
     order_match = re.search(
         r"\bGOLD\s+(BUY|SELL)(?:\s+(LIMIT|STOP))?\s*@\s*(\d+(?:\.\d+)?)",
@@ -24,7 +21,7 @@ def parse_trade_signal(message_text):
     sl_match = re.search(r"\bSL\b[^\d]*(\d+(?:\.\d+)?)", upper)
     tp_matches = re.findall(r"\b(?:TP\d+|FINAL\s+TP)\b[^\d]*(\d+(?:\.\d+)?)", upper)
 
-    if not order_match or not sl_match:
+    if not order_match or not sl_match or not tp_matches:
         return None
 
     side = order_match.group(1).upper()

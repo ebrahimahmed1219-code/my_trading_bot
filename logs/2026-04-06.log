@@ -1,0 +1,40 @@
+2026-04-06 05:19:18,058 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-04-06 05:19:18,118 - INFO - cryptg detected, it will be used for encryption
+2026-04-06 05:19:18,525 - INFO - Database initialized successfully
+2026-04-06 05:19:18,557 - INFO - MT5 initialized successfully
+2026-04-06 05:19:18,560 - INFO - Telegram Copy Trader Started
+2026-04-06 05:19:18,562 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-04-06 05:19:18,572 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-04-06 05:19:19,468 - INFO - Connected to channel: VIP
+2026-04-06 05:19:19,471 - INFO - Telegram listener handler registered
+2026-04-06 05:19:19,471 - INFO - Telegram listener started
+2026-04-06 08:02:25,312 - INFO - New message received: 1
+2026-04-06 08:02:37,316 - INFO - New message received: 2
+2026-04-06 08:04:20,320 - INFO - Got difference for channel 1420603441 updates
+2026-04-06 08:07:52,889 - INFO - New message received: This was my 3rd trade I missed  the same setup, on the same day, during these 4 weeks (Monday).
+
+However, the reasons for missing these 3 trades were completely different.
+
+I hope we'll catch them next week \U0001f90c
+2026-04-06 08:16:18,663 - INFO - New message received: Gold Sell @4660
+SL \U0001f534 4678.933
+
+TP1 4641.067 (1:1)
+TP2 4622.134 (1:2)
+Final TP 4618.00
+
+\u26a1 Risk Management: Close 50% at TP1 or move SL to Break Even and let the rest run to higher TPs.
+2026-04-06 08:18:02,007 - INFO - New message received: 
+2026-04-06 08:46:48,604 - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2026-04-06 08:46:48,613 - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2026-04-06 08:46:48,702 - INFO - System stopped by user.
+2026-04-06 08:46:53,288 - INFO - Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
+2026-04-06 08:46:53,330 - INFO - cryptg detected, it will be used for encryption
+2026-04-06 08:46:53,594 - INFO - Database initialized successfully
+2026-04-06 08:46:53,621 - INFO - MT5 initialized successfully
+2026-04-06 08:46:53,621 - INFO - Telegram Copy Trader Started
+2026-04-06 08:46:53,623 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2026-04-06 08:46:53,631 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2026-04-06 08:46:54,316 - INFO - Connected to channel: VIP
+2026-04-06 08:46:54,316 - INFO - Telegram listener handler registered
+2026-04-06 08:46:54,316 - INFO - Telegram listener started

@@ -1,5 +1,7 @@
 import re
 
+from signal_parser import parse_trade_signal
+
 
 def _normalize_text(message_text):
     """Lowercase, remove punctuation, and collapse spaces for robust matching."""
@@ -14,7 +16,7 @@ def classify_message(message_text):
     raw_text = (message_text or "")
     normalized = _normalize_text(raw_text)
 
-    if "vip" in normalized and "gold" in normalized and ("buy" in normalized or "sell" in normalized):
+    if parse_trade_signal(raw_text):
         return "NEW_TRADE"
 
     close_keywords = [
