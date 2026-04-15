@@ -417,7 +417,7 @@ def _margin_per_lot(symbol, entry_price, symbol_info, side):
 
 
 def _plan_vip_position_sizing(balance, entry_price, stop_loss, symbol, symbol_info, side, desired_slots):
-    """VIP sizing: prefer 0.02 lots, fall back to 0.01, and open as many TP slots as affordable up to 3."""
+    """VIP sizing: use fixed 0.01 lots and open as many TP slots as affordable up to 3."""
     risk_total_lot = calculate_lot_size(balance, entry_price, stop_loss, symbol)
     if risk_total_lot <= 0:
         log_event(f"Calculated VIP lot size <= 0 for {symbol}. Aborting trade.")
@@ -431,7 +431,7 @@ def _plan_vip_position_sizing(balance, entry_price, stop_loss, symbol, symbol_in
         margin_total_lot = free_margin / margin_per_lot
 
     total_lot_cap = min(risk_total_lot, margin_total_lot)
-    lot_choices = [0.02, 0.01]
+    lot_choices = [0.01]
 
     for base_lot in lot_choices:
         candidate_lot = _clamp_volume_to_symbol(base_lot, symbol_info)
